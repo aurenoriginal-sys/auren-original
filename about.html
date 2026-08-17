@@ -1,0 +1,3085 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>About | Auren Originals</title>
+
+
+    <!-- ==================================================
+         GOOGLE FONTS
+    ================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;500&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        /* ==================================================
+           THEME
+        ================================================== */
+
+        :root {
+
+            --bg:
+                #000000;
+
+            --bg-soft:
+                #1b1b1b;
+
+            --white:
+                #ffffff;
+
+            --muted:
+                #858585;
+
+            --highlight:
+                #FDAF45;
+
+            --line:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.12
+                );
+
+            --gold-line:
+                rgba(
+                    253,
+                    175,
+                    69,
+                    0.40
+                );
+
+            --heading:
+                'Playfair Display',
+                serif;
+
+            --body:
+                'Inter',
+                sans-serif;
+        }
+
+
+        /* ==================================================
+           RESET
+        ================================================== */
+
+        * {
+
+            margin:
+                0;
+
+            padding:
+                0;
+
+            box-sizing:
+                border-box;
+        }
+
+
+        html {
+
+            scroll-behavior:
+                smooth;
+        }
+
+
+        body {
+
+            background:
+                var(--bg);
+
+            color:
+                var(--white);
+
+            font-family:
+                var(--body);
+
+            overflow-x:
+                hidden;
+        }
+
+
+        h1,
+        h2,
+        h3,
+        h4 {
+
+            font-family:
+                var(--heading);
+
+            font-weight:
+                400;
+        }
+
+
+        a {
+
+            color:
+                inherit;
+
+            text-decoration:
+                none;
+        }
+
+
+        img {
+
+            display:
+                block;
+
+            width:
+                100%;
+        }
+
+
+        /* ==================================================
+           GLOBAL CONTAINER
+        ================================================== */
+
+        .about-container {
+
+            width:
+                min(
+                    90vw,
+                    1720px
+                );
+
+            margin:
+                0 auto;
+        }
+
+
+        /* ==================================================
+           REUSABLE COMPONENTS
+        ================================================== */
+
+        #navbar-container {
+
+            position:
+                relative;
+
+            z-index:
+                10000;
+        }
+
+
+        #footer-container {
+
+            width:
+                100%;
+        }
+
+
+        #scroll-to-top-container {
+
+            position:
+                relative;
+
+            z-index:
+                99999;
+        }
+
+
+        /* ==================================================
+           SECTION LABEL
+        ================================================== */
+
+        .section-label {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+            margin-bottom:
+                20px;
+
+            color:
+                var(--highlight);
+
+            font-size:
+                0.68rem;
+
+            font-weight:
+                500;
+
+            letter-spacing:
+                2px;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .section-label::before {
+
+            content:
+                "";
+
+            width:
+                7px;
+
+            height:
+                7px;
+
+            flex:
+                0 0 7px;
+
+            border-radius:
+                50%;
+
+            background:
+                var(--highlight);
+        }
+
+
+        /* ==================================================
+           SCROLL REVEAL
+        ================================================== */
+
+        .reveal {
+
+            opacity:
+                0;
+
+            transform:
+                translateY(
+                    30px
+                );
+        }
+
+
+        /* ==================================================
+           HERO
+        ================================================== */
+
+        .about-hero {
+
+            min-height:
+                82vh;
+
+            display:
+                flex;
+
+            align-items:
+                flex-end;
+
+            padding:
+                250px 0
+                100px;
+        }
+
+
+        .hero-content {
+
+            max-width:
+                720px;
+        }
+
+
+        .hero-title {
+
+            font-size:
+                clamp(
+                    4rem,
+                    6.2vw,
+                    6.5rem
+                );
+
+            line-height:
+                0.98;
+
+            letter-spacing:
+                -0.035em;
+        }
+
+
+        .hero-title .highlight {
+
+            color:
+                var(--highlight);
+        }
+
+
+        .hero-copy {
+
+            max-width:
+                540px;
+
+            margin-top:
+                32px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                0.78rem;
+
+            line-height:
+                1.8;
+        }
+
+
+        /* ==================================================
+           WHO WE ARE
+        ================================================== */
+
+        .who-section {
+
+            padding:
+                100px 0
+                100px;
+        }
+
+
+        .who-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                0.8fr
+                1.2fr;
+
+            gap:
+                90px;
+
+            align-items:
+                start;
+        }
+
+
+        .who-heading {
+
+            font-size:
+                clamp(
+                    2.6rem,
+                    4vw,
+                    4.4rem
+                );
+
+            line-height:
+                1.03;
+
+            letter-spacing:
+                -0.025em;
+        }
+
+
+        .who-copy {
+
+            max-width:
+                720px;
+
+            padding-top:
+                40px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                0.82rem;
+
+            line-height:
+                1;
+        }
+
+
+        .who-copy strong {
+
+            color:
+                var(--white);
+
+            font-weight:
+                400;
+        }
+
+
+        /* ==================================================
+           WHY WE EXIST
+        ================================================== */
+
+        .purpose-section {
+
+            padding:
+                0 0
+                155px;
+        }
+
+
+        .purpose-header {
+
+            margin-bottom:
+                50px;
+        }
+
+
+        .purpose-title {
+
+            font-size:
+                clamp(
+                    2.6rem,
+                    4vw,
+                    4.3rem
+                );
+
+            line-height:
+                1.03;
+
+            letter-spacing:
+                -0.025em;
+        }
+
+
+        .purpose-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    1fr
+                );
+
+            gap:
+                18px;
+        }
+
+
+        .purpose-card {
+
+            min-height:
+                175px;
+
+            padding:
+                28px;
+
+            background:
+                var(--bg-soft);
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.09
+                );
+
+            border-radius:
+                6px;
+
+            transition:
+                transform
+                0.4s ease,
+
+                border-color
+                0.4s ease,
+
+                background
+                0.4s ease;
+        }
+
+
+        .purpose-card:hover {
+
+            transform:
+                translateY(
+                    -4px
+                );
+
+            border-color:
+                rgba(
+                    253,
+                    175,
+                    69,
+                    0.3
+                );
+
+            background:
+                #222222;
+        }
+
+
+        .purpose-quote {
+
+            font-family:
+                var(--heading);
+
+            font-size:
+                1.1rem;
+
+            line-height:
+                1.25;
+        }
+
+
+        .purpose-description {
+
+            margin-top:
+                18px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                0.65rem;
+
+            line-height:
+                1.65;
+        }
+
+
+        /* ==================================================
+           PHILOSOPHY
+        ================================================== */
+
+        .philosophy-section {
+
+            padding:
+                0 0
+                160px;
+        }
+
+
+        .philosophy-title {
+
+            margin-bottom:
+                50px;
+
+            font-size:
+                clamp(
+                    2.7rem,
+                    4vw,
+                    4.4rem
+                );
+
+            line-height:
+                1.03;
+        }
+
+
+        .philosophy-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    1fr
+                );
+        }
+
+
+        .philosophy-card {
+
+            min-height:
+                155px;
+
+            padding:
+                28px 35px;
+
+            border-top:
+                1px solid
+                var(--gold-line);
+
+            border-right:
+                1px solid
+                var(--gold-line);
+        }
+
+
+        .philosophy-card:nth-child(2n) {
+
+            border-right:
+                none;
+        }
+
+
+        .philosophy-card:nth-child(n + 3) {
+
+            border-bottom:
+                1px solid
+                var(--gold-line);
+        }
+
+
+        .philosophy-name {
+
+            font-size:
+                1.05rem;
+        }
+
+
+        .philosophy-copy {
+
+            max-width:
+                450px;
+
+            margin-top:
+                12px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                0.67rem;
+
+            line-height:
+                1.7;
+        }
+
+
+        /* ==================================================
+           FOUNDER
+        ================================================== */
+
+        .founder-section {
+
+            padding:
+                0 0
+                160px;
+        }
+
+
+        .founder-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                0.82fr
+                1.18fr;
+
+            gap:
+                95px;
+
+            align-items:
+                center;
+
+            padding:
+                0 45px;
+        }
+
+
+        .founder-image {
+
+            width:
+                100%;
+
+            aspect-ratio:
+                0.84 / 1;
+
+            overflow:
+                hidden;
+
+            background:
+                #151515;
+        }
+
+
+        .founder-image img {
+
+            width:
+                100%;
+
+            height:
+                100%;
+
+            object-fit:
+                cover;
+
+            object-position:
+                center;
+
+            transition:
+                transform
+                0.8s
+                cubic-bezier(
+                    0.16,
+                    1,
+                    0.3,
+                    1
+                );
+        }
+
+
+        .founder-image:hover img {
+
+            transform:
+                scale(
+                    1.035
+                );
+        }
+
+
+        .founder-quote {
+
+            max-width:
+                760px;
+
+            font-size:
+                clamp(
+                    2rem,
+                    3vw,
+                    3.35rem
+                );
+
+            line-height:
+                1.17;
+
+            letter-spacing:
+                -0.02em;
+        }
+
+
+        .founder-copy {
+
+            max-width:
+                700px;
+
+            margin-top:
+                30px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                0.76rem;
+
+            line-height:
+                1.8;
+        }
+
+
+        .founder-name {
+
+            margin-top:
+                28px;
+
+            font-family:
+                var(--body);
+
+            font-size:
+                0.78rem;
+
+            font-weight:
+                500;
+        }
+
+
+        .founder-role {
+
+            margin-top:
+                4px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                0.62rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                1.3px;
+        }
+
+
+        /* ==================================================
+           VALUES
+        ================================================== */
+
+        .values-section {
+
+            padding:
+                0 0
+                155px;
+        }
+
+
+        .values-title {
+
+            margin-bottom:
+                48px;
+
+            font-size:
+                clamp(
+                    2.7rem,
+                    4vw,
+                    4.4rem
+                );
+
+            line-height:
+                1.03;
+        }
+
+
+        .values-list {
+
+            border-top:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.11
+                );
+        }
+
+
+        .value-row {
+
+            min-height:
+                95px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            padding:
+                0 8px;
+
+            border-bottom:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.11
+                );
+
+            transition:
+                padding
+                0.45s
+                cubic-bezier(
+                    0.16,
+                    1,
+                    0.3,
+                    1
+                ),
+
+                background
+                0.35s ease;
+        }
+
+
+        .value-name {
+
+            font-family:
+                var(--heading);
+
+            font-size:
+                clamp(
+                    1.45rem,
+                    2.3vw,
+                    2.15rem
+                );
+
+            transition:
+                transform
+                0.4s
+                cubic-bezier(
+                    0.16,
+                    1,
+                    0.3,
+                    1
+                ),
+
+                color
+                0.3s ease;
+        }
+
+
+        .value-arrow {
+
+            width:
+                34px;
+
+            height:
+                34px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.25
+                );
+
+            border-radius:
+                50%;
+
+            font-size:
+                0.75rem;
+
+            transition:
+                transform
+                0.4s ease,
+
+                background
+                0.3s ease,
+
+                color
+                0.3s ease,
+
+                border-color
+                0.3s ease;
+        }
+
+
+        .value-row:hover {
+
+            padding-left:
+                16px;
+
+            padding-right:
+                16px;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.015
+                );
+        }
+
+
+        .value-row:hover
+        .value-name {
+
+            color:
+                var(--highlight);
+
+            transform:
+                translateX(
+                    8px
+                );
+        }
+
+
+        .value-row:hover
+        .value-arrow {
+
+            color:
+                #000000;
+
+            background:
+                var(--highlight);
+
+            border-color:
+                var(--highlight);
+
+            transform:
+                rotate(
+                    -45deg
+                );
+        }
+
+
+        /* ==================================================
+           LARGE STATEMENT
+        ================================================== */
+
+        .statement-section {
+
+            padding:
+                120px 0
+                125px;
+
+            background:
+                #000000;
+
+            text-align:
+                center;
+        }
+
+
+        .statement-text {
+
+    max-width:
+        1000px;
+
+    margin:
+        0 auto;
+
+    font-family:
+        var(--heading);
+
+    font-size:
+        clamp(
+            1rem,
+            3.6vw,
+            3.3rem
+        );
+
+    font-weight:
+        400;
+
+    line-height:
+        1.18;
+
+    letter-spacing:
+        -0.025em;
+
+    color:
+        #ffffff;
+}
+
+
+.statement-highlight {
+
+    color:
+        var(--highlight);
+
+    font-family:
+        var(--heading);
+
+    font-style:
+        italic;
+
+}
+
+
+        .statement-highlight {
+
+            color:
+                var(--highlight);
+
+            font-style:
+                italic;
+        }
+
+
+        /* ==================================================
+           HORIZONTAL IMAGE MARQUEE
+        ================================================== */
+
+        .about-gallery-section {
+
+            width:
+                100%;
+
+            overflow:
+                hidden;
+
+            background:
+                #000000;
+        }
+
+
+        .about-gallery-track {
+
+            display:
+                flex;
+
+            width:
+                max-content;
+
+            gap:
+                14px;
+
+            animation:
+                aboutGalleryScroll
+                38s
+                linear
+                infinite;
+        }
+
+
+        .gallery-image {
+
+            flex:
+                0 0
+                clamp(
+                    280px,
+                    18.5vw,
+                    370px
+                );
+
+            height:
+                clamp(
+                    440px,
+                    84vh,
+                    520px
+                );
+
+            overflow:
+                hidden;
+
+            border-radius:
+                10px;
+
+            background:
+                #151515;
+        }
+
+
+        .gallery-image img {
+
+            width:
+                100%;
+
+            height:
+                100%;
+
+            object-fit:
+                cover;
+
+            object-position:
+                center;
+
+            transition:
+                transform
+                0.8s
+                cubic-bezier(
+                    0.16,
+                    1,
+                    0.3,
+                    1
+                );
+        }
+
+
+        .gallery-image:hover img {
+
+            transform:
+                scale(
+                    1.04
+                );
+        }
+
+
+        
+
+
+        @keyframes aboutGalleryScroll {
+
+            from {
+
+                transform:
+                    translateX(
+                        0
+                    );
+            }
+
+            to {
+
+                transform:
+                    translateX(
+                        calc(
+                            -50% -
+                            7px
+                        )
+                    );
+            }
+        }
+
+
+        /* ==================================================
+           FINAL CTA
+        ================================================== */
+
+        .about-cta {
+
+            min-height:
+                600px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            padding:
+                100px 0;
+
+            text-align:
+                center;
+
+            background:
+                #000000;
+        }
+
+
+        .about-cta-inner {
+
+            width:
+                min(
+                    1100px,
+                    90%
+                );
+
+            margin:
+                0 auto;
+        }
+
+
+        .about-cta h2 {
+
+            max-width:
+                850px;
+
+            margin:
+                0 auto;
+
+            font-size:
+                clamp(
+                    4rem,
+                    6.2vw,
+                    6.4rem
+                );
+
+            line-height:
+                0.98;
+
+            letter-spacing:
+                -0.035em;
+        }
+
+
+        .cta-line-highlight {
+
+            display:
+                block;
+
+            margin-top:
+                8px;
+
+            color:
+                var(--highlight);
+
+            font-style:
+                italic;
+        }
+
+
+        /* ==================================================
+           CTA BUTTONS
+           DIRECTLY STYLED HERE
+        ================================================== */
+
+        .about-cta
+        .action-buttons {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                18px;
+
+            margin-top:
+                80px;
+        }
+
+
+        .about-cta
+        .action-buttons a {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            min-width:
+                145px;
+
+            height:
+                45px;
+
+            padding:
+                0 26px;
+
+            border-radius:
+                18px;
+
+            font-family:
+                var(--body);
+
+            font-size:
+                0.92rem;
+
+            font-weight:
+                500;
+
+            line-height:
+                1;
+
+            text-decoration:
+                none;
+
+            cursor:
+                pointer;
+
+            transition:
+                transform
+                0.3s ease,
+
+                background
+                0.3s ease,
+
+                color
+                0.3s ease,
+
+                border-color
+                0.3s ease,
+
+                box-shadow
+                0.3s ease;
+        }
+
+
+        /* ==================================================
+           START A PROJECT
+        ================================================== */
+
+        .about-cta
+        .action-buttons
+        [data-action="contact"] {
+
+            background:
+                var(--highlight);
+
+            border:
+                1px solid
+                var(--highlight);
+
+            color:
+                #ffffff;
+        }
+
+
+        /* ==================================================
+           VIEW PORTFOLIO
+        ================================================== */
+
+        .about-cta
+        .action-buttons
+        [data-action="portfolio"] {
+
+            background:
+                transparent;
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.85
+                );
+
+            color:
+                #ffffff;
+        }
+
+
+        /* ==================================================
+           START PROJECT HOVER
+        ================================================== */
+
+        .about-cta
+        .action-buttons
+        [data-action="contact"]:hover {
+
+            background:
+                #ffffff;
+
+            border-color:
+                #ffffff;
+
+            color:
+                #111111;
+
+            transform:
+                translateY(
+                    -3px
+                );
+
+            box-shadow:
+                0 12px 30px
+                rgba(
+                    253,
+                    175,
+                    69,
+                    0.20
+                );
+        }
+
+
+        /* ==================================================
+           VIEW PORTFOLIO HOVER
+        ================================================== */
+
+        .about-cta
+        .action-buttons
+        [data-action="portfolio"]:hover {
+
+            background:
+                #ffffff;
+
+            border-color:
+                #ffffff;
+
+            color:
+                #111111;
+
+            transform:
+                translateY(
+                    -3px
+                );
+        }
+
+
+        /* ==================================================
+           RESPONSIVE
+        ================================================== */
+
+        @media (max-width: 1000px) {
+
+            .who-grid {
+
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    35px;
+            }
+
+
+            .founder-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+                gap:
+                    45px;
+
+                padding:
+                    0;
+            }
+
+
+            .gallery-image {
+
+                flex-basis:
+                    300px;
+
+                height:
+                    440px;
+            }
+
+        }
+
+
+        @media (max-width: 760px) {
+
+            .about-container {
+
+                width:
+                    88%;
+            }
+
+
+            .about-hero {
+
+                min-height:
+                    75vh;
+
+                padding:
+                    120px 0
+                    75px;
+            }
+
+
+            .hero-title {
+
+                font-size:
+                    3.7rem;
+            }
+
+
+            .who-section,
+            .purpose-section,
+            .philosophy-section,
+            .founder-section,
+            .values-section {
+
+                padding-bottom:
+                    100px;
+            }
+
+
+            .purpose-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .philosophy-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .philosophy-card {
+
+                min-height:
+                    135px;
+
+                border-right:
+                    none;
+            }
+
+
+            .philosophy-card:nth-child(n + 3) {
+
+                border-bottom:
+                    none;
+            }
+
+
+            .philosophy-card:last-child {
+
+                border-bottom:
+                    1px solid
+                    var(--gold-line);
+            }
+
+
+            .founder-grid {
+
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    40px;
+            }
+
+
+            .founder-image {
+
+                aspect-ratio:
+                    1 / 1.1;
+            }
+
+
+            .founder-quote {
+
+                font-size:
+                    2rem;
+            }
+
+
+            .statement-section {
+
+                padding:
+                    90px 0;
+            }
+
+
+            .statement-text {
+
+                font-size:
+                    2rem;
+            }
+
+
+            .gallery-image {
+
+                flex-basis:
+                    70vw;
+
+                height:
+                    390px;
+            }
+
+
+            .about-cta {
+
+                min-height:
+                    520px;
+
+                padding:
+                    85px 0;
+            }
+
+
+            .about-cta h2 {
+
+                font-size:
+                    3.7rem;
+            }
+
+
+            .about-cta
+            .action-buttons {
+
+                flex-direction:
+                    column;
+
+                gap:
+                    12px;
+            }
+
+
+            .about-cta
+            .action-buttons a {
+
+                width:
+                    100%;
+
+                max-width:
+                    260px;
+            }
+
+        }
+
+
+        @media (max-width: 480px) {
+
+            .gallery-image {
+
+                flex-basis:
+                    78vw;
+
+                height:
+                    360px;
+            }
+
+
+            .about-cta h2 {
+
+                font-size:
+                    3.15rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================================================
+         SCROLL TO TOP
+    ================================================== -->
+
+    <div
+        id="scroll-to-top-container"
+    ></div>
+
+
+    <!-- ==================================================
+         NAVBAR
+    ================================================== -->
+
+    <div
+        id="navbar-container"
+    ></div>
+
+
+    <!-- ==================================================
+         HERO
+    ================================================== -->
+
+    <section
+        class="about-hero"
+    >
+
+        <div
+            class="about-container"
+        >
+
+            <div
+                class="hero-content"
+            >
+
+                <h1
+                    class="hero-title reveal"
+                >
+
+                    More Than A Creative
+                    <br>
+
+                    Agency<span
+                        class="highlight"
+                    >.</span>
+
+                </h1>
+
+
+                <p
+                    class="hero-copy reveal"
+                >
+
+                    We are a team driven by curiosity,
+                    creativity and craftsmanship —
+                    creating work that people remember.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         WHO WE ARE
+    ================================================== -->
+
+    <section
+        class="who-section"
+    >
+
+        <div
+            class="about-container"
+        >
+
+            <div
+                class="who-grid"
+            >
+
+                <div>
+
+                    <p
+                        class="section-label reveal"
+                    >
+                        About
+                    </p>
+
+
+                    <h2
+                        class="who-heading reveal"
+                    >
+                        Who We Are.
+                    </h2>
+
+                </div>
+
+
+                <p
+                    class="who-copy reveal"
+                >
+
+                    Auren Originals is a creative
+                    agency and production house
+                    bringing together business and
+                    people.
+
+                    <br><br>
+
+                    We tell meaningful stories through
+                    photography, creative direction,
+                    branding, marketing and digital
+                    content.
+
+                    <br><br>
+
+                    We create —
+                    <strong>
+                        not just as a profession,
+                        but as an extension of how we
+                        see the world.
+                    </strong>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         WHY WE EXIST
+    ================================================== -->
+
+    <section
+        class="purpose-section"
+    >
+
+        <div
+            class="about-container"
+        >
+
+            <div
+                class="purpose-header"
+            >
+
+                <p
+                    class="section-label reveal"
+                >
+                    Purpose
+                </p>
+
+
+                <h2
+                    class="purpose-title reveal"
+                >
+                    Why We Exist.
+                </h2>
+
+            </div>
+
+
+            <div
+                class="purpose-grid"
+            >
+
+                <article
+                    class="purpose-card reveal"
+                >
+
+                    <h3
+                        class="purpose-quote"
+                    >
+                        "We believe every brand
+                        has a story worth telling."
+                    </h3>
+
+
+                    <p
+                        class="purpose-description"
+                    >
+                        Creating narratives that educate,
+                        inspire and connect.
+                    </p>
+
+                </article>
+
+
+                <article
+                    class="purpose-card reveal"
+                >
+
+                    <h3
+                        class="purpose-quote"
+                    >
+                        "Great visuals create
+                        lasting impressions."
+                    </h3>
+
+
+                    <p
+                        class="purpose-description"
+                    >
+                        Engineering meaning through
+                        compelling visual direction.
+                    </p>
+
+                </article>
+
+
+                <article
+                    class="purpose-card reveal"
+                >
+
+                    <h3
+                        class="purpose-quote"
+                    >
+                        "We create with intention,
+                        not trends."
+                    </h3>
+
+
+                    <p
+                        class="purpose-description"
+                    >
+                        Designing strategies that
+                        stand the test of time.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         PHILOSOPHY
+    ================================================== -->
+
+    <section
+        class="philosophy-section"
+    >
+
+        <div
+            class="about-container"
+        >
+
+            <p
+                class="section-label reveal"
+            >
+                Philosophy
+            </p>
+
+
+            <h2
+                class="philosophy-title reveal"
+            >
+                Our Philosophy.
+            </h2>
+
+
+            <div
+                class="philosophy-grid"
+            >
+
+                <article
+                    class="philosophy-card reveal"
+                >
+
+                    <h3
+                        class="philosophy-name"
+                    >
+                        Purpose Before Pixels
+                    </h3>
+
+
+                    <p
+                        class="philosophy-copy"
+                    >
+                        Every project begins with
+                        understanding, not execution.
+                        We discover the underlying
+                        purpose first.
+                    </p>
+
+                </article>
+
+
+                <article
+                    class="philosophy-card reveal"
+                >
+
+                    <h3
+                        class="philosophy-name"
+                    >
+                        Craft Over Convenience
+                    </h3>
+
+
+                    <p
+                        class="philosophy-copy"
+                    >
+                        Attention to detail is never
+                        optional. We obsess over
+                        precision in every frame.
+                    </p>
+
+                </article>
+
+
+                <article
+                    class="philosophy-card reveal"
+                >
+
+                    <h3
+                        class="philosophy-name"
+                    >
+                        People First
+                    </h3>
+
+
+                    <p
+                        class="philosophy-copy"
+                    >
+                        Strong relationships create
+                        stronger work. We collaborate
+                        deeply and listen attentively.
+                    </p>
+
+                </article>
+
+
+                <article
+                    class="philosophy-card reveal"
+                >
+
+                    <h3
+                        class="philosophy-name"
+                    >
+                        Always Evolving
+                    </h3>
+
+
+                    <p
+                        class="philosophy-copy"
+                    >
+                        We continuously learn, adapt
+                        and improve, keeping our visual
+                        language fresh and refined.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         FOUNDER
+    ================================================== -->
+
+    <section
+        class="founder-section"
+    >
+
+        <div
+            class="about-container"
+        >
+
+            <p
+                class="section-label reveal"
+            >
+                Founder
+            </p>
+
+
+            <div
+                class="founder-grid"
+            >
+
+                <div
+                    class="founder-image reveal"
+                >
+
+                    <img
+                        src="images/founder.jpg"
+                        alt="Founder of Auren Originals"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <h2
+                        class="founder-quote reveal"
+                    >
+
+                        "Curiosity drives our craft.
+                        We build brands for a modern
+                        era with substance."
+
+                    </h2>
+
+
+                    <p
+                        class="founder-copy reveal"
+                    >
+
+                        I founded Auren Originals
+                        because I believed in the
+                        absolute power of honest
+                        craftsmanship.
+
+                        <br><br>
+
+                        We live in a world saturated
+                        by noise and quick solutions.
+                        My goal is to build an oasis
+                        for meaningful artistic
+                        direction — where every
+                        shutter press, color grade
+                        and conceptual shift has
+                        intent.
+
+                    </p>
+
+
+                    <div
+                        class="founder-name reveal"
+                    >
+                        Harish
+                    </div>
+
+
+                    <div
+                        class="founder-role reveal"
+                    >
+                        Founder & Creative Director
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         VALUES
+    ================================================== -->
+
+    <section
+        class="values-section"
+    >
+
+        <div
+            class="about-container"
+        >
+
+            <p
+                class="section-label reveal"
+            >
+                Values
+            </p>
+
+
+            <h2
+                class="values-title reveal"
+            >
+                What We Stand For.
+            </h2>
+
+
+            <div
+                class="values-list"
+            >
+
+                <a
+                    href="#"
+                    class="value-row reveal"
+                >
+
+                    <span class="value-name">
+                        Quality
+                    </span>
+
+                    <span class="value-arrow">
+                        ↗
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="#"
+                    class="value-row reveal"
+                >
+
+                    <span class="value-name">
+                        Honesty
+                    </span>
+
+                    <span class="value-arrow">
+                        ↗
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="#"
+                    class="value-row reveal"
+                >
+
+                    <span class="value-name">
+                        Creativity
+                    </span>
+
+                    <span class="value-arrow">
+                        ↗
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="#"
+                    class="value-row reveal"
+                >
+
+                    <span class="value-name">
+                        Consistency
+                    </span>
+
+                    <span class="value-arrow">
+                        ↗
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="#"
+                    class="value-row reveal"
+                >
+
+                    <span class="value-name">
+                        Long-term Relationships
+                    </span>
+
+                    <span class="value-arrow">
+                        ↗
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         LARGE STATEMENT
+    ================================================== -->
+
+    <section
+        class="statement-section"
+    >
+
+        <div
+            class="about-container"
+        >
+
+            <p
+                class="statement-text reveal"
+            >
+
+                We're building more than a creative
+                agency.
+
+                <br>
+
+                We're building a brand that creates work
+                <span
+                    class="statement-highlight"
+                >
+                    with purpose and lasting impact.
+                </span>
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         IMAGE MARQUEE
+    ================================================== -->
+
+    <section
+        class="about-gallery-section"
+    >
+
+        <div
+            class="about-gallery-track"
+        >
+
+            <div
+                class="gallery-image"
+            >
+                <img
+                    src="images/about-gallery-1.jpg"
+                    alt="Auren Originals"
+                    loading="lazy"
+                >
+            </div>
+
+
+            <div
+                class="gallery-image"
+            >
+                <img
+                    src="images/about-gallery-2.jpg"
+                    alt="Auren Originals"
+                    loading="lazy"
+                >
+            </div>
+
+
+            <div
+                class="gallery-image"
+            >
+                <img
+                    src="images/about-gallery-3.jpg"
+                    alt="Auren Originals"
+                    loading="lazy"
+                >
+            </div>
+
+
+            <div
+                class="gallery-image"
+            >
+                <img
+                    src="images/about-gallery-4.jpg"
+                    alt="Auren Originals"
+                    loading="lazy"
+                >
+            </div>
+
+
+            <div
+                class="gallery-image"
+            >
+                <img
+                    src="images/about-gallery-5.jpg"
+                    alt="Auren Originals"
+                    loading="lazy"
+                >
+            </div>
+
+
+            <!-- DUPLICATE FOR SEAMLESS LOOP -->
+
+            <div
+                class="gallery-image"
+            >
+                <img
+                    src="images/about-gallery-1.jpg"
+                    alt=""
+                    aria-hidden="true"
+                >
+            </div>
+
+
+            <div
+                class="gallery-image"
+            >
+                <img
+                    src="images/about-gallery-2.jpg"
+                    alt=""
+                    aria-hidden="true"
+                >
+            </div>
+
+
+            <div
+                class="gallery-image"
+            >
+                <img
+                    src="images/about-gallery-3.jpg"
+                    alt=""
+                    aria-hidden="true"
+                >
+            </div>
+
+
+            <div
+                class="gallery-image"
+            >
+                <img
+                    src="images/about-gallery-4.jpg"
+                    alt=""
+                    aria-hidden="true"
+                >
+            </div>
+
+
+            <div
+                class="gallery-image"
+            >
+                <img
+                    src="images/about-gallery-5.jpg"
+                    alt=""
+                    aria-hidden="true"
+                >
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         FINAL CTA
+    ================================================== -->
+
+    <section
+        class="about-cta"
+    >
+
+        <div
+            class="about-cta-inner"
+        >
+
+            <h2>
+
+                Let's Create
+
+                <span
+                    class="cta-line-highlight"
+                >
+                    What Matters.
+                </span>
+
+            </h2>
+
+
+            <div
+                id="about-action-buttons"
+                class="action-buttons"
+            ></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <div
+        id="footer-container"
+    ></div>
+
+
+    <!-- ==================================================
+         GSAP
+    ================================================== -->
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+    ></script>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+    ></script>
+
+
+    <script>
+
+        gsap.registerPlugin(
+            ScrollTrigger
+        );
+
+
+        /* ==================================================
+           LOAD SCROLL TO TOP
+        ================================================== */
+
+        fetch(
+            './components/scroll-to-top.html'
+        )
+
+        .then(response => {
+
+            if (!response.ok) {
+
+                throw new Error(
+                    'Scroll component failed'
+                );
+
+            }
+
+            return response.text();
+
+        })
+
+        .then(html => {
+
+            const container =
+                document.getElementById(
+                    'scroll-to-top-container'
+                );
+
+
+            if (!container) {
+                return;
+            }
+
+
+            container.innerHTML =
+                html;
+
+
+            const button =
+                container.querySelector(
+                    '#scroll-to-top'
+                );
+
+
+            if (!button) {
+                return;
+            }
+
+
+            function updateButton() {
+
+                if (
+                    window.scrollY > 500
+                ) {
+
+                    button.classList.add(
+                        'show'
+                    );
+
+                } else {
+
+                    button.classList.remove(
+                        'show'
+                    );
+
+                }
+
+            }
+
+
+            window.addEventListener(
+                'scroll',
+                updateButton,
+                {
+                    passive:
+                        true
+                }
+            );
+
+
+            button.addEventListener(
+                'click',
+                () => {
+
+                    window.scrollTo({
+
+                        top:
+                            0,
+
+                        behavior:
+                            'smooth'
+
+                    });
+
+                }
+            );
+
+
+            updateButton();
+
+        })
+
+        .catch(error => {
+
+            console.error(
+                'Scroll-to-top error:',
+                error
+            );
+
+        });
+
+
+        /* ==================================================
+           LOAD ACTION BUTTONS
+        ================================================== */
+
+        fetch(
+            './components/action-buttons.html'
+        )
+
+        .then(response => {
+
+            if (!response.ok) {
+
+                throw new Error(
+                    'Action buttons failed'
+                );
+
+            }
+
+            return response.text();
+
+        })
+
+        .then(html => {
+
+            const container =
+                document.getElementById(
+                    'about-action-buttons'
+                );
+
+
+            if (!container) {
+                return;
+            }
+
+
+            container.innerHTML =
+                html;
+
+
+            const portfolioButton =
+                container.querySelector(
+                    '[data-action="portfolio"]'
+                );
+
+
+            const contactButton =
+                container.querySelector(
+                    '[data-action="contact"]'
+                );
+
+
+            if (
+                !portfolioButton ||
+                !contactButton
+            ) {
+
+                console.error(
+                    'Action buttons not found.'
+                );
+
+                return;
+            }
+
+
+            /* Start a project FIRST */
+
+            container.innerHTML =
+                '';
+
+
+            container.appendChild(
+                contactButton
+            );
+
+
+            /* View Portfolio SECOND */
+
+            container.appendChild(
+                portfolioButton
+            );
+
+        })
+
+        .catch(error => {
+
+            console.error(
+                'Action buttons error:',
+                error
+            );
+
+        });
+
+
+        /* ==================================================
+           LOAD NAVBAR
+        ================================================== */
+
+        fetch(
+            './components/navbar.html'
+        )
+
+        .then(response => {
+
+            if (!response.ok) {
+
+                throw new Error(
+                    'Navbar could not be loaded'
+                );
+
+            }
+
+            return response.text();
+
+        })
+
+        .then(data => {
+
+            const navbar =
+                document.getElementById(
+                    'navbar-container'
+                );
+
+
+            navbar.innerHTML =
+                data;
+
+
+            const aboutLink =
+                document.querySelector(
+                    '.nav-links a[data-page="about"]'
+                );
+
+
+            if (aboutLink) {
+
+                aboutLink.classList.add(
+                    'active'
+                );
+
+            }
+
+        })
+
+        .catch(error => {
+
+            console.error(
+                'Navbar error:',
+                error
+            );
+
+        });
+
+
+        /* ==================================================
+           LOAD FOOTER
+        ================================================== */
+
+        fetch(
+            './components/footer.html'
+        )
+
+        .then(response => {
+
+            if (!response.ok) {
+
+                throw new Error(
+                    'Footer could not be loaded'
+                );
+
+            }
+
+            return response.text();
+
+        })
+
+        .then(data => {
+
+            document
+                .getElementById(
+                    'footer-container'
+                )
+                .innerHTML = data;
+
+        })
+
+        .catch(error => {
+
+            console.error(
+                'Footer error:',
+                error
+            );
+
+        });
+
+
+        /* ==================================================
+           HERO ANIMATION
+        ================================================== */
+
+        gsap.to(
+
+            '.about-hero .reveal',
+
+            {
+
+                opacity:
+                    1,
+
+                y:
+                    0,
+
+                duration:
+                    1,
+
+                stagger:
+                    0.12,
+
+                ease:
+                    'power3.out'
+
+            }
+
+        );
+
+
+        /* ==================================================
+           GENERAL SCROLL REVEALS
+        ================================================== */
+
+        gsap.utils
+            .toArray(
+                '.reveal'
+            )
+            .forEach(
+                element => {
+
+                    if (
+                        element.closest(
+                            '.about-hero'
+                        )
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    gsap.to(
+
+                        element,
+
+                        {
+
+                            opacity:
+                                1,
+
+                            y:
+                                0,
+
+                            duration:
+                                0.8,
+
+                            ease:
+                                'power3.out',
+
+                            scrollTrigger: {
+
+                                trigger:
+                                    element,
+
+                                start:
+                                    'top 88%',
+
+                                once:
+                                    true
+
+                            }
+
+                        }
+
+                    );
+
+                }
+            );
+
+
+        /* ==================================================
+           FOUNDER IMAGE
+        ================================================== */
+
+        gsap.fromTo(
+
+            '.founder-image',
+
+            {
+
+                opacity:
+                    0,
+
+                x:
+                    -35
+
+            },
+
+            {
+
+                opacity:
+                    1,
+
+                x:
+                    0,
+
+                duration:
+                    1,
+
+                ease:
+                    'power3.out',
+
+                scrollTrigger: {
+
+                    trigger:
+                        '.founder-section',
+
+                    start:
+                        'top 80%',
+
+                    once:
+                        true
+
+                }
+
+            }
+
+        );
+
+
+        /* ==================================================
+           PURPOSE CARDS
+        ================================================== */
+
+        gsap.fromTo(
+
+            '.purpose-card',
+
+            {
+
+                opacity:
+                    0,
+
+                y:
+                    25
+
+            },
+
+            {
+
+                opacity:
+                    1,
+
+                y:
+                    0,
+
+                duration:
+                    0.7,
+
+                stagger:
+                    0.1,
+
+                ease:
+                    'power3.out',
+
+                scrollTrigger: {
+
+                    trigger:
+                        '.purpose-grid',
+
+                    start:
+                        'top 85%',
+
+                    once:
+                        true
+
+                }
+
+            }
+
+        );
+
+
+        /* ==================================================
+           GALLERY ENTRY
+        ================================================== */
+
+        gsap.fromTo(
+
+            '.about-gallery-section',
+
+            {
+
+                opacity:
+                    0,
+
+                y:
+                    25
+
+            },
+
+            {
+
+                opacity:
+                    1,
+
+                y:
+                    0,
+
+                duration:
+                    0.9,
+
+                ease:
+                    'power3.out',
+
+                scrollTrigger: {
+
+                    trigger:
+                        '.about-gallery-section',
+
+                    start:
+                        'top 90%',
+
+                    once:
+                        true
+
+                }
+
+            }
+
+        );
+
+    </script>
+
+
+</body>
+
+</html>

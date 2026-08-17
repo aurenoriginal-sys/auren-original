@@ -1,0 +1,4100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Services | Auren Originals</title>
+
+
+    <!-- ==================================================
+         GOOGLE FONTS
+    ================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;500&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        /* ==================================================
+           THEME
+        ================================================== */
+
+        :root {
+
+            --bg-main: #000000;
+
+            --bg-secondary: #1f1f1f;
+
+            --text-main: #ffffff;
+
+            --text-muted: #888888;
+
+            --highlight: #FDAF45;
+
+            --line:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.12
+                );
+
+            --font-heading:
+                'Playfair Display',
+                serif;
+
+            --font-body:
+                'Inter',
+                sans-serif;
+        }
+
+
+        /* ==================================================
+           RESET
+        ================================================== */
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+        }
+
+
+        html {
+
+            scroll-behavior:
+                smooth;
+        }
+
+
+        body {
+
+            font-family:
+                var(--font-body);
+
+            line-height:
+                1.6;
+
+            color:
+                var(--text-main);
+
+            background:
+                var(--bg-main);
+
+            overflow-x:
+                hidden;
+        }
+
+
+        h1,
+        h2,
+        h3 {
+
+            font-family:
+                var(--font-heading);
+
+            font-weight:
+                400;
+        }
+
+
+        a {
+
+            color:
+                inherit;
+
+            text-decoration:
+                none;
+        }
+
+
+        img {
+
+            display:
+                block;
+
+            max-width:
+                100%;
+        }
+
+
+        .highlight {
+
+            color:
+                var(--highlight);
+        }
+
+
+        /* ==================================================
+           COMPONENT CONTAINERS
+        ================================================== */
+
+        #navbar-container {
+
+            position:
+                relative;
+
+            z-index:
+                10000;
+        }
+
+
+        #footer-container {
+
+            width:
+                100%;
+        }
+
+
+        #scroll-to-top-container {
+
+            position:
+                relative;
+
+            z-index:
+                99999;
+        }
+
+
+        /* ==================================================
+           COMMON WIDTH
+        ================================================== */
+
+        .services-inner {
+
+            width:
+                min(
+                    1180px,
+                    90%
+                );
+
+            margin:
+                0 auto;
+        }
+
+
+        /* ==================================================
+           ACTION BUTTONS
+        ================================================== */
+
+        .action-buttons {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                flex-start;
+
+            gap:
+                16px;
+
+            margin-top:
+                34px;
+        }
+
+
+        .final-cta
+        .action-buttons {
+
+            justify-content:
+                center;
+        }
+
+
+        /* ==================================================
+           REVEAL
+        ================================================== */
+
+        .reveal {
+
+            opacity:
+                0;
+
+            transform:
+                translateY(
+                    35px
+                );
+        }
+
+
+        /* ==================================================
+           SECTION LABEL
+        ================================================== */
+
+        .section-label {
+
+            margin-bottom:
+                18px;
+
+            color:
+                var(--highlight);
+
+            font-size:
+                0.72rem;
+
+            font-weight:
+                500;
+
+            letter-spacing:
+                2px;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        /* ==================================================
+           HERO
+        ================================================== */
+
+        .services-hero {
+
+            min-height:
+                84vh;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            padding:
+                200px 0
+                100px;
+        }
+
+
+        .services-hero-content {
+
+            max-width:
+                850px;
+        }
+
+
+        .services-hero h1 {
+
+            max-width:
+                800px;
+
+            font-size:
+                clamp(
+                    3.8rem,
+                    6vw,
+                    6.2rem
+                );
+
+            line-height:
+                1.02;
+
+            letter-spacing:
+                -0.025em;
+        }
+
+
+        .services-hero-copy {
+
+            max-width:
+                680px;
+
+            margin-top:
+                28px;
+
+            color:
+                var(--text-muted);
+
+            font-size:
+                1.08rem;
+
+            line-height:
+                1.75;
+        }
+
+
+        /* ==================================================
+           PHILOSOPHY
+        ================================================== */
+
+        .philosophy-section {
+
+            padding:
+                100px 0
+                125px;
+
+            text-align:
+                center;
+        }
+
+
+        .philosophy-section
+        .section-label {
+
+            margin-bottom:
+                26px;
+        }
+
+
+        .philosophy-text {
+
+            max-width:
+                1000px;
+
+            margin:
+                0 auto;
+
+            font-family:
+                var(--font-heading);
+
+            font-size:
+                clamp(
+                    1.65rem,
+                    2.5vw,
+                    2.8rem
+                );
+
+            line-height:
+                1.25;
+
+            letter-spacing:
+                -0.02em;
+        }
+
+
+        .philosophy-line-one {
+
+            display:
+                block;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.90
+                );
+        }
+
+
+        .philosophy-line-two {
+
+            display:
+                block;
+
+            margin-top:
+                8px;
+
+            color:
+                var(--highlight);
+
+            font-style:
+                italic;
+        }
+
+
+        /* ==================================================
+           SERVICES
+        ================================================== */
+
+        .services-section {
+
+            padding:
+                95px 0
+                150px;
+
+            background:
+                #000000;
+        }
+
+
+        .services-header {
+
+            margin-bottom:
+                65px;
+        }
+
+
+        .services-header h2 {
+
+            margin-top:
+                15px;
+
+            font-size:
+                clamp(
+                    2.8rem,
+                    4vw,
+                    4.5rem
+                );
+
+            line-height:
+                1.05;
+
+            letter-spacing:
+                -0.025em;
+        }
+
+
+        /* ==================================================
+           SERVICE BLOCK
+        ================================================== */
+
+        .service-block {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                10fr
+                1.2fr;
+
+            gap:
+                65px;
+
+            align-items:
+                center;
+
+            padding:
+                2px 0;
+
+            border-top:
+                0px solid
+                var(--line);
+        }
+
+
+        .service-block:last-child {
+
+            border-bottom:
+                0px solid
+                var(--line);
+        }
+
+
+        .service-block.reverse {
+
+            grid-template-columns:
+                1.18fr
+                0.82fr;
+        }
+
+
+        .service-block.reverse
+        .service-content {
+
+            order:
+                2;
+        }
+
+
+        .service-block.reverse
+        .service-image {
+
+            order:
+                1;
+        }
+
+
+        .service-content {
+
+            max-width:
+                520px;
+
+            transition:
+                transform
+                0.5s
+                cubic-bezier(
+                    0.16,
+                    1,
+                    0.3,
+                    1
+                );
+        }
+
+
+        .service-number {
+
+            display:
+                block;
+
+            margin-bottom:
+                18px;
+
+            color:
+                var(--highlight);
+
+            font-size:
+                0.72rem;
+
+            font-weight:
+                500;
+
+            letter-spacing:
+                1.8px;
+        }
+
+
+        .service-title {
+
+            font-size:
+                clamp(
+                    2.1rem,
+                    3.4vw,
+                    3.6rem
+                );
+
+            line-height:
+                1.05;
+
+            letter-spacing:
+                -0.025em;
+
+            transition:
+                color
+                0.35s
+                ease;
+        }
+
+
+        /* ==================================================
+           SERVICE DESCRIPTION
+        ================================================== */
+
+        .service-description {
+
+            max-width:
+                500px;
+
+            margin-top:
+                12px;
+
+            color:
+                var(--text-muted);
+
+            font-size:
+                0.88rem;
+
+            line-height:
+                1.7;
+
+            opacity:
+                0;
+
+            max-height:
+                0;
+
+            overflow:
+                hidden;
+
+            transform:
+                translateY(
+                    12px
+                );
+
+            transition:
+
+                opacity
+                0.4s ease,
+
+                max-height
+                0.5s
+                cubic-bezier(
+                    0.16,
+                    1,
+                    0.3,
+                    1
+                ),
+
+                transform
+                0.5s
+                cubic-bezier(
+                    0.16,
+                    1,
+                    0.3,
+                    1
+                );
+        }
+
+
+        /* ==================================================
+           EXPLORE
+        ================================================== */
+
+        .service-explore {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                9px;
+
+            margin-top:
+                24px;
+
+            padding-bottom:
+                5px;
+
+            border-bottom:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.55
+                );
+
+            font-size:
+                0.82rem;
+
+            font-weight:
+                500;
+
+            transition:
+
+                color
+                0.3s ease,
+
+                border-color
+                0.3s ease,
+
+                transform
+                0.3s ease;
+        }
+
+
+        .service-explore span {
+
+            transition:
+                transform
+                0.35s ease;
+        }
+
+
+        /* ==================================================
+           SERVICE IMAGE
+        ================================================== */
+
+        .service-image {
+
+            position:
+                relative;
+
+            width:
+                500px;
+
+            height:
+                350px;
+
+            overflow:
+                hidden;
+
+            border-radius:
+                20px;
+
+            background:
+                #171717;
+        }
+
+
+        .service-image img {
+
+            width:
+                100%;
+
+            height:
+                100%;
+
+            object-fit:
+                cover;
+
+            object-position:
+                center;
+
+            transform:
+                scale(
+                    1.04
+                );
+
+            transition:
+                transform
+                0.9s
+                cubic-bezier(
+                    0.16,
+                    1,
+                    0.3,
+                    1
+                ),
+
+                filter
+                0.55s ease;
+        }
+
+
+        /* ==================================================
+           SERVICE HOVER
+        ================================================== */
+
+        .service-block:hover
+        .service-content {
+
+            transform:
+                translateX(
+                    10px
+                );
+        }
+
+
+        .service-block:hover
+        .service-title {
+
+            color:
+                var(--highlight);
+        }
+
+
+        .service-block:hover
+        .service-description {
+
+            opacity:
+                1;
+
+            max-height:
+                100px;
+
+            transform:
+                translateY(
+                    0
+                );
+        }
+
+
+        .service-block:hover
+        .service-image img {
+
+            transform:
+                scale(
+                    1.085
+                );
+
+            filter:
+                brightness(
+                    0.84
+                );
+        }
+
+
+        .service-block:hover
+        .service-explore {
+
+            color:
+                var(--highlight);
+
+            border-color:
+                var(--highlight);
+
+            transform:
+                translateX(
+                    4px
+                );
+        }
+
+
+        .service-block:hover
+        .service-explore span {
+
+            transform:
+                translateX(
+                    5px
+                );
+        }
+
+
+        /* ==================================================
+           INDUSTRIES
+        ================================================== */
+
+        .industries-section {
+
+            padding:
+                110px 0
+                150px;
+
+            background:
+                #000000;
+        }
+
+
+        .industries-header {
+
+            margin-bottom:
+                55px;
+        }
+
+
+        .industries-header h2 {
+
+            margin-top:
+                15px;
+
+            font-size:
+                clamp(
+                    2.8rem,
+                    4vw,
+                    4.5rem
+                );
+
+            line-height:
+                1.05;
+
+            letter-spacing:
+                -0.025em;
+        }
+
+
+        /* ==================================================
+           INDUSTRY GRID
+        ================================================== */
+
+        .industry-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(
+                    4,
+                    minmax(
+                        0,
+                        1fr
+                    )
+                );
+
+            gap:
+                24px;
+        }
+
+
+        .industry-card {
+
+            position:
+                relative;
+
+            width:
+                100%;
+
+            aspect-ratio:
+                1 / 1;
+
+            overflow:
+                hidden;
+
+            border-radius:
+                18px;
+
+            background:
+                #171717;
+
+            isolation:
+                isolate;
+
+            cursor:
+                pointer;
+        }
+
+
+        .industry-image {
+
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            width:
+                100%;
+
+            height:
+                100%;
+
+            object-fit:
+                cover;
+
+            transform:
+                scale(
+                    1.04
+                );
+
+            transition:
+                transform
+                0.9s
+                cubic-bezier(
+                    0.16,
+                    1,
+                    0.3,
+                    1
+                ),
+
+                filter
+                0.55s ease;
+        }
+
+
+        .industry-overlay {
+
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            z-index:
+                1;
+
+            background:
+                linear-gradient(
+                    to top,
+
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.80
+                    ) 0%,
+
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.20
+                    ) 65%,
+
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.04
+                    ) 100%
+                );
+
+            transition:
+                background
+                0.5s
+                ease;
+        }
+
+
+        .industry-content {
+
+            position:
+                absolute;
+
+            left:
+                24px;
+
+            right:
+                24px;
+
+            bottom:
+                22px;
+
+            z-index:
+                2;
+
+            transform:
+                translateY(
+                    12px
+                );
+
+            transition:
+                transform
+                0.5s
+                cubic-bezier(
+                    0.16,
+                    1,
+                    0.3,
+                    1
+                );
+        }
+
+
+        .industry-number {
+
+            display:
+                block;
+
+            margin-bottom:
+                7px;
+
+            color:
+                var(--highlight);
+
+            font-size:
+                0.68rem;
+
+            font-weight:
+                500;
+
+            letter-spacing:
+                1.5px;
+        }
+
+
+        .industry-name {
+
+            font-size:
+                clamp(
+                    1.55rem,
+                    2.2vw,
+                    2.4rem
+                );
+
+            line-height:
+                1;
+        }
+
+
+        .industry-tag {
+
+            display:
+                block;
+
+            margin-top:
+                9px;
+
+            color:
+                var(--highlight);
+
+            font-size:
+                0.70rem;
+
+            font-weight:
+                500;
+
+            letter-spacing:
+                1.4px;
+
+            text-transform:
+                uppercase;
+
+            opacity:
+                0;
+
+            transform:
+                translateY(
+                    8px
+                );
+
+            transition:
+                opacity
+                0.4s ease,
+
+                transform
+                0.4s ease;
+        }
+
+
+        .industry-card:hover
+        .industry-image {
+
+            transform:
+                scale(
+                    1.10
+                );
+
+            filter:
+                brightness(
+                    0.76
+                );
+        }
+
+
+        .industry-card:hover
+        .industry-overlay {
+
+            background:
+                linear-gradient(
+                    to top,
+
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.88
+                    ) 0%,
+
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.27
+                    ) 68%,
+
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.07
+                    ) 100%
+                );
+        }
+
+
+        .industry-card:hover
+        .industry-content {
+
+            transform:
+                translateY(
+                    0
+                );
+        }
+
+
+        .industry-card:hover
+        .industry-tag {
+
+            opacity:
+                1;
+
+            transform:
+                translateY(
+                    0
+                );
+        }
+
+
+        /* ==================================================
+           PROCESS
+        ================================================== */
+
+        .process-section {
+
+            padding:
+                0 0
+                140px;
+        }
+
+
+        .process-header {
+
+            margin-bottom:
+                48px;
+        }
+
+
+        .process-header h2 {
+
+            margin-top:
+                15px;
+
+            font-size:
+                clamp(
+                    2.8rem,
+                    4vw,
+                    4.5rem
+                );
+
+            line-height:
+                1.05;
+        }
+
+
+        .process-list {
+
+            border-top:
+                1px solid
+                var(--line);
+        }
+
+
+        .process-item {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                60px
+                240px
+                minmax(
+                    0,
+                    1fr
+                );
+
+            gap:
+                28px;
+
+            padding:
+                26px 0;
+
+            border-bottom:
+                1px solid
+                var(--line);
+        }
+
+
+        .process-number {
+
+            color:
+                var(--highlight);
+
+            font-size:
+                0.70rem;
+
+            letter-spacing:
+                1.5px;
+        }
+
+
+        .process-name {
+
+            font-size:
+                1.6rem;
+
+            line-height:
+                1.2;
+        }
+
+
+        .process-description {
+
+            max-width:
+                650px;
+
+            color:
+                var(--text-muted);
+
+            font-size:
+                0.84rem;
+
+            line-height:
+                1.7;
+        }
+
+
+        /* ==================================================
+           WHY US
+        ================================================== */
+
+        .why-section {
+
+            padding:
+                0 0
+                140px;
+        }
+
+
+        .why-header {
+
+            margin-bottom:
+                48px;
+        }
+
+
+        .why-header h2 {
+
+            margin-top:
+                15px;
+
+            font-size:
+                clamp(
+                    2.8rem,
+                    4vw,
+                    4.5rem
+                );
+
+            line-height:
+                1.05;
+        }
+
+
+        .why-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    1fr
+                );
+
+            gap:
+                18px;
+        }
+
+
+        .why-card {
+
+            min-height:
+                185px;
+
+            padding:
+                30px;
+
+            background:
+                var(--bg-secondary);
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.10
+                );
+
+            border-radius:
+                14px;
+
+            transition:
+                transform
+                0.35s ease,
+
+                border-color
+                0.35s ease;
+        }
+
+
+        .why-card:hover {
+
+            transform:
+                translateY(
+                    -3px
+                );
+
+            border-color:
+                rgba(
+                    253,
+                    175,
+                    69,
+                    0.30
+                );
+        }
+
+
+        .why-number {
+
+            color:
+                var(--highlight);
+
+            font-size:
+                0.70rem;
+
+            letter-spacing:
+                1.5px;
+        }
+
+
+        .why-card h3 {
+
+            margin-top:
+                34px;
+
+            font-family:
+                var(--font-body);
+
+            font-size:
+                1.1rem;
+
+            font-weight:
+                500;
+        }
+
+
+        .why-card p {
+
+            max-width:
+                520px;
+
+            margin-top:
+                12px;
+
+            color:
+                var(--text-muted);
+
+            font-size:
+                0.82rem;
+
+            line-height:
+                1.65;
+        }
+
+
+        /* ==================================================
+           TESTIMONIAL
+        ================================================== */
+
+        .testimonial-section {
+
+            padding:
+                0 0
+                120px;
+
+            text-align:
+                center;
+        }
+
+
+        .testimonial {
+
+            max-width:
+                1000px;
+
+            margin:
+                0 auto;
+
+            padding:
+                65px 0;
+
+            border-top:
+                0px solid
+                var(--line);
+
+            border-bottom:
+                0px solid
+                var(--line);
+        }
+
+
+        .testimonial-quote {
+
+            max-width:
+                900px;
+
+            margin:
+                0 auto;
+
+            font-family:
+                var(--font-heading);
+
+            font-size:
+        clamp(
+            1.5rem,
+            2.5vw,
+            2.5rem
+        );
+
+            line-height:
+                1.30;
+
+            text-align:
+                center;
+        }
+
+
+        .testimonial-quote span {
+
+            color:
+                var(--highlight);
+        }
+
+
+        .testimonial-author {
+
+            margin-top:
+                0px;
+
+            color:
+                var(--text-muted);
+
+            font-size:
+                0.8rem;
+
+            text-align:
+                center;
+        }
+
+
+        /* ==================================================
+           TRANSITION IMAGE
+        ================================================== */
+
+        .cta-transition {
+
+            position:
+                relative;
+
+            width:
+                100%;
+
+            min-height:
+                62vh;
+
+            overflow:
+                hidden;
+
+            background:
+                #111111;
+        }
+
+
+        .cta-transition-image {
+
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            width:
+                100%;
+
+            height:
+                100%;
+
+            object-fit:
+                cover;
+
+            transform:
+                scale(
+                    1.06
+                );
+
+            filter:
+                brightness(
+                    0.68
+                );
+
+            transition:
+                transform
+                1.2s
+                cubic-bezier(
+                    0.16,
+                    1,
+                    0.3,
+                    1
+                );
+        }
+
+
+        .cta-transition-overlay {
+
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.05
+                    ) 0%,
+
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.28
+                    ) 55%,
+
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.85
+                    ) 100%
+                );
+        }
+
+
+        .cta-transition-content {
+
+            position:
+                absolute;
+
+            left:
+                50%;
+
+            bottom:
+                55px;
+
+            transform:
+                translateX(
+                    -50%
+                );
+
+            width:
+                min(
+                    1180px,
+                    90%
+                );
+
+            text-align:
+                center;
+        }
+
+
+        .cta-transition-label {
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.78
+                );
+
+            font-size:
+                0.72rem;
+
+            font-weight:
+                500;
+
+            letter-spacing:
+                2px;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        /* ==================================================
+           FINAL CTA
+        ================================================== */
+
+        .final-cta {
+
+            padding:
+                100px 0
+                125px;
+
+            min-height:
+                620px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            text-align:
+                center;
+
+            background:
+                #000000;
+        }
+
+
+        .final-cta-inner {
+
+            width:
+                min(
+                    1100px,
+                    90%
+                );
+
+            margin:
+                0 auto;
+        }
+
+
+        .final-cta h2 {
+
+            max-width:
+                850px;
+
+            margin:
+                0 auto;
+
+            font-size:
+                clamp(
+                    4rem,
+                    6.2vw,
+                    6.4rem
+                );
+
+            line-height:
+                0.98;
+
+            letter-spacing:
+                -0.035em;
+        }
+
+
+        .final-cta h2
+        .cta-highlight {
+
+            display:
+                block;
+
+            margin-top:
+                8px;
+
+            color:
+                var(--highlight);
+
+            font-style:
+                italic;
+        }
+
+
+        .final-cta-copy {
+
+            max-width:
+                760px;
+
+            margin:
+                45px auto
+                0;
+
+            color:
+                #858585;
+
+            font-size:
+                1.05rem;
+
+            line-height:
+                1.75;
+        }
+
+
+        .final-cta
+        .action-buttons {
+
+            margin-top:
+                38px;
+        }
+
+
+        /* ==================================================
+           FOOTER SPACE
+        ================================================== */
+
+        .final-footer-space {
+
+            height:
+                0;
+        }
+
+
+        /* ==================================================
+           RESPONSIVE
+        ================================================== */
+
+        @media (max-width: 1000px) {
+
+            .industry-grid {
+
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(
+                            0,
+                            1fr
+                        )
+                    );
+            }
+
+        }
+
+
+        @media (max-width: 900px) {
+
+            .services-hero {
+
+                min-height:
+                    78vh;
+            }
+
+
+            .service-block,
+            .service-block.reverse {
+
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    35px;
+            }
+
+
+            .service-block.reverse
+            .service-content {
+
+                order:
+                    1;
+            }
+
+
+            .service-block.reverse
+            .service-image {
+
+                order:
+                    2;
+            }
+
+
+            .service-image {
+
+                height:
+                    380px;
+            }
+
+
+            .process-item {
+
+                grid-template-columns:
+                    55px
+                    200px
+                    minmax(
+                        0,
+                        1fr
+                    );
+            }
+
+
+            .cta-transition {
+
+                min-height:
+                    55vh;
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .services-hero {
+
+                padding:
+                    105px 0
+                    80px;
+            }
+
+
+            .services-hero h1 {
+
+                font-size:
+                    3.8rem;
+            }
+
+
+            .action-buttons {
+
+                width:
+                    100%;
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    stretch;
+            }
+
+
+            .philosophy-section {
+
+                padding:
+                    85px 0
+                    100px;
+            }
+
+
+            .philosophy-text {
+
+                font-size:
+                    1.8rem;
+            }
+
+
+            .services-section {
+
+                padding:
+                    85px 0
+                    110px;
+            }
+
+
+            .service-block,
+            .service-block.reverse {
+
+                padding:
+                    50px 0;
+            }
+
+
+            .service-title {
+
+                font-size:
+                    2.2rem;
+            }
+
+
+            .service-image {
+
+                height:
+                    280px;
+
+                border-radius:
+                    15px;
+            }
+
+
+            .service-description {
+
+                opacity:
+                    1;
+
+                max-height:
+                    none;
+
+                transform:
+                    none;
+            }
+
+
+            .industry-grid {
+
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    18px;
+            }
+
+
+            .industry-card {
+
+                border-radius:
+                    15px;
+            }
+
+
+            .industry-tag {
+
+                opacity:
+                    1;
+
+                transform:
+                    none;
+            }
+
+
+            .process-item {
+
+                grid-template-columns:
+                    42px
+                    1fr;
+
+                gap:
+                    12px;
+            }
+
+
+            .process-description {
+
+                grid-column:
+                    2;
+            }
+
+
+            .why-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .testimonial {
+
+                padding:
+                    45px 20px;
+            }
+
+
+            .testimonial-quote {
+
+                font-size:
+                    1.75rem;
+            }
+
+
+            .cta-transition {
+
+                min-height:
+                    42vh;
+            }
+
+
+            .cta-transition-content {
+
+                bottom:
+                    30px;
+            }
+
+
+            .final-cta {
+
+                min-height:
+                    560px;
+
+                padding:
+                    90px 0
+                    100px;
+            }
+
+
+            .final-cta h2 {
+
+                font-size:
+                    3.7rem;
+            }
+
+
+            .final-cta-copy {
+
+                margin-top:
+                    32px;
+
+                font-size:
+                    0.95rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================================================
+         SCROLL TO TOP
+    ================================================== -->
+
+    <div
+        id="scroll-to-top-container"
+    ></div>
+
+
+    <!-- ==================================================
+         NAVBAR
+    ================================================== -->
+
+    <div
+        id="navbar-container"
+    ></div>
+
+
+    <!-- ==================================================
+         HERO
+    ================================================== -->
+
+    <section
+        class="services-hero"
+    >
+
+        <div
+            class="services-inner"
+        >
+
+            <div
+                class="services-hero-content"
+            >
+
+                <p
+                    class="section-label reveal"
+                >
+                    Our Services
+                </p>
+
+
+                <h1
+                    class="reveal"
+                >
+
+                    What We
+                    <br>
+
+                    Create<span
+                        class="highlight"
+                    >.</span>
+
+                </h1>
+
+
+                <p
+                    class="services-hero-copy reveal"
+                >
+
+                    We create visuals, brands and
+                    campaigns that leave a lasting
+                    impression.
+
+                </p>
+
+
+                <!-- HERO:
+                     ONLY START A PROJECT -->
+
+                <div
+                    id="hero-action-buttons"
+                    class="action-buttons reveal"
+                ></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         PHILOSOPHY
+    ================================================== -->
+
+    <section
+        class="philosophy-section"
+    >
+
+        <div
+            class="services-inner"
+        >
+
+            <p
+                class="section-label"
+            >
+                Philosophy
+            </p>
+
+
+            <div
+                class="philosophy-text"
+            >
+
+                <span
+                    class="philosophy-line-one"
+                >
+                    We don't simply deliver photos or campaigns.
+                </span>
+
+
+                <span
+                    class="philosophy-line-two"
+                >
+                    We create experiences that connect brands with people.
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         SERVICES
+    ================================================== -->
+
+    <section
+        class="services-section"
+    >
+
+        <div
+            class="services-inner"
+        >
+
+            <div
+                class="services-header"
+            >
+
+                <p
+                    class="section-label reveal"
+                >
+                    Services
+                </p>
+
+
+                <h2
+                    class="reveal"
+                >
+                    What We Create.
+                </h2>
+
+            </div>
+
+
+            <!-- 01 -->
+
+            <article
+                class="service-block reveal"
+            >
+
+                <div
+                    class="service-content"
+                >
+
+                    <span
+                        class="service-number"
+                    >
+                        01
+                    </span>
+
+
+                    <h3
+                        class="service-title"
+                    >
+                        Photography
+                    </h3>
+
+
+                    <p
+                        class="service-description"
+                    >
+
+                        Capture stories with purpose across
+                        sports, fashion, weddings, commercial,
+                        architecture and corporate. Our team
+                        masters light, composition and timing
+                        to immortalize raw elegance.
+
+                    </p>
+
+
+                    <a
+                        
+                        
+                    >
+                        
+                    </a>
+
+                </div>
+
+
+                <div
+                    class="service-image"
+                >
+
+                    <img
+                        src="images/service-photography.jpg"
+                        alt="Photography"
+                        loading="lazy"
+                    >
+
+                </div>
+
+            </article>
+
+
+            <!-- 02 -->
+
+            <article
+                class="service-block reverse reveal"
+            >
+
+                <div
+                    class="service-content"
+                >
+
+                    <span
+                        class="service-number"
+                    >
+                        02
+                    </span>
+
+
+                    <h3
+                        class="service-title"
+                    >
+                        Creative Direction
+                    </h3>
+
+
+                    <p
+                        class="service-description"
+                    >
+
+                        Transform ideas into meaningful
+                        visual experiences from concept to
+                        execution. We shape the complete
+                        aesthetic blueprint to align every
+                        design decision with your brand's truth.
+
+                    </p>
+
+
+                    <a
+                        
+                    >
+                        
+                    </a>
+
+                </div>
+
+
+                <div
+                    class="service-image"
+                >
+
+                    <img
+                        src="images/service-creative-direction.jpg"
+                        alt="Creative Direction"
+                        loading="lazy"
+                    >
+
+                </div>
+
+            </article>
+
+
+            <!-- 03 -->
+
+            <article
+                class="service-block reveal"
+            >
+
+                <div
+                    class="service-content"
+                >
+
+                    <span
+                        class="service-number"
+                    >
+                        03
+                    </span>
+
+
+                    <h3
+                        class="service-title"
+                    >
+                        Branding
+                    </h3>
+
+
+                    <p
+                        class="service-description"
+                    >
+
+                        Build memorable identities that
+                        communicate with clarity and consistency.
+                        From wordmarks and logotypes to holistic
+                        design systems, we build foundations
+                        that refuse to blend in.
+
+                    </p>
+
+
+                    <a
+                       
+                    >
+                       
+                    </a>
+
+                </div>
+
+
+                <div
+                    class="service-image"
+                >
+
+                    <img
+                        src="images/service-branding.jpg"
+                        alt="Branding"
+                        loading="lazy"
+                    >
+
+                </div>
+
+            </article>
+
+
+            <!-- 04 -->
+
+            <article
+                class="service-block reverse reveal"
+            >
+
+                <div
+                    class="service-content"
+                >
+
+                    <span
+                        class="service-number"
+                    >
+                        04
+                    </span>
+
+
+                    <h3
+                        class="service-title"
+                    >
+                        Digital Marketing
+                    </h3>
+
+
+                    <p
+                        class="service-description"
+                    >
+
+                        Create strategies and content that
+                        help brands grow and reach the right
+                        audience. We translate artistic craft
+                        into digital relevance, ensuring your
+                        stories thrive across every platform.
+
+                    </p>
+
+
+                    <a
+                        
+                    >
+                        
+                    </a>
+
+                </div>
+
+
+                <div
+                    class="service-image"
+                >
+
+                    <img
+                        src="images/service-digital-marketing.jpg"
+                        alt="Digital Marketing"
+                        loading="lazy"
+                    >
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         INDUSTRIES
+    ================================================== -->
+
+    <section
+        class="industries-section"
+    >
+
+        <div
+            class="services-inner"
+        >
+
+            <div
+                class="industries-header"
+            >
+
+                <p
+                    class="section-label reveal"
+                >
+                    Industries
+                </p>
+
+
+                <h2
+                    class="reveal"
+                >
+                    Industries We Serve.
+                </h2>
+
+            </div>
+
+
+            <div
+                class="industry-grid"
+            >
+
+                <article
+                    class="industry-card reveal"
+                >
+
+                    <img
+                        class="industry-image"
+                        src="images/industry-sports.jpg"
+                        alt="Sports"
+                        loading="lazy"
+                    >
+
+                    <div
+                        class="industry-overlay"
+                    ></div>
+
+                    <div
+                        class="industry-content"
+                    >
+
+                        <span
+                            class="industry-number"
+                        >
+                            01
+                        </span>
+
+                        <h3
+                            class="industry-name"
+                        >
+                            Sports
+                        </h3>
+
+                        <span
+                            class="industry-tag"
+                        >
+                            Performance
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article
+                    class="industry-card reveal"
+                >
+
+                    <img
+                        class="industry-image"
+                        src="images/industry-fashion.jpg"
+                        alt="Fashion"
+                        loading="lazy"
+                    >
+
+                    <div
+                        class="industry-overlay"
+                    ></div>
+
+                    <div
+                        class="industry-content"
+                    >
+
+                        <span
+                            class="industry-number"
+                        >
+                            02
+                        </span>
+
+                        <h3
+                            class="industry-name"
+                        >
+                            Fashion
+                        </h3>
+
+                        <span
+                            class="industry-tag"
+                        >
+                            Editorial
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article
+                    class="industry-card reveal"
+                >
+
+                    <img
+                        class="industry-image"
+                        src="images/industry-corporate.jpg"
+                        alt="Corporate"
+                        loading="lazy"
+                    >
+
+                    <div
+                        class="industry-overlay"
+                    ></div>
+
+                    <div
+                        class="industry-content"
+                    >
+
+                        <span
+                            class="industry-number"
+                        >
+                            03
+                        </span>
+
+                        <h3
+                            class="industry-name"
+                        >
+                            Corporate
+                        </h3>
+
+                        <span
+                            class="industry-tag"
+                        >
+                            Identity
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article
+                    class="industry-card reveal"
+                >
+
+                    <img
+                        class="industry-image"
+                        src="images/industry-commercial.jpg"
+                        alt="Commercial"
+                        loading="lazy"
+                    >
+
+                    <div
+                        class="industry-overlay"
+                    ></div>
+
+                    <div
+                        class="industry-content"
+                    >
+
+                        <span
+                            class="industry-number"
+                        >
+                            04
+                        </span>
+
+                        <h3
+                            class="industry-name"
+                        >
+                            Commercial
+                        </h3>
+
+                        <span
+                            class="industry-tag"
+                        >
+                            Campaign
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article
+                    class="industry-card reveal"
+                >
+
+                    <img
+                        class="industry-image"
+                        src="images/industry-ecommerce.jpg"
+                        alt="E-commerce"
+                        loading="lazy"
+                    >
+
+                    <div
+                        class="industry-overlay"
+                    ></div>
+
+                    <div
+                        class="industry-content"
+                    >
+
+                        <span
+                            class="industry-number"
+                        >
+                            05
+                        </span>
+
+                        <h3
+                            class="industry-name"
+                        >
+                            E-commerce
+                        </h3>
+
+                        <span
+                            class="industry-tag"
+                        >
+                            Retail
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article
+                    class="industry-card reveal"
+                >
+
+                    <img
+                        class="industry-image"
+                        src="images/industry-weddings.jpg"
+                        alt="Weddings"
+                        loading="lazy"
+                    >
+
+                    <div
+                        class="industry-overlay"
+                    ></div>
+
+                    <div
+                        class="industry-content"
+                    >
+
+                        <span
+                            class="industry-number"
+                        >
+                            06
+                        </span>
+
+                        <h3
+                            class="industry-name"
+                        >
+                            Weddings
+                        </h3>
+
+                        <span
+                            class="industry-tag"
+                        >
+                            Intimate
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article
+                    class="industry-card reveal"
+                >
+
+                    <img
+                        class="industry-image"
+                        src="images/industry-hospitality.jpg"
+                        alt="Hospitality"
+                        loading="lazy"
+                    >
+
+                    <div
+                        class="industry-overlay"
+                    ></div>
+
+                    <div
+                        class="industry-content"
+                    >
+
+                        <span
+                            class="industry-number"
+                        >
+                            07
+                        </span>
+
+                        <h3
+                            class="industry-name"
+                        >
+                            Hospitality
+                        </h3>
+
+                        <span
+                            class="industry-tag"
+                        >
+                            Lifestyle
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article
+                    class="industry-card reveal"
+                >
+
+                    <img
+                        class="industry-image"
+                        src="images/industry-architecture.jpg"
+                        alt="Architecture"
+                        loading="lazy"
+                    >
+
+                    <div
+                        class="industry-overlay"
+                    ></div>
+
+                    <div
+                        class="industry-content"
+                    >
+
+                        <span
+                            class="industry-number"
+                        >
+                            08
+                        </span>
+
+                        <h3
+                            class="industry-name"
+                        >
+                            Architecture
+                        </h3>
+
+                        <span
+                            class="industry-tag"
+                        >
+                            Space
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         PROCESS
+    ================================================== -->
+
+    <section
+        class="process-section"
+    >
+
+        <div
+            class="services-inner"
+        >
+
+            <div
+                class="process-header"
+            >
+
+                <p
+                    class="section-label reveal"
+                >
+                    Process
+                </p>
+
+
+                <h2
+                    class="reveal"
+                >
+                    How We Work.
+                </h2>
+
+            </div>
+
+
+            <div
+                class="process-list"
+            >
+
+                <div
+                    class="process-item reveal"
+                >
+
+                    <span
+                        class="process-number"
+                    >
+                        01
+                    </span>
+
+                    <h3
+                        class="process-name"
+                    >
+                        Discover
+                    </h3>
+
+                    <p
+                        class="process-description"
+                    >
+                        Understanding your vision,
+                        audience and goals before defining
+                        the creative direction.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="process-item reveal"
+                >
+
+                    <span
+                        class="process-number"
+                    >
+                        02
+                    </span>
+
+                    <h3
+                        class="process-name"
+                    >
+                        Strategy
+                    </h3>
+
+                    <p
+                        class="process-description"
+                    >
+                        Planning the concept, visual language,
+                        references and execution before
+                        production begins.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="process-item reveal"
+                >
+
+                    <span
+                        class="process-number"
+                    >
+                        03
+                    </span>
+
+                    <h3
+                        class="process-name"
+                    >
+                        Production
+                    </h3>
+
+                    <p
+                        class="process-description"
+                    >
+                        Photography, creative direction and
+                        content creation brought to life with
+                        precision and artistic intent.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="process-item reveal"
+                >
+
+                    <span
+                        class="process-number"
+                    >
+                        04
+                    </span>
+
+                    <h3
+                        class="process-name"
+                    >
+                        Post Production
+                    </h3>
+
+                    <p
+                        class="process-description"
+                    >
+                        Editing, retouching, color refinement
+                        and final visual polish.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="process-item reveal"
+                >
+
+                    <span
+                        class="process-number"
+                    >
+                        05
+                    </span>
+
+                    <h3
+                        class="process-name"
+                    >
+                        Delivery
+                    </h3>
+
+                    <p
+                        class="process-description"
+                    >
+                        Premium assets ready for every platform
+                        and organized for seamless use.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         WHY US
+    ================================================== -->
+
+    <section
+        class="why-section"
+    >
+
+        <div
+            class="services-inner"
+        >
+
+            <div
+                class="why-header"
+            >
+
+                <p
+                    class="section-label reveal"
+                >
+                    Why Us
+                </p>
+
+
+                <h2
+                    class="reveal"
+                >
+                    Why Clients Choose Us.
+                </h2>
+
+            </div>
+
+
+            <div
+                class="why-grid"
+            >
+
+                <div
+                    class="why-card reveal"
+                >
+
+                    <span
+                        class="why-number"
+                    >
+                        01
+                    </span>
+
+                    <h3>
+                        Purpose-driven Creativity
+                    </h3>
+
+                    <p>
+                        Every project starts with intention
+                        and a clear creative purpose.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="why-card reveal"
+                >
+
+                    <span
+                        class="why-number"
+                    >
+                        02
+                    </span>
+
+                    <h3>
+                        Attention to Detail
+                    </h3>
+
+                    <p>
+                        Every frame and every visual decision
+                        is treated with care.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="why-card reveal"
+                >
+
+                    <span
+                        class="why-number"
+                    >
+                        03
+                    </span>
+
+                    <h3>
+                        Consistent Brand Language
+                    </h3>
+
+                    <p>
+                        We create visuals that feel unified
+                        across every touchpoint.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="why-card reveal"
+                >
+
+                    <span
+                        class="why-number"
+                    >
+                        04
+                    </span>
+
+                    <h3>
+                        Long-term Partnerships
+                    </h3>
+
+                    <p>
+                        We build relationships, not one-time
+                        projects.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         TESTIMONIAL
+    ================================================== -->
+
+    <section
+        class="testimonial-section"
+    >
+
+        <div
+            class="services-inner"
+        >
+
+            <div
+                class="testimonial reveal"
+            >
+
+                <p
+                    class="testimonial-quote"
+                >
+
+                    <span>"</span>
+
+                    Working with Auren Originals felt
+                    effortless. Every detail was thoughtfully
+                    executed, and the resulting visual world
+                    redefined our brand.
+
+                    <span>"</span>
+
+                </p>
+
+
+                <p
+                    class="testimonial-author"
+                >
+                    
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         TRANSITION IMAGE
+         Place image at:
+         images/transition-cta.jpg
+    ================================================== -->
+
+    <section
+        class="cta-transition reveal"
+    >
+
+        <img
+            src="images/transition-cta.jpg"
+            alt="Auren Originals transition"
+            class="cta-transition-image"
+            loading="lazy"
+        >
+
+
+        <div
+            class="cta-transition-overlay"
+        ></div>
+
+
+        <div
+            class="cta-transition-content"
+        >
+
+            <p
+                class="cta-transition-label"
+            >
+                Let's create something meaningful
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         FINAL CTA
+    ================================================== -->
+
+    <section
+        class="final-cta"
+    >
+
+        <div
+            class="final-cta-inner"
+        >
+
+            <h2>
+
+                Let's Create
+
+                <span
+                    class="cta-highlight"
+                >
+                    What Matters.
+                </span>
+
+            </h2>
+
+
+            <p
+                class="final-cta-copy"
+            >
+
+                Partner with us to create visual
+                narratives that redefine your space.
+                Tell us about your project.
+
+            </p>
+
+
+            <div
+                id="final-action-buttons"
+                class="action-buttons reveal"
+            ></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <div
+        id="footer-container"
+    ></div>
+
+
+    <!-- ==================================================
+         GSAP
+    ================================================== -->
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+    ></script>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+    ></script>
+
+
+    <script>
+
+        gsap.registerPlugin(
+            ScrollTrigger
+        );
+
+
+        /* ==================================================
+           SCROLL TO TOP
+        ================================================== */
+
+        fetch(
+            './components/scroll-to-top.html'
+        )
+
+        .then(response => {
+
+            if (!response.ok) {
+
+                throw new Error(
+                    `Scroll component failed: ${response.status}`
+                );
+
+            }
+
+            return response.text();
+
+        })
+
+        .then(html => {
+
+            const container =
+                document.getElementById(
+                    'scroll-to-top-container'
+                );
+
+
+            if (!container) {
+
+                return;
+
+            }
+
+
+            container.innerHTML =
+                html;
+
+
+            const button =
+                container.querySelector(
+                    '#scroll-to-top'
+                );
+
+
+            if (!button) {
+
+                return;
+
+            }
+
+
+            function updateButton() {
+
+                if (
+                    window.scrollY > 500
+                ) {
+
+                    button.classList.add(
+                        'show'
+                    );
+
+                }
+
+                else {
+
+                    button.classList.remove(
+                        'show'
+                    );
+
+                }
+
+            }
+
+
+            window.addEventListener(
+                'scroll',
+                updateButton,
+                {
+                    passive:
+                        true
+                }
+            );
+
+
+            button.addEventListener(
+                'click',
+                () => {
+
+                    window.scrollTo({
+
+                        top:
+                            0,
+
+                        behavior:
+                            'smooth'
+
+                    });
+
+                }
+            );
+
+
+            updateButton();
+
+        })
+
+        .catch(error => {
+
+            console.error(
+                'Scroll-to-top error:',
+                error
+            );
+
+        });
+
+
+        /* ==================================================
+           REUSABLE ACTION BUTTONS
+        ================================================== */
+
+        fetch(
+            './components/action-buttons.html'
+        )
+
+        .then(response => {
+
+            if (!response.ok) {
+
+                throw new Error(
+                    `Action buttons failed: ${response.status}`
+                );
+
+            }
+
+            return response.text();
+
+        })
+
+        .then(html => {
+
+
+            /* ==========================================
+               HERO
+               ONLY START A PROJECT
+            ========================================== */
+
+            const heroContainer =
+                document.getElementById(
+                    'hero-action-buttons'
+                );
+
+
+            if (heroContainer) {
+
+                heroContainer.innerHTML =
+                    html;
+
+
+                const portfolioButton =
+                    heroContainer.querySelector(
+                        '[data-action="portfolio"]'
+                    );
+
+
+                if (portfolioButton) {
+
+                    portfolioButton.remove();
+
+                }
+
+            }
+
+
+            /* ==========================================
+               FINAL CTA
+               START A PROJECT → VIEW PORTFOLIO
+            ========================================== */
+
+            const finalContainer =
+                document.getElementById(
+                    'final-action-buttons'
+                );
+
+
+            if (finalContainer) {
+
+                finalContainer.innerHTML =
+                    html;
+
+
+                const portfolioButton =
+                    finalContainer.querySelector(
+                        '[data-action="portfolio"]'
+                    );
+
+
+                const contactButton =
+                    finalContainer.querySelector(
+                        '[data-action="contact"]'
+                    );
+
+
+                if (
+                    portfolioButton &&
+                    contactButton
+                ) {
+
+                    finalContainer.innerHTML =
+                        "";
+
+
+                    finalContainer.appendChild(
+                        contactButton
+                    );
+
+
+                    finalContainer.appendChild(
+                        portfolioButton
+                    );
+
+                }
+
+            }
+
+        })
+
+        .catch(error => {
+
+            console.error(
+                'Action buttons loading error:',
+                error
+            );
+
+        });
+
+
+        /* ==================================================
+           NAVBAR
+        ================================================== */
+
+        fetch(
+            'components/navbar.html'
+        )
+
+        .then(response => {
+
+            if (!response.ok) {
+
+                throw new Error(
+                    'Navbar could not be loaded'
+                );
+
+            }
+
+            return response.text();
+
+        })
+
+        .then(data => {
+
+            document
+                .getElementById(
+                    'navbar-container'
+                )
+                .innerHTML = data;
+
+
+            const serviceLink =
+                document.querySelector(
+                    '.nav-links a[data-page="services"]'
+                );
+
+
+            if (serviceLink) {
+
+                serviceLink.classList.add(
+                    'active'
+                );
+
+            }
+
+        })
+
+        .catch(error => {
+
+            console.error(
+                'Navbar loading error:',
+                error
+            );
+
+        });
+
+
+        /* ==================================================
+           FOOTER
+        ================================================== */
+
+        fetch(
+            'components/footer.html'
+        )
+
+        .then(response => {
+
+            if (!response.ok) {
+
+                throw new Error(
+                    'Footer could not be loaded'
+                );
+
+            }
+
+            return response.text();
+
+        })
+
+        .then(data => {
+
+            document
+                .getElementById(
+                    'footer-container'
+                )
+                .innerHTML = data;
+
+        })
+
+        .catch(error => {
+
+            console.error(
+                'Footer loading error:',
+                error
+            );
+
+        });
+
+
+        /* ==================================================
+           HERO ANIMATION
+        ================================================== */
+
+        gsap.to(
+            '.services-hero .reveal',
+            {
+
+                y:
+                    0,
+
+                opacity:
+                    1,
+
+                duration:
+                    0.9,
+
+                stagger:
+                    0.1,
+
+                ease:
+                    'power3.out'
+
+            }
+        );
+
+
+        /* ==================================================
+           GENERAL REVEALS
+        ================================================== */
+
+        gsap.utils
+            .toArray(
+                '.reveal'
+            )
+            .forEach(
+                element => {
+
+                    if (
+                        element.closest(
+                            '.services-hero'
+                        )
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    if (
+                        element.classList.contains(
+                            'cta-transition'
+                        )
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    gsap.to(
+                        element,
+                        {
+
+                            y:
+                                0,
+
+                            opacity:
+                                1,
+
+                            duration:
+                                0.85,
+
+                            ease:
+                                'power3.out',
+
+                            scrollTrigger: {
+
+                                trigger:
+                                    element,
+
+                                start:
+                                    'top 88%',
+
+                                once:
+                                    true
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+
+        /* ==================================================
+           SERVICE IMAGE REVEALS
+        ================================================== */
+
+        gsap.utils
+            .toArray(
+                '.service-image'
+            )
+            .forEach(
+                image => {
+
+                    gsap.fromTo(
+
+                        image,
+
+                        {
+
+                            y:
+                                40,
+
+                            opacity:
+                                0,
+
+                            scale:
+                                0.98
+
+                        },
+
+                        {
+
+                            y:
+                                0,
+
+                            opacity:
+                                1,
+
+                            scale:
+                                1,
+
+                            duration:
+                                1,
+
+                            ease:
+                                'power3.out',
+
+                            scrollTrigger: {
+
+                                trigger:
+                                    image,
+
+                                start:
+                                    'top 85%',
+
+                                once:
+                                    true
+
+                            }
+
+                        }
+
+                    );
+
+                }
+            );
+
+
+        /* ==================================================
+           INDUSTRY REVEALS
+        ================================================== */
+
+        gsap.utils
+            .toArray(
+                '.industry-card'
+            )
+            .forEach(
+                card => {
+
+                    gsap.fromTo(
+
+                        card,
+
+                        {
+
+                            y:
+                                35,
+
+                            opacity:
+                                0,
+
+                            scale:
+                                0.98
+
+                        },
+
+                        {
+
+                            y:
+                                0,
+
+                            opacity:
+                                1,
+
+                            scale:
+                                1,
+
+                            duration:
+                                0.8,
+
+                            ease:
+                                'power3.out',
+
+                            scrollTrigger: {
+
+                                trigger:
+                                    card,
+
+                                start:
+                                    'top 88%',
+
+                                once:
+                                    true
+
+                            }
+
+                        }
+
+                    );
+
+                }
+            );
+
+
+        /* ==================================================
+           TRANSITION IMAGE
+        ================================================== */
+
+        gsap.fromTo(
+
+            '.cta-transition',
+
+            {
+
+                opacity:
+                    0
+
+            },
+
+            {
+
+                opacity:
+                    1,
+
+                duration:
+                    1,
+
+                ease:
+                    'power2.out',
+
+                scrollTrigger: {
+
+                    trigger:
+                        '.cta-transition',
+
+                    start:
+                        'top 90%',
+
+                    once:
+                        true
+
+                }
+
+            }
+
+        );
+
+
+        gsap.fromTo(
+
+            '.cta-transition-image',
+
+            {
+
+                scale:
+                    1.10
+
+            },
+
+            {
+
+                scale:
+                    1,
+
+                duration:
+                    1.5,
+
+                ease:
+                    'power3.out',
+
+                scrollTrigger: {
+
+                    trigger:
+                        '.cta-transition',
+
+                    start:
+                        'top 90%',
+
+                    once:
+                        true
+
+                }
+
+            }
+
+        );
+
+
+        /* ==================================================
+           PROCESS
+        ================================================== */
+
+        gsap.fromTo(
+
+            '.process-item',
+
+            {
+
+                y:
+                    24,
+
+                opacity:
+                    0
+
+            },
+
+            {
+
+                y:
+                    0,
+
+                opacity:
+                    1,
+
+                duration:
+                    0.65,
+
+                stagger:
+                    0.08,
+
+                ease:
+                    'power3.out',
+
+                scrollTrigger: {
+
+                    trigger:
+                        '.process-list',
+
+                    start:
+                        'top 85%',
+
+                    once:
+                        true
+
+                }
+
+            }
+
+        );
+
+
+        /* ==================================================
+           WHY US
+        ================================================== */
+
+        gsap.fromTo(
+
+            '.why-card',
+
+            {
+
+                y:
+                    25,
+
+                opacity:
+                    0
+
+            },
+
+            {
+
+                y:
+                    0,
+
+                opacity:
+                    1,
+
+                duration:
+                    0.65,
+
+                stagger:
+                    0.1,
+
+                ease:
+                    'power3.out',
+
+                scrollTrigger: {
+
+                    trigger:
+                        '.why-grid',
+
+                    start:
+                        'top 85%',
+
+                    once:
+                        true
+
+                }
+
+            }
+
+        );
+
+    </script>
+
+
+</body>
+
+</html>

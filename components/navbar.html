@@ -1,0 +1,145 @@
+<style>
+/* =========================================
+   AUREN NAVBAR
+========================================= */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 5%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+
+    z-index: 1000;
+}
+
+
+/* LOGO */
+
+.navbar .logo {
+    display: block;
+}
+
+.navbar .logo img {
+    display: block;
+    width: auto;
+    height: 60px;
+}
+
+
+/* NAVIGATION */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+
+    list-style: none;
+
+    gap: 40px;
+
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+
+    color: #ffffff;
+
+    font-family: var(--font-body);
+
+    font-size: 0.95rem;
+
+    transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+    opacity: 0.6;
+}
+
+
+/* ACTIVE LINK */
+
+.nav-links a.active {
+    text-decoration: underline;
+    text-underline-offset: 7px;
+}
+
+
+/* GET IN TOUCH */
+
+.btn-get-in-touch {
+    padding: 12px 24px;
+
+    background-color: #FDAF45;
+
+    border: none;
+    border-radius: 15px;
+
+    text-decoration: none;
+
+    color: #ffffff;
+
+    font-family: var(--font-body);
+
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    transition: all 0.3s ease;
+}
+
+.btn-get-in-touch:hover {
+    opacity: 0.8;
+}
+
+</style>
+
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="Auren Logo">
+    </a>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="portfolio.html" data-page="work">
+                Work
+            </a>
+        </li>
+
+        <li>
+            <a href="service.html" data-page="services">
+                Services
+            </a>
+        </li>
+
+        <li>
+            <a href="about.html" data-page="about">
+                About
+            </a>
+        </li>
+
+        <li>
+            <a href="contact.html" data-page="contact">
+                Contact
+            </a>
+        </li>
+
+    </ul>
+
+    <a href="contact.html" class="btn-get-in-touch">
+        Get in Touch
+    </a>
+
+</nav>

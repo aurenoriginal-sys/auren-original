@@ -1,0 +1,135 @@
+<style>
+
+    .action-button {
+
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        min-width: 190px;
+
+        padding: 16px 30px;
+
+        border-radius: 15px;
+
+        font-family:
+            'Inter',
+            sans-serif;
+
+        font-size: 1rem;
+
+        font-weight: 500;
+
+        line-height: 1;
+
+        text-decoration: none;
+
+        cursor: pointer;
+
+        transition:
+            transform 0.3s ease,
+            background-color 0.3s ease,
+            color 0.3s ease,
+            border-color 0.3s ease;
+    }
+
+
+    /* VIEW PORTFOLIO */
+
+    .action-button-outline {
+
+        background:
+            transparent;
+
+        color:
+            #ffffff;
+
+        border:
+            1px solid
+            rgba(
+                255,
+                255,
+                255,
+                0.85
+            );
+    }
+
+
+    .action-button-outline:hover {
+
+        background:
+            #ffffff;
+
+        color:
+            #000000;
+
+        transform:
+            translateY(-2px);
+    }
+
+
+    /* START A PROJECT */
+
+    .action-button-solid {
+
+        background:
+            #FDAF45;
+
+        color:
+            #ffffff;
+
+        border:
+            1px solid
+            #FDAF45;
+    }
+
+
+    .action-button-solid:hover {
+
+        background:
+            #ffffff;
+
+        color:
+            #000000;
+
+        border-color:
+            #ffffff;
+
+        transform:
+            translateY(-2px);
+    }
+
+
+    @media (max-width: 700px) {
+
+        .action-button {
+
+            width:
+                100%;
+
+            min-width:
+                0;
+        }
+
+    }
+
+</style>
+
+
+<a
+    href="portfolio.html"
+    class="action-button action-button-outline"
+    data-action="portfolio"
+>
+    View Portfolio
+</a>
+
+
+<a
+    href="contact.html"
+    class="action-button action-button-solid"
+    data-action="contact"
+>
+    Start a project
+</a>
