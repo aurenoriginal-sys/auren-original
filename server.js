@@ -5,8 +5,6 @@ const cors = require('cors');
 
 require('dotenv').config();
 
-const nodemailer = require('nodemailer');
-
 const app = express();
 app.use(express.json());
 const PORT = 3000;
@@ -614,9 +612,38 @@ app.get('/api/branding-videos', (req, res) => {
 // Your existing API code
 // Your existing static-file setup
 
+/* ==================================================
+   HTML ESCAPE HELPER
+================================================== */
+
+function escapeHtml(value) {
+
+    return String(value)
+        .replace(
+            /&/g,
+            '&amp;'
+        )
+        .replace(
+            /</g,
+            '&lt;'
+        )
+        .replace(
+            />/g,
+            '&gt;'
+        )
+        .replace(
+            /"/g,
+            '&quot;'
+        )
+        .replace(
+            /'/g,
+            '&#039;'
+        );
+
+}
 
 /* ==================================================
-   CONTACT FORM EMAIL
+   CONTACT FORM - RESEND
 ================================================== */
 
 app.post(
@@ -637,6 +664,10 @@ app.post(
             } = req.body;
 
 
+            /* ==========================================
+               VALIDATION
+            ========================================== */
+
             if (
                 !name ||
                 !email ||
@@ -650,74 +681,248 @@ app.post(
                 return res
                     .status(400)
                     .json({
+
+                        success: false,
+
                         message:
                             'Please fill all required fields.'
+
                     });
 
             }
 
 
-            const transporter =
-                nodemailer.createTransport({
+            /* ==========================================
+               RESEND API KEY
+            ========================================== */
 
-                    service:
-                        'gmail',
-
-                    auth: {
-
-                        user:
-                            process.env.EMAIL_USER,
-
-                        pass:
-                            process.env.EMAIL_PASS
-
-                    }
-
-                });
+            const apiKey =
+                process.env.RESEND_API_KEY;
 
 
-            await transporter.sendMail({
+            if (!apiKey) {
 
-                from:
-                    process.env.EMAIL_USER,
+                console.error(
+                    'RESEND_API_KEY is not configured.'
+                );
 
-                to:
-                    process.env.CONTACT_RECEIVER,
+                return res
+                    .status(500)
+                    .json({
 
-                replyTo:
-                    email,
+                        success: false,
 
-                subject:
-                    `New Project Enquiry - ${name}`,
+                        message:
+                            'Email service is not configured.'
 
-                text: `
+                    });
+
+            }
+
+
+            /* ==========================================
+               EMAIL CONTENT
+            ========================================== */
+
+            const emailText = `
 
 New Project Enquiry
 
 Name: ${name}
+
 Email: ${email}
+
 Phone: ${phone}
-Company / Brand: ${company || 'Not provided'}
-Project Type: ${projectType}
-Estimated Budget: ${budget}
-Project Timeline: ${timeline}
+
+Company / Brand:
+${company || 'Not provided'}
+
+Project Type:
+${projectType}
+
+Estimated Budget:
+${budget}
+
+Project Timeline:
+${timeline}
 
 Message:
 ${message}
 
-                `
+            `;
 
-            });
+
+            const emailHtml = `
+
+                <h2>
+                    New Project Enquiry
+                </h2>
+
+                <hr>
+
+                <p>
+                    <strong>Name:</strong>
+                    ${escapeHtml(name)}
+                </p>
+
+                <p>
+                    <strong>Email:</strong>
+                    ${escapeHtml(email)}
+                </p>
+
+                <p>
+                    <strong>Phone:</strong>
+                    ${escapeHtml(phone)}
+                </p>
+
+                <p>
+                    <strong>Company / Brand:</strong>
+                    ${escapeHtml(
+                        company || 'Not provided'
+                    )}
+                </p>
+
+                <p>
+                    <strong>Project Type:</strong>
+                    ${escapeHtml(projectType)}
+                </p>
+
+                <p>
+                    <strong>Estimated Budget:</strong>
+                    ${escapeHtml(budget)}
+                </p>
+
+                <p>
+                    <strong>Project Timeline:</strong>
+                    ${escapeHtml(timeline)}
+                </p>
+
+                <h3>
+                    Message
+                </h3>
+
+                <p>
+                    ${escapeHtml(message)
+                        .replace(
+                            /\n/g,
+                            '<br>'
+                        )}
+                </p>
+
+            `;
+
+
+            /* ==========================================
+               SEND THROUGH RESEND
+            ========================================== */
+
+            const response =
+                await fetch(
+                    'https://api.resend.com/emails',
+                    {
+
+                        method:
+                            'POST',
+
+                        headers: {
+
+                            'Content-Type':
+                                'application/json',
+
+                            'Authorization':
+                                `Bearer ${apiKey}`
+
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                /*
+                                 * Temporary Resend sender.
+                                 * Later, after verifying
+                                 * aurenoriginal.in,
+                                 * change this to:
+                                 *
+                                 * hello@aurenoriginal.in
+                                 */
+
+                                from:
+                                    'Auren Originals <onboarding@resend.dev>',
+
+                                to:
+                                    [
+                                        'aurenoriginal@gmail.com'
+                                    ],
+
+                                reply_to:
+                                    email,
+
+                                subject:
+                                    `New Project Enquiry - ${name}`,
+
+                                text:
+                                    emailText,
+
+                                html:
+                                    emailHtml
+
+                            })
+
+                    }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            /* ==========================================
+               RESEND ERROR
+            ========================================== */
+
+            if (
+                !response.ok
+            ) {
+
+                console.error(
+                    'Resend API error:',
+                    result
+                );
+
+
+                return res
+                    .status(502)
+                    .json({
+
+                        success: false,
+
+                        message:
+                            'Unable to send your enquiry.'
+
+                    });
+
+            }
+
+
+            /* ==========================================
+               SUCCESS
+            ========================================== */
+
+            console.log(
+                'Contact email sent:',
+                result.id
+            );
 
 
             return res
                 .status(200)
                 .json({
-                    success:
-                        true,
+
+                    success: true,
 
                     message:
                         'Message sent successfully.'
+
                 });
 
         }
@@ -725,7 +930,7 @@ ${message}
         catch (error) {
 
             console.error(
-                'Contact email error:',
+                'Contact form error:',
                 error
             );
 
@@ -733,11 +938,12 @@ ${message}
             return res
                 .status(500)
                 .json({
-                    success:
-                        false,
+
+                    success: false,
 
                     message:
-                        'Unable to send your message.'
+                        'Unable to send your enquiry.'
+
                 });
 
         }
