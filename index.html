@@ -15,9 +15,12 @@
 
     <!-- ==================================================
          GOOGLE FONTS
-    =================================================== -->
+    ================================================== -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;500&display=swap"
@@ -27,19 +30,22 @@
 
     <!-- ==================================================
          CSS
-    =================================================== -->
+    ================================================== -->
 
     <style>
 
         /* ==================================================
            THEME
-        =================================================== */
+        ================================================== */
 
         :root {
+
             --bg-main: #000000;
+
             --bg-secondary: #1f1f1f;
 
             --text-main: #ffffff;
+
             --text-muted: #888888;
 
             --highlight: #FDAF45;
@@ -51,77 +57,120 @@
             --font-body:
                 'Inter',
                 sans-serif;
+
         }
 
 
         /* ==================================================
            RESET
-        =================================================== */
+        ================================================== */
 
         * {
+
             margin: 0;
             padding: 0;
+
             box-sizing: border-box;
+
         }
 
 
         html {
-            scroll-behavior: smooth;
+
+            scroll-behavior:
+                smooth;
+
         }
 
 
         body {
-            font-family: var(--font-body);
-            line-height: 1.6;
 
-            color: var(--text-main);
-            background: var(--bg-main);
+            font-family:
+                var(--font-body);
 
-            overflow-x: hidden;
+            line-height:
+                1.6;
+
+            color:
+                var(--text-main);
+
+            background:
+                var(--bg-main);
+
+            overflow-x:
+                hidden;
+
         }
 
 
         h1,
         h2,
         h3 {
-            font-family: var(--font-heading);
-            font-weight: 400;
+
+            font-family:
+                var(--font-heading);
+
+            font-weight:
+                400;
+
         }
 
 
         .highlight {
-            color: var(--highlight);
+
+            color:
+                var(--highlight);
+
         }
 
 
         /* ==================================================
            COMPONENT CONTAINERS
-        =================================================== */
+        ================================================== */
 
         #navbar-container {
-            position: relative;
-            z-index: 10000;
+
+            position:
+                relative;
+
+            z-index:
+                10000;
+
         }
 
+
         #footer-container {
-            width: 100%;
+
+            width:
+                100%;
+
         }
 
 
         /* ==================================================
            HERO
-        =================================================== */
+        ================================================== */
 
         .hero {
-            position: relative;
 
-            width: 100%;
-            height: 100vh;
-            min-height: 760px;
+            position:
+                relative;
 
-            overflow: hidden;
+            width:
+                100%;
 
-            background: #000000;
+            height:
+                100vh;
+
+            min-height:
+                760px;
+
+            overflow:
+                hidden;
+
+            background:
+                #000000;
+
         }
 
 
@@ -130,104 +179,176 @@
 
            Starts small and centered.
            GSAP expands it to full viewport.
-        =================================================== */
+        ================================================== */
 
         .hero-media {
-            position: absolute;
 
-            top: 50%;
-            left: 50%;
+            position:
+                absolute;
 
-            width: 220px;
-            height: 130px;
+            top:
+                50%;
+
+            left:
+                50%;
+
+            width:
+                220px;
+
+            height:
+                130px;
 
             transform:
-                translate(-50%, -50%);
+                translate(
+                    -50%,
+                    -50%
+                );
 
-            overflow: hidden;
+            overflow:
+                hidden;
 
-            z-index: 0;
+            z-index:
+                0;
 
-            border-radius: 18px;
+            border-radius:
+                18px;
 
             will-change:
                 width,
                 height,
                 border-radius;
+
         }
 
 
-        /* HERO IMAGE */
+        /* ==================================================
+           HERO IMAGE
+        ================================================== */
 
         .hero-bg {
-            display: block;
 
-            width: 100%;
-            height: 100%;
+            display:
+                block;
 
-            object-fit: cover;
-            object-position: center;
+            width:
+                100%;
 
-            transform: scale(1.08);
+            height:
+                100%;
+
+            object-fit:
+                cover;
+
+            object-position:
+                center;
+
+            transform:
+                scale(
+                    1.08
+                );
 
             will-change:
                 transform,
                 opacity;
+
         }
 
 
         /* ==================================================
            HERO OVERLAY
-        =================================================== */
+        ================================================== */
 
         .hero-overlay {
-            position: absolute;
 
-            inset: 0;
+            position:
+                absolute;
 
-            z-index: 1;
+            inset:
+                0;
 
-            pointer-events: none;
+            z-index:
+                1;
+
+            pointer-events:
+                none;
 
             background:
                 linear-gradient(
                     to bottom,
-                    rgba(0, 0, 0, 0.18) 0%,
-                    rgba(0, 0, 0, 0.30) 45%,
-                    rgba(0, 0, 0, 0.68) 100%
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.18
+                    ) 0%,
+
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.30
+                    ) 45%,
+
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.68
+                    ) 100%
                 );
+
         }
 
 
         /* ==================================================
            HERO CONTENT
            LEFT ALIGNED
-        =================================================== */
+        ================================================== */
 
         .hero-content {
-            position: absolute;
 
-            left: 7%;
-            top: 54%;
+            position:
+                absolute;
 
-            transform: translateY(-50%);
+            left:
+                7%;
 
-            z-index: 3;
+            top:
+                54%;
 
-            width: min(850px, 50vw);
+            transform:
+                translateY(
+                    -50%
+                );
 
-            text-align: left;
+            z-index:
+                3;
 
-            color: #ffffff;
+            width:
+                min(
+                    850px,
+                    50vw
+                );
 
-            opacity: 0;
+            text-align:
+                left;
+
+            color:
+                #ffffff;
+
+            opacity:
+                0;
+
         }
 
 
         .hero-content h1 {
-            margin: 0 0 28px;
 
-            font-family: var(--font-heading);
+            margin:
+                0 0 28px;
+
+            font-family:
+                var(--font-heading);
 
             font-size:
                 clamp(
@@ -236,24 +357,34 @@
                     6.2rem
                 );
 
-            font-weight: 400;
+            font-weight:
+                400;
 
-            line-height: 1.02;
+            line-height:
+                1.02;
 
-            letter-spacing: -0.025em;
+            letter-spacing:
+                -0.025em;
+
         }
 
 
         .hero-content p {
-            max-width: 700px;
 
-            margin: 0 0 38px;
+            max-width:
+                700px;
 
-            font-family: var(--font-body);
+            margin:
+                0 0 38px;
 
-            font-size: 1.15rem;
+            font-family:
+                var(--font-body);
 
-            line-height: 1.7;
+            font-size:
+                1.15rem;
+
+            line-height:
+                1.7;
 
             color:
                 rgba(
@@ -262,56 +393,80 @@
                     255,
                     0.88
                 );
+
         }
 
 
         /* ==================================================
            HERO BUTTONS
-        =================================================== */
+        ================================================== */
 
         .hero-buttons {
-            display: flex;
 
-            justify-content: flex-start;
-            align-items: center;
+            display:
+                flex;
 
-            gap: 16px;
+            justify-content:
+                flex-start;
+
+            align-items:
+                center;
+
+            gap:
+                16px;
+
         }
 
 
         .btn-hero-outline,
         .btn-hero-solid {
-            display: inline-flex;
 
-            align-items: center;
-            justify-content: center;
+            display:
+                inline-flex;
 
-            min-width: 190px;
+            align-items:
+                center;
 
-            padding: 16px 30px;
+            justify-content:
+                center;
 
-            border-radius: 15px;
+            min-width:
+                190px;
 
-            font-family: var(--font-body);
+            padding:
+                16px 30px;
 
-            font-size: 1rem;
+            border-radius:
+                15px;
 
-            font-weight: 500;
+            font-family:
+                var(--font-body);
 
-            text-decoration: none;
+            font-size:
+                1rem;
+
+            font-weight:
+                500;
+
+            text-decoration:
+                none;
 
             transition:
                 transform 0.3s ease,
                 background-color 0.3s ease,
                 color 0.3s ease,
                 border-color 0.3s ease;
+
         }
 
 
         .btn-hero-outline {
-            background: transparent;
 
-            color: #ffffff;
+            background:
+                transparent;
+
+            color:
+                #ffffff;
 
             border:
                 1px solid
@@ -321,59 +476,83 @@
                     255,
                     0.85
                 );
+
         }
 
 
         .btn-hero-outline:hover {
-            background: #ffffff;
 
-            color: #000000;
+            background:
+                #ffffff;
+
+            color:
+                #000000;
 
             transform:
-                translateY(-2px);
+                translateY(
+                    -2px
+                );
+
         }
 
 
         .btn-hero-solid {
-            background: var(--highlight);
 
-            color: #ffffff;
+            background:
+                var(--highlight);
+
+            color:
+                #ffffff;
 
             border:
                 1px solid
                 var(--highlight);
+
         }
 
 
         .btn-hero-solid:hover {
-            background: #ffffff;
 
-            color: #000000;
+            background:
+                #ffffff;
 
-            border-color: #ffffff;
+            color:
+                #000000;
+
+            border-color:
+                #ffffff;
 
             transform:
-                translateY(-2px);
+                translateY(
+                    -2px
+                );
+
         }
 
 
         /* ==================================================
            ABOUT
-        =================================================== */
+        ================================================== */
 
         .about-section {
-            width: 100%;
 
-            max-width: 980px;
+            width:
+                100%;
 
-            margin: 0 auto;
+            max-width:
+                980px;
+
+            margin:
+                0 auto;
 
             padding:
                 140px 5% 150px;
+
         }
 
 
         .about-section h2 {
+
             margin:
                 0 0 34px;
 
@@ -384,35 +563,51 @@
                     4.8rem
                 );
 
-            line-height: 1.08;
+            line-height:
+                1.08;
+
         }
 
 
         .about-section p {
-            max-width: 850px;
+
+            max-width:
+                850px;
 
             margin:
                 0 0 34px;
 
-            color: var(--text-muted);
+            color:
+                var(--text-muted);
 
-            font-size: 1.18rem;
+            font-size:
+                1.18rem;
 
-            line-height: 1.9;
+            line-height:
+                1.9;
+
         }
 
 
         .btn-text {
-            display: inline-block;
 
-            padding-bottom: 5px;
+            display:
+                inline-block;
 
-            color: #ffffff;
+            padding-bottom:
+                5px;
 
-            font-size: 1rem;
-            font-weight: 500;
+            color:
+                #ffffff;
 
-            text-decoration: none;
+            font-size:
+                1rem;
+
+            font-weight:
+                500;
+
+            text-decoration:
+                none;
 
             border-bottom:
                 1px solid #ffffff;
@@ -421,45 +616,60 @@
                 color 0.3s ease,
                 border-color 0.3s ease,
                 transform 0.3s ease;
+
         }
 
 
         .btn-text:hover {
-            color: var(--highlight);
+
+            color:
+                var(--highlight);
 
             border-color:
                 var(--highlight);
 
             transform:
-                translateX(4px);
+                translateX(
+                    4px
+                );
+
         }
 
 
         /* ==================================================
            SERVICES
-        =================================================== */
+        ================================================== */
 
         .services-section {
-            width: 100%;
+
+            width:
+                100%;
 
             padding:
                 120px 3.5% 135px;
 
             background:
                 #1f1f1f;
+
         }
 
 
         .services-inner {
-            width: 100%;
 
-            max-width: 1800px;
+            width:
+                100%;
 
-            margin: 0 auto;
+            max-width:
+                1800px;
+
+            margin:
+                0 auto;
+
         }
 
 
         .section-label {
+
             margin:
                 0 0 18px;
 
@@ -477,10 +687,12 @@
 
             text-transform:
                 uppercase;
+
         }
 
 
         .services-section h2 {
+
             margin:
                 0 0 58px;
 
@@ -493,11 +705,14 @@
 
             line-height:
                 1.05;
+
         }
 
 
         .services-grid {
-            display: grid;
+
+            display:
+                grid;
 
             grid-template-columns:
                 repeat(
@@ -510,10 +725,12 @@
 
             gap:
                 26px 28px;
+
         }
 
 
         .service-card {
+
             min-height:
                 112px;
 
@@ -539,12 +756,16 @@
                 transform 0.35s ease,
                 border-color 0.35s ease,
                 background-color 0.35s ease;
+
         }
 
 
         .service-card:hover {
+
             transform:
-                translateY(-3px);
+                translateY(
+                    -3px
+                );
 
             background:
                 #202020;
@@ -556,10 +777,12 @@
                     69,
                     0.35
                 );
+
         }
 
 
         .service-card h3 {
+
             margin:
                 0 0 11px;
 
@@ -574,11 +797,14 @@
 
             line-height:
                 1.2;
+
         }
 
 
         .service-card p {
-            margin: 0;
+
+            margin:
+                0;
 
             color:
                 #999999;
@@ -588,32 +814,41 @@
 
             line-height:
                 1.55;
+
         }
 
 
         /* ==================================================
            WHY AUREN
-        =================================================== */
+        ================================================== */
 
         .why-section {
-            width: 100%;
+
+            width:
+                100%;
 
             padding:
                 120px 3.5% 140px;
 
-            background: #000000;
+            background:
+                #000000;
+
         }
 
 
         .why-header {
-            width: 100%;
+
+            width:
+                100%;
 
             margin:
                 0 0 58px;
+
         }
 
 
         .why-header .section-label {
+
             margin:
                 0 0 18px;
 
@@ -631,11 +866,14 @@
 
             text-transform:
                 uppercase;
+
         }
 
 
         .why-header h2 {
-            margin: 0;
+
+            margin:
+                0;
 
             font-size:
                 clamp(
@@ -646,11 +884,14 @@
 
             line-height:
                 1.05;
+
         }
 
 
         .why-grid {
-            display: grid;
+
+            display:
+                grid;
 
             grid-template-columns:
                 repeat(
@@ -661,11 +902,14 @@
                     )
                 );
 
-            gap: 28px;
+            gap:
+                28px;
+
         }
 
 
         .why-card {
+
             min-height:
                 170px;
 
@@ -691,12 +935,16 @@
                 transform 0.35s ease,
                 background-color 0.35s ease,
                 border-color 0.35s ease;
+
         }
 
 
         .why-card:hover {
+
             transform:
-                translateY(-3px);
+                translateY(
+                    -3px
+                );
 
             background:
                 #202020;
@@ -708,10 +956,12 @@
                     69,
                     0.30
                 );
+
         }
 
 
         .why-card h3 {
+
             margin:
                 0 0 18px;
 
@@ -726,14 +976,17 @@
 
             line-height:
                 1.25;
+
         }
 
 
         .why-card p {
+
             max-width:
                 430px;
 
-            margin: 0;
+            margin:
+                0;
 
             color:
                 #999999;
@@ -743,44 +996,62 @@
 
             line-height:
                 1.65;
+
         }
 
 
         /* ==================================================
            TRANSITION IMAGE
-        =================================================== */
+        ================================================== */
 
         .transition-image-wrapper {
-            width: 100%;
 
-            overflow: hidden;
+            width:
+                100%;
 
-            background: #000000;
+            overflow:
+                hidden;
+
+            background:
+                #000000;
+
         }
 
 
         .cropped-image {
-            display: block;
 
-            width: 100%;
+            display:
+                block;
 
-            height: 620px;
+            width:
+                100%;
 
-            object-fit: cover;
-            object-position: center;
+            height:
+                620px;
 
-            will-change: transform;
+            object-fit:
+                cover;
+
+            object-position:
+                center;
+
+            will-change:
+                transform;
+
         }
 
 
         /* ==================================================
            CTA
-        =================================================== */
+        ================================================== */
 
         .cta-section {
-            width: 100%;
 
-            max-width: 1000px;
+            width:
+                100%;
+
+            max-width:
+                1000px;
 
             margin:
                 0 auto;
@@ -788,11 +1059,14 @@
             padding:
                 160px 5% 170px;
 
-            text-align: center;
+            text-align:
+                center;
+
         }
 
 
         .cta-section h2 {
+
             margin:
                 0 0 28px;
 
@@ -808,10 +1082,12 @@
 
             letter-spacing:
                 -0.025em;
+
         }
 
 
         .cta-section p {
+
             max-width:
                 760px;
 
@@ -826,10 +1102,12 @@
 
             line-height:
                 1.8;
+
         }
 
 
         .cta-buttons {
+
             display:
                 flex;
 
@@ -841,15 +1119,18 @@
 
             gap:
                 16px;
+
         }
 
 
         /* ==================================================
            3D STACKING GALLERY
-        =================================================== */
+        ================================================== */
 
         .gallery-section {
-            width: 100%;
+
+            width:
+                100%;
 
             background:
                 #000000;
@@ -859,20 +1140,28 @@
 
             overflow:
                 visible;
+
         }
 
 
         .gallery-stack {
-            width: 100%;
+
+            width:
+                100%;
+
         }
 
 
         .gallery-panel {
-            position: sticky;
 
-            top: 70px;
+            position:
+                sticky;
 
-            width: 88%;
+            top:
+                70px;
+
+            width:
+                88%;
 
             max-width:
                 1400px;
@@ -912,10 +1201,12 @@
 
             will-change:
                 transform;
+
         }
 
 
         .gallery-panel img {
+
             display:
                 block;
 
@@ -932,18 +1223,23 @@
                 center;
 
             transform:
-                scale(1.04);
+                scale(
+                    1.04
+                );
 
             will-change:
                 transform;
 
             border-radius:
                 inherit;
+
         }
 
 
         .gallery-panel::after {
-            content: "";
+
+            content:
+                "";
 
             position:
                 absolute;
@@ -966,7 +1262,9 @@
                     0.08
                 );
 
-            z-index: 2;
+            z-index:
+                2;
+
         }
 
     </style>
@@ -979,46 +1277,63 @@
 
     <!-- ==================================================
          REUSABLE NAVBAR
-    =================================================== -->
+    ================================================== -->
 
-    <div id="navbar-container"></div>
+    <div
+        id="navbar-container"
+    ></div>
 
 
     <!-- ==================================================
          HERO
-    =================================================== -->
+    ================================================== -->
 
-    <header class="hero">
+    <header
+        class="hero"
+    >
 
-
-        <div class="hero-media">
+        <div
+            class="hero-media"
+        >
 
             <img
                 class="hero-bg"
-                src="https://res.cloudinary.com/uye4ufpk/image/upload/f_auto,q_auto,ar_16:9,c_fill,g_auto,w_2400/v1786970226/hero-image.jpg"
+                id="home-hero-image"
+                src=""
                 alt="Auren Originals creative work"
             >
 
         </div>
 
 
-        <div class="hero-overlay"></div>
+        <div
+            class="hero-overlay"
+        ></div>
 
 
-        <div class="hero-content">
+        <div
+            class="hero-content"
+        >
 
             <h1>
+
                 Creating What
-                <span class="highlight">
+
+                <span
+                    class="highlight"
+                >
                     Matters.
                 </span>
+
             </h1>
 
 
             <p>
+
                 Photography, Creative Direction,
                 Branding and Digital Marketing
                 for brands that want to stand out.
+
             </p>
 
 
@@ -1034,7 +1349,7 @@
 
     <!-- ==================================================
          ABOUT
-    =================================================== -->
+    ================================================== -->
 
     <section
         id="about"
@@ -1044,7 +1359,10 @@
         <h2>
 
             More Than A Creative Agency
-            <span class="highlight">
+
+            <span
+                class="highlight"
+            >
                 .
             </span>
 
@@ -1079,16 +1397,20 @@
 
     <!-- ==================================================
          SERVICES
-    =================================================== -->
+    ================================================== -->
 
     <section
         id="services"
         class="services-section"
     >
 
-        <div class="services-inner">
+        <div
+            class="services-inner"
+        >
 
-            <p class="section-label">
+            <p
+                class="section-label"
+            >
                 SERVICES
             </p>
 
@@ -1098,60 +1420,78 @@
             </h2>
 
 
-            <div class="services-grid">
+            <div
+                class="services-grid"
+            >
 
 
-                <div class="service-card">
+                <div
+                    class="service-card"
+                >
 
                     <h3>
                         Photography
                     </h3>
 
                     <p>
+
                         Cinematic imagery that captures
                         the essence of your brand.
+
                     </p>
 
                 </div>
 
 
-                <div class="service-card">
+                <div
+                    class="service-card"
+                >
 
                     <h3>
                         Creative Direction
                     </h3>
 
                     <p>
+
                         Strategic vision that shapes
                         every creative decision.
+
                     </p>
 
                 </div>
 
 
-                <div class="service-card">
+                <div
+                    class="service-card"
+                >
 
                     <h3>
                         Branding
                     </h3>
 
                     <p>
+
                         Visual identities built for
                         recognition and lasting resonance.
+
                     </p>
 
                 </div>
 
 
-                <div class="service-card">
+                <div
+                    class="service-card"
+                >
 
                     <h3>
                         Digital Marketing
                     </h3>
 
                     <p>
+
                         Data-informed campaigns that
                         connect brands with audiences.
+
                     </p>
 
                 </div>
@@ -1166,16 +1506,20 @@
 
     <!-- ==================================================
          WHY AUREN
-    =================================================== -->
+    ================================================== -->
 
     <section
         id="why-auren"
         class="why-section"
     >
 
-        <div class="why-header">
+        <div
+            class="why-header"
+        >
 
-            <p class="section-label">
+            <p
+                class="section-label"
+            >
                 WHY AUREN
             </p>
 
@@ -1187,49 +1531,63 @@
         </div>
 
 
-        <div class="why-grid">
+        <div
+            class="why-grid"
+        >
 
 
-            <div class="why-card">
+            <div
+                class="why-card"
+            >
 
                 <h3>
                     Purpose Driven
                 </h3>
 
                 <p>
+
                     Every project starts with intention.
                     We create work that serves a deeper purpose
                     beyond aesthetics.
+
                 </p>
 
             </div>
 
 
-            <div class="why-card">
+            <div
+                class="why-card"
+            >
 
                 <h3>
                     Quality Focused
                 </h3>
 
                 <p>
+
                     No shortcuts, no compromises.
                     We believe excellence is a habit,
                     not a destination.
+
                 </p>
 
             </div>
 
 
-            <div class="why-card">
+            <div
+                class="why-card"
+            >
 
                 <h3>
                     Long-Term Partnerships
                 </h3>
 
                 <p>
+
                     We invest in relationships that grow.
                     Our best work comes from trust built
                     over time.
+
                 </p>
 
             </div>
@@ -1242,14 +1600,15 @@
 
     <!-- ==================================================
          TRANSITION IMAGE
-    =================================================== -->
+    ================================================== -->
 
     <div
         class="transition-image-wrapper"
     >
 
         <img
-            src="images/transition-image.jpg"
+            id="transition-image"
+            src=""
             class="cropped-image"
             alt="Auren Originals creative work"
         >
@@ -1259,7 +1618,7 @@
 
     <!-- ==================================================
          CTA
-    =================================================== -->
+    ================================================== -->
 
     <section
         id="contact"
@@ -1269,10 +1628,14 @@
         <h2>
 
             Let's Create
+
             <br>
 
             What
-            <span class="highlight">
+
+            <span
+                class="highlight"
+            >
                 Matters.
             </span>
 
@@ -1298,7 +1661,7 @@
 
     <!-- ==================================================
          3D STACKING GALLERY
-    =================================================== -->
+    ================================================== -->
 
     <section
         class="gallery-section"
@@ -1314,7 +1677,8 @@
             >
 
                 <img
-                    src="images/gallery-1.jpg"
+                    id="gallery-image-1"
+                    src=""
                     alt="Auren Originals project 1"
                 >
 
@@ -1326,7 +1690,8 @@
             >
 
                 <img
-                    src="images/gallery-2.jpg"
+                    id="gallery-image-2"
+                    src=""
                     alt="Auren Originals project 2"
                 >
 
@@ -1338,7 +1703,8 @@
             >
 
                 <img
-                    src="images/gallery-3.jpg"
+                    id="gallery-image-3"
+                    src=""
                     alt="Auren Originals project 3"
                 >
 
@@ -1352,214 +1718,355 @@
 
     <!-- ==================================================
          REUSABLE FOOTER
-    =================================================== -->
+    ================================================== -->
 
-    <div id="footer-container"></div>
+    <div
+        id="footer-container"
+    ></div>
 
 
     <!-- ==================================================
          GSAP
-    =================================================== -->
+    ================================================== -->
 
     <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js">
-    </script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+    ></script>
 
     <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js">
-    </script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+    ></script>
 
 
     <script>
 
         /* ==================================================
            LOAD NAVBAR
-        =================================================== */
+        ================================================== */
 
-        fetch('components/navbar.html')
+        fetch(
+            'components/navbar.html'
+        )
 
-            .then(response => {
+            .then(
+                response => {
 
-                if (!response.ok) {
-                    throw new Error(
-                        'Navbar could not be loaded'
-                    );
-                }
+                    if (!response.ok) {
 
-                return response.text();
-
-            })
-
-            .then(data => {
-
-                document
-                    .getElementById(
-                        'navbar-container'
-                    )
-                    .innerHTML = data;
-
-
-                document
-                    .querySelectorAll(
-                        '.nav-links a'
-                    )
-                    .forEach(link => {
-
-                        link.classList.remove(
-                            'active'
+                        throw new Error(
+                            'Navbar could not be loaded'
                         );
 
-                    });
+                    }
 
-            })
+                    return response.text();
 
-            .catch(error => {
+                }
+            )
 
-                console.error(
-                    'Navbar loading error:',
-                    error
-                );
+            .then(
+                data => {
 
-            });
+                    document
+                        .getElementById(
+                            'navbar-container'
+                        )
+                        .innerHTML = data;
+
+
+                    document
+                        .querySelectorAll(
+                            '.nav-links a'
+                        )
+                        .forEach(
+                            link => {
+
+                                link.classList.remove(
+                                    'active'
+                                );
+
+                            }
+                        );
+
+                }
+            )
+
+            .catch(
+                error => {
+
+                    console.error(
+                        'Navbar loading error:',
+                        error
+                    );
+
+                }
+            );
 
 
         /* ==================================================
            LOAD FOOTER
-        =================================================== */
+        ================================================== */
 
-        fetch('components/footer.html')
+        fetch(
+            'components/footer.html'
+        )
 
-            .then(response => {
+            .then(
+                response => {
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            'Footer could not be loaded'
+                        );
+
+                    }
+
+                    return response.text();
+
+                }
+            )
+
+            .then(
+                data => {
+
+                    document
+                        .getElementById(
+                            'footer-container'
+                        )
+                        .innerHTML = data;
+
+                }
+            )
+
+            .catch(
+                error => {
+
+                    console.error(
+                        'Footer loading error:',
+                        error
+                    );
+
+                }
+            );
+
+
+        /* ==================================================
+           LOAD CLOUDINARY ROOT ASSET
+        ================================================== */
+
+        async function loadRootAsset(
+            filename,
+            elementId
+        ) {
+
+            try {
+
+                const response =
+                    await fetch(
+                        `/api/root-asset/${encodeURIComponent(filename)}`
+                    );
+
 
                 if (!response.ok) {
+
                     throw new Error(
-                        'Footer could not be loaded'
+                        `Failed to load ${filename}: HTTP ${response.status}`
                     );
+
                 }
 
-                return response.text();
 
-            })
+                const data =
+                    await response.json();
 
-            .then(data => {
 
-                document
-                    .getElementById(
-                        'footer-container'
-                    )
-                    .innerHTML = data;
+                const image =
+                    document.getElementById(
+                        elementId
+                    );
 
-            })
 
-            .catch(error => {
+                if (
+                    image &&
+                    data.secure_url
+                ) {
+
+                    image.src =
+                        data.secure_url;
+
+                }
+
+            }
+
+            catch (error) {
 
                 console.error(
-                    'Footer loading error:',
+                    `Root asset loading error (${filename}):`,
                     error
                 );
 
-            });
+            }
+
+        }
+
+
+        /* ==================================================
+           LOAD HOMEPAGE IMAGES
+        ================================================== */
+
+        loadRootAsset(
+            'hero-image.jpg',
+            'home-hero-image'
+        );
+
+
+        loadRootAsset(
+            'transition-image.jpg',
+            'transition-image'
+        );
+
+
+        loadRootAsset(
+            'gallery-1.jpg',
+            'gallery-image-1'
+        );
+
+
+        loadRootAsset(
+            'gallery-2.jpg',
+            'gallery-image-2'
+        );
+
+
+        loadRootAsset(
+            'gallery-3.jpg',
+            'gallery-image-3'
+        );
 
 
         /* ==================================================
            LOAD REUSABLE ACTION BUTTONS
-        =================================================== */
+        ================================================== */
 
-        fetch('./components/action-buttons.html')
+        fetch(
+            './components/action-buttons.html'
+        )
 
-            .then(response => {
+            .then(
+                response => {
 
-                if (!response.ok) {
+                    if (!response.ok) {
 
-                    throw new Error(
-                        `Action buttons failed: ${response.status}`
-                    );
+                        throw new Error(
+                            `Action buttons failed: ${response.status}`
+                        );
 
-                }
+                    }
 
-                return response.text();
-
-            })
-
-            .then(html => {
-
-                /* ==========================================
-                   HERO
-                   View Portfolio → Start a project
-                ========================================== */
-
-                const heroContainer =
-                    document.getElementById(
-                        'hero-action-buttons'
-                    );
-
-
-                if (heroContainer) {
-
-                    heroContainer.innerHTML =
-                        html;
+                    return response.text();
 
                 }
+            )
 
+            .then(
+                html => {
 
-                /* ==========================================
-                   CTA
-                   Start a project → View Portfolio
-                ========================================== */
+                    /* ======================================
+                       HERO
+                    ====================================== */
 
-                const ctaContainer =
-                    document.getElementById(
-                        'cta-action-buttons'
-                    );
-
-
-                if (ctaContainer) {
-
-                    ctaContainer.innerHTML =
-                        html;
-
-
-                    const portfolioButton =
-                        ctaContainer.querySelector(
-                            '[data-action="portfolio"]'
+                    const heroContainer =
+                        document.getElementById(
+                            'hero-action-buttons'
                         );
 
 
-                    const contactButton =
-                        ctaContainer.querySelector(
-                            '[data-action="contact"]'
+                    if (
+                        heroContainer
+                    ) {
+
+                        heroContainer.innerHTML =
+                            html;
+
+                    }
+
+
+                    /* ======================================
+                       CTA
+                    ====================================== */
+
+                    const ctaContainer =
+                        document.getElementById(
+                            'cta-action-buttons'
                         );
 
 
-                    ctaContainer.innerHTML = '';
+                    if (
+                        ctaContainer
+                    ) {
+
+                        ctaContainer.innerHTML =
+                            html;
 
 
-                    ctaContainer.appendChild(
-                        contactButton
-                    );
+                        const portfolioButton =
+                            ctaContainer.querySelector(
+                                '[data-action="portfolio"]'
+                            );
 
 
-                    ctaContainer.appendChild(
-                        portfolioButton
+                        const contactButton =
+                            ctaContainer.querySelector(
+                                '[data-action="contact"]'
+                            );
+
+
+                        ctaContainer.innerHTML =
+                            '';
+
+
+                        if (
+                            contactButton
+                        ) {
+
+                            ctaContainer.appendChild(
+                                contactButton
+                            );
+
+                        }
+
+
+                        if (
+                            portfolioButton
+                        ) {
+
+                            ctaContainer.appendChild(
+                                portfolioButton
+                            );
+
+                        }
+
+                    }
+
+                }
+            )
+
+            .catch(
+                error => {
+
+                    console.error(
+                        'Action buttons loading error:',
+                        error
                     );
 
                 }
-
-            })
-
-            .catch(error => {
-
-                console.error(
-                    'Action buttons loading error:',
-                    error
-                );
-
-            });
+            );
 
 
         /* ==================================================
            GSAP
-        =================================================== */
+        ================================================== */
 
         gsap.registerPlugin(
             ScrollTrigger
@@ -1568,26 +2075,16 @@
 
         /* ==================================================
            HERO INTRO
-
-           0.0s
-           Small centered image
-
-           0.5s
-           Image expands
-
-           1.0s
-           Image almost fills viewport
-
-           2.0s
-           Full viewport + content appears
-        =================================================== */
+        ================================================== */
 
         const heroTimeline =
             gsap.timeline({
 
                 defaults: {
+
                     ease:
                         "power3.out"
+
                 }
 
             });
@@ -1817,7 +2314,7 @@
 
         /* ==================================================
            HERO SCROLL MOVEMENT
-        =================================================== */
+        ================================================== */
 
         gsap.to(
 
@@ -1854,7 +2351,7 @@
 
         /* ==================================================
            ABOUT ANIMATION
-        =================================================== */
+        ================================================== */
 
         const aboutTimeline =
             gsap.timeline({
@@ -1913,7 +2410,9 @@
                         "power3.out"
 
                 },
+
                 "-=0.55"
+
             )
 
             .from(
@@ -1930,13 +2429,15 @@
                         0.7
 
                 },
+
                 "-=0.45"
+
             );
 
 
         /* ==================================================
            SERVICES ANIMATION
-        =================================================== */
+        ================================================== */
 
         const servicesTimeline =
             gsap.timeline({
@@ -1995,7 +2496,9 @@
                         "power3.out"
 
                 },
+
                 "-=0.30"
+
             )
 
             .from(
@@ -2018,13 +2521,15 @@
                         "power3.out"
 
                 },
+
                 "-=0.35"
+
             );
 
 
         /* ==================================================
            WHY AUREN ANIMATION
-        =================================================== */
+        ================================================== */
 
         const whyTimeline =
             gsap.timeline({
@@ -2083,7 +2588,9 @@
                         "power3.out"
 
                 },
+
                 "-=0.25"
+
             )
 
             .from(
@@ -2106,21 +2613,25 @@
                         "power3.out"
 
                 },
+
                 "-=0.30"
+
             );
 
 
         /* ==================================================
            TRANSITION IMAGE ANIMATION
-        =================================================== */
+        ================================================== */
 
         gsap.fromTo(
 
             ".transition-image-wrapper",
 
             {
+
                 opacity:
                     0
+
             },
 
             {
@@ -2194,7 +2705,7 @@
 
         /* ==================================================
            CTA ANIMATION
-        =================================================== */
+        ================================================== */
 
         const ctaTimeline =
             gsap.timeline({
@@ -2253,7 +2764,9 @@
                         "power3.out"
 
                 },
+
                 "-=0.55"
+
             )
 
             .from(
@@ -2276,67 +2789,71 @@
                         "power3.out"
 
                 },
+
                 "-=0.40"
+
             );
 
 
         /* ==================================================
            3D STACKING GALLERY ANIMATION
-        =================================================== */
+        ================================================== */
 
         gsap.utils
             .toArray(
                 ".gallery-panel img"
             )
-            .forEach(image => {
+            .forEach(
+                image => {
 
-                gsap.fromTo(
+                    gsap.fromTo(
 
-                    image,
+                        image,
 
-                    {
+                        {
 
-                        scale:
-                            1.08
+                            scale:
+                                1.08
 
-                    },
+                        },
 
-                    {
+                        {
 
-                        scale:
-                            1,
+                            scale:
+                                1,
 
-                        ease:
-                            "none",
+                            ease:
+                                "none",
 
-                        scrollTrigger: {
+                            scrollTrigger: {
 
-                            trigger:
-                                image.closest(
-                                    ".gallery-panel"
-                                ),
+                                trigger:
+                                    image.closest(
+                                        ".gallery-panel"
+                                    ),
 
-                            start:
-                                "top bottom",
+                                start:
+                                    "top bottom",
 
-                            end:
-                                "bottom top",
+                                end:
+                                    "bottom top",
 
-                            scrub:
-                                1.5
+                                scrub:
+                                    1.5
+
+                            }
 
                         }
 
-                    }
+                    );
 
-                );
-
-            });
+                }
+            );
 
 
         /* ==================================================
            FOOTER REVEAL
-        =================================================== */
+        ================================================== */
 
         gsap.fromTo(
 
