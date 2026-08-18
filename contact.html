@@ -17,8 +17,10 @@
          GOOGLE FONTS
     ================================================== -->
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
 
     <link
         rel="preconnect"
@@ -646,7 +648,12 @@
                 38px;
 
             color:
-                rgba(255, 255, 255, 0.7);
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.7
+                );
 
             font-size:
                 0.92rem;
@@ -1324,7 +1331,10 @@
                 180px;
 
             padding:
-                0 38px 22px 0;
+                0
+                38px
+                22px
+                0;
         }
 
 
@@ -1500,8 +1510,10 @@
                 hidden;
 
             padding:
-                0 75px
-                0 134px;
+                0
+                75px
+                0
+                134px;
 
             color:
                 #858585;
@@ -2120,7 +2132,8 @@
     >
 
         <img
-            src="images/contact-background.jpg"
+            id="contact-background-image"
+            src=""
             alt=""
             class="form-background"
         >
@@ -2179,7 +2192,6 @@
                 <form
                     id="contact-form"
                 >
-
 
                     <!-- NAME -->
 
@@ -2534,8 +2546,6 @@
                 class="reach-grid"
             >
 
-                <!-- EMAIL -->
-
                 <div
                     class="reach-item reveal"
                 >
@@ -2556,8 +2566,6 @@
 
                 </div>
 
-
-                <!-- INSTAGRAM -->
 
                 <div
                     class="reach-item reveal"
@@ -2582,8 +2590,6 @@
                 </div>
 
 
-                <!-- WHATSAPP -->
-
                 <div
                     class="reach-item reveal"
                 >
@@ -2607,8 +2613,6 @@
                 </div>
 
 
-                <!-- LOCATION -->
-
                 <div
                     class="reach-item reveal"
                 >
@@ -2629,8 +2633,6 @@
 
                 </div>
 
-
-                <!-- HOURS -->
 
                 <div
                     class="reach-item reveal"
@@ -2675,9 +2677,6 @@
                 class="faq-layout"
             >
 
-
-                <!-- LEFT -->
-
                 <div
                     class="faq-heading"
                 >
@@ -2696,14 +2695,9 @@
                 </div>
 
 
-                <!-- RIGHT -->
-
                 <div
                     class="faq-list"
                 >
-
-
-                    <!-- FAQ 01 -->
 
                     <div
                         class="faq-item reveal"
@@ -2742,8 +2736,6 @@
                     </div>
 
 
-                    <!-- FAQ 02 -->
-
                     <div
                         class="faq-item reveal"
                     >
@@ -2781,8 +2773,6 @@
                     </div>
 
 
-                    <!-- FAQ 03 -->
-
                     <div
                         class="faq-item reveal"
                     >
@@ -2818,8 +2808,6 @@
 
                     </div>
 
-
-                    <!-- FAQ 04 -->
 
                     <div
                         class="faq-item reveal"
@@ -2857,8 +2845,6 @@
                     </div>
 
 
-                    <!-- FAQ 05 -->
-
                     <div
                         class="faq-item reveal"
                     >
@@ -2894,8 +2880,6 @@
 
                     </div>
 
-
-                    <!-- FAQ 06 -->
 
                     <div
                         class="faq-item reveal"
@@ -2970,9 +2954,6 @@
                 class="process-list"
             >
 
-
-                <!-- 01 -->
-
                 <div
                     class="process-item reveal"
                 >
@@ -2988,13 +2969,11 @@
                             01
                         </span>
 
-
                         <span
                             class="process-name"
                         >
                             Review
                         </span>
-
 
                         <span
                             class="process-plus"
@@ -3018,8 +2997,6 @@
                 </div>
 
 
-                <!-- 02 -->
-
                 <div
                     class="process-item reveal"
                 >
@@ -3035,13 +3012,11 @@
                             02
                         </span>
 
-
                         <span
                             class="process-name"
                         >
                             Conversation
                         </span>
-
 
                         <span
                             class="process-plus"
@@ -3065,8 +3040,6 @@
                 </div>
 
 
-                <!-- 03 -->
-
                 <div
                     class="process-item reveal"
                 >
@@ -3082,13 +3055,11 @@
                             03
                         </span>
 
-
                         <span
                             class="process-name"
                         >
                             Understand
                         </span>
-
 
                         <span
                             class="process-plus"
@@ -3112,8 +3083,6 @@
                 </div>
 
 
-                <!-- 04 -->
-
                 <div
                     class="process-item reveal"
                 >
@@ -3129,13 +3098,11 @@
                             04
                         </span>
 
-
                         <span
                             class="process-name"
                         >
                             Proposal
                         </span>
-
 
                         <span
                             class="process-plus"
@@ -3159,8 +3126,6 @@
                 </div>
 
 
-                <!-- 05 -->
-
                 <div
                     class="process-item reveal"
                 >
@@ -3176,13 +3141,11 @@
                             05
                         </span>
 
-
                         <span
                             class="process-name"
                         >
                             Create
                         </span>
-
 
                         <span
                             class="process-plus"
@@ -3289,6 +3252,75 @@
 
     <script>
 
+        /* ==================================================
+           CLOUDINARY ROOT ASSET LOADER
+        ================================================== */
+
+        async function loadRootAsset(
+            filename,
+            elementId
+        ) {
+
+            try {
+
+                const response =
+                    await fetch(
+                        `/api/root-asset/${encodeURIComponent(filename)}`
+                    );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        `Failed to load ${filename}: HTTP ${response.status}`
+                    );
+
+                }
+
+
+                const data =
+                    await response.json();
+
+
+                const image =
+                    document.getElementById(
+                        elementId
+                    );
+
+
+                if (
+                    image &&
+                    data.secure_url
+                ) {
+
+                    image.src =
+                        data.secure_url;
+
+                }
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    `Root asset loading error (${filename}):`,
+                    error
+                );
+
+            }
+
+        }
+
+
+        /* ==================================================
+           LOAD CONTACT BACKGROUND
+        ================================================== */
+
+        loadRootAsset(
+            'contact-background.jpg',
+            'contact-background-image'
+        );
+
 
         /* ==================================================
            LOAD NAVBAR
@@ -3298,56 +3330,62 @@
             './components/navbar.html'
         )
 
-        .then(response => {
+        .then(
+            response => {
 
-            if (!response.ok) {
+                if (!response.ok) {
 
-                throw new Error(
-                    'Navbar failed'
+                    throw new Error(
+                        'Navbar failed'
+                    );
+
+                }
+
+                return response.text();
+
+            }
+        )
+
+        .then(
+            html => {
+
+                const navbar =
+                    document.getElementById(
+                        'navbar-container'
+                    );
+
+
+                navbar.innerHTML =
+                    html;
+
+
+                const contactLink =
+                    document.querySelector(
+                        '.nav-links a[data-page="contact"]'
+                    );
+
+
+                if (contactLink) {
+
+                    contactLink.classList.add(
+                        'active'
+                    );
+
+                }
+
+            }
+        )
+
+        .catch(
+            error => {
+
+                console.error(
+                    'Navbar error:',
+                    error
                 );
 
             }
-
-            return response.text();
-
-        })
-
-        .then(html => {
-
-            const navbar =
-                document.getElementById(
-                    'navbar-container'
-                );
-
-
-            navbar.innerHTML =
-                html;
-
-
-            const contactLink =
-                document.querySelector(
-                    '.nav-links a[data-page="contact"]'
-                );
-
-
-            if (contactLink) {
-
-                contactLink.classList.add(
-                    'active'
-                );
-
-            }
-
-        })
-
-        .catch(error => {
-
-            console.error(
-                'Navbar error:',
-                error
-            );
-
-        });
+        );
 
 
         /* ==================================================
@@ -3358,39 +3396,45 @@
             './components/footer.html'
         )
 
-        .then(response => {
+        .then(
+            response => {
 
-            if (!response.ok) {
+                if (!response.ok) {
 
-                throw new Error(
-                    'Footer failed'
+                    throw new Error(
+                        'Footer failed'
+                    );
+
+                }
+
+                return response.text();
+
+            }
+        )
+
+        .then(
+            html => {
+
+                document
+                    .getElementById(
+                        'footer-container'
+                    )
+                    .innerHTML =
+                    html;
+
+            }
+        )
+
+        .catch(
+            error => {
+
+                console.error(
+                    'Footer error:',
+                    error
                 );
 
             }
-
-            return response.text();
-
-        })
-
-        .then(html => {
-
-            document
-                .getElementById(
-                    'footer-container'
-                )
-                .innerHTML =
-                html;
-
-        })
-
-        .catch(error => {
-
-            console.error(
-                'Footer error:',
-                error
-            );
-
-        });
+        );
 
 
         /* ==================================================
@@ -3401,115 +3445,121 @@
             './components/scroll-to-top.html'
         )
 
-        .then(response => {
+        .then(
+            response => {
 
-            if (!response.ok) {
+                if (!response.ok) {
 
-                throw new Error(
-                    'Scroll component failed'
-                );
-
-            }
-
-            return response.text();
-
-        })
-
-        .then(html => {
-
-            const container =
-                document.getElementById(
-                    'scroll-to-top-container'
-                );
-
-
-            if (!container) {
-
-                return;
-
-            }
-
-
-            container.innerHTML =
-                html;
-
-
-            const button =
-                container.querySelector(
-                    '#scroll-to-top'
-                );
-
-
-            if (!button) {
-
-                return;
-
-            }
-
-
-            function updateScrollButton() {
-
-                if (
-                    window.scrollY > 500
-                ) {
-
-                    button.classList.add(
-                        'show'
+                    throw new Error(
+                        'Scroll component failed'
                     );
 
                 }
 
-                else {
-
-                    button.classList.remove(
-                        'show'
-                    );
-
-                }
+                return response.text();
 
             }
+        )
+
+        .then(
+            html => {
+
+                const container =
+                    document.getElementById(
+                        'scroll-to-top-container'
+                    );
 
 
-            window.addEventListener(
-                'scroll',
-                updateScrollButton,
-                {
-                    passive:
-                        true
-                }
-            );
+                if (!container) {
 
-
-            button.addEventListener(
-                'click',
-                () => {
-
-                    window.scrollTo({
-
-                        top:
-                            0,
-
-                        behavior:
-                            'smooth'
-
-                    });
+                    return;
 
                 }
-            );
 
 
-            updateScrollButton();
+                container.innerHTML =
+                    html;
 
-        })
 
-        .catch(error => {
+                const button =
+                    container.querySelector(
+                        '#scroll-to-top'
+                    );
 
-            console.error(
-                'Scroll component error:',
-                error
-            );
 
-        });
+                if (!button) {
+
+                    return;
+
+                }
+
+
+                function updateScrollButton() {
+
+                    if (
+                        window.scrollY > 500
+                    ) {
+
+                        button.classList.add(
+                            'show'
+                        );
+
+                    }
+
+                    else {
+
+                        button.classList.remove(
+                            'show'
+                        );
+
+                    }
+
+                }
+
+
+                window.addEventListener(
+                    'scroll',
+                    updateScrollButton,
+                    {
+                        passive:
+                            true
+                    }
+                );
+
+
+                button.addEventListener(
+                    'click',
+                    () => {
+
+                        window.scrollTo({
+
+                            top:
+                                0,
+
+                            behavior:
+                                'smooth'
+
+                        });
+
+                    }
+                );
+
+
+                updateScrollButton();
+
+            }
+        )
+
+        .catch(
+            error => {
+
+                console.error(
+                    'Scroll component error:',
+                    error
+                );
+
+            }
+        );
 
 
         /* ==================================================
@@ -3534,164 +3584,165 @@
             );
 
 
-        contactForm.addEventListener(
-            'submit',
-            async event => {
+        if (contactForm) {
 
-                event.preventDefault();
+            contactForm.addEventListener(
+                'submit',
+                async event => {
 
-
-                submitButton.disabled =
-                    true;
-
-
-                submitButton.textContent =
-                    'Sending...';
-
-
-                formStatus.textContent =
-                    '';
-
-
-                const formData =
-                    new FormData(
-                        contactForm
-                    );
-
-
-                const data = {
-
-                    name:
-                        formData.get(
-                            'name'
-                        ),
-
-                    email:
-                        formData.get(
-                            'email'
-                        ),
-
-                    phone:
-                        formData.get(
-                            'phone'
-                        ),
-
-                    company:
-                        formData.get(
-                            'company'
-                        ),
-
-                    projectType:
-                        formData.get(
-                            'projectType'
-                        ),
-
-                    budget:
-                        formData.get(
-                            'budget'
-                        ),
-
-                    timeline:
-                        formData.get(
-                            'timeline'
-                        ),
-
-                    message:
-                        formData.get(
-                            'message'
-                        )
-
-                };
-
-
-                try {
-
-                    const response =
-                        await fetch(
-                            '/api/contact',
-                            {
-
-                                method:
-                                    'POST',
-
-                                headers: {
-
-                                    'Content-Type':
-                                        'application/json'
-
-                                },
-
-                                body:
-                                    JSON.stringify(
-                                        data
-                                    )
-
-                            }
-                        );
-
-
-                    let result = {};
-
-                    try {
-
-                        result =
-                            await response.json();
-
-                    }
-
-                    catch {
-
-                        result = {};
-
-                    }
-
-
-                    if (
-                        !response.ok
-                    ) {
-
-                        throw new Error(
-                            result.message
-                            ||
-                            'Unable to submit form.'
-                        );
-
-                    }
-
-
-                    /*
-                     * EMAIL SENT
-                     * REDIRECT TO THANK-YOU PAGE
-                     */
-
-                    window.location.href =
-                        'thank-you.html';
-
-                }
-
-                catch (error) {
-
-                    console.error(
-                        'Contact form error:',
-                        error
-                    );
-
-
-                    formStatus.textContent =
-                        'Something went wrong. Please try again.';
+                    event.preventDefault();
 
 
                     submitButton.disabled =
-                        false;
+                        true;
 
 
                     submitButton.textContent =
-                        'Submit';
+                        'Sending...';
+
+
+                    formStatus.textContent =
+                        '';
+
+
+                    const formData =
+                        new FormData(
+                            contactForm
+                        );
+
+
+                    const data = {
+
+                        name:
+                            formData.get(
+                                'name'
+                            ),
+
+                        email:
+                            formData.get(
+                                'email'
+                            ),
+
+                        phone:
+                            formData.get(
+                                'phone'
+                            ),
+
+                        company:
+                            formData.get(
+                                'company'
+                            ),
+
+                        projectType:
+                            formData.get(
+                                'projectType'
+                            ),
+
+                        budget:
+                            formData.get(
+                                'budget'
+                            ),
+
+                        timeline:
+                            formData.get(
+                                'timeline'
+                            ),
+
+                        message:
+                            formData.get(
+                                'message'
+                            )
+
+                    };
+
+
+                    try {
+
+                        const response =
+                            await fetch(
+                                '/api/contact',
+                                {
+
+                                    method:
+                                        'POST',
+
+                                    headers: {
+
+                                        'Content-Type':
+                                            'application/json'
+
+                                    },
+
+                                    body:
+                                        JSON.stringify(
+                                            data
+                                        )
+
+                                }
+                            );
+
+
+                        let result = {};
+
+
+                        try {
+
+                            result =
+                                await response.json();
+
+                        }
+
+                        catch {
+
+                            result =
+                                {};
+
+                        }
+
+
+                        if (
+                            !response.ok
+                        ) {
+
+                            throw new Error(
+                                result.message
+                                ||
+                                'Unable to submit form.'
+                            );
+
+                        }
+
+
+                        window.location.href =
+                            'thank-you.html';
+
+                    }
+
+                    catch (error) {
+
+                        console.error(
+                            'Contact form error:',
+                            error
+                        );
+
+
+                        formStatus.textContent =
+                            'Something went wrong. Please try again.';
+
+
+                        submitButton.disabled =
+                            false;
+
+
+                        submitButton.textContent =
+                            'Submit';
+
+                    }
 
                 }
+            );
 
-            }
-        );
+        }
 
 
         /* ==================================================
@@ -3849,8 +3900,10 @@
 
                 },
                 {
+
                     threshold:
                         0.10
+
                 }
             );
 
@@ -3866,6 +3919,7 @@
         );
 
     </script>
+
 
 </body>
 

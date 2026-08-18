@@ -20,12 +20,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;500&display=swap"
         rel="stylesheet"
     >
@@ -39,13 +33,17 @@
 
         :root {
 
-            --bg-main: #000000;
+            --bg-main:
+                #000000;
 
-            --text-main: #ffffff;
+            --text-main:
+                #ffffff;
 
-            --text-muted: #888888;
+            --text-muted:
+                #888888;
 
-            --highlight: #FDAF45;
+            --highlight:
+                #FDAF45;
 
             --font-heading:
                 'Playfair Display',
@@ -54,6 +52,7 @@
             --font-body:
                 'Inter',
                 sans-serif;
+
         }
 
 
@@ -62,18 +61,29 @@
         ================================================== */
 
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+
+            margin:
+                0;
+
+            padding:
+                0;
+
+            box-sizing:
+                border-box;
+
         }
 
 
         html {
-            scroll-behavior: smooth;
+
+            scroll-behavior:
+                smooth;
+
         }
 
 
         body {
+
             font-family:
                 var(--font-body);
 
@@ -88,23 +98,28 @@
 
             overflow-x:
                 hidden;
+
         }
 
 
         h1,
         h2,
         h3 {
+
             font-family:
                 var(--font-heading);
 
             font-weight:
                 400;
+
         }
 
 
         .highlight {
+
             color:
                 var(--highlight);
+
         }
 
 
@@ -113,13 +128,21 @@
         ================================================== */
 
         #navbar-container {
-            position: relative;
-            z-index: 10000;
+
+            position:
+                relative;
+
+            z-index:
+                10000;
+
         }
 
 
         #footer-container {
-            width: 100%;
+
+            width:
+                100%;
+
         }
 
 
@@ -129,16 +152,21 @@
 
         .portfolio-header {
 
-            width: 100%;
+            width:
+                100%;
 
-            max-width: 1050px;
+            max-width:
+                1050px;
 
-            margin: 0 auto;
+            margin:
+                0 auto;
 
             padding:
                 145px 5% 45px;
 
-            text-align: center;
+            text-align:
+                center;
+
         }
 
 
@@ -164,6 +192,7 @@
 
             text-transform:
                 lowercase;
+
         }
 
 
@@ -193,6 +222,7 @@
 
             letter-spacing:
                 -0.03em;
+
         }
 
 
@@ -212,54 +242,67 @@
 
             line-height:
                 1.7;
+
         }
 
 
         /* ==================================================
            CATEGORY FILTER
-           
-           THIS SECTION IS INDEPENDENT FROM
-           THE PROJECT SECTION BELOW.
         ================================================== */
 
         .category-filter-section {
 
-            width: 100%;
+            width:
+                100%;
 
-            max-width: 1400px;
+            max-width:
+                1400px;
 
-            margin: 0 auto;
+            margin:
+                0 auto;
 
             padding:
                 20px 5% 75px;
+
         }
 
 
         .category-container {
 
-            width: 100%;
+            width:
+                100%;
 
-            display: flex;
+            display:
+                flex;
 
-            justify-content: center;
+            justify-content:
+                center;
 
-            align-items: center;
+            align-items:
+                center;
 
-            gap: 16px;
+            gap:
+                16px;
 
-            flex-wrap: nowrap;
+            flex-wrap:
+                nowrap;
+
         }
 
 
         .category-btn {
 
-            appearance: none;
+            appearance:
+                none;
 
-            display: inline-flex;
+            display:
+                inline-flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            justify-content: center;
+            justify-content:
+                center;
 
             padding:
                 14px 28px;
@@ -273,11 +316,14 @@
                     0.18
                 );
 
-            border-radius: 15px;
+            border-radius:
+                15px;
 
-            background: transparent;
+            background:
+                transparent;
 
-            color: #ffffff;
+            color:
+                #ffffff;
 
             font-family:
                 var(--font-body);
@@ -294,20 +340,31 @@
             white-space:
                 nowrap;
 
-            cursor: pointer;
+            cursor:
+                pointer;
 
             transition:
-                background-color 0.3s ease,
-                color 0.3s ease,
-                border-color 0.3s ease,
-                transform 0.3s ease;
+                background-color
+                0.3s ease,
+
+                color
+                0.3s ease,
+
+                border-color
+                0.3s ease,
+
+                transform
+                0.3s ease;
+
         }
 
 
         .category-btn:hover {
 
             transform:
-                translateY(-2px);
+                translateY(
+                    -2px
+                );
 
             border-color:
                 rgba(
@@ -316,6 +373,7 @@
                     69,
                     0.55
                 );
+
         }
 
 
@@ -329,32 +387,35 @@
 
             color:
                 #111111;
+
         }
 
 
         /* ==================================================
            PROJECT SECTION
-           
-           HIDDEN INITIALLY.
-           SHOWN ONLY AFTER CATEGORY CLICK.
         ================================================== */
 
         .portfolio-grid-section {
 
-            width: 100%;
+            width:
+                100%;
 
-            max-width: 1250px;
+            max-width:
+                1250px;
 
-            margin: 0 auto;
+            margin:
+                0 auto;
 
             padding:
                 0 5% 120px;
+
         }
 
 
         .portfolio-stack {
 
-            display: grid;
+            display:
+                grid;
 
             grid-template-columns:
                 repeat(
@@ -368,7 +429,9 @@
             gap:
                 54px 28px;
 
-            align-items: start;
+            align-items:
+                start;
+
         }
 
 
@@ -378,25 +441,37 @@
 
         .project-card {
 
-            display: block;
+            display:
+                block;
 
-            width: 100%;
+            width:
+                100%;
 
-            color: #ffffff;
+            color:
+                #ffffff;
 
-            text-decoration: none;
+            text-decoration:
+                none;
 
-            opacity: 1;
+            opacity:
+                1;
 
             transform:
-                translateY(0);
+                translateY(
+                    0
+                );
 
-            cursor: pointer;
+            cursor:
+                pointer;
+
         }
 
 
         .project-card.hidden {
-            display: none;
+
+            display:
+                none;
+
         }
 
 
@@ -406,32 +481,45 @@
 
         .project-image-wrapper {
 
-            width: 100%;
+            width:
+                100%;
 
-            height: 330px;
+            height:
+                330px;
 
-            overflow: hidden;
+            overflow:
+                hidden;
 
-            border-radius: 16px;
+            border-radius:
+                16px;
 
-            background: #111111;
+            background:
+                #111111;
+
         }
 
 
         .project-image-wrapper img {
 
-            display: block;
+            display:
+                block;
 
-            width: 100%;
+            width:
+                100%;
 
-            height: 100%;
+            height:
+                100%;
 
-            object-fit: cover;
+            object-fit:
+                cover;
 
-            object-position: center;
+            object-position:
+                center;
 
             transform:
-                scale(1);
+                scale(
+                    1
+                );
 
             transition:
                 transform
@@ -443,7 +531,9 @@
                     1
                 );
 
-            will-change: transform;
+            will-change:
+                transform;
+
         }
 
 
@@ -455,7 +545,10 @@
         .project-image-wrapper img {
 
             transform:
-                scale(1.04);
+                scale(
+                    1.04
+                );
+
         }
 
 
@@ -467,14 +560,17 @@
 
             padding:
                 18px 4px 0;
+
         }
 
 
         .project-info h3 {
 
-            margin: 0;
+            margin:
+                0;
 
-            color: #ffffff;
+            color:
+                #ffffff;
 
             font-family:
                 var(--font-heading);
@@ -489,8 +585,12 @@
                 1.2;
 
             transform:
-                translateX(0)
-                translateY(0);
+                translateX(
+                    0
+                )
+                translateY(
+                    0
+                );
 
             transition:
                 transform
@@ -501,6 +601,7 @@
                     0.3,
                     1
                 ),
+
                 color
                 0.45s
                 ease;
@@ -508,27 +609,29 @@
             will-change:
                 transform,
                 color;
+
         }
 
-
-        /* ==================================================
-           TITLE HOVER
-        ================================================== */
 
         .project-card:hover
         .project-info h3 {
 
             transform:
-                translateX(-10px)
-                translateY(-4px);
+                translateX(
+                    -10px
+                )
+                translateY(
+                    -4px
+                );
 
             color:
                 var(--highlight);
+
         }
 
 
         /* ==================================================
-           PROJECT CATEGORY TEXT
+           PROJECT CATEGORY
         ================================================== */
 
         .project-category {
@@ -550,40 +653,45 @@
 
             text-transform:
                 uppercase;
+
         }
 
-
-        /* ==================================================
-           URL / INITIAL STATE VISIBILITY
-           
-           Section itself stays in document flow,
-           but cards are hidden until selected.
-        ================================================== */
 
         .portfolio-grid-section.empty {
-            min-height: 20px;
+
+            min-height:
+                20px;
+
         }
 
 
         /* ==================================================
-           RESPONSIVE SAFETY
+           RESPONSIVE
         ================================================== */
 
         @media (max-width: 1000px) {
 
             .category-container {
-                flex-wrap: wrap;
+
+                flex-wrap:
+                    wrap;
+
             }
 
 
             .portfolio-stack {
+
                 grid-template-columns:
                     1fr;
+
             }
 
 
             .project-image-wrapper {
-                height: 330px;
+
+                height:
+                    330px;
+
             }
 
         }
@@ -600,30 +708,47 @@
          REUSABLE NAVBAR
     ================================================== -->
 
-    <div id="navbar-container"></div>
+    <div
+        id="navbar-container"
+    ></div>
 
 
     <!-- ==================================================
          PORTFOLIO HEADER
     ================================================== -->
 
-    <header class="portfolio-header">
+    <header
+        class="portfolio-header"
+    >
 
-        <p class="portfolio-label">
+        <p
+            class="portfolio-label"
+        >
             .portfolio
         </p>
 
 
-        <h1 class="portfolio-title">
+        <h1
+            class="portfolio-title"
+        >
 
             Stories We've
             <br>
-            Shaped<span class="highlight">.</span>
+
+            Shaped
+
+            <span
+                class="highlight"
+            >
+                .
+            </span>
 
         </h1>
 
 
-        <p class="portfolio-description">
+        <p
+            class="portfolio-description"
+        >
 
             Explore our work categorized across
             diverse industries and production styles.
@@ -644,7 +769,6 @@
         <div
             class="category-container"
         >
-
 
             <button
                 type="button"
@@ -699,7 +823,6 @@
                 Branding
             </button>
 
-
         </div>
 
     </section>
@@ -707,9 +830,6 @@
 
     <!-- ==================================================
          PROJECT SECTION
-         
-         HIDDEN CARDS INITIALLY.
-         WEDDING CLICK SHOWS WEDDING + PRE-WEDDING.
     ================================================== -->
 
     <section
@@ -738,7 +858,8 @@
                 >
 
                     <img
-                        src="images/wedding1-image.jpg"
+                        id="portfolio-wedding-image"
+                        src=""
                         alt="Wedding"
                     >
 
@@ -760,8 +881,6 @@
 
             <!-- ==================================================
                  PRE-WEDDING
-                 
-                 SAME CATEGORY = WEDDING
             ================================================== -->
 
             <a
@@ -775,7 +894,8 @@
                 >
 
                     <img
-                        src="images/wedding2-image.jpg"
+                        id="portfolio-pre-wedding-image"
+                        src=""
                         alt="Pre-Wedding"
                     >
 
@@ -810,7 +930,8 @@
                 >
 
                     <img
-                        src="images/fashion1-image.jpg"
+                        id="portfolio-fashion-image"
+                        src=""
                         alt="Fashion Project"
                     >
 
@@ -852,7 +973,8 @@
                 >
 
                     <img
-                        src="images/sports1-image.jpg"
+                        id="portfolio-sports-image"
+                        src=""
                         alt="Sports Project"
                     >
 
@@ -894,7 +1016,8 @@
                 >
 
                     <img
-                        src="images/corporate1-image.jpg"
+                        id="portfolio-corporate-image"
+                        src=""
                         alt="Corporate Project"
                     >
 
@@ -936,7 +1059,8 @@
                 >
 
                     <img
-                        src="images/commercial1-image.JPG"
+                        id="portfolio-commercial-image"
+                        src=""
                         alt="Commercial Project"
                     >
 
@@ -978,7 +1102,8 @@
                 >
 
                     <img
-                        src="images/branding1-image.jpg"
+                        id="portfolio-branding-image"
+                        src=""
                         alt="Branding Project"
                     >
 
@@ -1014,7 +1139,9 @@
          REUSABLE FOOTER
     ================================================== -->
 
-    <div id="footer-container"></div>
+    <div
+        id="footer-container"
+    ></div>
 
 
     <!-- ==================================================
@@ -1033,6 +1160,112 @@
     <script>
 
         /* ==================================================
+           ROOT ASSET LOADER
+        ================================================== */
+
+        async function loadRootAsset(
+            filename,
+            elementId
+        ) {
+
+            try {
+
+                const response =
+                    await fetch(
+                        `/api/root-asset/${encodeURIComponent(filename)}`
+                    );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        `Failed to load ${filename}: HTTP ${response.status}`
+                    );
+
+                }
+
+
+                const data =
+                    await response.json();
+
+
+                const image =
+                    document.getElementById(
+                        elementId
+                    );
+
+
+                if (
+                    image &&
+                    data.secure_url
+                ) {
+
+                    image.src =
+                        data.secure_url;
+
+                }
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    `Portfolio asset loading error (${filename}):`,
+                    error
+                );
+
+            }
+
+        }
+
+
+        /* ==================================================
+           LOAD PORTFOLIO IMAGES
+        ================================================== */
+
+        loadRootAsset(
+            'wedding1-image.jpg',
+            'portfolio-wedding-image'
+        );
+
+
+        loadRootAsset(
+            'wedding2-image.jpg',
+            'portfolio-pre-wedding-image'
+        );
+
+
+        loadRootAsset(
+            'fashion1-image.jpg',
+            'portfolio-fashion-image'
+        );
+
+
+        loadRootAsset(
+            'sports1-image.jpg',
+            'portfolio-sports-image'
+        );
+
+
+        loadRootAsset(
+            'corporate1-image.jpg',
+            'portfolio-corporate-image'
+        );
+
+
+        loadRootAsset(
+            'commercial1-image.JPG',
+            'portfolio-commercial-image'
+        );
+
+
+        loadRootAsset(
+            'branding1-image.jpg',
+            'portfolio-branding-image'
+        );
+
+
+        /* ==================================================
            LOAD NAVBAR
         ================================================== */
 
@@ -1040,55 +1273,61 @@
             'components/navbar.html'
         )
 
-        .then(response => {
+        .then(
+            response => {
 
-            if (!response.ok) {
+                if (!response.ok) {
 
-                throw new Error(
-                    'Navbar could not be loaded'
+                    throw new Error(
+                        'Navbar could not be loaded'
+                    );
+
+                }
+
+                return response.text();
+
+            }
+        )
+
+        .then(
+            data => {
+
+                document
+                    .getElementById(
+                        'navbar-container'
+                    )
+                    .innerHTML = data;
+
+
+                /* Portfolio = Work */
+
+                const workLink =
+                    document.querySelector(
+                        '.nav-links a[data-page="work"]'
+                    );
+
+
+                if (workLink) {
+
+                    workLink.classList.add(
+                        'active'
+                    );
+
+                }
+
+            }
+        )
+
+        .catch(
+            error => {
+
+                console.error(
+                    'Navbar loading error:',
+                    error
                 );
 
             }
-
-            return response.text();
-
-        })
-
-        .then(data => {
-
-            document
-                .getElementById(
-                    'navbar-container'
-                )
-                .innerHTML = data;
-
-
-            /* Portfolio page = Work */
-
-            const workLink =
-                document.querySelector(
-                    '.nav-links a[data-page="work"]'
-                );
-
-
-            if (workLink) {
-
-                workLink.classList.add(
-                    'active'
-                );
-
-            }
-
-        })
-
-        .catch(error => {
-
-            console.error(
-                'Navbar loading error:',
-                error
-            );
-
-        });
+        );
 
 
         /* ==================================================
@@ -1099,38 +1338,44 @@
             'components/footer.html'
         )
 
-        .then(response => {
+        .then(
+            response => {
 
-            if (!response.ok) {
+                if (!response.ok) {
 
-                throw new Error(
-                    'Footer could not be loaded'
+                    throw new Error(
+                        'Footer could not be loaded'
+                    );
+
+                }
+
+                return response.text();
+
+            }
+        )
+
+        .then(
+            data => {
+
+                document
+                    .getElementById(
+                        'footer-container'
+                    )
+                    .innerHTML = data;
+
+            }
+        )
+
+        .catch(
+            error => {
+
+                console.error(
+                    'Footer loading error:',
+                    error
                 );
 
             }
-
-            return response.text();
-
-        })
-
-        .then(data => {
-
-            document
-                .getElementById(
-                    'footer-container'
-                )
-                .innerHTML = data;
-
-        })
-
-        .catch(error => {
-
-            console.error(
-                'Footer loading error:',
-                error
-            );
-
-        });
+        );
 
 
         /* ==================================================
@@ -1172,8 +1417,10 @@
             gsap.timeline({
 
                 defaults: {
+
                     ease:
                         'power3.out'
+
                 }
 
             });
@@ -1185,11 +1432,14 @@
                 '.portfolio-label',
                 {
 
-                    y: 20,
+                    y:
+                        20,
 
-                    opacity: 0,
+                    opacity:
+                        0,
 
-                    duration: 0.6
+                    duration:
+                        0.6
 
                 }
             )
@@ -1199,11 +1449,14 @@
                 '.portfolio-title',
                 {
 
-                    y: 45,
+                    y:
+                        45,
 
-                    opacity: 0,
+                    opacity:
+                        0,
 
-                    duration: 1.0
+                    duration:
+                        1.0
 
                 },
 
@@ -1216,11 +1469,14 @@
                 '.portfolio-description',
                 {
 
-                    y: 20,
+                    y:
+                        20,
 
-                    opacity: 0,
+                    opacity:
+                        0,
 
-                    duration: 0.8
+                    duration:
+                        0.8
 
                 },
 
@@ -1233,13 +1489,17 @@
                 '.category-btn',
                 {
 
-                    y: 15,
+                    y:
+                        15,
 
-                    opacity: 0,
+                    opacity:
+                        0,
 
-                    duration: 0.6,
+                    duration:
+                        0.6,
 
-                    stagger: 0.08
+                    stagger:
+                        0.08
 
                 },
 
@@ -1250,8 +1510,6 @@
 
         /* ==================================================
            GET CATEGORY FROM URL
-           
-           No parameter = no category.
         ================================================== */
 
         function getCategoryFromURL() {
@@ -1277,10 +1535,6 @@
             category
         ) {
 
-            /* ------------------------------------------
-               BUTTON STATE
-            ------------------------------------------ */
-
             categoryButtons.forEach(
                 button => {
 
@@ -1298,10 +1552,6 @@
                 }
             );
 
-
-            /* ------------------------------------------
-               SHOW / HIDE PROJECTS
-            ------------------------------------------ */
 
             const visibleCards = [];
 
@@ -1339,12 +1589,6 @@
             );
 
 
-            /* ------------------------------------------
-               NO CATEGORY
-               
-               Keep project section empty.
-            ------------------------------------------ */
-
             if (!category) {
 
                 projectSection.classList.add(
@@ -1361,21 +1605,10 @@
             );
 
 
-            /* ------------------------------------------
-               STOP OLD ANIMATIONS
-            ------------------------------------------ */
-
             gsap.killTweensOf(
                 projectCards
             );
 
-
-            /* ------------------------------------------
-               PROJECT REVEAL
-               
-               Same animation for Wedding
-               + Pre-Wedding.
-            ------------------------------------------ */
 
             gsap.fromTo(
 
@@ -1383,21 +1616,27 @@
 
                 {
 
-                    y: 50,
+                    y:
+                        50,
 
-                    opacity: 0
+                    opacity:
+                        0
 
                 },
 
                 {
 
-                    y: 0,
+                    y:
+                        0,
 
-                    opacity: 1,
+                    opacity:
+                        1,
 
-                    duration: 1,
+                    duration:
+                        1,
 
-                    stagger: 0.3,
+                    stagger:
+                        0.3,
 
                     ease:
                         'power2.out',
@@ -1429,8 +1668,6 @@
                         const category =
                             button.dataset.category;
 
-
-                        /* Update URL */
 
                         const url =
                             new URL(
@@ -1464,18 +1701,6 @@
 
         /* ==================================================
            INITIAL STATE
-           
-           IMPORTANT:
-           
-           When page opens normally:
-             - no category
-             - no active button
-             - no project cards
-           
-           When page opens with:
-             ?category-2=wedding
-           
-           Wedding cards are shown.
         ================================================== */
 
         const initialCategory =
@@ -1503,7 +1728,9 @@
                                 'hidden'
                             )
                         ) {
+
                             return;
+
                         }
 
 
@@ -1511,7 +1738,8 @@
                             card,
                             {
 
-                                y: -3,
+                                y:
+                                    -3,
 
                                 duration:
                                     0.35,
@@ -1534,7 +1762,8 @@
                             card,
                             {
 
-                                y: 0,
+                                y:
+                                    0,
 
                                 duration:
                                     0.35,
@@ -1578,19 +1807,24 @@
 
             {
 
-                y: 30,
+                y:
+                    30,
 
-                opacity: 0
+                opacity:
+                    0
 
             },
 
             {
 
-                y: 0,
+                y:
+                    0,
 
-                opacity: 1,
+                opacity:
+                    1,
 
-                duration: 1,
+                duration:
+                    1,
 
                 ease:
                     'power3.out',
