@@ -1,57 +1,91 @@
 <style>
-/* =========================================
+
+/* =========================================================
    AUREN NAVBAR
-========================================= */
+========================================================= */
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 
-    padding: 20px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
     position: fixed;
+
     top: 0;
     left: 0;
 
     width: 100%;
 
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
+    padding: 20px 5%;
 
-    z-index: 1000;
+    background: rgba(0, 0, 0, 0.94);
+
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+
+    z-index: 10000;
+
 }
 
 
-/* LOGO */
+/* =========================================================
+   LOGO
+========================================================= */
 
 .navbar .logo {
+
     display: block;
+
+    flex-shrink: 0;
+
 }
+
 
 .navbar .logo img {
+
     display: block;
+
     width: auto;
+
     height: 60px;
+
 }
 
 
-/* NAVIGATION */
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
 
 .nav-links {
-    display: flex;
-    align-items: center;
 
-    list-style: none;
+    display: flex;
+
+    align-items: center;
 
     gap: 40px;
 
+    list-style: none;
+
     margin: 0;
     padding: 0;
+
 }
 
+
+.nav-links li {
+
+    margin: 0;
+    padding: 0;
+
+}
+
+
 .nav-links a {
-    text-decoration: none;
+
+    display: inline-block;
 
     color: #ffffff;
 
@@ -59,103 +93,503 @@
 
     font-size: 0.95rem;
 
+    text-decoration: none;
+
     transition: opacity 0.3s ease;
+
 }
+
 
 .nav-links a:hover {
+
     opacity: 0.6;
+
 }
 
 
-/* ACTIVE LINK */
+/* ACTIVE */
 
 .nav-links a.active {
+
     text-decoration: underline;
+
     text-underline-offset: 7px;
+
 }
 
 
-/* GET IN TOUCH */
+/* =========================================================
+   GET IN TOUCH
+========================================================= */
 
 .btn-get-in-touch {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
     padding: 12px 24px;
 
-    background-color: #FDAF45;
+    background: #FDAF45;
 
     border: none;
-    border-radius: 15px;
 
-    text-decoration: none;
+    border-radius: 15px;
 
     color: #ffffff;
 
     font-family: var(--font-body);
 
     font-size: 0.9rem;
+
     font-weight: 500;
 
-    transition: all 0.3s ease;
+    text-decoration: none;
+
+    transition: opacity 0.3s ease;
+
 }
 
+
 .btn-get-in-touch:hover {
+
     opacity: 0.8;
+
+}
+
+
+/* =========================================================
+   HAMBURGER
+========================================================= */
+
+.mobile-menu-toggle {
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    width: 34px;
+    height: 34px;
+
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: 7px;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+
+}
+
+
+.mobile-menu-toggle span {
+
+    display: block;
+
+    width: 14px;
+    height: 1px;
+
+    background: #ffffff;
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+
+}
+
+
+/* =========================================================
+   HAMBURGER -> X
+========================================================= */
+
+.mobile-menu-toggle.is-open span:nth-child(1) {
+
+    transform:
+        translateY(5px)
+        rotate(45deg);
+
+}
+
+
+.mobile-menu-toggle.is-open span:nth-child(2) {
+
+    opacity: 0;
+
+}
+
+
+.mobile-menu-toggle.is-open span:nth-child(3) {
+
+    transform:
+        translateY(-5px)
+        rotate(-45deg);
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-nav-menu {
+
+    display: none;
+
+    position: fixed;
+
+    top: 54px;
+    left: 0;
+
+    width: 100%;
+
+    background: rgba(0, 0, 0, 0.98);
+
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    z-index: 9999;
+
+}
+
+
+.mobile-nav-menu.is-open {
+
+    display: block;
+
+}
+
+
+/* =========================================================
+   MOBILE LINKS
+========================================================= */
+
+.mobile-nav-links {
+
+    list-style: none;
+
+    margin: 0;
+
+    padding: 8px 16px 0;
+
+}
+
+
+.mobile-nav-links li {
+
+    margin: 0;
+    padding: 0;
+
+}
+
+
+.mobile-nav-links a {
+
+    display: block;
+
+    width: 100%;
+
+    padding: 13px 4px;
+
+    color: #ffffff;
+
+    font-family: var(--font-body);
+
+    font-size: 0.82rem;
+
+    text-decoration: none;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+}
+
+
+.mobile-nav-links li:last-child a {
+
+    border-bottom: none;
+
+}
+
+
+.mobile-nav-links a:hover {
+
+    opacity: 0.65;
+
+}
+
+
+.mobile-nav-links a.active {
+
+    color: #FDAF45;
+
+}
+
+
+/* =========================================================
+   MOBILE CONTACT BUTTON
+========================================================= */
+
+.mobile-nav-contact {
+
+    display: block;
+
+    margin: 8px 16px 16px;
+
+    padding: 11px 16px;
+
+    border-radius: 9px;
+
+    background: #FDAF45;
+
+    color: #ffffff;
+
+    font-family: var(--font-body);
+
+    font-size: 0.78rem;
+
+    font-weight: 500;
+
+    text-align: center;
+
+    text-decoration: none;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .navbar {
+
+        width: 100%;
+
+        min-height: 54px;
+
+        padding: 7px 12px;
+
+        background: rgba(0, 0, 0, 0.96);
+
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+
+    }
+
+
+    .navbar .logo img {
+
+        height: 37px;
+
+    }
+
+
+    .nav-links {
+
+        display: none;
+
+    }
+
+
+    .btn-get-in-touch {
+
+        display: none;
+
+    }
+
+
+    .mobile-menu-toggle {
+
+        display: flex;
+
+    }
+
+
+    .mobile-nav-menu {
+
+        top: 54px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .navbar {
+
+        min-height: 52px;
+
+        padding: 6px 11px;
+
+    }
+
+
+    .navbar .logo img {
+
+        height: 35px;
+
+    }
+
+
+    .mobile-menu-toggle {
+
+        width: 33px;
+        height: 33px;
+
+    }
+
+
+    .mobile-nav-menu {
+
+        top: 52px;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .navbar {
+
+        min-height: 50px;
+
+        padding: 6px 10px;
+
+    }
+
+
+    .navbar .logo img {
+
+        height: 33px;
+
+    }
+
+
+    .mobile-menu-toggle {
+
+        width: 31px;
+        height: 31px;
+
+    }
+
+
+    .mobile-nav-menu {
+
+        top: 50px;
+
+    }
+
 }
 
 </style>
 
 
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
 <nav class="navbar">
 
-    <a href="index.html" class="logo">
+
+    <!-- LOGO -->
+
+    <a
+        href="index.html"
+        class="logo"
+    >
 
         <img
-    src="https://res.cloudinary.com/uye4ufpk/image/upload/v1786976571/logo.png"
-    alt="Auren Logo"
->
+            id="site-logo-navbar"
+            src="https://res.cloudinary.com/uye4ufpk/image/upload/v1786976571/logo.png"
+            alt="Auren Logo"
+        >
 
     </a>
 
 
+    <!-- =====================================================
+         DESKTOP NAVIGATION
+    ====================================================== -->
+
     <ul class="nav-links">
 
         <li>
+
             <a
                 href="portfolio.html"
                 data-page="work"
             >
                 Work
             </a>
+
         </li>
 
+
         <li>
+
             <a
                 href="service.html"
                 data-page="services"
             >
                 Services
             </a>
+
         </li>
 
+
         <li>
+
             <a
                 href="about.html"
                 data-page="about"
             >
                 About
             </a>
+
         </li>
 
+
         <li>
+
             <a
                 href="contact.html"
                 data-page="contact"
             >
                 Contact
             </a>
+
         </li>
 
     </ul>
 
+
+    <!-- =====================================================
+         DESKTOP CONTACT
+    ====================================================== -->
 
     <a
         href="contact.html"
@@ -164,23 +598,179 @@
         Get in Touch
     </a>
 
+
+    <!-- =====================================================
+         MOBILE HAMBURGER
+    ====================================================== -->
+
+    <button
+        id="mobile-menu-toggle"
+        class="mobile-menu-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+
+        onclick="
+            const menu =
+                document.getElementById('mobile-nav-menu');
+
+            const button = this;
+
+            if (menu) {
+
+                const open =
+                    menu.classList.toggle('is-open');
+
+                button.classList.toggle(
+                    'is-open',
+                    open
+                );
+
+                button.setAttribute(
+                    'aria-expanded',
+                    String(open)
+                );
+
+                button.setAttribute(
+                    'aria-label',
+                    open
+                        ? 'Close navigation menu'
+                        : 'Open navigation menu'
+                );
+
+            }
+        "
+    >
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
 </nav>
 
-<script>
-fetch('/api/site-logo')
-    .then(response => response.json())
-    .then(data => {
-        const logo =
-            document.getElementById('site-logo-navbar');
 
-        if (logo && data.secure_url) {
-            logo.src = data.secure_url;
+<!-- =========================================================
+     MOBILE MENU
+========================================================= -->
+
+<div
+    id="mobile-nav-menu"
+    class="mobile-nav-menu"
+>
+
+
+    <ul class="mobile-nav-links">
+
+
+        <li>
+
+            <a
+                href="portfolio.html"
+                data-page="work"
+            >
+                Work
+            </a>
+
+        </li>
+
+
+        <li>
+
+            <a
+                href="service.html"
+                data-page="services"
+            >
+                Services
+            </a>
+
+        </li>
+
+
+        <li>
+
+            <a
+                href="about.html"
+                data-page="about"
+            >
+                About
+            </a>
+
+        </li>
+
+
+        <li>
+
+            <a
+                href="contact.html"
+                data-page="contact"
+            >
+                Contact
+            </a>
+
+        </li>
+
+
+    </ul>
+
+
+    <!-- MOBILE CONTACT -->
+
+    <a
+        href="contact.html"
+        class="mobile-nav-contact"
+    >
+        Get in Touch
+    </a>
+
+
+</div>
+
+
+<!-- =========================================================
+     LOGO LOADER ONLY
+========================================================= -->
+
+<script>
+
+fetch('/api/site-logo')
+
+    .then(
+        response => response.json()
+    )
+
+    .then(
+        data => {
+
+            const logo =
+                document.getElementById(
+                    'site-logo-navbar'
+                );
+
+            if (
+                logo &&
+                data &&
+                data.secure_url
+            ) {
+
+                logo.src =
+                    data.secure_url;
+
+            }
+
         }
-    })
-    .catch(error => {
-        console.error(
-            'Navbar logo loading error:',
-            error
-        );
-    });
+    )
+
+    .catch(
+        error => {
+
+            console.error(
+                'Navbar logo loading error:',
+                error
+            );
+
+        }
+    );
+
 </script>

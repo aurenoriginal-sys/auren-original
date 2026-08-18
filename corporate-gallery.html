@@ -17,7 +17,16 @@
          GOOGLE FONTS
     ================================================== -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;500&display=swap"
@@ -34,11 +43,9 @@
         :root {
 
             --bg-main: #000000;
-
+            --bg-secondary: #1f1f1f;
             --text-main: #ffffff;
-
             --text-muted: #888888;
-
             --highlight: #FDAF45;
 
             --font-heading:
@@ -56,87 +63,88 @@
         ================================================== */
 
         * {
-
             margin: 0;
             padding: 0;
-
             box-sizing: border-box;
         }
 
 
         html {
-
-            scroll-behavior:
-                smooth;
+            width: 100%;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
 
         body {
+            width: 100%;
+            min-width: 320px;
+            margin: 0;
+            padding: 0;
+
+            background: #000000;
+            color: #ffffff;
 
             font-family:
                 var(--font-body);
 
-            line-height:
-                1.6;
-
-            color:
-                var(--text-main);
-
-            background:
-                var(--bg-main);
-
-            overflow-x:
-                hidden;
+            overflow-x: hidden;
         }
 
 
         h1,
         h2,
         h3 {
-
             font-family:
                 var(--font-heading);
 
-            font-weight:
-                400;
+            font-weight: 400;
+        }
+
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+
+        button {
+            font: inherit;
+        }
+
+
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
 
         .highlight {
-
-            color:
-                var(--highlight);
+            color: var(--highlight);
         }
 
 
         /* ==================================================
-           COMPONENT CONTAINERS
+           COMPONENTS
         ================================================== */
 
         #navbar-container {
-
-            position:
-                relative;
-
-            z-index:
-                10000;
+            position: relative;
+            z-index: 10000;
+            width: 100%;
+            height: 54px;
         }
 
 
         #footer-container {
-
-            width:
-                100%;
+            width: 100%;
+            overflow: hidden;
         }
 
 
         #scroll-to-top-container {
-
-            position:
-                relative;
-
-            z-index:
-                99999;
+            position: relative;
+            z-index: 99999;
         }
 
 
@@ -145,74 +153,47 @@
         ================================================== */
 
         .hero-section {
+            position: relative;
 
-            position:
-                relative;
+            width: 100%;
 
-            width:
-                100%;
+            height: 430px;
+            min-height: 430px;
 
-            height:
-                65vh;
+            overflow: hidden;
 
-            min-height:
-                400px;
+            display: flex;
 
-            display:
-                flex;
+            align-items: center;
+            justify-content: center;
 
-            flex-direction:
-                column;
+            text-align: center;
 
-            justify-content:
-                center;
-
-            align-items:
-                center;
-
-            text-align:
-                center;
-
-            padding-top:
-                80px;
-
-            margin-bottom:
-                20px;
-
-            overflow:
-                hidden;
+            background: #000000;
         }
 
 
         .hero-image {
+            position: absolute;
 
-            position:
-                absolute;
+            top: 6%;
+            left: 0;
 
-            inset:
-                0;
+            width: 100%;
+            height: 108%;
 
-            width:
-                100%;
+            object-fit: cover;
+            object-position: center;
 
-            height:
-                100%;
+            z-index: 0;
 
-            object-fit:
-                cover;
+            visibility: hidden;
 
-            object-position:
-                center;
-
-            z-index:
-                -2;
-
-            visibility:
-                hidden;
+            transform: scale(1.05);
 
             animation:
                 heroZoom
-                10s
+                8s
                 ease-out
                 forwards;
         }
@@ -221,383 +202,314 @@
         @keyframes heroZoom {
 
             from {
-
-                transform:
-                    scale(1.08);
+                transform: scale(1.07);
             }
 
             to {
-
-                transform:
-                    scale(1);
+                transform: scale(1);
             }
 
         }
 
 
+        /* ==================================================
+           HERO GRADIENT
+        ================================================== */
+
         .hero-overlay {
+            position: absolute;
+            inset: 0;
 
-            position:
-                absolute;
+            z-index: 1;
 
-            inset:
-                0;
+            pointer-events: none;
 
             background:
                 linear-gradient(
                     to bottom,
-                    rgba(
-                        0,
-                        0,
-                        0,
-                        0.40
-                    ) 0%,
 
-                    rgba(
-                        0,
-                        0,
-                        0,
-                        1
-                    ) 100%
+                    rgba(0,0,0,0) 0%,
+                    rgba(0,0,0,0) 46%,
+
+                    rgba(0,0,0,0.06) 53%,
+                    rgba(0,0,0,0.14) 61%,
+                    rgba(0,0,0,0.34) 71%,
+                    rgba(0,0,0,0.62) 82%,
+                    rgba(0,0,0,0.86) 93%,
+
+                    #000000 100%
                 );
-
-            z-index:
-                -1;
-        }
-
-
-        .hero-content {
-
-            position:
-                relative;
-
-            z-index:
-                1;
-
-            max-width:
-                900px;
-
-            padding:
-                0 5%;
-        }
-
-
-        .back-link {
-
-            display:
-                inline-block;
-
-            margin-bottom:
-                24px;
-
-            color:
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.70
-                );
-
-            font-size:
-                0.85rem;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                2px;
-
-            text-decoration:
-                none;
-
-            transition:
-                color 0.3s ease;
-        }
-
-
-        .back-link:hover {
-
-            color:
-                var(--highlight);
-        }
-
-
-        .hero-content h1 {
-
-            font-size:
-                clamp(
-                    3.5rem,
-                    5vw,
-                    5rem
-                );
-
-            line-height:
-                1.1;
-
-            margin-bottom:
-                24px;
-        }
-
-
-        .hero-content p {
-
-            max-width:
-                700px;
-
-            margin:
-                0 auto;
-
-            color:
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.80
-                );
-
-            font-size:
-                1.15rem;
         }
 
 
         /* ==================================================
-           MEDIA FILTER
+           HERO CONTENT
         ================================================== */
 
-        .media-filter-section {
+        .hero-content {
+            position: relative;
 
-            width:
-                100%;
+            z-index: 2;
 
-            padding:
-                20px 5% 60px;
+            width: 100%;
+            max-width: 1000px;
+
+            padding: 0 5%;
+
+            transform: translateY(25px);
+
+            opacity: 0;
         }
 
 
-        .media-filter {
+        /* ==================================================
+           BACK
+        ================================================== */
 
-            display:
-                flex;
+        .back-link {
+            display: inline-flex;
 
-            justify-content:
-                center;
+            align-items: center;
+            justify-content: center;
 
-            align-items:
-                center;
-
-            gap:
-                14px;
-        }
-
-
-        .media-btn {
-
-            padding:
-                12px 26px;
-
-            border:
-                1px solid
-                #444444;
-
-            border-radius:
-                15px;
-
-            background:
-                transparent;
+            margin: 0 0 16px;
 
             color:
-                #ffffff;
+                rgba(255,255,255,0.78);
 
             font-family:
                 var(--font-body);
 
-            font-size:
-                0.95rem;
+            font-size: 0.74rem;
 
-            font-weight:
-                500;
+            font-weight: 500;
 
-            cursor:
-                pointer;
+            letter-spacing: 1.3px;
+
+            text-transform: uppercase;
+
+            cursor: pointer;
 
             transition:
-                background-color 0.3s ease,
                 color 0.3s ease,
-                border-color 0.3s ease,
+                opacity 0.3s ease,
                 transform 0.3s ease;
         }
 
 
+        .back-link:hover {
+            color: var(--highlight);
+            opacity: 1;
+            transform: translateX(-3px);
+        }
+
+
+        /* ==================================================
+           TITLE
+        ================================================== */
+
+        .hero-content h1 {
+            margin: 0 0 16px;
+
+            font-size:
+                clamp(3.4rem, 5vw, 5.3rem);
+
+            line-height: 1;
+
+            letter-spacing: -0.025em;
+        }
+
+
+        .hero-content p {
+            max-width: 850px;
+
+            margin: 0 auto;
+
+            color:
+                rgba(255,255,255,0.84);
+
+            font-size: 1rem;
+
+            line-height: 1.65;
+        }
+
+
+        /* ==================================================
+           FILTER
+        ================================================== */
+
+        .media-filter-section {
+            width: 100%;
+
+            padding: 24px 5% 34px;
+
+            background: #000000;
+        }
+
+
+        .media-filter {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 7px;
+        }
+
+
+        .media-btn {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            min-width: 78px;
+            min-height: 36px;
+
+            padding: 8px 16px;
+
+            border:
+                1px solid rgba(255,255,255,0.18);
+
+            border-radius: 9px;
+
+            background: transparent;
+
+            color: #ffffff;
+
+            font-family:
+                var(--font-body);
+
+            font-size: 0.75rem;
+            font-weight: 500;
+
+            cursor: pointer;
+
+            transition:
+                background-color 0.25s ease,
+                border-color 0.25s ease,
+                color 0.25s ease;
+        }
+
+
         .media-btn:hover {
-
-            transform:
-                translateY(-2px);
-
             border-color:
-                var(--highlight);
+                rgba(253,175,69,0.65);
         }
 
 
         .media-btn.active {
+            background: var(--highlight);
 
-            background:
-                var(--highlight);
+            border-color: var(--highlight);
 
-            border-color:
-                var(--highlight);
-
-            color:
-                #1c1c1c;
+            color: #111111;
         }
 
 
         /* ==================================================
-           PINTEREST STYLE MASONRY
+           GALLERY
         ================================================== */
 
         .gallery-grid-section {
+            width: 100%;
 
-            width:
-                100%;
+            max-width: 1450px;
 
-            max-width:
-                1320px;
+            margin: 0 auto;
 
-            margin:
-                0 auto;
-
-            padding:
-                20px 5% 120px;
+            padding: 8px 5% 110px;
         }
 
 
         .gallery-grid {
+            width: 100%;
 
-            column-count:
-                3;
+            column-count: 3;
 
-            column-gap:
-                24px;
+            column-gap: 18px;
         }
 
 
         .gallery-item {
+            display: inline-block;
 
-            display:
-                inline-block;
+            width: 100%;
 
-            width:
-                100%;
+            margin: 0 0 18px;
 
-            margin:
-                0 0 24px;
+            vertical-align: top;
 
-            break-inside:
-                avoid;
+            break-inside: avoid;
 
-            page-break-inside:
-                avoid;
+            page-break-inside: avoid;
 
-            vertical-align:
-                top;
+            overflow: hidden;
 
-            overflow:
-                hidden;
+            border-radius: 11px;
 
-            border-radius:
-                14px;
-
-            background:
-                #111111;
+            background: #111111;
         }
 
 
-        /* ==================================================
-           PHOTOS
-        ================================================== */
-
         .gallery-item img {
+            display: block;
 
-            display:
-                block;
+            width: 100%;
+            height: auto;
 
-            width:
-                100%;
-
-            height:
-                auto;
+            object-fit: cover;
 
             transition:
-                transform
-                0.7s
-                cubic-bezier(
-                    0.16,
-                    1,
-                    0.3,
-                    1
-                ),
+                transform 0.7s
+                cubic-bezier(0.16,1,0.3,1),
 
-                opacity
-                0.4s ease;
+                opacity 0.35s ease;
         }
 
 
         .gallery-item:hover img {
-
-            transform:
-                scale(1.04);
-
-            opacity:
-                0.90;
+            transform: scale(1.035);
+            opacity: 0.94;
         }
 
 
         /* ==================================================
-           VIDEOS
+           VIDEO
         ================================================== */
 
         .video-item video {
+            display: block;
 
-            display:
-                block;
+            width: 100%;
+            height: auto;
 
-            width:
-                100%;
+            background: #000000;
 
-            height:
-                auto;
+            object-fit: contain;
 
-            background:
-                #000000;
-
-            object-fit:
-                contain;
-
-            cursor:
-                pointer;
-
-            transition:
-                transform
-                0.6s
-                cubic-bezier(
-                    0.16,
-                    1,
-                    0.3,
-                    1
-                ),
-
-                opacity
-                0.4s ease;
+            cursor: pointer;
         }
 
 
-        .video-item:hover video {
+        /* ==================================================
+           EMPTY
+        ================================================== */
 
-            transform:
-                scale(1.02);
+        .empty-message {
+            width: 100%;
 
-            opacity:
-                0.95;
+            padding: 80px 20px;
+
+            color: var(--text-muted);
+
+            font-size: 0.85rem;
+
+            line-height: 1.6;
+
+            text-align: center;
+
+            column-span: all;
         }
 
 
@@ -606,218 +518,462 @@
         ================================================== */
 
         .video-backdrop {
+            position: fixed;
+            inset: 0;
 
-            position:
-                fixed;
-
-            inset:
-                0;
+            z-index: 10000;
 
             background:
-                rgba(
-                    0,
-                    0,
-                    0,
-                    0.84
-                );
+                rgba(0,0,0,0.86);
 
-            z-index:
-                1000;
-
-            cursor:
-                pointer;
+            cursor: pointer;
         }
 
 
         /* ==================================================
-           ZOOMED VIDEO
+           VIDEO ZOOM
         ================================================== */
 
         .video-item.video-zoomed {
+            position: fixed;
 
-            position:
-                fixed;
+            top: 50%;
+            left: 50%;
 
-            top:
-                50%;
+            width: auto;
 
-            left:
-                50%;
-
-            width:
-                auto;
-
-            height:
-                auto;
-
-            max-width:
-                82vw;
-
-            max-height:
-                82vh;
+            max-width: 84vw;
+            max-height: 84vh;
 
             transform:
-                translate(
-                    -50%,
-                    -50%
-                ) !important;
+                translate(-50%,-50%) !important;
 
-            z-index:
-                1001;
+            z-index: 10001;
 
-            overflow:
-                visible;
+            margin: 0;
 
-            border-radius:
-                12px;
+            overflow: visible;
 
-            background:
-                #000000;
+            border-radius: 10px;
+
+            background: #000000;
 
             box-shadow:
                 0 30px 100px
-                rgba(
-                    0,
-                    0,
-                    0,
-                    0.85
-                );
+                rgba(0,0,0,0.85);
         }
 
 
         .video-item.video-zoomed video {
+            display: block;
 
-            display:
-                block;
+            width: auto;
 
-            width:
-                auto;
+            max-width: 84vw;
+            max-height: 84vh;
 
-            height:
-                auto;
+            object-fit: contain;
 
-            max-width:
-                82vw;
+            transform: none !important;
 
-            max-height:
-                82vh;
-
-            object-fit:
-                contain;
-
-            transform:
-                none !important;
-
-            opacity:
-                1;
+            opacity: 1;
         }
 
 
         /* ==================================================
-           CLOSE BUTTON
+           CLOSE
         ================================================== */
 
         .video-close-btn {
+            position: absolute;
 
-            position:
-                absolute;
+            top: -48px;
+            right: 0;
 
-            top:
-                -48px;
+            display: flex;
 
-            right:
-                0;
+            align-items: center;
+            justify-content: center;
 
-            width:
-                40px;
-
-            height:
-                40px;
+            width: 40px;
+            height: 40px;
 
             border:
                 1px solid
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.35
-                );
+                rgba(255,255,255,0.35);
 
-            border-radius:
-                50%;
+            border-radius: 50%;
 
             background:
-                rgba(
-                    0,
-                    0,
-                    0,
-                    0.75
-                );
+                rgba(0,0,0,0.75);
 
-            color:
-                #ffffff;
+            color: #ffffff;
 
-            font-family:
-                Arial,
-                sans-serif;
+            font-family: Arial, sans-serif;
 
-            font-size:
-                26px;
+            font-size: 24px;
 
-            line-height:
-                36px;
+            line-height: 1;
 
-            text-align:
-                center;
+            cursor: pointer;
 
-            cursor:
-                pointer;
-
-            z-index:
-                1002;
-
-            transition:
-                background 0.3s ease,
-                color 0.3s ease,
-                border-color 0.3s ease;
+            z-index: 10002;
         }
 
 
         .video-close-btn:hover {
-
-            background:
-                var(--highlight);
-
-            color:
-                #000000;
-
-            border-color:
-                var(--highlight);
+            background: var(--highlight);
+            color: #000000;
+            border-color: var(--highlight);
         }
 
 
         /* ==================================================
-           EMPTY MESSAGE
+           TABLET
         ================================================== */
 
-        .empty-message {
+        @media (max-width: 900px) {
 
-            width:
-                100%;
+            .gallery-grid {
+                column-count: 2;
+            }
 
-            padding:
-                80px 0;
-
-            text-align:
-                center;
-
-            color:
-                var(--text-muted);
-
-            font-size:
-                1rem;
         }
 
+
+        /* ==================================================
+           MOBILE
+        ================================================== */
+
+        @media (max-width: 767px) {
+
+            .hero-section {
+                height: 120px;
+
+                min-height: 120px;
+                max-height: 120px;
+            }
+
+
+            .hero-image {
+                top: 8%;
+
+                height: 110%;
+
+                object-position:
+                    center 60%;
+            }
+
+
+            .hero-overlay {
+                background:
+                    linear-gradient(
+                        to bottom,
+
+                        rgba(0,0,0,0) 0%,
+                        rgba(0,0,0,0) 35%,
+
+                        rgba(0,0,0,0.03) 42%,
+                        rgba(0,0,0,0.10) 50%,
+                        rgba(0,0,0,0.22) 58%,
+                        rgba(0,0,0,0.40) 66%,
+                        rgba(0,0,0,0.60) 74%,
+                        rgba(0,0,0,0.78) 84%,
+                        rgba(0,0,0,0.92) 93%,
+
+                        #000000 100%
+                    );
+            }
+
+
+            .hero-content {
+                width: 100%;
+
+                max-width: none;
+
+                padding: 0 14px;
+
+                transform:
+                    translateY(2px);
+            }
+
+
+            .back-link {
+                margin: 0 0 4px;
+
+                font-size: 0.33rem;
+
+                letter-spacing: 0.75px;
+
+                text-transform: none;
+            }
+
+
+            .hero-content h1 {
+                margin: 0 0 3px;
+
+                font-size: 1.22rem;
+
+                line-height: 1;
+            }
+
+
+            .hero-content p {
+                max-width: 235px;
+
+                font-size: 0.33rem;
+
+                line-height: 1.32;
+            }
+
+
+            .media-filter-section {
+                padding: 14px 0 20px;
+            }
+
+
+            .media-filter {
+                gap: 6px;
+            }
+
+
+            .media-btn {
+                min-width: 42px;
+
+                min-height: 18px;
+
+                height: 18px;
+
+                padding: 3px 9px;
+
+                border-radius: 6px;
+
+                font-size: 0.33rem;
+            }
+
+
+            .gallery-grid-section {
+                width: 100%;
+
+                max-width: none;
+
+                margin: 0;
+
+                padding: 0 10px 52px;
+            }
+
+
+            .gallery-grid {
+                width: 100%;
+
+                column-count: 3;
+
+                column-gap: 4px;
+            }
+
+
+            .gallery-item {
+                width: 100%;
+
+                margin: 0 0 4px;
+
+                border-radius: 4px;
+            }
+
+
+            .gallery-item img {
+                width: 100%;
+
+                height: auto;
+
+                transform: none;
+            }
+
+
+            .gallery-item:hover img {
+                transform: none;
+                opacity: 1;
+            }
+
+
+            .video-item video {
+                width: 100%;
+                height: auto;
+            }
+
+
+            .video-item.video-zoomed {
+                max-width: 88vw;
+                max-height: 72vh;
+
+                border-radius: 7px;
+            }
+
+
+            .video-item.video-zoomed video {
+                max-width: 88vw;
+                max-height: 72vh;
+            }
+
+
+            .video-close-btn {
+                top: -34px;
+
+                width: 28px;
+                height: 28px;
+
+                font-size: 19px;
+            }
+
+
+            .empty-message {
+                padding: 35px 10px;
+
+                font-size: 0.52rem;
+            }
+
+        }
+
+
+        /* ==================================================
+           SMALL PHONE
+        ================================================== */
+
+        @media (max-width: 480px) {
+
+            .hero-section {
+                height: 114px;
+
+                min-height: 114px;
+                max-height: 114px;
+            }
+
+
+            .hero-image {
+                top: 9%;
+
+                height: 111%;
+
+                object-position:
+                    center 61%;
+            }
+
+
+            .hero-content {
+                padding: 0 12px;
+            }
+
+
+            .back-link {
+                margin-bottom: 3px;
+
+                font-size: 0.31rem;
+            }
+
+
+            .hero-content h1 {
+                font-size: 1.14rem;
+            }
+
+
+            .hero-content p {
+                max-width: 220px;
+
+                font-size: 0.31rem;
+            }
+
+
+            .media-filter-section {
+                padding: 13px 0 18px;
+            }
+
+
+            .gallery-grid-section {
+                padding: 0 9px 46px;
+            }
+
+
+            .gallery-grid {
+                column-gap: 3px;
+            }
+
+
+            .gallery-item {
+                margin-bottom: 3px;
+
+                border-radius: 3px;
+            }
+
+        }
+
+
+        /* ==================================================
+           VERY SMALL PHONE
+        ================================================== */
+
+        @media (max-width: 360px) {
+
+            .hero-section {
+                height: 108px;
+
+                min-height: 108px;
+                max-height: 108px;
+            }
+
+
+            .hero-image {
+                top: 10%;
+
+                height: 112%;
+
+                object-position:
+                    center 62%;
+            }
+
+
+            .back-link {
+                font-size: 0.29rem;
+            }
+
+
+            .hero-content h1 {
+                font-size: 1.06rem;
+            }
+
+
+            .hero-content p {
+                font-size: 0.29rem;
+            }
+
+
+            .media-btn {
+                min-width: 40px;
+
+                min-height: 17px;
+
+                height: 17px;
+
+                padding: 3px 8px;
+
+                font-size: 0.31rem;
+            }
+
+
+            .gallery-grid-section {
+                padding: 0 8px 42px;
+            }
+
+
+            .gallery-grid {
+                column-gap: 3px;
+            }
+
+
+            .gallery-item {
+                margin-bottom: 3px;
+            }
+
+        }
 
     </style>
 
@@ -828,31 +984,24 @@
 
 
     <!-- ==================================================
-         REUSABLE SCROLL TO TOP
+         SCROLL TO TOP
     ================================================== -->
 
-    <div
-        id="scroll-to-top-container"
-    ></div>
+    <div id="scroll-to-top-container"></div>
 
 
     <!-- ==================================================
-         REUSABLE NAVBAR
+         NAVBAR
     ================================================== -->
 
-    <div
-        id="navbar-container"
-    ></div>
+    <div id="navbar-container"></div>
 
 
     <!-- ==================================================
          HERO
     ================================================== -->
 
-    <header
-        class="hero-section"
-    >
-
+    <header class="hero-section">
 
         <img
             src=""
@@ -862,45 +1011,32 @@
         >
 
 
-        <div
-            class="hero-overlay"
-        ></div>
+        <div class="hero-overlay"></div>
 
 
-        <div
-            class="hero-content"
-        >
-
+        <div class="hero-content">
 
             <a
                 href="portfolio.html"
                 class="back-link"
-                onclick="history.back(); return false;"
+                id="back-to-portfolio"
             >
-
                 ← Back to Portfolio
-
             </a>
 
 
-            <h1
-                id="gallery-title"
-            >
+            <h1>
 
                 Corporate
 
-                <span
-                    class="highlight"
-                >
+                <span class="highlight">
                     Production.
                 </span>
 
             </h1>
 
 
-            <p
-                id="gallery-description"
-            >
+            <p>
 
                 A curation of corporate events,
                 executive moments, brand stories,
@@ -915,17 +1051,12 @@
 
 
     <!-- ==================================================
-         PHOTOS / VIDEOS
+         FILTER
     ================================================== -->
 
-    <section
-        class="media-filter-section"
-    >
+    <section class="media-filter-section">
 
-        <div
-            class="media-filter"
-        >
-
+        <div class="media-filter">
 
             <button
                 class="media-btn active"
@@ -944,7 +1075,6 @@
                 Videos
             </button>
 
-
         </div>
 
     </section>
@@ -954,9 +1084,7 @@
          GALLERY
     ================================================== -->
 
-    <section
-        class="gallery-grid-section"
-    >
+    <section class="gallery-grid-section">
 
         <div
             class="gallery-grid"
@@ -967,259 +1095,237 @@
 
 
     <!-- ==================================================
-         REUSABLE FOOTER
+         FOOTER
     ================================================== -->
 
-    <div
-        id="footer-container"
-    ></div>
+    <div id="footer-container"></div>
 
 
     <!-- ==================================================
          GSAP
     ================================================== -->
 
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js">
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js">
-    </script>
-
-
-    <!-- ==================================================
-         JAVASCRIPT
-    ================================================== -->
 
     <script>
 
-
         /* ==================================================
-           LOAD REUSABLE SCROLL TO TOP
+           COMPONENTS
         ================================================== */
 
-        fetch(
-            './components/scroll-to-top.html'
-        )
+        fetch('./components/navbar.html', {
+            cache: 'no-store'
+        })
 
-            .then(response => {
+        .then(response => {
 
-                if (!response.ok) {
+            if (!response.ok) {
+                throw new Error(
+                    `Navbar HTTP ${response.status}`
+                );
+            }
 
-                    throw new Error(
-                        `Scroll component failed: ${response.status}`
-                    );
+            return response.text();
+
+        })
+
+        .then(html => {
+
+            const container =
+                document.getElementById(
+                    'navbar-container'
+                );
+
+            if (!container) return;
+
+            container.innerHTML = html;
+
+
+            const workLink =
+                container.querySelector(
+                    '.nav-links a[data-page="work"]'
+                );
+
+            const mobileWorkLink =
+                container.querySelector(
+                    '.mobile-nav-links a[data-page="work"]'
+                );
+
+
+            if (workLink) {
+                workLink.classList.add('active');
+            }
+
+
+            if (mobileWorkLink) {
+                mobileWorkLink.classList.add('active');
+            }
+
+        })
+
+        .catch(error => {
+
+            console.error(
+                'Navbar loading error:',
+                error
+            );
+
+        });
+
+
+        fetch('./components/footer.html', {
+            cache: 'no-store'
+        })
+
+        .then(response => response.text())
+
+        .then(html => {
+
+            const container =
+                document.getElementById(
+                    'footer-container'
+                );
+
+            if (container) {
+                container.innerHTML = html;
+            }
+
+        })
+
+        .catch(error => {
+
+            console.error(
+                'Footer loading error:',
+                error
+            );
+
+        });
+
+
+        fetch('./components/scroll-to-top.html', {
+            cache: 'no-store'
+        })
+
+        .then(response => response.text())
+
+        .then(html => {
+
+            const container =
+                document.getElementById(
+                    'scroll-to-top-container'
+                );
+
+            if (!container) return;
+
+            container.innerHTML = html;
+
+
+            const button =
+                container.querySelector(
+                    '#scroll-to-top'
+                );
+
+
+            if (!button) return;
+
+
+            function updateButton() {
+
+                if (window.scrollY > 500) {
+
+                    button.classList.add('show');
+
+                } else {
+
+                    button.classList.remove('show');
 
                 }
 
-                return response.text();
-
-            })
-
-            .then(html => {
-
-                const container =
-                    document.getElementById(
-                        'scroll-to-top-container'
-                    );
+            }
 
 
-                if (!container) {
+            window.addEventListener(
+                'scroll',
+                updateButton,
+                {
+                    passive: true
+                }
+            );
 
-                    return;
+
+            button.addEventListener(
+                'click',
+                () => {
+
+                    window.scrollTo({
+
+                        top: 0,
+
+                        behavior: 'smooth'
+
+                    });
 
                 }
+            );
 
 
-                container.innerHTML =
-                    html;
+            updateButton();
+
+        })
+
+        .catch(error => {
+
+            console.error(
+                'Scroll component error:',
+                error
+            );
+
+        });
 
 
-                const button =
-                    container.querySelector(
-                        '#scroll-to-top'
-                    );
+        /* ==================================================
+           BACK TO PORTFOLIO
+        ================================================== */
+
+        const backButton =
+            document.getElementById(
+                'back-to-portfolio'
+            );
 
 
-                if (!button) {
+        if (backButton) {
 
-                    return;
+            backButton.addEventListener(
+                'click',
+                event => {
 
-                }
+                    event.preventDefault();
 
-
-                function updateButton() {
 
                     if (
-                        window.scrollY > 500
+                        window.history.length > 1
                     ) {
 
-                        button.classList.add(
-                            'show'
-                        );
+                        window.history.back();
+
+                        return;
 
                     }
 
-                    else {
 
-                        button.classList.remove(
-                            'show'
-                        );
-
-                    }
+                    window.location.href =
+                        'portfolio.html';
 
                 }
+            );
 
-
-                window.addEventListener(
-                    'scroll',
-                    updateButton,
-                    {
-                        passive:
-                            true
-                    }
-                );
-
-
-                button.addEventListener(
-                    'click',
-                    () => {
-
-                        window.scrollTo({
-
-                            top:
-                                0,
-
-                            behavior:
-                                'smooth'
-
-                        });
-
-                    }
-                );
-
-
-                updateButton();
-
-            })
-
-            .catch(error => {
-
-                console.error(
-                    'Scroll-to-top component error:',
-                    error
-                );
-
-            });
+        }
 
 
         /* ==================================================
-           LOAD REUSABLE NAVBAR
+           CORPORATE APIs
         ================================================== */
-
-        fetch(
-            'components/navbar.html'
-        )
-
-            .then(response => {
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        'Navbar could not be loaded'
-                    );
-
-                }
-
-                return response.text();
-
-            })
-
-            .then(data => {
-
-                document
-                    .getElementById(
-                        'navbar-container'
-                    )
-                    .innerHTML = data;
-
-
-                const workLink =
-                    document.querySelector(
-                        '.nav-links a[data-page="work"]'
-                    );
-
-
-                if (workLink) {
-
-                    workLink.classList.add(
-                        'active'
-                    );
-
-                }
-
-            })
-
-            .catch(error => {
-
-                console.error(
-                    'Navbar loading error:',
-                    error
-                );
-
-            });
-
-
-        /* ==================================================
-           LOAD REUSABLE FOOTER
-        ================================================== */
-
-        fetch(
-            'components/footer.html'
-        )
-
-            .then(response => {
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        'Footer could not be loaded'
-                    );
-
-                }
-
-                return response.text();
-
-            })
-
-            .then(data => {
-
-                document
-                    .getElementById(
-                        'footer-container'
-                    )
-                    .innerHTML = data;
-
-            })
-
-            .catch(error => {
-
-                console.error(
-                    'Footer loading error:',
-                    error
-                );
-
-            });
-
-
-        /* ==================================================
-           CORPORATE CONFIGURATION
-        ================================================== */
-
-        const galleryName =
-            'Corporate';
-
 
         const photoApi =
             '/api/corporate-photos';
@@ -1232,105 +1338,6 @@
         const heroApi =
             '/api/corporate-hero';
 
-
-        /* ==================================================
-           PAGE TITLE
-        ================================================== */
-
-        document.title =
-            'Corporate | Auren Originals';
-
-
-        /* ==================================================
-           HERO IMAGE
-        ================================================== */
-
-        const heroImage =
-            document.getElementById(
-                'corporate-hero-image'
-            );
-
-
-        if (heroImage) {
-
-            heroImage.style.visibility =
-                'hidden';
-
-
-            heroImage.onload = () => {
-
-                heroImage.style.visibility =
-                    'visible';
-
-            };
-
-
-            fetch(
-                heroApi,
-                {
-                    method:
-                        'GET',
-
-                    cache:
-                        'no-store'
-                }
-            )
-
-                .then(response => {
-
-                    if (!response.ok) {
-
-                        throw new Error(
-                            `Corporate hero API returned HTTP ${response.status}`
-                        );
-
-                    }
-
-                    return response.json();
-
-                })
-
-                .then(data => {
-
-                    const heroUrl =
-                        typeof data === 'string'
-                            ? data
-                            : (
-                                data?.secure_url ||
-                                data?.url ||
-                                ''
-                            );
-
-
-                    if (!heroUrl) {
-
-                        throw new Error(
-                            'Corporate hero URL was not returned'
-                        );
-
-                    }
-
-
-                    heroImage.src =
-                        heroUrl;
-
-                })
-
-                .catch(error => {
-
-                    console.error(
-                        'Corporate hero loading error:',
-                        error
-                    );
-
-                });
-
-        }
-
-
-        /* ==================================================
-           GALLERY ELEMENTS
-        ================================================== */
 
         const galleryContainer =
             document.getElementById(
@@ -1345,66 +1352,10 @@
 
 
         /* ==================================================
-           VIDEO STATE
+           URL HELPER
         ================================================== */
 
-        let activeVideoItem =
-            null;
-
-        let activeVideo =
-            null;
-
-        let videoBackdrop =
-            null;
-
-
-        /* ==================================================
-           VIDEO MIME TYPE
-        ================================================== */
-
-        function getVideoMimeType(
-            filename
-        ) {
-
-            const extension =
-                String(filename)
-                    .split('.')
-                    .pop()
-                    .toLowerCase();
-
-
-            const mimeTypes = {
-
-                mp4:
-                    'video/mp4',
-
-                webm:
-                    'video/webm',
-
-                ogg:
-                    'video/ogg',
-
-                mov:
-                    'video/quicktime'
-
-            };
-
-
-            return (
-                mimeTypes[extension]
-                || 'video/mp4'
-            );
-
-        }
-
-
-        /* ==================================================
-           CLOUDINARY MEDIA URL
-        ================================================== */
-
-        function getMediaUrl(
-            media
-        ) {
+        function getMediaUrl(media) {
 
             if (
                 typeof media === 'string'
@@ -1435,6 +1386,139 @@
 
 
         /* ==================================================
+           HERO
+        ================================================== */
+
+        const heroImage =
+            document.getElementById(
+                'corporate-hero-image'
+            );
+
+
+        if (heroImage) {
+
+            heroImage.style.visibility =
+                'hidden';
+
+
+            fetch(
+                heroApi,
+                {
+                    cache:
+                        'no-store'
+                }
+            )
+
+            .then(response => {
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        `Corporate hero HTTP ${response.status}`
+                    );
+
+                }
+
+                return response.json();
+
+            })
+
+            .then(data => {
+
+                const url =
+                    getMediaUrl(data);
+
+
+                if (!url) {
+
+                    throw new Error(
+                        'Corporate hero URL missing'
+                    );
+
+                }
+
+
+                heroImage.onload = () => {
+
+                    heroImage.style.visibility =
+                        'visible';
+
+                };
+
+
+                heroImage.src = url;
+
+            })
+
+            .catch(error => {
+
+                console.error(
+                    'Corporate hero loading error:',
+                    error
+                );
+
+            });
+
+        }
+
+
+        /* ==================================================
+           VIDEO STATE
+        ================================================== */
+
+        let activeVideoItem =
+            null;
+
+        let activeVideo =
+            null;
+
+        let videoBackdrop =
+            null;
+
+
+        /* ==================================================
+           MIME TYPE
+        ================================================== */
+
+        function getVideoMimeType(media) {
+
+            const value =
+                String(
+                    media?.format ||
+                    media?.display_name ||
+                    media?.original_filename ||
+                    media?.public_id ||
+                    media ||
+                    ''
+                );
+
+
+            const extension =
+                value
+                    .split('.')
+                    .pop()
+                    .toLowerCase();
+
+
+            const types = {
+
+                mp4: 'video/mp4',
+                webm: 'video/webm',
+                ogg: 'video/ogg',
+                mov: 'video/quicktime'
+
+            };
+
+
+            return (
+                types[extension] ||
+                'video/mp4'
+            );
+
+        }
+
+
+        /* ==================================================
            LOAD PHOTOS
         ================================================== */
 
@@ -1443,196 +1527,117 @@
             closeZoomedVideo();
 
 
-            galleryContainer.innerHTML =
-                '';
-
-
-            console.log(
-                'Loading Corporate photos from:',
-                photoApi
-            );
+            galleryContainer.innerHTML = '';
 
 
             fetch(
                 photoApi,
                 {
-                    method:
-                        'GET',
-
-                    cache:
-                        'no-store'
+                    cache: 'no-store'
                 }
             )
 
-                .then(response => {
+            .then(response => {
 
-                    console.log(
-                        'Corporate photo API status:',
-                        response.status
+                if (!response.ok) {
+
+                    throw new Error(
+                        `Corporate photo API HTTP ${response.status}`
                     );
 
+                }
 
-                    if (!response.ok) {
+                return response.json();
 
-                        throw new Error(
-                            `Corporate photo API returned HTTP ${response.status}`
-                        );
+            })
 
-                    }
+            .then(photos => {
 
-
-                    return response.json();
-
-                })
-
-                .then(photos => {
-
-                    console.log(
-                        'Corporate photos:',
-                        photos
-                    );
-
-
-                    if (
-                        !Array.isArray(
-                            photos
-                        )
-                        ||
-                        photos.length === 0
-                    ) {
-
-                        galleryContainer.innerHTML = `
-
-                            <p
-                                class="empty-message"
-                            >
-                                No Corporate photos
-                                available yet.
-                            </p>
-
-                        `;
-
-                        return;
-
-                    }
-
-
-                    photos.forEach(
-                        photo => {
-
-                            const imageUrl =
-                                getMediaUrl(
-                                    photo
-                                );
-
-
-                            if (!imageUrl) {
-
-                                console.warn(
-                                    'Corporate photo has no URL:',
-                                    photo
-                                );
-
-                                return;
-
-                            }
-
-
-                            const itemDiv =
-                                document.createElement(
-                                    'div'
-                                );
-
-
-                            itemDiv.className =
-                                'gallery-item';
-
-
-                            const image =
-                                document.createElement(
-                                    'img'
-                                );
-
-
-                            image.src =
-                                imageUrl;
-
-
-                            image.alt =
-                                'Corporate Gallery';
-
-
-                            image.loading =
-                                'lazy';
-
-
-                            image.decoding =
-                                'async';
-
-
-                            image.addEventListener(
-                                'load',
-                                () => {
-
-                                    console.log(
-                                        'Corporate photo loaded:',
-                                        image.src
-                                    );
-
-                                }
-                            );
-
-
-                            image.addEventListener(
-                                'error',
-                                () => {
-
-                                    console.error(
-                                        'Corporate photo failed:',
-                                        image.src
-                                    );
-
-                                }
-                            );
-
-
-                            itemDiv.appendChild(
-                                image
-                            );
-
-
-                            galleryContainer.appendChild(
-                                itemDiv
-                            );
-
-                        }
-                    );
-
-
-                    runGalleryAnimation();
-
-                })
-
-                .catch(error => {
-
-                    console.error(
-                        'Corporate photo loading error:',
-                        error
-                    );
-
+                if (
+                    !Array.isArray(photos) ||
+                    photos.length === 0
+                ) {
 
                     galleryContainer.innerHTML = `
 
-                        <p
-                            class="empty-message"
-                        >
-                            Could not load
-                            Corporate photos.
+                        <p class="empty-message">
+                            No Corporate photos
+                            available yet.
                         </p>
 
                     `;
 
+                    return;
+
+                }
+
+
+                photos.forEach(photo => {
+
+                    const url =
+                        getMediaUrl(photo);
+
+
+                    if (!url) return;
+
+
+                    const item =
+                        document.createElement('div');
+
+
+                    item.className =
+                        'gallery-item';
+
+
+                    const image =
+                        document.createElement('img');
+
+
+                    image.src = url;
+
+
+                    image.alt =
+                        photo.display_name ||
+                        'Corporate Gallery';
+
+
+                    image.loading =
+                        'lazy';
+
+
+                    image.decoding =
+                        'async';
+
+
+                    item.appendChild(image);
+
+
+                    galleryContainer.appendChild(item);
+
                 });
+
+
+                runGalleryAnimation();
+
+            })
+
+            .catch(error => {
+
+                console.error(
+                    'Corporate photo loading error:',
+                    error
+                );
+
+
+                galleryContainer.innerHTML = `
+
+                    <p class="empty-message">
+                        Could not load Corporate photos.
+                    </p>
+
+                `;
+
+            });
 
         }
 
@@ -1646,244 +1651,172 @@
             closeZoomedVideo();
 
 
-            galleryContainer.innerHTML =
-                '';
-
-
-            console.log(
-                'Loading Corporate videos from:',
-                videoApi
-            );
+            galleryContainer.innerHTML = '';
 
 
             fetch(
                 videoApi,
                 {
-                    method:
-                        'GET',
-
-                    cache:
-                        'no-store'
+                    cache: 'no-store'
                 }
             )
 
-                .then(response => {
+            .then(response => {
 
-                    console.log(
-                        'Corporate video API status:',
-                        response.status
+                if (!response.ok) {
+
+                    throw new Error(
+                        `Corporate video API HTTP ${response.status}`
                     );
 
+                }
 
-                    if (!response.ok) {
+                return response.json();
 
-                        throw new Error(
-                            `Corporate video API returned HTTP ${response.status}`
+            })
+
+            .then(videos => {
+
+                if (
+                    !Array.isArray(videos) ||
+                    videos.length === 0
+                ) {
+
+                    galleryContainer.innerHTML = `
+
+                        <p class="empty-message">
+                            No Corporate videos
+                            available yet.
+                        </p>
+
+                    `;
+
+                    return;
+
+                }
+
+
+                videos.forEach(videoFile => {
+
+                    const url =
+                        getMediaUrl(videoFile);
+
+
+                    if (!url) return;
+
+
+                    const item =
+                        document.createElement('div');
+
+
+                    item.className =
+                        'gallery-item video-item';
+
+
+                    const video =
+                        document.createElement('video');
+
+
+                    video.preload =
+                        'metadata';
+
+
+                    video.playsInline =
+                        true;
+
+
+                    video.muted =
+                        true;
+
+
+                    const source =
+                        document.createElement('source');
+
+
+                    source.src =
+                        url;
+
+
+                    source.type =
+                        getVideoMimeType(
+                            videoFile
                         );
 
-                    }
+
+                    video.appendChild(source);
 
 
-                    return response.json();
-
-                })
-
-                .then(videos => {
-
-                    console.log(
-                        'Corporate videos:',
-                        videos
-                    );
+                    item.appendChild(video);
 
 
-                    if (
-                        !Array.isArray(
-                            videos
-                        )
-                        ||
-                        videos.length === 0
-                    ) {
-
-                        galleryContainer.innerHTML = `
-
-                            <p
-                                class="empty-message"
-                            >
-                                No Corporate videos
-                                available yet.
-                            </p>
-
-                        `;
-
-                        return;
-
-                    }
+                    galleryContainer.appendChild(item);
 
 
-                    videos.forEach(
-                        videoFile => {
+                    video.addEventListener(
+                        'click',
+                        event => {
 
-                            const videoUrl =
-                                getMediaUrl(
-                                    videoFile
-                                );
+                            event.stopPropagation();
 
 
-                            if (!videoUrl) {
-
-                                console.warn(
-                                    'Corporate video has no URL:',
-                                    videoFile
-                                );
-
-                                return;
-
-                            }
-
-
-                            const itemDiv =
-                                document.createElement(
-                                    'div'
-                                );
-
-
-                            itemDiv.className =
-                                'gallery-item video-item';
-
-
-                            const videoElement =
-                                document.createElement(
-                                    'video'
-                                );
-
-
-                            videoElement.preload =
-                                'metadata';
-
-
-                            videoElement.playsInline =
-                                true;
-
-
-                            videoElement.muted =
-                                true;
-
-
-                            const source =
-                                document.createElement(
-                                    'source'
-                                );
-
-
-                            source.src =
-                                videoUrl;
-
-
-                            source.type =
-                                getVideoMimeType(
-                                    videoFile?.public_id ||
-                                    videoFile?.original_filename ||
-                                    videoFile?.filename ||
-                                    videoUrl
-                                );
-
-
-                            videoElement.appendChild(
-                                source
-                            );
-
-
-                            itemDiv.appendChild(
-                                videoElement
-                            );
-
-
-                            galleryContainer.appendChild(
-                                itemDiv
-                            );
-
-
-                            videoElement.addEventListener(
-                                'click',
-                                event => {
-
-                                    event.stopPropagation();
-
-
-                                    openZoomedVideo(
-                                        itemDiv,
-                                        videoElement
-                                    );
-
-                                }
-                            );
-
-
-                            videoElement.addEventListener(
-                                'contextmenu',
-                                event => {
-
-                                    event.preventDefault();
-
-                                }
+                            openZoomedVideo(
+                                item,
+                                video
                             );
 
                         }
                     );
 
-
-                    runGalleryAnimation();
-
-                })
-
-                .catch(error => {
-
-                    console.error(
-                        'Corporate video loading error:',
-                        error
-                    );
-
-
-                    galleryContainer.innerHTML = `
-
-                        <p
-                            class="empty-message"
-                        >
-                            Could not load
-                            Corporate videos.
-                        </p>
-
-                    `;
-
                 });
+
+
+                runGalleryAnimation();
+
+            })
+
+            .catch(error => {
+
+                console.error(
+                    'Corporate video loading error:',
+                    error
+                );
+
+
+                galleryContainer.innerHTML = `
+
+                    <p class="empty-message">
+                        Could not load Corporate videos.
+                    </p>
+
+                `;
+
+            });
 
         }
 
 
         /* ==================================================
-           OPEN ZOOMED VIDEO
+           VIDEO OPEN
         ================================================== */
 
         function openZoomedVideo(
-            itemDiv,
-            videoElement
+            item,
+            video
         ) {
 
             closeZoomedVideo();
 
 
             activeVideoItem =
-                itemDiv;
+                item;
 
 
             activeVideo =
-                videoElement;
+                video;
 
 
             videoBackdrop =
-                document.createElement(
-                    'div'
-                );
+                document.createElement('div');
 
 
             videoBackdrop.className =
@@ -1899,48 +1832,43 @@
                 'hidden';
 
 
-            itemDiv.classList.add(
+            item.classList.add(
                 'video-zoomed'
             );
 
 
-            videoElement.controls =
+            video.controls =
                 true;
 
 
-            videoElement.pause();
-
-
-            const closeButton =
+            const close =
                 document.createElement(
                     'button'
                 );
 
 
-            closeButton.className =
-                'video-close-btn';
-
-
-            closeButton.type =
+            close.type =
                 'button';
 
 
-            closeButton.setAttribute(
+            close.className =
+                'video-close-btn';
+
+
+            close.textContent =
+                '×';
+
+
+            close.setAttribute(
                 'aria-label',
                 'Close video'
             );
 
 
-            closeButton.textContent =
-                '×';
+            item.appendChild(close);
 
 
-            itemDiv.appendChild(
-                closeButton
-            );
-
-
-            closeButton.addEventListener(
+            close.addEventListener(
                 'click',
                 event => {
 
@@ -1954,26 +1882,20 @@
 
             videoBackdrop.addEventListener(
                 'click',
-                () => {
-
-                    closeZoomedVideo();
-
-                }
+                closeZoomedVideo
             );
 
         }
 
 
         /* ==================================================
-           CLOSE ZOOMED VIDEO
+           VIDEO CLOSE
         ================================================== */
 
         function closeZoomedVideo() {
 
             if (!activeVideoItem) {
-
                 return;
-
             }
 
 
@@ -1992,16 +1914,14 @@
             }
 
 
-            const closeButton =
+            const close =
                 activeVideoItem.querySelector(
                     '.video-close-btn'
                 );
 
 
-            if (closeButton) {
-
-                closeButton.remove();
-
+            if (close) {
+                close.remove();
             }
 
 
@@ -2030,7 +1950,7 @@
 
 
         /* ==================================================
-           ESC KEY
+           ESCAPE
         ================================================== */
 
         document.addEventListener(
@@ -2050,14 +1970,13 @@
 
 
         /* ==================================================
-           GALLERY ANIMATION
+           ANIMATION
         ================================================== */
 
         function runGalleryAnimation() {
 
             if (
-                typeof gsap ===
-                'undefined'
+                typeof gsap === 'undefined'
             ) {
 
                 return;
@@ -2070,28 +1989,17 @@
                 '.gallery-item',
 
                 {
-
-                    y:
-                        35,
-
-                    opacity:
-                        0
-
+                    y: 20,
+                    opacity: 0
                 },
 
                 {
+                    y: 0,
+                    opacity: 1,
 
-                    y:
-                        0,
+                    duration: 0.6,
 
-                    opacity:
-                        1,
-
-                    duration:
-                        0.85,
-
-                    stagger:
-                        0.08,
+                    stagger: 0.04,
 
                     ease:
                         'power3.out'
@@ -2106,85 +2014,70 @@
            MEDIA BUTTONS
         ================================================== */
 
-        mediaButtons.forEach(
-            button => {
+        mediaButtons.forEach(button => {
 
-                button.addEventListener(
-                    'click',
-                    () => {
+            button.addEventListener(
+                'click',
+                () => {
 
-                        mediaButtons.forEach(
-                            btn => {
+                    mediaButtons.forEach(
+                        item => {
 
-                                btn.classList.remove(
-                                    'active'
-                                );
-
-                            }
-                        );
-
-
-                        button.classList.add(
-                            'active'
-                        );
-
-
-                        const selectedMedia =
-                            button.dataset.media;
-
-
-                        if (
-                            selectedMedia ===
-                            'photos'
-                        ) {
-
-                            loadPhotos();
+                            item.classList.remove(
+                                'active'
+                            );
 
                         }
+                    );
 
-                        else if (
-                            selectedMedia ===
-                            'videos'
-                        ) {
 
-                            loadVideos();
+                    button.classList.add(
+                        'active'
+                    );
 
-                        }
+
+                    if (
+                        button.dataset.media ===
+                        'photos'
+                    ) {
+
+                        loadPhotos();
 
                     }
-                );
 
-            }
-        );
+                    else {
+
+                        loadVideos();
+
+                    }
+
+                }
+            );
+
+        });
 
 
         /* ==================================================
-           HERO ANIMATION
+           HERO CONTENT
         ================================================== */
 
         if (
-            typeof gsap !==
-            'undefined'
+            typeof gsap !== 'undefined'
         ) {
 
-            gsap.from(
+            gsap.to(
                 '.hero-content',
                 {
 
-                    y:
-                        35,
+                    y: 0,
+                    opacity: 1,
 
-                    opacity:
-                        0,
+                    duration: 0.9,
 
-                    duration:
-                        1.1,
+                    delay: 0.12,
 
                     ease:
-                        'power3.out',
-
-                    delay:
-                        0.2
+                        'power3.out'
 
                 }
             );
@@ -2194,7 +2087,6 @@
 
         /* ==================================================
            INITIAL LOAD
-           PHOTOS FIRST
         ================================================== */
 
         loadPhotos();

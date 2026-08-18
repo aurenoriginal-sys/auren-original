@@ -10,7 +10,29 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Auren Originals | Creative Agency</title>
+    <title>
+        Auren Originals | Creative Agency
+    </title>
+
+    <meta
+        name="description"
+        content="Auren Originals is a creative agency specializing in photography, creative direction, branding and digital marketing for brands that want to stand out."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://aurenoriginals.in/"
+    >
+
+    <meta
+        name="theme-color"
+        content="#000000"
+    >
 
 
     <!-- ==================================================
@@ -23,14 +45,16 @@
     >
 
     <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;500&display=swap"
         rel="stylesheet"
     >
 
-
-    <!-- ==================================================
-         CSS
-    ================================================== -->
 
     <style>
 
@@ -40,15 +64,20 @@
 
         :root {
 
-            --bg-main: #000000;
+            --bg-main:
+                #000000;
 
-            --bg-secondary: #1f1f1f;
+            --bg-secondary:
+                #1f1f1f;
 
-            --text-main: #ffffff;
+            --text-main:
+                #ffffff;
 
-            --text-muted: #888888;
+            --text-muted:
+                #888888;
 
-            --highlight: #FDAF45;
+            --highlight:
+                #FDAF45;
 
             --font-heading:
                 'Playfair Display',
@@ -67,23 +96,45 @@
 
         * {
 
-            margin: 0;
-            padding: 0;
+            margin:
+                0;
 
-            box-sizing: border-box;
+            padding:
+                0;
+
+            box-sizing:
+                border-box;
 
         }
 
 
         html {
 
+            width:
+                100%;
+
             scroll-behavior:
                 smooth;
+
+            overflow-x:
+                hidden;
 
         }
 
 
         body {
+
+            width:
+                100%;
+
+            min-width:
+                320px;
+
+            margin:
+                0;
+
+            padding:
+                0;
 
             font-family:
                 var(--font-body);
@@ -95,7 +146,7 @@
                 var(--text-main);
 
             background:
-                var(--bg-main);
+                #000000;
 
             overflow-x:
                 hidden;
@@ -112,6 +163,28 @@
 
             font-weight:
                 400;
+
+        }
+
+
+        img {
+
+            display:
+                block;
+
+            max-width:
+                100%;
+
+        }
+
+
+        a {
+
+            color:
+                inherit;
+
+            text-decoration:
+                none;
 
         }
 
@@ -136,6 +209,9 @@
             z-index:
                 10000;
 
+            width:
+                100%;
+
         }
 
 
@@ -143,6 +219,27 @@
 
             width:
                 100%;
+
+            overflow:
+                hidden;
+
+        }
+
+
+        /* ==================================================
+           SITE FRAME
+        ================================================== */
+
+        .site-frame {
+
+            width:
+                100%;
+
+            margin:
+                0 auto;
+
+            background:
+                #000000;
 
         }
 
@@ -173,13 +270,6 @@
 
         }
 
-
-        /* ==================================================
-           HERO IMAGE CONTAINER
-
-           Starts small and centered.
-           GSAP expands it to full viewport.
-        ================================================== */
 
         .hero-media {
 
@@ -221,10 +311,6 @@
         }
 
 
-        /* ==================================================
-           HERO IMAGE
-        ================================================== */
-
         .hero-bg {
 
             display:
@@ -253,10 +339,6 @@
 
         }
 
-
-        /* ==================================================
-           HERO OVERLAY
-        ================================================== */
 
         .hero-overlay {
 
@@ -300,11 +382,6 @@
         }
 
 
-        /* ==================================================
-           HERO CONTENT
-           LEFT ALIGNED
-        ================================================== */
-
         .hero-content {
 
             position:
@@ -347,9 +424,6 @@
             margin:
                 0 0 28px;
 
-            font-family:
-                var(--font-heading);
-
             font-size:
                 clamp(
                     4rem,
@@ -377,9 +451,6 @@
             margin:
                 0 0 38px;
 
-            font-family:
-                var(--font-body);
-
             font-size:
                 1.15rem;
 
@@ -406,14 +477,17 @@
             display:
                 flex;
 
-            justify-content:
-                flex-start;
-
             align-items:
                 center;
 
+            justify-content:
+                flex-start;
+
             gap:
                 16px;
+
+            flex-wrap:
+                wrap;
 
         }
 
@@ -451,12 +525,6 @@
             text-decoration:
                 none;
 
-            transition:
-                transform 0.3s ease,
-                background-color 0.3s ease,
-                color 0.3s ease,
-                border-color 0.3s ease;
-
         }
 
 
@@ -480,22 +548,6 @@
         }
 
 
-        .btn-hero-outline:hover {
-
-            background:
-                #ffffff;
-
-            color:
-                #000000;
-
-            transform:
-                translateY(
-                    -2px
-                );
-
-        }
-
-
         .btn-hero-solid {
 
             background:
@@ -507,25 +559,6 @@
             border:
                 1px solid
                 var(--highlight);
-
-        }
-
-
-        .btn-hero-solid:hover {
-
-            background:
-                #ffffff;
-
-            color:
-                #000000;
-
-            border-color:
-                #ffffff;
-
-            transform:
-                translateY(
-                    -2px
-                );
 
         }
 
@@ -594,44 +627,14 @@
             display:
                 inline-block;
 
-            padding-bottom:
-                5px;
-
             color:
                 #ffffff;
 
             font-size:
                 1rem;
 
-            font-weight:
-                500;
-
             text-decoration:
                 none;
-
-            border-bottom:
-                1px solid #ffffff;
-
-            transition:
-                color 0.3s ease,
-                border-color 0.3s ease,
-                transform 0.3s ease;
-
-        }
-
-
-        .btn-text:hover {
-
-            color:
-                var(--highlight);
-
-            border-color:
-                var(--highlight);
-
-            transform:
-                translateX(
-                    4px
-                );
 
         }
 
@@ -703,9 +706,6 @@
                     4.5rem
                 );
 
-            line-height:
-                1.05;
-
         }
 
 
@@ -752,32 +752,6 @@
             border-radius:
                 14px;
 
-            transition:
-                transform 0.35s ease,
-                border-color 0.35s ease,
-                background-color 0.35s ease;
-
-        }
-
-
-        .service-card:hover {
-
-            transform:
-                translateY(
-                    -3px
-                );
-
-            background:
-                #202020;
-
-            border-color:
-                rgba(
-                    253,
-                    175,
-                    69,
-                    0.35
-                );
-
         }
 
 
@@ -795,16 +769,10 @@
             font-weight:
                 600;
 
-            line-height:
-                1.2;
-
         }
 
 
         .service-card p {
-
-            margin:
-                0;
 
             color:
                 #999999;
@@ -838,42 +806,13 @@
 
         .why-header {
 
-            width:
-                100%;
-
             margin:
                 0 0 58px;
 
         }
 
 
-        .why-header .section-label {
-
-            margin:
-                0 0 18px;
-
-            color:
-                var(--highlight);
-
-            font-size:
-                0.72rem;
-
-            font-weight:
-                500;
-
-            letter-spacing:
-                2px;
-
-            text-transform:
-                uppercase;
-
-        }
-
-
         .why-header h2 {
-
-            margin:
-                0;
 
             font-size:
                 clamp(
@@ -881,9 +820,6 @@
                     4vw,
                     4.5rem
                 );
-
-            line-height:
-                1.05;
 
         }
 
@@ -931,32 +867,6 @@
             border-radius:
                 14px;
 
-            transition:
-                transform 0.35s ease,
-                background-color 0.35s ease,
-                border-color 0.35s ease;
-
-        }
-
-
-        .why-card:hover {
-
-            transform:
-                translateY(
-                    -3px
-                );
-
-            background:
-                #202020;
-
-            border-color:
-                rgba(
-                    253,
-                    175,
-                    69,
-                    0.30
-                );
-
         }
 
 
@@ -974,19 +884,10 @@
             font-weight:
                 600;
 
-            line-height:
-                1.25;
-
         }
 
 
         .why-card p {
-
-            max-width:
-                430px;
-
-            margin:
-                0;
 
             color:
                 #999999;
@@ -1035,9 +936,6 @@
             object-position:
                 center;
 
-            will-change:
-                transform;
-
         }
 
 
@@ -1080,9 +978,6 @@
             line-height:
                 1.02;
 
-            letter-spacing:
-                -0.025em;
-
         }
 
 
@@ -1111,10 +1006,10 @@
             display:
                 flex;
 
-            justify-content:
+            align-items:
                 center;
 
-            align-items:
+            justify-content:
                 center;
 
             gap:
@@ -1124,7 +1019,7 @@
 
 
         /* ==================================================
-           3D STACKING GALLERY
+           GALLERY
         ================================================== */
 
         .gallery-section {
@@ -1137,9 +1032,6 @@
 
             padding:
                 40px 0 80px;
-
-            overflow:
-                visible;
 
         }
 
@@ -1175,40 +1067,16 @@
             overflow:
                 hidden;
 
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
             border-radius:
                 28px;
 
             background:
                 #111111;
 
-            box-shadow:
-                0 25px 70px
-                rgba(
-                    0,
-                    0,
-                    0,
-                    0.55
-                );
-
-            will-change:
-                transform;
-
         }
 
 
         .gallery-panel img {
-
-            display:
-                block;
 
             width:
                 100%;
@@ -1219,51 +1087,1377 @@
             object-fit:
                 cover;
 
-            object-position:
-                center;
+        }
 
-            transform:
-                scale(
-                    1.04
-                );
 
-            will-change:
-                transform;
+        /* ==================================================
+           TABLET
+        ================================================== */
 
-            border-radius:
-                inherit;
+        @media (max-width: 1024px) {
+
+            .hero-content {
+
+                left:
+                    6%;
+
+                width:
+                    min(
+                        88vw,
+                        760px
+                    );
+
+            }
+
+
+            .about-section {
+
+                padding:
+                    120px 7%
+                    125px;
+
+            }
+
+
+            .services-section,
+            .why-section {
+
+                padding-left:
+                    5%;
+
+                padding-right:
+                    5%;
+
+            }
+
+
+            .gallery-panel {
+
+                width:
+                    91%;
+
+            }
 
         }
 
 
-        .gallery-panel::after {
+        /* ==================================================
+           MOBILE
+        ================================================== */
 
-            content:
-                "";
+        @media (max-width: 767px) {
 
-            position:
-                absolute;
+            body {
 
-            inset:
-                0;
+                width:
+                    100%;
 
-            pointer-events:
-                none;
+                min-width:
+                    320px;
 
-            border-radius:
-                inherit;
+                background:
+                    #000000;
 
-            box-shadow:
-                inset 0 0 0 1px
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.08
-                );
+            }
 
-            z-index:
-                2;
+
+            .site-frame {
+
+                width:
+                    100%;
+
+                max-width:
+                    none;
+
+                margin:
+                    0;
+
+                background:
+                    #000000;
+
+            }
+
+
+            /* ==================================================
+               NAVBAR
+            ================================================== */
+
+            #navbar-container {
+
+                width:
+                    100%;
+
+                height:
+                    54px;
+
+            }
+
+
+            #navbar-container .navbar {
+
+                position:
+                    fixed;
+
+                top:
+                    0;
+
+                left:
+                    0;
+
+                transform:
+                    none;
+
+                width:
+                    100%;
+
+                max-width:
+                    none;
+
+                min-height:
+                    54px;
+
+                padding:
+                    7px 12px;
+
+                border-radius:
+                    0;
+
+                background:
+                    rgba(
+                        28,
+                        40,
+                        47,
+                        0.94
+                    );
+
+                backdrop-filter:
+                    blur(
+                        8px
+                    );
+
+                -webkit-backdrop-filter:
+                    blur(
+                        8px
+                    );
+
+            }
+
+
+            #navbar-container .navbar .logo img {
+
+                height:
+                    37px;
+
+            }
+
+
+            #navbar-container .mobile-menu-toggle {
+
+                width:
+                    34px;
+
+                height:
+                    34px;
+
+            }
+
+
+            /* ==================================================
+               HERO
+            ================================================== */
+
+            .hero {
+
+                width:
+                    100%;
+
+                height:
+                    150px;
+
+                min-height:
+                    150px;
+
+                max-height:
+                    150px;
+
+            }
+
+
+            .hero-media {
+
+                position:
+                    absolute !important;
+
+                top:
+                    50% !important;
+
+                left:
+                    50% !important;
+
+                width:
+                    100% !important;
+
+                height:
+                    100% !important;
+
+                transform:
+                    translate(
+                        -50%,
+                        -50%
+                    ) !important;
+
+                border-radius:
+                    0 !important;
+
+            }
+
+
+            .hero-bg {
+
+                width:
+                    100%;
+
+                height:
+                    100%;
+
+                object-fit:
+                    cover;
+
+                object-position:
+                    center 68%;
+
+                transform:
+                    scale(
+                        1
+                    ) !important;
+
+            }
+
+
+            .hero-overlay {
+
+                background:
+                    linear-gradient(
+                        to bottom,
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            0.05
+                        ) 0%,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            0.18
+                        ) 45%,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            0.82
+                        ) 100%
+                    );
+
+            }
+
+
+            .hero-content {
+
+                left:
+                    18px;
+
+                right:
+                    18px;
+
+                top:
+                    auto;
+
+                bottom:
+                    11px;
+
+                width:
+                    auto;
+
+                transform:
+                    none;
+
+                text-align:
+                    left;
+
+                opacity:
+                    1;
+
+            }
+
+
+            .hero-content h1 {
+
+                max-width:
+                    250px;
+
+                margin:
+                    0 0 5px;
+
+                font-size:
+                    1.45rem;
+
+                line-height:
+                    0.94;
+
+            }
+
+
+            .hero-content p {
+
+                max-width:
+                    250px;
+
+                margin:
+                    0 0 8px;
+
+                font-size:
+                    0.48rem;
+
+                line-height:
+                    1.38;
+
+            }
+
+
+            /* ==================================================
+               HERO BUTTONS
+            ================================================== */
+
+            .hero-buttons {
+
+                position:
+                    static !important;
+
+                display:
+                    grid !important;
+
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(
+                            0,
+                            1fr
+                        )
+                    ) !important;
+
+                width:
+                    180px !important;
+
+                gap:
+                    5px !important;
+
+                margin:
+                    0 !important;
+
+                padding:
+                    0 !important;
+
+            }
+
+
+            .hero-buttons a,
+            .hero-buttons .btn,
+            .hero-buttons button {
+
+                display:
+                    flex !important;
+
+                align-items:
+                    center !important;
+
+                justify-content:
+                    center !important;
+
+                width:
+                    100% !important;
+
+                min-width:
+                    0 !important;
+
+                min-height:
+                    25px !important;
+
+                height:
+                    25px !important;
+
+                padding:
+                    4px 6px !important;
+
+                border-radius:
+                    7px !important;
+
+                font-size:
+                    0.43rem !important;
+
+                line-height:
+                    1 !important;
+
+            }
+
+
+            /* ==================================================
+               ABOUT
+            ================================================== */
+
+            .about-section {
+
+                width:
+                    100%;
+
+                max-width:
+                    none;
+
+                padding:
+                    42px 18px 46px;
+
+            }
+
+
+            .about-section h2 {
+
+                max-width:
+                    290px;
+
+                margin:
+                    0 0 13px;
+
+                font-size:
+                    1.55rem;
+
+                line-height:
+                    1;
+
+            }
+
+
+            .about-section p {
+
+                max-width:
+                    100%;
+
+                margin:
+                    0 0 13px;
+
+                font-size:
+                    0.50rem;
+
+                line-height:
+                    1.62;
+
+            }
+
+
+            .btn-text {
+
+                font-size:
+                    0.47rem;
+
+            }
+
+
+            /* ==================================================
+               SERVICES
+            ================================================== */
+
+            .services-section {
+
+                width:
+                    100%;
+
+                padding:
+                    38px 14px 40px;
+
+                background:
+                    #1f1f1f;
+
+            }
+
+
+            .section-label {
+
+                margin:
+                    0 0 6px;
+
+                font-size:
+                    0.43rem;
+
+                letter-spacing:
+                    1.1px;
+
+            }
+
+
+            .services-section h2 {
+
+                margin:
+                    0 0 13px;
+
+                font-size:
+                    1.45rem;
+
+                line-height:
+                    1;
+
+            }
+
+
+            .services-grid {
+
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(
+                            0,
+                            1fr
+                        )
+                    );
+
+                gap:
+                    6px;
+
+            }
+
+
+            .service-card {
+
+                min-height:
+                    64px;
+
+                padding:
+                    8px 9px;
+
+                background:
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        0.02
+                    );
+
+                border:
+                    1px solid
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        0.06
+                    );
+
+                border-radius:
+                    6px;
+
+            }
+
+
+            .service-card h3 {
+
+                margin:
+                    0 0 4px;
+
+                font-size:
+                    0.48rem;
+
+                line-height:
+                    1.1;
+
+            }
+
+
+            .service-card p {
+
+                font-size:
+                    0.31rem;
+
+                line-height:
+                    1.35;
+
+            }
+
+
+            /* ==================================================
+               WHY AUREN
+            ================================================== */
+
+            .why-section {
+
+                width:
+                    100%;
+
+                padding:
+                    38px 12px 42px;
+
+            }
+
+
+            .why-header {
+
+                margin:
+                    0 0 13px;
+
+            }
+
+
+            .why-header .section-label {
+
+                margin:
+                    0 0 5px;
+
+            }
+
+
+            .why-header h2 {
+
+                font-size:
+                    1.45rem;
+
+                line-height:
+                    1;
+
+            }
+
+
+            .why-grid {
+
+                grid-template-columns:
+                    repeat(
+                        3,
+                        minmax(
+                            0,
+                            1fr
+                        )
+                    );
+
+                gap:
+                    5px;
+
+            }
+
+
+            .why-card {
+
+                min-height:
+                    66px;
+
+                padding:
+                    7px 7px;
+
+                background:
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        0.02
+                    );
+
+                border:
+                    1px solid
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        0.06
+                    );
+
+                border-radius:
+                    6px;
+
+            }
+
+
+            .why-card h3 {
+
+                margin:
+                    0 0 4px;
+
+                font-size:
+                    0.42rem;
+
+                line-height:
+                    1.08;
+
+            }
+
+
+            .why-card p {
+
+                font-size:
+                    0.30rem;
+
+                line-height:
+                    1.35;
+
+            }
+
+
+            /* ==================================================
+               TRANSITION PHOTO
+               NATURAL PHOTO PROPORTION
+            ================================================== */
+
+            .transition-image-wrapper {
+
+                width:
+                    100%;
+
+                height:
+                    auto;
+
+                margin:
+                    0;
+
+                overflow:
+                    hidden;
+
+            }
+
+
+            .cropped-image {
+
+                display:
+                    block;
+
+                width:
+                    100%;
+
+                height:
+                    auto;
+
+                aspect-ratio:
+                    2.15 / 1;
+
+                object-fit:
+                    cover;
+
+                object-position:
+                    center;
+
+                transform:
+                    none;
+
+            }
+
+
+            /* ==================================================
+               CTA
+            ================================================== */
+
+            .cta-section {
+
+                width:
+                    100%;
+
+                max-width:
+                    none;
+
+                padding:
+                    38px 14px 42px;
+
+                text-align:
+                    center;
+
+            }
+
+
+            .cta-section h2 {
+
+                margin:
+                    0 0 9px;
+
+                font-size:
+                    1.55rem;
+
+                line-height:
+                    0.96;
+
+            }
+
+
+            .cta-section p {
+
+                max-width:
+                    250px;
+
+                margin:
+                    0 auto 12px;
+
+                font-size:
+                    0.43rem;
+
+                line-height:
+                    1.45;
+
+            }
+
+
+            .cta-buttons {
+
+                display:
+                    grid;
+
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(
+                            0,
+                            1fr
+                        )
+                    );
+
+                width:
+                    180px;
+
+                margin:
+                    0 auto;
+
+                gap:
+                    5px;
+
+            }
+
+
+            .cta-buttons a {
+
+                min-height:
+                    24px;
+
+                height:
+                    24px;
+
+                padding:
+                    4px 6px;
+
+                border-radius:
+                    6px;
+
+                font-size:
+                    0.40rem;
+
+            }
+
+
+            /* ==================================================
+               GALLERY PHOTOS
+               NATURAL IMAGE SIZE
+            ================================================== */
+
+            .gallery-section {
+
+                width:
+                    100%;
+
+                padding:
+                    16px 0 30px;
+
+            }
+
+
+            .gallery-stack {
+
+                display:
+                    flex;
+
+                flex-direction:
+                    column;
+
+                gap:
+                    4px;
+
+                width:
+                    100%;
+
+            }
+
+
+            .gallery-panel {
+
+                position:
+                    static;
+
+                width:
+                    100%;
+
+                height:
+                    auto;
+
+                min-height:
+                    0;
+
+                max-height:
+                    none;
+
+                margin:
+                    0;
+
+                border-radius:
+                    0;
+
+                overflow:
+                    hidden;
+
+                background:
+                    #111111;
+
+            }
+
+
+            .gallery-panel img {
+
+                display:
+                    block;
+
+                width:
+                    100%;
+
+                height:
+                    auto;
+
+                aspect-ratio:
+                    2.15 / 1;
+
+                object-fit:
+                    cover;
+
+                object-position:
+                    center;
+
+                transform:
+                    none;
+
+            }
+
+        }
+
+
+        /* ==================================================
+           SMALL PHONES
+        ================================================== */
+
+        @media (max-width: 480px) {
+
+            .hero {
+
+                height:
+                    145px;
+
+                min-height:
+                    145px;
+
+                max-height:
+                    145px;
+
+            }
+
+
+            .hero-content {
+
+                left:
+                    15px;
+
+                right:
+                    15px;
+
+                bottom:
+                    10px;
+
+            }
+
+
+            .hero-content h1 {
+
+                font-size:
+                    1.32rem;
+
+            }
+
+
+            .hero-content p {
+
+                max-width:
+                    230px;
+
+                font-size:
+                    0.44rem;
+
+            }
+
+
+            .hero-buttons {
+
+                width:
+                    165px !important;
+
+            }
+
+
+            .hero-buttons a,
+            .hero-buttons .btn,
+            .hero-buttons button {
+
+                min-height:
+                    23px !important;
+
+                height:
+                    23px !important;
+
+                font-size:
+                    0.40rem !important;
+
+            }
+
+
+            .about-section {
+
+                padding:
+                    38px 16px 42px;
+
+            }
+
+
+            .about-section h2,
+            .services-section h2,
+            .why-header h2 {
+
+                font-size:
+                    1.38rem;
+
+            }
+
+
+            .services-section {
+
+                padding:
+                    34px 12px 37px;
+
+            }
+
+
+            .service-card {
+
+                min-height:
+                    61px;
+
+                padding:
+                    7px 8px;
+
+            }
+
+
+            .service-card h3 {
+
+                font-size:
+                    0.46rem;
+
+            }
+
+
+            .service-card p {
+
+                font-size:
+                    0.30rem;
+
+            }
+
+
+            .why-section {
+
+                padding:
+                    34px 11px 39px;
+
+            }
+
+
+            .why-card {
+
+                min-height:
+                    63px;
+
+                padding:
+                    7px 6px;
+
+            }
+
+
+            .why-card h3 {
+
+                font-size:
+                    0.40rem;
+
+            }
+
+
+            .why-card p {
+
+                font-size:
+                    0.29rem;
+
+            }
+
+
+            .transition-image-wrapper {
+
+                height:
+                    auto;
+
+            }
+
+
+            .cropped-image {
+
+                aspect-ratio:
+                    2.15 / 1;
+
+            }
+
+
+            .cta-section {
+
+                padding:
+                    34px 12px 38px;
+
+            }
+
+
+            .cta-section h2 {
+
+                font-size:
+                    1.45rem;
+
+            }
+
+
+            .gallery-section {
+
+                padding:
+                    14px 0 28px;
+
+            }
+
+
+            .gallery-stack {
+
+                gap:
+                    3px;
+
+            }
+
+
+            .gallery-panel img {
+
+                aspect-ratio:
+                    2.15 / 1;
+
+            }
+
+        }
+
+
+        /* ==================================================
+           VERY SMALL PHONES
+        ================================================== */
+
+        @media (max-width: 360px) {
+
+            .hero {
+
+                height:
+                    138px;
+
+                min-height:
+                    138px;
+
+                max-height:
+                    138px;
+
+            }
+
+
+            .hero-content h1 {
+
+                font-size:
+                    1.24rem;
+
+            }
+
+
+            .hero-content p {
+
+                font-size:
+                    0.41rem;
+
+            }
+
+
+            .hero-buttons {
+
+                width:
+                    155px !important;
+
+            }
+
+
+            .hero-buttons a,
+            .hero-buttons .btn,
+            .hero-buttons button {
+
+                min-height:
+                    22px !important;
+
+                height:
+                    22px !important;
+
+                font-size:
+                    0.38rem !important;
+
+            }
+
+
+            .about-section {
+
+                padding:
+                    32px 13px 36px;
+
+            }
+
+
+            .about-section h2,
+            .services-section h2,
+            .why-header h2 {
+
+                font-size:
+                    1.30rem;
+
+            }
+
+
+            .services-section {
+
+                padding:
+                    30px 10px 34px;
+
+            }
+
+
+            .service-card {
+
+                min-height:
+                    58px;
+
+                padding:
+                    7px;
+
+            }
+
+
+            .why-section {
+
+                padding:
+                    30px 9px 35px;
+
+            }
+
+
+            .why-card {
+
+                min-height:
+                    59px;
+
+                padding:
+                    6px;
+
+            }
+
+
+            .transition-image-wrapper {
+
+                height:
+                    auto;
+
+            }
+
+
+            .cropped-image {
+
+                aspect-ratio:
+                    2.15 / 1;
+
+            }
+
+
+            .cta-section {
+
+                padding:
+                    30px 10px 34px;
+
+            }
+
+
+            .cta-section h2 {
+
+                font-size:
+                    1.37rem;
+
+            }
+
+
+            .gallery-section {
+
+                padding:
+                    12px 0 26px;
+
+            }
+
+
+            .gallery-panel img {
+
+                aspect-ratio:
+                    2.15 / 1;
+
+            }
+
+        }
+
+
+        /* ==================================================
+           REDUCED MOTION
+        ================================================== */
+
+        @media (
+            prefers-reduced-motion: reduce
+        ) {
+
+            html {
+
+                scroll-behavior:
+                    auto;
+
+            }
+
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    0.01ms !important;
+
+                scroll-behavior:
+                    auto !important;
+
+            }
 
         }
 
@@ -1276,7 +2470,7 @@
 
 
     <!-- ==================================================
-         REUSABLE NAVBAR
+         NAVBAR
     ================================================== -->
 
     <div
@@ -1285,39 +2479,346 @@
 
 
     <!-- ==================================================
-         HERO
+         SITE FRAME
     ================================================== -->
 
-    <header
-        class="hero"
+    <div
+        class="site-frame"
     >
 
+
+        <!-- ==================================================
+             HERO
+        ================================================== -->
+
+        <header
+            class="hero"
+        >
+
+            <div
+                class="hero-media"
+            >
+
+                <img
+                    class="hero-bg"
+                    id="home-hero-image"
+                    src=""
+                    alt="Auren Originals creative work"
+                    fetchpriority="high"
+                >
+
+            </div>
+
+
+            <div
+                class="hero-overlay"
+            ></div>
+
+
+            <div
+                class="hero-content"
+            >
+
+                <h1>
+
+                    Creating What
+
+                    <span
+                        class="highlight"
+                    >
+                        Matters.
+                    </span>
+
+                </h1>
+
+
+                <p>
+
+                    Photography, Creative Direction,
+                    Branding and Digital Marketing
+                    for brands that want to stand out.
+
+                </p>
+
+
+                <div
+                    id="hero-action-buttons"
+                    class="hero-buttons"
+                ></div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ==================================================
+             ABOUT
+        ================================================== -->
+
+        <section
+            id="about"
+            class="about-section"
+        >
+
+            <h2>
+
+                More Than A Creative Agency
+
+                <span
+                    class="highlight"
+                >
+                    .
+                </span>
+
+            </h2>
+
+
+            <p>
+
+                We are Auren Originals —
+                a creative studio built on the belief
+                that meaningful work creates lasting impact.
+                We partner with brands that refuse to settle,
+                crafting visual stories that resonate,
+                inspire, and endure.
+
+            </p>
+
+
+            <div>
+
+                <a
+                    href="#contact"
+                    class="btn-text"
+                >
+                    Learn More →
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             SERVICES
+        ================================================== -->
+
+        <section
+            id="services"
+            class="services-section"
+        >
+
+            <div
+                class="services-inner"
+            >
+
+                <p
+                    class="section-label"
+                >
+                    SERVICES
+                </p>
+
+
+                <h2>
+                    What We Create.
+                </h2>
+
+
+                <div
+                    class="services-grid"
+                >
+
+                    <div
+                        class="service-card"
+                    >
+
+                        <h3>
+                            Photography
+                        </h3>
+
+                        <p>
+                            Cinematic imagery that captures
+                            the essence of your brand.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="service-card"
+                    >
+
+                        <h3>
+                            Creative Direction
+                        </h3>
+
+                        <p>
+                            Strategic vision that shapes
+                            every creative decision.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="service-card"
+                    >
+
+                        <h3>
+                            Branding
+                        </h3>
+
+                        <p>
+                            Visual identities built for
+                            recognition and lasting resonance.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="service-card"
+                    >
+
+                        <h3>
+                            Digital Marketing
+                        </h3>
+
+                        <p>
+                            Data-informed campaigns that
+                            connect brands with audiences.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             WHY AUREN
+        ================================================== -->
+
+        <section
+            id="why-auren"
+            class="why-section"
+        >
+
+            <div
+                class="why-header"
+            >
+
+                <p
+                    class="section-label"
+                >
+                    WHY AUREN
+                </p>
+
+
+                <h2>
+                    Why Clients Choose Us.
+                </h2>
+
+            </div>
+
+
+            <div
+                class="why-grid"
+            >
+
+                <div
+                    class="why-card"
+                >
+
+                    <h3>
+                        Purpose Driven
+                    </h3>
+
+                    <p>
+                        Every project starts with intention.
+                        We create work that serves a deeper purpose
+                        beyond aesthetics.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="why-card"
+                >
+
+                    <h3>
+                        Quality Focused
+                    </h3>
+
+                    <p>
+                        No shortcuts, no compromises.
+                        We believe excellence is a habit,
+                        not a destination.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="why-card"
+                >
+
+                    <h3>
+                        Long-Term Partnerships
+                    </h3>
+
+                    <p>
+                        We invest in relationships that grow.
+                        Our best work comes from trust built
+                        over time.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             TRANSITION IMAGE
+        ================================================== -->
+
         <div
-            class="hero-media"
+            class="transition-image-wrapper"
         >
 
             <img
-                class="hero-bg"
-                id="home-hero-image"
+                id="transition-image"
                 src=""
+                class="cropped-image"
                 alt="Auren Originals creative work"
+                loading="lazy"
             >
 
         </div>
 
 
-        <div
-            class="hero-overlay"
-        ></div>
+        <!-- ==================================================
+             CTA
+        ================================================== -->
 
-
-        <div
-            class="hero-content"
+        <section
+            id="contact"
+            class="cta-section"
         >
 
-            <h1>
+            <h2>
 
-                Creating What
+                Let's Create
+
+                <br>
+
+                What
 
                 <span
                     class="highlight"
@@ -1325,404 +2826,93 @@
                     Matters.
                 </span>
 
-            </h1>
+            </h2>
 
 
             <p>
 
-                Photography, Creative Direction,
-                Branding and Digital Marketing
-                for brands that want to stand out.
+                Every meaningful project begins
+                with a conversation. Tell us your story
+                and we will bring it to life.
 
             </p>
 
 
             <div
-                id="hero-action-buttons"
-                class="hero-buttons"
+                id="cta-action-buttons"
+                class="cta-buttons"
             ></div>
 
-        </div>
-
-    </header>
+        </section>
 
 
-    <!-- ==================================================
-         ABOUT
-    ================================================== -->
+        <!-- ==================================================
+             GALLERY
+        ================================================== -->
 
-    <section
-        id="about"
-        class="about-section"
-    >
-
-        <h2>
-
-            More Than A Creative Agency
-
-            <span
-                class="highlight"
-            >
-                .
-            </span>
-
-        </h2>
-
-
-        <p>
-
-            We are Auren Originals —
-            a creative studio built on the belief
-            that meaningful work creates lasting impact.
-            We partner with brands that refuse to settle,
-            crafting visual stories that resonate,
-            inspire, and endure.
-
-        </p>
-
-
-        <div>
-
-            <a
-                href="#contact"
-                class="btn-text"
-            >
-                Learn More →
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- ==================================================
-         SERVICES
-    ================================================== -->
-
-    <section
-        id="services"
-        class="services-section"
-    >
-
-        <div
-            class="services-inner"
+        <section
+            class="gallery-section"
         >
 
-            <p
-                class="section-label"
-            >
-                SERVICES
-            </p>
-
-
-            <h2>
-                What We Create.
-            </h2>
-
-
             <div
-                class="services-grid"
+                class="gallery-stack"
             >
-
 
                 <div
-                    class="service-card"
+                    class="gallery-panel"
                 >
 
-                    <h3>
-                        Photography
-                    </h3>
-
-                    <p>
-
-                        Cinematic imagery that captures
-                        the essence of your brand.
-
-                    </p>
+                    <img
+                        id="gallery-image-1"
+                        src=""
+                        alt="Auren Originals project 1"
+                        loading="lazy"
+                    >
 
                 </div>
 
 
                 <div
-                    class="service-card"
+                    class="gallery-panel"
                 >
 
-                    <h3>
-                        Creative Direction
-                    </h3>
-
-                    <p>
-
-                        Strategic vision that shapes
-                        every creative decision.
-
-                    </p>
+                    <img
+                        id="gallery-image-2"
+                        src=""
+                        alt="Auren Originals project 2"
+                        loading="lazy"
+                    >
 
                 </div>
 
 
                 <div
-                    class="service-card"
+                    class="gallery-panel"
                 >
 
-                    <h3>
-                        Branding
-                    </h3>
-
-                    <p>
-
-                        Visual identities built for
-                        recognition and lasting resonance.
-
-                    </p>
+                    <img
+                        id="gallery-image-3"
+                        src=""
+                        alt="Auren Originals project 3"
+                        loading="lazy"
+                    >
 
                 </div>
 
-
-                <div
-                    class="service-card"
-                >
-
-                    <h3>
-                        Digital Marketing
-                    </h3>
-
-                    <p>
-
-                        Data-informed campaigns that
-                        connect brands with audiences.
-
-                    </p>
-
-                </div>
-
-
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- ==================================================
-         WHY AUREN
-    ================================================== -->
-
-    <section
-        id="why-auren"
-        class="why-section"
-    >
+        <!-- ==================================================
+             FOOTER
+        ================================================== -->
 
         <div
-            class="why-header"
-        >
-
-            <p
-                class="section-label"
-            >
-                WHY AUREN
-            </p>
-
-
-            <h2>
-                Why Clients Choose Us.
-            </h2>
-
-        </div>
-
-
-        <div
-            class="why-grid"
-        >
-
-
-            <div
-                class="why-card"
-            >
-
-                <h3>
-                    Purpose Driven
-                </h3>
-
-                <p>
-
-                    Every project starts with intention.
-                    We create work that serves a deeper purpose
-                    beyond aesthetics.
-
-                </p>
-
-            </div>
-
-
-            <div
-                class="why-card"
-            >
-
-                <h3>
-                    Quality Focused
-                </h3>
-
-                <p>
-
-                    No shortcuts, no compromises.
-                    We believe excellence is a habit,
-                    not a destination.
-
-                </p>
-
-            </div>
-
-
-            <div
-                class="why-card"
-            >
-
-                <h3>
-                    Long-Term Partnerships
-                </h3>
-
-                <p>
-
-                    We invest in relationships that grow.
-                    Our best work comes from trust built
-                    over time.
-
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- ==================================================
-         TRANSITION IMAGE
-    ================================================== -->
-
-    <div
-        class="transition-image-wrapper"
-    >
-
-        <img
-            id="transition-image"
-            src=""
-            class="cropped-image"
-            alt="Auren Originals creative work"
-        >
-
-    </div>
-
-
-    <!-- ==================================================
-         CTA
-    ================================================== -->
-
-    <section
-        id="contact"
-        class="cta-section"
-    >
-
-        <h2>
-
-            Let's Create
-
-            <br>
-
-            What
-
-            <span
-                class="highlight"
-            >
-                Matters.
-            </span>
-
-        </h2>
-
-
-        <p>
-
-            Every meaningful project begins
-            with a conversation. Tell us your story
-            and we will bring it to life.
-
-        </p>
-
-
-        <div
-            id="cta-action-buttons"
-            class="cta-buttons"
+            id="footer-container"
         ></div>
 
-    </section>
-
-
-    <!-- ==================================================
-         3D STACKING GALLERY
-    ================================================== -->
-
-    <section
-        class="gallery-section"
-    >
-
-        <div
-            class="gallery-stack"
-        >
-
-
-            <div
-                class="gallery-panel"
-            >
-
-                <img
-                    id="gallery-image-1"
-                    src=""
-                    alt="Auren Originals project 1"
-                >
-
-            </div>
-
-
-            <div
-                class="gallery-panel"
-            >
-
-                <img
-                    id="gallery-image-2"
-                    src=""
-                    alt="Auren Originals project 2"
-                >
-
-            </div>
-
-
-            <div
-                class="gallery-panel"
-            >
-
-                <img
-                    id="gallery-image-3"
-                    src=""
-                    alt="Auren Originals project 3"
-                >
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- ==================================================
-         REUSABLE FOOTER
-    ================================================== -->
-
-    <div
-        id="footer-container"
-    ></div>
+    </div>
 
 
     <!-- ==================================================
@@ -1748,59 +2938,45 @@
             'components/navbar.html'
         )
 
-            .then(
-                response => {
+        .then(
+            response => {
 
-                    if (!response.ok) {
+                if (!response.ok) {
 
-                        throw new Error(
-                            'Navbar could not be loaded'
-                        );
-
-                    }
-
-                    return response.text();
-
-                }
-            )
-
-            .then(
-                data => {
-
-                    document
-                        .getElementById(
-                            'navbar-container'
-                        )
-                        .innerHTML = data;
-
-
-                    document
-                        .querySelectorAll(
-                            '.nav-links a'
-                        )
-                        .forEach(
-                            link => {
-
-                                link.classList.remove(
-                                    'active'
-                                );
-
-                            }
-                        );
-
-                }
-            )
-
-            .catch(
-                error => {
-
-                    console.error(
-                        'Navbar loading error:',
-                        error
+                    throw new Error(
+                        'Navbar could not be loaded'
                     );
 
                 }
-            );
+
+                return response.text();
+
+            }
+        )
+
+        .then(
+            data => {
+
+                document
+                    .getElementById(
+                        'navbar-container'
+                    )
+                    .innerHTML =
+                    data;
+
+            }
+        )
+
+        .catch(
+            error => {
+
+                console.error(
+                    'Navbar loading error:',
+                    error
+                );
+
+            }
+        );
 
 
         /* ==================================================
@@ -1811,48 +2987,49 @@
             'components/footer.html'
         )
 
-            .then(
-                response => {
+        .then(
+            response => {
 
-                    if (!response.ok) {
+                if (!response.ok) {
 
-                        throw new Error(
-                            'Footer could not be loaded'
-                        );
-
-                    }
-
-                    return response.text();
-
-                }
-            )
-
-            .then(
-                data => {
-
-                    document
-                        .getElementById(
-                            'footer-container'
-                        )
-                        .innerHTML = data;
-
-                }
-            )
-
-            .catch(
-                error => {
-
-                    console.error(
-                        'Footer loading error:',
-                        error
+                    throw new Error(
+                        'Footer could not be loaded'
                     );
 
                 }
-            );
+
+                return response.text();
+
+            }
+        )
+
+        .then(
+            data => {
+
+                document
+                    .getElementById(
+                        'footer-container'
+                    )
+                    .innerHTML =
+                    data;
+
+            }
+        )
+
+        .catch(
+            error => {
+
+                console.error(
+                    'Footer loading error:',
+                    error
+                );
+
+            }
+        );
 
 
         /* ==================================================
-           LOAD CLOUDINARY ROOT ASSET
+           CLOUDINARY ROOT ASSET LOADER
         ================================================== */
 
         async function loadRootAsset(
@@ -1912,7 +3089,7 @@
 
 
         /* ==================================================
-           LOAD HOMEPAGE IMAGES
+           HOMEPAGE IMAGES
         ================================================== */
 
         loadRootAsset(
@@ -1946,122 +3123,114 @@
 
 
         /* ==================================================
-           LOAD REUSABLE ACTION BUTTONS
+           ACTION BUTTONS
         ================================================== */
 
         fetch(
             './components/action-buttons.html'
         )
 
-            .then(
-                response => {
+        .then(
+            response => {
 
-                    if (!response.ok) {
+                if (!response.ok) {
 
-                        throw new Error(
-                            `Action buttons failed: ${response.status}`
-                        );
-
-                    }
-
-                    return response.text();
-
-                }
-            )
-
-            .then(
-                html => {
-
-                    /* ======================================
-                       HERO
-                    ====================================== */
-
-                    const heroContainer =
-                        document.getElementById(
-                            'hero-action-buttons'
-                        );
-
-
-                    if (
-                        heroContainer
-                    ) {
-
-                        heroContainer.innerHTML =
-                            html;
-
-                    }
-
-
-                    /* ======================================
-                       CTA
-                    ====================================== */
-
-                    const ctaContainer =
-                        document.getElementById(
-                            'cta-action-buttons'
-                        );
-
-
-                    if (
-                        ctaContainer
-                    ) {
-
-                        ctaContainer.innerHTML =
-                            html;
-
-
-                        const portfolioButton =
-                            ctaContainer.querySelector(
-                                '[data-action="portfolio"]'
-                            );
-
-
-                        const contactButton =
-                            ctaContainer.querySelector(
-                                '[data-action="contact"]'
-                            );
-
-
-                        ctaContainer.innerHTML =
-                            '';
-
-
-                        if (
-                            contactButton
-                        ) {
-
-                            ctaContainer.appendChild(
-                                contactButton
-                            );
-
-                        }
-
-
-                        if (
-                            portfolioButton
-                        ) {
-
-                            ctaContainer.appendChild(
-                                portfolioButton
-                            );
-
-                        }
-
-                    }
-
-                }
-            )
-
-            .catch(
-                error => {
-
-                    console.error(
-                        'Action buttons loading error:',
-                        error
+                    throw new Error(
+                        `Action buttons failed: ${response.status}`
                     );
 
                 }
-            );
+
+                return response.text();
+
+            }
+        )
+
+        .then(
+            html => {
+
+                const heroContainer =
+                    document.getElementById(
+                        'hero-action-buttons'
+                    );
+
+
+                if (
+                    heroContainer
+                ) {
+
+                    heroContainer.innerHTML =
+                        html;
+
+                }
+
+
+                const ctaContainer =
+                    document.getElementById(
+                        'cta-action-buttons'
+                    );
+
+
+                if (
+                    ctaContainer
+                ) {
+
+                    ctaContainer.innerHTML =
+                        html;
+
+
+                    const portfolioButton =
+                        ctaContainer.querySelector(
+                            '[data-action="portfolio"]'
+                        );
+
+
+                    const contactButton =
+                        ctaContainer.querySelector(
+                            '[data-action="contact"]'
+                        );
+
+
+                    ctaContainer.innerHTML =
+                        '';
+
+
+                    if (
+                        contactButton
+                    ) {
+
+                        ctaContainer.appendChild(
+                            contactButton
+                        );
+
+                    }
+
+
+                    if (
+                        portfolioButton
+                    ) {
+
+                        ctaContainer.appendChild(
+                            portfolioButton
+                        );
+
+                    }
+
+                }
+
+            }
+        )
+
+        .catch(
+            error => {
+
+                console.error(
+                    'Action buttons loading error:',
+                    error
+                );
+
+            }
+        );
 
 
         /* ==================================================
@@ -2089,10 +3258,6 @@
 
             });
 
-
-        /* ------------------------------------------
-           IMAGE EXPANSION
-        ------------------------------------------ */
 
         heroTimeline.fromTo(
 
@@ -2157,9 +3322,9 @@
         );
 
 
-        /* ------------------------------------------
-           IMAGE INTERNAL ZOOM
-        ------------------------------------------ */
+        /* ==================================================
+           HERO IMAGE
+        ================================================== */
 
         heroTimeline.fromTo(
 
@@ -2196,9 +3361,9 @@
         );
 
 
-        /* ------------------------------------------
-           CONTENT CONTAINER
-        ------------------------------------------ */
+        /* ==================================================
+           HERO CONTENT
+        ================================================== */
 
         heroTimeline.to(
 
@@ -2210,10 +3375,7 @@
                     1,
 
                 duration:
-                    0.35,
-
-                ease:
-                    "power2.out"
+                    0.35
 
             },
 
@@ -2221,10 +3383,6 @@
 
         );
 
-
-        /* ------------------------------------------
-           HEADING
-        ------------------------------------------ */
 
         heroTimeline.from(
 
@@ -2239,10 +3397,7 @@
                     0,
 
                 duration:
-                    0.9,
-
-                ease:
-                    "power3.out"
+                    0.9
 
             },
 
@@ -2250,10 +3405,6 @@
 
         );
 
-
-        /* ------------------------------------------
-           DESCRIPTION
-        ------------------------------------------ */
 
         heroTimeline.from(
 
@@ -2268,10 +3419,7 @@
                     0,
 
                 duration:
-                    0.8,
-
-                ease:
-                    "power3.out"
+                    0.8
 
             },
 
@@ -2279,10 +3427,6 @@
 
         );
 
-
-        /* ------------------------------------------
-           BUTTONS
-        ------------------------------------------ */
 
         heroTimeline.from(
 
@@ -2300,10 +3444,7 @@
                     0.7,
 
                 stagger:
-                    0.12,
-
-                ease:
-                    "power3.out"
+                    0.12
 
             },
 
@@ -2313,7 +3454,7 @@
 
 
         /* ==================================================
-           HERO SCROLL MOVEMENT
+           HERO SCROLL
         ================================================== */
 
         gsap.to(
@@ -2350,7 +3491,7 @@
 
 
         /* ==================================================
-           ABOUT ANIMATION
+           ABOUT
         ================================================== */
 
         const aboutTimeline =
@@ -2385,10 +3526,7 @@
                         0,
 
                     duration:
-                        1.05,
-
-                    ease:
-                        "power3.out"
+                        1.05
 
                 }
             )
@@ -2404,10 +3542,7 @@
                         0,
 
                     duration:
-                        0.9,
-
-                    ease:
-                        "power3.out"
+                        0.9
 
                 },
 
@@ -2436,7 +3571,7 @@
 
 
         /* ==================================================
-           SERVICES ANIMATION
+           SERVICES
         ================================================== */
 
         const servicesTimeline =
@@ -2471,10 +3606,7 @@
                         0,
 
                     duration:
-                        0.65,
-
-                    ease:
-                        "power3.out"
+                        0.65
 
                 }
             )
@@ -2490,10 +3622,7 @@
                         0,
 
                     duration:
-                        0.95,
-
-                    ease:
-                        "power3.out"
+                        0.95
 
                 },
 
@@ -2515,10 +3644,7 @@
                         0.75,
 
                     stagger:
-                        0.12,
-
-                    ease:
-                        "power3.out"
+                        0.12
 
                 },
 
@@ -2528,7 +3654,7 @@
 
 
         /* ==================================================
-           WHY AUREN ANIMATION
+           WHY AUREN
         ================================================== */
 
         const whyTimeline =
@@ -2563,10 +3689,7 @@
                         0,
 
                     duration:
-                        0.6,
-
-                    ease:
-                        "power3.out"
+                        0.6
 
                 }
             )
@@ -2582,10 +3705,7 @@
                         0,
 
                     duration:
-                        0.9,
-
-                    ease:
-                        "power3.out"
+                        0.9
 
                 },
 
@@ -2607,10 +3727,7 @@
                         0.75,
 
                     stagger:
-                        0.12,
-
-                    ease:
-                        "power3.out"
+                        0.12
 
                 },
 
@@ -2620,7 +3737,7 @@
 
 
         /* ==================================================
-           TRANSITION IMAGE ANIMATION
+           TRANSITION IMAGE
         ================================================== */
 
         gsap.fromTo(
@@ -2642,19 +3759,13 @@
                 duration:
                     1.2,
 
-                ease:
-                    "power3.out",
-
                 scrollTrigger: {
 
                     trigger:
                         ".transition-image-wrapper",
 
                     start:
-                        "top 85%",
-
-                    toggleActions:
-                        "play none none none"
+                        "top 85%"
 
                 }
 
@@ -2704,7 +3815,7 @@
 
 
         /* ==================================================
-           CTA ANIMATION
+           CTA
         ================================================== */
 
         const ctaTimeline =
@@ -2739,10 +3850,7 @@
                         0,
 
                     duration:
-                        1.05,
-
-                    ease:
-                        "power3.out"
+                        1.05
 
                 }
             )
@@ -2758,10 +3866,7 @@
                         0,
 
                     duration:
-                        0.85,
-
-                    ease:
-                        "power3.out"
+                        0.85
 
                 },
 
@@ -2783,10 +3888,7 @@
                         0.7,
 
                     stagger:
-                        0.12,
-
-                    ease:
-                        "power3.out"
+                        0.12
 
                 },
 
@@ -2796,7 +3898,7 @@
 
 
         /* ==================================================
-           3D STACKING GALLERY ANIMATION
+           GALLERY
         ================================================== */
 
         gsap.utils
@@ -2852,7 +3954,7 @@
 
 
         /* ==================================================
-           FOOTER REVEAL
+           FOOTER
         ================================================== */
 
         gsap.fromTo(
@@ -2880,9 +3982,6 @@
                 duration:
                     1,
 
-                ease:
-                    "power3.out",
-
                 scrollTrigger: {
 
                     trigger:
@@ -2898,7 +3997,6 @@
         );
 
     </script>
-
 
 </body>
 

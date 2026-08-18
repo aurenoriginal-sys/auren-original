@@ -10,14 +10,25 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>About | Auren Originals</title>
+    <title>
+        About | Auren Originals
+    </title>
 
 
     <!-- ==================================================
          GOOGLE FONTS
     ================================================== -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;500&display=swap"
@@ -71,6 +82,7 @@
             --body:
                 'Inter',
                 sans-serif;
+
         }
 
 
@@ -88,17 +100,31 @@
 
             box-sizing:
                 border-box;
+
         }
 
 
         html {
 
+            width:
+                100%;
+
             scroll-behavior:
                 smooth;
+
+            overflow-x:
+                hidden;
+
         }
 
 
         body {
+
+            width:
+                100%;
+
+            min-width:
+                320px;
 
             background:
                 var(--bg);
@@ -111,6 +137,7 @@
 
             overflow-x:
                 hidden;
+
         }
 
 
@@ -124,6 +151,7 @@
 
             font-weight:
                 400;
+
         }
 
 
@@ -134,6 +162,7 @@
 
             text-decoration:
                 none;
+
         }
 
 
@@ -144,6 +173,7 @@
 
             width:
                 100%;
+
         }
 
 
@@ -161,11 +191,12 @@
 
             margin:
                 0 auto;
+
         }
 
 
         /* ==================================================
-           REUSABLE COMPONENTS
+           COMPONENTS
         ================================================== */
 
         #navbar-container {
@@ -175,6 +206,10 @@
 
             z-index:
                 10000;
+
+            width:
+                100%;
+
         }
 
 
@@ -182,6 +217,7 @@
 
             width:
                 100%;
+
         }
 
 
@@ -192,6 +228,7 @@
 
             z-index:
                 99999;
+
         }
 
 
@@ -208,25 +245,29 @@
                 center;
 
             gap:
-                10px;
+                9px;
 
             margin-bottom:
-                20px;
+                18px;
 
             color:
                 var(--highlight);
 
             font-size:
-                0.68rem;
+                0.66rem;
 
             font-weight:
                 500;
 
             letter-spacing:
-                2px;
+                1.8px;
+
+            line-height:
+                1;
 
             text-transform:
                 uppercase;
+
         }
 
 
@@ -236,24 +277,25 @@
                 "";
 
             width:
-                7px;
+                6px;
 
             height:
-                7px;
+                6px;
 
             flex:
-                0 0 7px;
+                0 0 6px;
 
             border-radius:
                 50%;
 
             background:
                 var(--highlight);
+
         }
 
 
         /* ==================================================
-           SCROLL REVEAL
+           REVEAL
         ================================================== */
 
         .reveal {
@@ -263,8 +305,9 @@
 
             transform:
                 translateY(
-                    30px
+                    25px
                 );
+
         }
 
 
@@ -275,7 +318,7 @@
         .about-hero {
 
             min-height:
-                82vh;
+                780px;
 
             display:
                 flex;
@@ -286,6 +329,10 @@
             padding:
                 250px 0
                 100px;
+
+            background:
+                #000000;
+
         }
 
 
@@ -293,6 +340,7 @@
 
             max-width:
                 720px;
+
         }
 
 
@@ -310,6 +358,7 @@
 
             letter-spacing:
                 -0.035em;
+
         }
 
 
@@ -317,6 +366,7 @@
 
             color:
                 var(--highlight);
+
         }
 
 
@@ -326,7 +376,7 @@
                 540px;
 
             margin-top:
-                32px;
+                30px;
 
             color:
                 var(--muted);
@@ -335,7 +385,8 @@
                 0.78rem;
 
             line-height:
-                1.8;
+                1.75;
+
         }
 
 
@@ -346,8 +397,8 @@
         .who-section {
 
             padding:
-                100px 0
-                100px;
+                100px 0;
+
         }
 
 
@@ -365,6 +416,7 @@
 
             align-items:
                 start;
+
         }
 
 
@@ -382,6 +434,7 @@
 
             letter-spacing:
                 -0.025em;
+
         }
 
 
@@ -400,7 +453,8 @@
                 0.82rem;
 
             line-height:
-                1;
+                1.65;
+
         }
 
 
@@ -411,6 +465,7 @@
 
             font-weight:
                 400;
+
         }
 
 
@@ -423,6 +478,7 @@
             padding:
                 0 0
                 155px;
+
         }
 
 
@@ -430,6 +486,7 @@
 
             margin-bottom:
                 50px;
+
         }
 
 
@@ -447,6 +504,7 @@
 
             letter-spacing:
                 -0.025em;
+
         }
 
 
@@ -463,6 +521,7 @@
 
             gap:
                 18px;
+
         }
 
 
@@ -487,17 +546,15 @@
                 );
 
             border-radius:
-                6px;
+                8px;
 
             transition:
                 transform
-                0.4s ease,
+                0.35s ease,
 
                 border-color
-                0.4s ease,
+                0.35s ease;
 
-                background
-                0.4s ease;
         }
 
 
@@ -513,11 +570,9 @@
                     253,
                     175,
                     69,
-                    0.3
+                    0.30
                 );
 
-            background:
-                #222222;
         }
 
 
@@ -531,6 +586,7 @@
 
             line-height:
                 1.25;
+
         }
 
 
@@ -547,6 +603,7 @@
 
             line-height:
                 1.65;
+
         }
 
 
@@ -558,7 +615,8 @@
 
             padding:
                 0 0
-                160px;
+                150px;
+
         }
 
 
@@ -576,6 +634,7 @@
 
             line-height:
                 1.03;
+
         }
 
 
@@ -589,6 +648,7 @@
                     2,
                     1fr
                 );
+
         }
 
 
@@ -607,6 +667,7 @@
             border-right:
                 1px solid
                 var(--gold-line);
+
         }
 
 
@@ -614,6 +675,7 @@
 
             border-right:
                 none;
+
         }
 
 
@@ -622,6 +684,7 @@
             border-bottom:
                 1px solid
                 var(--gold-line);
+
         }
 
 
@@ -629,6 +692,7 @@
 
             font-size:
                 1.05rem;
+
         }
 
 
@@ -648,6 +712,7 @@
 
             line-height:
                 1.7;
+
         }
 
 
@@ -659,7 +724,8 @@
 
             padding:
                 0 0
-                160px;
+                145px;
+
         }
 
 
@@ -680,6 +746,7 @@
 
             padding:
                 0 45px;
+
         }
 
 
@@ -696,6 +763,7 @@
 
             background:
                 #151515;
+
         }
 
 
@@ -713,24 +781,6 @@
             object-position:
                 center;
 
-            transition:
-                transform
-                0.8s
-                cubic-bezier(
-                    0.16,
-                    1,
-                    0.3,
-                    1
-                );
-        }
-
-
-        .founder-image:hover img {
-
-            transform:
-                scale(
-                    1.035
-                );
         }
 
 
@@ -751,6 +801,7 @@
 
             letter-spacing:
                 -0.02em;
+
         }
 
 
@@ -760,7 +811,7 @@
                 700px;
 
             margin-top:
-                30px;
+                28px;
 
             color:
                 var(--muted);
@@ -769,14 +820,15 @@
                 0.76rem;
 
             line-height:
-                1.8;
+                1.75;
+
         }
 
 
         .founder-name {
 
             margin-top:
-                28px;
+                25px;
 
             font-family:
                 var(--body);
@@ -786,6 +838,7 @@
 
             font-weight:
                 500;
+
         }
 
 
@@ -804,7 +857,8 @@
                 uppercase;
 
             letter-spacing:
-                1.3px;
+                1.2px;
+
         }
 
 
@@ -816,7 +870,8 @@
 
             padding:
                 0 0
-                155px;
+                145px;
+
         }
 
 
@@ -834,6 +889,7 @@
 
             line-height:
                 1.03;
+
         }
 
 
@@ -847,13 +903,14 @@
                     255,
                     0.11
                 );
+
         }
 
 
         .value-row {
 
             min-height:
-                95px;
+                92px;
 
             display:
                 flex;
@@ -876,18 +933,6 @@
                     0.11
                 );
 
-            transition:
-                padding
-                0.45s
-                cubic-bezier(
-                    0.16,
-                    1,
-                    0.3,
-                    1
-                ),
-
-                background
-                0.35s ease;
         }
 
 
@@ -898,23 +943,11 @@
 
             font-size:
                 clamp(
-                    1.45rem,
+                    1.4rem,
                     2.3vw,
-                    2.15rem
+                    2.1rem
                 );
 
-            transition:
-                transform
-                0.4s
-                cubic-bezier(
-                    0.16,
-                    1,
-                    0.3,
-                    1
-                ),
-
-                color
-                0.3s ease;
         }
 
 
@@ -950,86 +983,22 @@
             font-size:
                 0.75rem;
 
-            transition:
-                transform
-                0.4s ease,
-
-                background
-                0.3s ease,
-
-                color
-                0.3s ease,
-
-                border-color
-                0.3s ease;
-        }
-
-
-        .value-row:hover {
-
-            padding-left:
-                16px;
-
-            padding-right:
-                16px;
-
-            background:
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.015
-                );
-        }
-
-
-        .value-row:hover
-        .value-name {
-
-            color:
-                var(--highlight);
-
-            transform:
-                translateX(
-                    8px
-                );
-        }
-
-
-        .value-row:hover
-        .value-arrow {
-
-            color:
-                #000000;
-
-            background:
-                var(--highlight);
-
-            border-color:
-                var(--highlight);
-
-            transform:
-                rotate(
-                    -45deg
-                );
         }
 
 
         /* ==================================================
-           LARGE STATEMENT
+           STATEMENT
         ================================================== */
 
         .statement-section {
 
             padding:
-                120px 0
-                125px;
-
-            background:
-                #000000;
+                110px 0
+                120px;
 
             text-align:
                 center;
+
         }
 
 
@@ -1046,22 +1015,17 @@
 
             font-size:
                 clamp(
-                    1rem,
-                    3.6vw,
-                    3.3rem
+                    1.3rem,
+                    3.4vw,
+                    3.15rem
                 );
 
-            font-weight:
-                400;
-
             line-height:
-                1.18;
+                1.2;
 
             letter-spacing:
                 -0.025em;
 
-            color:
-                #ffffff;
         }
 
 
@@ -1070,16 +1034,14 @@
             color:
                 var(--highlight);
 
-            font-family:
-                var(--heading);
-
             font-style:
                 italic;
+
         }
 
 
         /* ==================================================
-           HORIZONTAL IMAGE MARQUEE
+           IMAGE MARQUEE
         ================================================== */
 
         .about-gallery-section {
@@ -1092,6 +1054,7 @@
 
             background:
                 #000000;
+
         }
 
 
@@ -1111,6 +1074,7 @@
                 38s
                 linear
                 infinite;
+
         }
 
 
@@ -1125,11 +1089,7 @@
                 );
 
             height:
-                clamp(
-                    440px,
-                    84vh,
-                    520px
-                );
+                520px;
 
             overflow:
                 hidden;
@@ -1139,6 +1099,7 @@
 
             background:
                 #151515;
+
         }
 
 
@@ -1153,27 +1114,6 @@
             object-fit:
                 cover;
 
-            object-position:
-                center;
-
-            transition:
-                transform
-                0.8s
-                cubic-bezier(
-                    0.16,
-                    1,
-                    0.3,
-                    1
-                );
-        }
-
-
-        .gallery-image:hover img {
-
-            transform:
-                scale(
-                    1.04
-                );
         }
 
 
@@ -1185,6 +1125,7 @@
                     translateX(
                         0
                     );
+
             }
 
             to {
@@ -1196,7 +1137,9 @@
                             7px
                         )
                     );
+
             }
+
         }
 
 
@@ -1224,8 +1167,6 @@
             text-align:
                 center;
 
-            background:
-                #000000;
         }
 
 
@@ -1239,6 +1180,7 @@
 
             margin:
                 0 auto;
+
         }
 
 
@@ -1262,6 +1204,7 @@
 
             letter-spacing:
                 -0.035em;
+
         }
 
 
@@ -1278,15 +1221,11 @@
 
             font-style:
                 italic;
+
         }
 
 
-        /* ==================================================
-           CTA BUTTONS
-        ================================================== */
-
-        .about-cta
-        .action-buttons {
+        .about-cta .action-buttons {
 
             display:
                 flex;
@@ -1298,10 +1237,11 @@
                 center;
 
             gap:
-                18px;
+                12px;
 
             margin-top:
-                80px;
+                55px;
+
         }
 
 
@@ -1318,56 +1258,28 @@
                 center;
 
             min-width:
-                145px;
+                135px;
 
             height:
-                45px;
+                42px;
 
             padding:
-                0 26px;
+                0 22px;
 
             border-radius:
-                18px;
+                12px;
 
             font-family:
                 var(--body);
 
             font-size:
-                0.92rem;
+                0.78rem;
 
             font-weight:
                 500;
 
-            line-height:
-                1;
-
-            text-decoration:
-                none;
-
-            cursor:
-                pointer;
-
-            transition:
-                transform
-                0.3s ease,
-
-                background
-                0.3s ease,
-
-                color
-                0.3s ease,
-
-                border-color
-                0.3s ease,
-
-                box-shadow
-                0.3s ease;
         }
 
-
-        /* ==================================================
-           START A PROJECT
-        ================================================== */
 
         .about-cta
         .action-buttons
@@ -1382,12 +1294,9 @@
 
             color:
                 #ffffff;
+
         }
 
-
-        /* ==================================================
-           VIEW PORTFOLIO
-        ================================================== */
 
         .about-cta
         .action-buttons
@@ -1402,73 +1311,17 @@
                     255,
                     255,
                     255,
-                    0.85
+                    0.75
                 );
 
             color:
                 #ffffff;
+
         }
 
 
         /* ==================================================
-           START PROJECT HOVER
-        ================================================== */
-
-        .about-cta
-        .action-buttons
-        [data-action="contact"]:hover {
-
-            background:
-                #ffffff;
-
-            border-color:
-                #ffffff;
-
-            color:
-                #111111;
-
-            transform:
-                translateY(
-                    -3px
-                );
-
-            box-shadow:
-                0 12px 30px
-                rgba(
-                    253,
-                    175,
-                    69,
-                    0.20
-                );
-        }
-
-
-        /* ==================================================
-           VIEW PORTFOLIO HOVER
-        ================================================== */
-
-        .about-cta
-        .action-buttons
-        [data-action="portfolio"]:hover {
-
-            background:
-                #ffffff;
-
-            border-color:
-                #ffffff;
-
-            color:
-                #111111;
-
-            transform:
-                translateY(
-                    -3px
-                );
-        }
-
-
-        /* ==================================================
-           RESPONSIVE
+           TABLET
         ================================================== */
 
         @media (max-width: 1000px) {
@@ -1479,174 +1332,593 @@
                     1fr;
 
                 gap:
-                    35px;
+                    30px;
+
             }
 
 
             .founder-grid {
 
                 grid-template-columns:
-                    1fr 1fr;
+                    1fr
+                    1fr;
 
                 gap:
                     45px;
 
                 padding:
                     0;
-            }
 
-
-            .gallery-image {
-
-                flex-basis:
-                    300px;
-
-                height:
-                    440px;
             }
 
         }
 
+
+        /* ==================================================
+           MOBILE
+        ================================================== */
 
         @media (max-width: 760px) {
 
             .about-container {
 
                 width:
-                    88%;
+                    calc(
+                        100% - 30px
+                    );
+
             }
 
+
+            /* ==========================================
+               HERO
+            ========================================== */
 
             .about-hero {
 
                 min-height:
-                    75vh;
+                    285px;
 
                 padding:
-                    120px 0
-                    75px;
+                    50px 0
+                    42px;
+
+                align-items:
+                    flex-end;
+
+            }
+
+
+            .hero-content {
+
+                max-width:
+                    280px;
+
             }
 
 
             .hero-title {
 
                 font-size:
-                    3.7rem;
+                    1.68rem;
+
+                line-height:
+                    0.98;
+
+                letter-spacing:
+                    -0.025em;
+
             }
 
 
-            .who-section,
-            .purpose-section,
-            .philosophy-section,
-            .founder-section,
-            .values-section {
+            .hero-copy {
 
-                padding-bottom:
-                    100px;
+                max-width:
+                    240px;
+
+                margin-top:
+                    11px;
+
+                font-size:
+                    0.42rem;
+
+                line-height:
+                    1.45;
+
+            }
+
+
+            /* ==========================================
+               WHO
+            ========================================== */
+
+            .who-section {
+
+                padding:
+                    62px 0
+                    62px;
+
+            }
+
+
+            .section-label {
+
+                gap:
+                    6px;
+
+                margin-bottom:
+                    12px;
+
+                font-size:
+                    0.40rem;
+
+                letter-spacing:
+                    1.05px;
+
+            }
+
+
+            .section-label::before {
+
+                width:
+                    5px;
+
+                height:
+                    5px;
+
+                flex-basis:
+                    5px;
+
+            }
+
+
+            .who-grid {
+
+                display:
+                    block;
+
+            }
+
+
+            .who-heading {
+
+                font-size:
+                    1.80rem;
+
+            }
+
+
+            .who-copy {
+
+                max-width:
+                    100%;
+
+                padding-top:
+                    24px;
+
+                font-size:
+                    0.48rem;
+
+                line-height:
+                    1.55;
+
+            }
+
+
+            /* ==========================================
+               PURPOSE
+            ========================================== */
+
+            .purpose-section {
+
+                padding:
+                    0 0
+                    65px;
+
+            }
+
+
+            .purpose-header {
+
+                margin-bottom:
+                    24px;
+
+            }
+
+
+            .purpose-title {
+
+                font-size:
+                    1.80rem;
+
             }
 
 
             .purpose-grid {
 
+                display:
+                    grid;
+
                 grid-template-columns:
                     1fr;
+
+                gap:
+                    10px;
+
+            }
+
+
+            .purpose-card {
+
+                min-height:
+                    112px;
+
+                padding:
+                    18px;
+
+                border-radius:
+                    7px;
+
+            }
+
+
+            .purpose-quote {
+
+                font-size:
+                    0.86rem;
+
+                line-height:
+                    1.18;
+
+            }
+
+
+            .purpose-description {
+
+                margin-top:
+                    12px;
+
+                font-size:
+                    0.39rem;
+
+                line-height:
+                    1.45;
+
+            }
+
+
+            /* ==========================================
+               PHILOSOPHY
+            ========================================== */
+
+            .philosophy-section {
+
+                padding:
+                    0 0
+                    72px;
+
+            }
+
+
+            .philosophy-title {
+
+                margin-bottom:
+                    28px;
+
+                font-size:
+                    1.86rem;
+
             }
 
 
             .philosophy-grid {
 
-                grid-template-columns:
-                    1fr;
+                display:
+                    block;
+
+                border-top:
+                    1px solid
+                    var(--gold-line);
+
             }
 
 
             .philosophy-card {
 
                 min-height:
-                    135px;
+                    95px;
+
+                padding:
+                    17px 22px;
+
+                border-top:
+                    none;
 
                 border-right:
                     none;
+
+                border-bottom:
+                    1px solid
+                    var(--gold-line);
+
             }
 
 
             .philosophy-card:nth-child(n + 3) {
 
                 border-bottom:
-                    none;
+                    1px solid
+                    var(--gold-line);
+
             }
 
 
-            .philosophy-card:last-child {
+            .philosophy-name {
 
-                border-bottom:
-                    1px solid
-                    var(--gold-line);
+                font-size:
+                    0.72rem;
+
+            }
+
+
+            .philosophy-copy {
+
+                margin-top:
+                    7px;
+
+                max-width:
+                    245px;
+
+                font-size:
+                    0.39rem;
+
+                line-height:
+                    1.45;
+
+            }
+
+
+            /* ==========================================
+               FOUNDER
+            ========================================== */
+
+            .founder-section {
+
+                padding:
+                    0 0
+                    72px;
+
             }
 
 
             .founder-grid {
 
+                display:
+                    grid;
+
                 grid-template-columns:
-                    1fr;
+                    95px
+                    minmax(
+                        0,
+                        1fr
+                    );
 
                 gap:
-                    40px;
+                    18px;
+
+                align-items:
+                    start;
+
+                padding:
+                    0;
+
             }
 
 
             .founder-image {
 
+                width:
+                    95px;
+
+                height:
+                    125px;
+
                 aspect-ratio:
-                    1 / 1.1;
+                    auto;
+
             }
 
 
             .founder-quote {
 
                 font-size:
-                    2rem;
+                    0.83rem;
+
+                line-height:
+                    1.18;
+
             }
 
+
+            .founder-copy {
+
+                margin-top:
+                    11px;
+
+                font-size:
+                    0.38rem;
+
+                line-height:
+                    1.45;
+
+            }
+
+
+            .founder-name {
+
+                margin-top:
+                    11px;
+
+                font-size:
+                    0.43rem;
+
+            }
+
+
+            .founder-role {
+
+                font-size:
+                    0.35rem;
+
+                letter-spacing:
+                    0.7px;
+
+            }
+
+
+            /* ==========================================
+               VALUES
+            ========================================== */
+
+            .values-section {
+
+                padding:
+                    0 0
+                    72px;
+
+            }
+
+
+            .values-title {
+
+                margin-bottom:
+                    25px;
+
+                font-size:
+                    1.84rem;
+
+            }
+
+
+            .value-row {
+
+                min-height:
+                    64px;
+
+                padding:
+                    0 2px;
+
+            }
+
+
+            .value-name {
+
+                font-size:
+                    0.84rem;
+
+            }
+
+
+            .value-arrow {
+
+                width:
+                    25px;
+
+                height:
+                    25px;
+
+                font-size:
+                    0.56rem;
+
+            }
+
+
+            /* ==========================================
+               STATEMENT
+            ========================================== */
 
             .statement-section {
 
                 padding:
-                    90px 0;
+                    68px 0
+                    72px;
+
             }
 
 
             .statement-text {
 
                 font-size:
-                    2rem;
+                    1.00rem;
+
+                line-height:
+                    1.28;
+
+            }
+
+
+            /* ==========================================
+               IMAGE MARQUEE
+            ========================================== */
+
+            .about-gallery-track {
+
+                gap:
+                    5px;
+
+                animation-duration:
+                    32s;
+
             }
 
 
             .gallery-image {
 
-                flex-basis:
-                    70vw;
+                flex:
+                    0 0
+                    48vw;
 
                 height:
-                    390px;
+                    245px;
+
+                border-radius:
+                    4px;
+
             }
 
+
+            /* ==========================================
+               CTA
+            ========================================== */
 
             .about-cta {
 
                 min-height:
-                    520px;
+                    375px;
 
                 padding:
-                    85px 0;
+                    65px 0
+                    70px;
+
             }
 
 
             .about-cta h2 {
 
                 font-size:
-                    3.7rem;
+                    2.45rem;
+
+                line-height:
+                    0.96;
+
+            }
+
+
+            .cta-line-highlight {
+
+                margin-top:
+                    5px;
+
             }
 
 
@@ -1654,42 +1926,112 @@
             .action-buttons {
 
                 flex-direction:
-                    column;
+                    row;
 
                 gap:
-                    12px;
+                    6px;
+
+                margin-top:
+                    30px;
+
             }
 
 
             .about-cta
             .action-buttons a {
 
-                width:
-                    100%;
+                min-width:
+                    92px;
 
-                max-width:
-                    260px;
+                height:
+                    28px;
+
+                padding:
+                    0 11px;
+
+                border-radius:
+                    7px;
+
+                font-size:
+                    0.43rem;
+
             }
 
         }
 
 
-        @media (max-width: 480px) {
+        /* ==================================================
+           VERY SMALL PHONE
+        ================================================== */
 
-            .gallery-image {
+        @media (max-width: 380px) {
 
-                flex-basis:
-                    78vw;
+            .about-hero {
+
+                min-height:
+                    275px;
+
+            }
+
+
+            .hero-title {
+
+                font-size:
+                    1.58rem;
+
+            }
+
+
+            .who-heading,
+            .purpose-title,
+            .philosophy-title,
+            .values-title {
+
+                font-size:
+                    1.70rem;
+
+            }
+
+
+            .founder-grid {
+
+                grid-template-columns:
+                    88px
+                    minmax(
+                        0,
+                        1fr
+                    );
+
+                gap:
+                    15px;
+
+            }
+
+
+            .founder-image {
+
+                width:
+                    88px;
 
                 height:
-                    360px;
+                    118px;
+
+            }
+
+
+            .founder-quote {
+
+                font-size:
+                    0.76rem;
+
             }
 
 
             .about-cta h2 {
 
                 font-size:
-                    3.15rem;
+                    2.25rem;
+
             }
 
         }
@@ -1809,10 +2151,9 @@
                     class="who-copy reveal"
                 >
 
-                    Auren Originals is a creative
-                    agency and production house
-                    bringing together business and
-                    people.
+                    Auren Originals is a creative agency
+                    and production house bringing together
+                    business and people.
 
                     <br><br>
 
@@ -1882,8 +2223,8 @@
                     <h3
                         class="purpose-quote"
                     >
-                        "We believe every brand
-                        has a story worth telling."
+                        "We believe every brand has
+                        a story worth telling."
                     </h3>
 
 
@@ -1934,8 +2275,8 @@
                     <p
                         class="purpose-description"
                     >
-                        Designing strategies that
-                        stand the test of time.
+                        Designing strategies that stand
+                        the test of time.
                     </p>
 
                 </article>
@@ -2114,18 +2455,15 @@
                     <h2
                         class="founder-quote reveal"
                     >
-
                         "Curiosity drives our craft.
                         We build brands for a modern
                         era with substance."
-
                     </h2>
 
 
                     <p
                         class="founder-copy reveal"
                     >
-
                         I founded Auren Originals
                         because I believed in the
                         absolute power of honest
@@ -2136,12 +2474,7 @@
                         We live in a world saturated
                         by noise and quick solutions.
                         My goal is to build an oasis
-                        for meaningful artistic
-                        direction — where every
-                        shutter press, color grade
-                        and conceptual shift has
-                        intent.
-
+                        for meaningful artistic direction.
                     </p>
 
 
@@ -2208,6 +2541,7 @@
                         Quality
                     </span>
 
+
                     <span
                         class="value-arrow"
                     >
@@ -2227,6 +2561,7 @@
                     >
                         Honesty
                     </span>
+
 
                     <span
                         class="value-arrow"
@@ -2248,6 +2583,7 @@
                         Creativity
                     </span>
 
+
                     <span
                         class="value-arrow"
                     >
@@ -2267,6 +2603,7 @@
                     >
                         Consistency
                     </span>
+
 
                     <span
                         class="value-arrow"
@@ -2288,6 +2625,7 @@
                         Long-term Relationships
                     </span>
 
+
                     <span
                         class="value-arrow"
                     >
@@ -2304,7 +2642,7 @@
 
 
     <!-- ==================================================
-         LARGE STATEMENT
+         STATEMENT
     ================================================== -->
 
     <section
@@ -2350,145 +2688,103 @@
             class="about-gallery-track"
         >
 
-            <div
-                class="gallery-image"
-            >
-
+            <div class="gallery-image">
                 <img
                     id="about-gallery-1"
                     src=""
                     alt="Auren Originals"
                     loading="lazy"
                 >
-
             </div>
 
 
-            <div
-                class="gallery-image"
-            >
-
+            <div class="gallery-image">
                 <img
                     id="about-gallery-2"
                     src=""
                     alt="Auren Originals"
                     loading="lazy"
                 >
-
             </div>
 
 
-            <div
-                class="gallery-image"
-            >
-
+            <div class="gallery-image">
                 <img
                     id="about-gallery-3"
                     src=""
                     alt="Auren Originals"
                     loading="lazy"
                 >
-
             </div>
 
 
-            <div
-                class="gallery-image"
-            >
-
+            <div class="gallery-image">
                 <img
                     id="about-gallery-4"
                     src=""
                     alt="Auren Originals"
                     loading="lazy"
                 >
-
             </div>
 
 
-            <div
-                class="gallery-image"
-            >
-
+            <div class="gallery-image">
                 <img
                     id="about-gallery-5"
                     src=""
                     alt="Auren Originals"
                     loading="lazy"
                 >
-
             </div>
 
 
-            <!-- DUPLICATE FOR SEAMLESS LOOP -->
-
-            <div
-                class="gallery-image"
-            >
-
+            <div class="gallery-image">
                 <img
                     id="about-gallery-1-duplicate"
                     src=""
                     alt=""
                     aria-hidden="true"
                 >
-
             </div>
 
 
-            <div
-                class="gallery-image"
-            >
-
+            <div class="gallery-image">
                 <img
                     id="about-gallery-2-duplicate"
                     src=""
                     alt=""
                     aria-hidden="true"
                 >
-
             </div>
 
 
-            <div
-                class="gallery-image"
-            >
-
+            <div class="gallery-image">
                 <img
                     id="about-gallery-3-duplicate"
                     src=""
                     alt=""
                     aria-hidden="true"
                 >
-
             </div>
 
 
-            <div
-                class="gallery-image"
-            >
-
+            <div class="gallery-image">
                 <img
                     id="about-gallery-4-duplicate"
                     src=""
                     alt=""
                     aria-hidden="true"
                 >
-
             </div>
 
 
-            <div
-                class="gallery-image"
-            >
-
+            <div class="gallery-image">
                 <img
                     id="about-gallery-5-duplicate"
                     src=""
                     alt=""
                     aria-hidden="true"
                 >
-
             </div>
 
         </div>
@@ -2561,11 +2857,167 @@
 
 
         /* ==================================================
-           LOAD SCROLL TO TOP
+           ROOT ASSET LOADER
+        ================================================== */
+
+        async function loadRootAsset(
+            filename,
+            elementId
+        ) {
+
+            try {
+
+                const response =
+                    await fetch(
+                        `/api/root-asset/${encodeURIComponent(filename)}`,
+                        {
+                            cache:
+                                'no-store'
+                        }
+                    );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        `Failed to load ${filename}: HTTP ${response.status}`
+                    );
+
+                }
+
+
+                const data =
+                    await response.json();
+
+
+                const image =
+                    document.getElementById(
+                        elementId
+                    );
+
+
+                if (
+                    image &&
+                    data &&
+                    data.secure_url
+                ) {
+
+                    image.src =
+                        data.secure_url;
+
+                }
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    `Asset loading error (${filename}):`,
+                    error
+                );
+
+            }
+
+        }
+
+
+        /* ==================================================
+           FOUNDER
+        ================================================== */
+
+        loadRootAsset(
+            'founder.jpg',
+            'founder-image'
+        );
+
+
+        /* ==================================================
+           ABOUT GALLERY
+        ================================================== */
+
+        const aboutGalleryAssets = [
+
+            {
+                filename:
+                    'about-gallery-1.jpg',
+
+                ids: [
+                    'about-gallery-1',
+                    'about-gallery-1-duplicate'
+                ]
+            },
+
+            {
+                filename:
+                    'about-gallery-2.jpg',
+
+                ids: [
+                    'about-gallery-2',
+                    'about-gallery-2-duplicate'
+                ]
+            },
+
+            {
+                filename:
+                    'about-gallery-3.jpg',
+
+                ids: [
+                    'about-gallery-3',
+                    'about-gallery-3-duplicate'
+                ]
+            },
+
+            {
+                filename:
+                    'about-gallery-4.jpg',
+
+                ids: [
+                    'about-gallery-4',
+                    'about-gallery-4-duplicate'
+                ]
+            },
+
+            {
+                filename:
+                    'about-gallery-5.jpg',
+
+                ids: [
+                    'about-gallery-5',
+                    'about-gallery-5-duplicate'
+                ]
+            }
+
+        ];
+
+
+        aboutGalleryAssets.forEach(
+            asset => {
+
+                asset.ids.forEach(
+                    id => {
+
+                        loadRootAsset(
+                            asset.filename,
+                            id
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* ==================================================
+           SCROLL TO TOP
         ================================================== */
 
         fetch(
-            './components/scroll-to-top.html'
+            './components/scroll-to-top.html',
+            {
+                cache:
+                    'no-store'
+            }
         )
 
         .then(
@@ -2682,158 +3134,15 @@
 
 
         /* ==================================================
-           ROOT ASSET LOADER
-        ================================================== */
-
-        async function loadRootAsset(
-            filename,
-            elementId
-        ) {
-
-            try {
-
-                const response =
-                    await fetch(
-                        `/api/root-asset/${encodeURIComponent(filename)}`
-                    );
-
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        `Failed to load ${filename}: HTTP ${response.status}`
-                    );
-
-                }
-
-
-                const data =
-                    await response.json();
-
-
-                const image =
-                    document.getElementById(
-                        elementId
-                    );
-
-
-                if (
-                    image &&
-                    data.secure_url
-                ) {
-
-                    image.src =
-                        data.secure_url;
-
-                }
-
-            }
-
-            catch (error) {
-
-                console.error(
-                    `Root asset loading error (${filename}):`,
-                    error
-                );
-
-            }
-
-        }
-
-
-        /* ==================================================
-           LOAD FOUNDER IMAGE
-        ================================================== */
-
-        loadRootAsset(
-            'founder.jpg',
-            'founder-image'
-        );
-
-
-        /* ==================================================
-           LOAD ABOUT GALLERY
-        ================================================== */
-
-        const aboutGalleryAssets = [
-
-            {
-                filename:
-                    'about-gallery-1.jpg',
-
-                ids: [
-                    'about-gallery-1',
-                    'about-gallery-1-duplicate'
-                ]
-            },
-
-            {
-                filename:
-                    'about-gallery-2.jpg',
-
-                ids: [
-                    'about-gallery-2',
-                    'about-gallery-2-duplicate'
-                ]
-            },
-
-            {
-                filename:
-                    'about-gallery-3.jpg',
-
-                ids: [
-                    'about-gallery-3',
-                    'about-gallery-3-duplicate'
-                ]
-            },
-
-            {
-                filename:
-                    'about-gallery-4.jpg',
-
-                ids: [
-                    'about-gallery-4',
-                    'about-gallery-4-duplicate'
-                ]
-            },
-
-            {
-                filename:
-                    'about-gallery-5.jpg',
-
-                ids: [
-                    'about-gallery-5',
-                    'about-gallery-5-duplicate'
-                ]
-            }
-
-        ];
-
-
-        aboutGalleryAssets.forEach(
-            asset => {
-
-                asset.ids.forEach(
-                    elementId => {
-
-                        loadRootAsset(
-                            asset.filename,
-                            elementId
-                        );
-
-                    }
-                );
-
-            }
-        );
-
-
-        /* ==================================================
-           LOAD ACTION BUTTONS
+           ACTION BUTTONS
         ================================================== */
 
         fetch(
-            './components/action-buttons.html'
+            './components/action-buttons.html',
+            {
+                cache:
+                    'no-store'
+            }
         )
 
         .then(
@@ -2870,43 +3179,35 @@
                     html;
 
 
-                const portfolioButton =
-                    container.querySelector(
-                        '[data-action="portfolio"]'
-                    );
-
-
-                const contactButton =
+                const contact =
                     container.querySelector(
                         '[data-action="contact"]'
                     );
 
 
-                if (
-                    !portfolioButton ||
-                    !contactButton
-                ) {
-
-                    console.error(
-                        'Action buttons not found.'
+                const portfolio =
+                    container.querySelector(
+                        '[data-action="portfolio"]'
                     );
 
-                    return;
+
+                if (
+                    contact &&
+                    portfolio
+                ) {
+
+                    container.innerHTML =
+                        '';
+
+                    container.appendChild(
+                        contact
+                    );
+
+                    container.appendChild(
+                        portfolio
+                    );
+
                 }
-
-
-                container.innerHTML =
-                    '';
-
-
-                container.appendChild(
-                    contactButton
-                );
-
-
-                container.appendChild(
-                    portfolioButton
-                );
 
             }
         )
@@ -2924,11 +3225,15 @@
 
 
         /* ==================================================
-           LOAD NAVBAR
+           NAVBAR
         ================================================== */
 
         fetch(
-            './components/navbar.html'
+            './components/navbar.html',
+            {
+                cache:
+                    'no-store'
+            }
         )
 
         .then(
@@ -2948,7 +3253,7 @@
         )
 
         .then(
-            data => {
+            html => {
 
                 const navbar =
                     document.getElementById(
@@ -2956,19 +3261,39 @@
                     );
 
 
+                if (!navbar) {
+                    return;
+                }
+
+
                 navbar.innerHTML =
-                    data;
+                    html;
 
 
                 const aboutLink =
-                    document.querySelector(
+                    navbar.querySelector(
                         '.nav-links a[data-page="about"]'
+                    );
+
+
+                const mobileAboutLink =
+                    navbar.querySelector(
+                        '.mobile-nav-links a[data-page="about"]'
                     );
 
 
                 if (aboutLink) {
 
                     aboutLink.classList.add(
+                        'active'
+                    );
+
+                }
+
+
+                if (mobileAboutLink) {
+
+                    mobileAboutLink.classList.add(
                         'active'
                     );
 
@@ -2990,11 +3315,15 @@
 
 
         /* ==================================================
-           LOAD FOOTER
+           FOOTER
         ================================================== */
 
         fetch(
-            './components/footer.html'
+            './components/footer.html',
+            {
+                cache:
+                    'no-store'
+            }
         )
 
         .then(
@@ -3014,13 +3343,20 @@
         )
 
         .then(
-            data => {
+            html => {
 
-                document
-                    .getElementById(
+                const footer =
+                    document.getElementById(
                         'footer-container'
-                    )
-                    .innerHTML = data;
+                    );
+
+
+                if (footer) {
+
+                    footer.innerHTML =
+                        html;
+
+                }
 
             }
         )
@@ -3054,10 +3390,10 @@
                     0,
 
                 duration:
-                    1,
+                    0.9,
 
                 stagger:
-                    0.12,
+                    0.10,
 
                 ease:
                     'power3.out'
@@ -3068,7 +3404,7 @@
 
 
         /* ==================================================
-           GENERAL SCROLL REVEALS
+           GENERAL REVEALS
         ================================================== */
 
         gsap.utils
@@ -3085,6 +3421,7 @@
                     ) {
 
                         return;
+
                     }
 
 
@@ -3101,7 +3438,7 @@
                                 0,
 
                             duration:
-                                0.8,
+                                0.75,
 
                             ease:
                                 'power3.out',
@@ -3112,7 +3449,7 @@
                                     element,
 
                                 start:
-                                    'top 88%',
+                                    'top 90%',
 
                                 once:
                                     true
@@ -3125,56 +3462,6 @@
 
                 }
             );
-
-
-        /* ==================================================
-           FOUNDER IMAGE
-        ================================================== */
-
-        gsap.fromTo(
-
-            '.founder-image',
-
-            {
-
-                opacity:
-                    0,
-
-                x:
-                    -35
-
-            },
-
-            {
-
-                opacity:
-                    1,
-
-                x:
-                    0,
-
-                duration:
-                    1,
-
-                ease:
-                    'power3.out',
-
-                scrollTrigger: {
-
-                    trigger:
-                        '.founder-section',
-
-                    start:
-                        'top 80%',
-
-                    once:
-                        true
-
-                }
-
-            }
-
-        );
 
 
         /* ==================================================
@@ -3191,7 +3478,7 @@
                     0,
 
                 y:
-                    25
+                    20
 
             },
 
@@ -3204,10 +3491,10 @@
                     0,
 
                 duration:
-                    0.7,
+                    0.6,
 
                 stagger:
-                    0.1,
+                    0.08,
 
                 ease:
                     'power3.out',
@@ -3216,6 +3503,56 @@
 
                     trigger:
                         '.purpose-grid',
+
+                    start:
+                        'top 90%',
+
+                    once:
+                        true
+
+                }
+
+            }
+
+        );
+
+
+        /* ==================================================
+           FOUNDER
+        ================================================== */
+
+        gsap.fromTo(
+
+            '.founder-image',
+
+            {
+
+                opacity:
+                    0,
+
+                x:
+                    -30
+
+            },
+
+            {
+
+                opacity:
+                    1,
+
+                x:
+                    0,
+
+                duration:
+                    0.8,
+
+                ease:
+                    'power3.out',
+
+                scrollTrigger: {
+
+                    trigger:
+                        '.founder-section',
 
                     start:
                         'top 85%',
@@ -3231,7 +3568,7 @@
 
 
         /* ==================================================
-           GALLERY ENTRY
+           GALLERY
         ================================================== */
 
         gsap.fromTo(
@@ -3244,7 +3581,7 @@
                     0,
 
                 y:
-                    25
+                    20
 
             },
 
@@ -3257,7 +3594,7 @@
                     0,
 
                 duration:
-                    0.9,
+                    0.8,
 
                 ease:
                     'power3.out',

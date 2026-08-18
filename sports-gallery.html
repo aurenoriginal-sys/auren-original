@@ -10,22 +10,54 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Sports | Auren Originals</title>
+    <title>
+        Sports | Auren Originals
+    </title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- ==================================================
+         GOOGLE FONTS
+    ================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;500&display=swap"
         rel="stylesheet"
     >
 
+
     <style>
 
+        /* ==================================================
+           THEME
+        ================================================== */
+
         :root {
-            --bg-main: #000000;
-            --text-main: #ffffff;
-            --text-muted: #888888;
-            --highlight: #FDAF45;
+
+            --bg-main:
+                #000000;
+
+            --bg-secondary:
+                #1f1f1f;
+
+            --text-main:
+                #ffffff;
+
+            --text-muted:
+                #888888;
+
+            --highlight:
+                #FDAF45;
 
             --font-heading:
                 'Playfair Display',
@@ -34,59 +66,162 @@
             --font-body:
                 'Inter',
                 sans-serif;
+
         }
 
 
+        /* ==================================================
+           RESET
+        ================================================== */
+
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+
+            margin:
+                0;
+
+            padding:
+                0;
+
+            box-sizing:
+                border-box;
+
         }
 
 
         html {
-            scroll-behavior: smooth;
+
+            width:
+                100%;
+
+            scroll-behavior:
+                smooth;
+
+            overflow-x:
+                hidden;
+
         }
 
 
         body {
-            font-family: var(--font-body);
-            line-height: 1.6;
 
-            color: var(--text-main);
-            background: var(--bg-main);
+            width:
+                100%;
 
-            overflow-x: hidden;
+            min-width:
+                320px;
+
+            margin:
+                0;
+
+            padding:
+                0;
+
+            background:
+                #000000;
+
+            color:
+                #ffffff;
+
+            font-family:
+                var(--font-body);
+
+            overflow-x:
+                hidden;
+
         }
 
 
         h1,
         h2,
         h3 {
-            font-family: var(--font-heading);
-            font-weight: 400;
+
+            font-family:
+                var(--font-heading);
+
+            font-weight:
+                400;
+
+        }
+
+
+        img {
+
+            display:
+                block;
+
+            max-width:
+                100%;
+
+        }
+
+
+        button {
+
+            font:
+                inherit;
+
+        }
+
+
+        a {
+
+            color:
+                inherit;
+
+            text-decoration:
+                none;
+
         }
 
 
         .highlight {
-            color: var(--highlight);
+
+            color:
+                var(--highlight);
+
+        }
+
+
+        /* ==================================================
+           COMPONENT CONTAINERS
+        ================================================== */
+
+        #scroll-to-top-container {
+
+            position:
+                relative;
+
+            z-index:
+                99999;
+
         }
 
 
         #navbar-container {
-            position: relative;
-            z-index: 10000;
+
+            position:
+                relative;
+
+            z-index:
+                10000;
+
+            width:
+                100%;
+
+            height:
+                54px;
+
         }
 
 
         #footer-container {
-            width: 100%;
-        }
 
+            width:
+                100%;
 
-        #scroll-to-top-container {
-            position: relative;
-            z-index: 99999;
+            overflow:
+                hidden;
+
         }
 
 
@@ -95,149 +230,337 @@
         ================================================== */
 
         .hero-section {
-            position: relative;
 
-            width: 100%;
-            height: 65vh;
-            min-height: 400px;
+            position:
+                relative;
 
-            display: flex;
-            flex-direction: column;
+            width:
+                100%;
 
-            justify-content: center;
-            align-items: center;
+            height:
+                430px;
 
-            text-align: center;
+            min-height:
+                430px;
 
-            padding-top: 80px;
-            margin-bottom: 20px;
+            overflow:
+                hidden;
 
-            overflow: hidden;
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            text-align:
+                center;
+
+            background:
+                #000000;
+
         }
 
 
+        /* ==================================================
+           HERO IMAGE
+        ================================================== */
+
         .hero-image {
-            position: absolute;
 
-            inset: 0;
+            position:
+                absolute;
 
-            width: 100%;
-            height: 100%;
+            top:
+                6%;
 
-            object-fit: cover;
-            object-position: center;
+            left:
+                0;
 
-            z-index: -2;
+            width:
+                100%;
 
-            visibility: hidden;
+            height:
+                108%;
+
+            object-fit:
+                cover;
+
+            object-position:
+                center;
+
+            z-index:
+                0;
+
+            visibility:
+                hidden;
+
+            transform:
+                scale(
+                    1.05
+                );
 
             animation:
                 heroZoom
-                10s
+                8s
                 ease-out
                 forwards;
+
         }
 
 
         @keyframes heroZoom {
 
             from {
-                transform: scale(1.08);
+
+                transform:
+                    scale(
+                        1.07
+                    );
+
             }
 
             to {
-                transform: scale(1);
+
+                transform:
+                    scale(
+                        1
+                    );
+
             }
 
         }
 
 
-        .hero-overlay {
-            position: absolute;
+        /* ==================================================
+           HERO GRADIENT
+        ================================================== */
 
-            inset: 0;
+        .hero-overlay {
+
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            z-index:
+                1;
+
+            pointer-events:
+                none;
 
             background:
+
                 linear-gradient(
                     to bottom,
-                    rgba(0, 0, 0, 0.40) 0%,
-                    rgba(0, 0, 0, 1) 100%
+
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0
+                    ) 0%,
+
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0
+                    ) 46%,
+
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.06
+                    ) 53%,
+
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.14
+                    ) 61%,
+
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.34
+                    ) 71%,
+
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.62
+                    ) 82%,
+
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.86
+                    ) 93%,
+
+                    #000000 100%
                 );
 
-            z-index: -1;
         }
 
+
+        /* ==================================================
+           HERO CONTENT
+        ================================================== */
 
         .hero-content {
-            position: relative;
 
-            z-index: 1;
+            position:
+                relative;
 
-            max-width: 900px;
+            z-index:
+                2;
 
-            padding: 0 5%;
+            width:
+                100%;
+
+            max-width:
+                1000px;
+
+            padding:
+                0 5%;
+
+            transform:
+                translateY(
+                    25px
+                );
+
+            opacity:
+                0;
+
         }
 
 
-        .back-link {
-            display: inline-block;
+        /* ==================================================
+           BACK TO PORTFOLIO
+        ================================================== */
 
-            margin-bottom: 24px;
+        .back-link {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            margin:
+                0 0 16px;
 
             color:
                 rgba(
                     255,
                     255,
                     255,
-                    0.70
+                    0.78
                 );
 
-            font-size: 0.85rem;
+            font-family:
+                var(--font-body);
 
-            text-transform: uppercase;
+            font-size:
+                0.74rem;
 
-            letter-spacing: 2px;
+            font-weight:
+                500;
 
-            text-decoration: none;
+            letter-spacing:
+                1.3px;
+
+            text-transform:
+                uppercase;
 
             transition:
-                color 0.3s ease;
+                color
+                0.3s ease,
+
+                opacity
+                0.3s ease,
+
+                transform
+                0.3s ease;
+
         }
 
 
         .back-link:hover {
-            color: var(--highlight);
+
+            color:
+                var(--highlight);
+
+            opacity:
+                1;
+
+            transform:
+                translateX(
+                    -3px
+                );
+
         }
 
 
+        /* ==================================================
+           HERO TITLE
+        ================================================== */
+
         .hero-content h1 {
+
+            margin:
+                0 0 16px;
+
             font-size:
                 clamp(
-                    3.5rem,
+                    3.4rem,
                     5vw,
-                    5rem
+                    5.3rem
                 );
 
-            line-height: 1.1;
+            line-height:
+                1;
 
-            margin-bottom: 24px;
+            letter-spacing:
+                -0.025em;
+
         }
 
 
         .hero-content p {
-            max-width: 700px;
 
-            margin: 0 auto;
+            max-width:
+                850px;
+
+            margin:
+                0 auto;
 
             color:
                 rgba(
                     255,
                     255,
                     255,
-                    0.80
+                    0.84
                 );
 
-            font-size: 1.15rem;
+            font-size:
+                1rem;
+
+            line-height:
+                1.65;
+
         }
 
 
@@ -246,108 +569,190 @@
         ================================================== */
 
         .media-filter-section {
-            width: 100%;
+
+            width:
+                100%;
 
             padding:
-                20px 5% 60px;
+                24px 5% 34px;
+
+            background:
+                #000000;
+
         }
 
 
         .media-filter {
-            display: flex;
 
-            justify-content: center;
-            align-items: center;
+            display:
+                flex;
 
-            gap: 14px;
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                7px;
+
         }
 
 
         .media-btn {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            min-width:
+                78px;
+
+            min-height:
+                36px;
+
             padding:
-                12px 26px;
+                8px 16px;
 
             border:
-                1px solid #444444;
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.18
+                );
 
-            border-radius: 15px;
+            border-radius:
+                9px;
 
-            background: transparent;
+            background:
+                transparent;
 
-            color: #ffffff;
+            color:
+                #ffffff;
 
-            font-family: var(--font-body);
+            font-family:
+                var(--font-body);
 
-            font-size: 0.95rem;
-            font-weight: 500;
+            font-size:
+                0.75rem;
 
-            cursor: pointer;
+            font-weight:
+                500;
+
+            cursor:
+                pointer;
 
             transition:
-                background-color 0.3s ease,
-                color 0.3s ease,
-                border-color 0.3s ease,
-                transform 0.3s ease;
+                background-color
+                0.25s ease,
+
+                border-color
+                0.25s ease,
+
+                color
+                0.25s ease;
+
         }
 
 
         .media-btn:hover {
-            transform: translateY(-2px);
 
-            border-color: var(--highlight);
+            border-color:
+                rgba(
+                    253,
+                    175,
+                    69,
+                    0.65
+                );
+
         }
 
 
         .media-btn.active {
-            background: var(--highlight);
 
-            border-color: var(--highlight);
+            background:
+                var(--highlight);
 
-            color: #1c1c1c;
+            border-color:
+                var(--highlight);
+
+            color:
+                #111111;
+
         }
 
 
         /* ==================================================
-           PINTEREST STYLE MASONRY
+           GALLERY
         ================================================== */
 
         .gallery-grid-section {
-            width: 100%;
 
-            max-width: 1320px;
+            width:
+                100%;
 
-            margin: 0 auto;
+            max-width:
+                1450px;
+
+            margin:
+                0 auto;
 
             padding:
-                20px 5% 120px;
+                8px 5% 110px;
+
         }
 
 
         .gallery-grid {
-            column-count: 3;
 
-            column-gap: 24px;
+            width:
+                100%;
+
+            column-count:
+                3;
+
+            column-gap:
+                18px;
+
         }
 
 
         .gallery-item {
-            display: inline-block;
 
-            width: 100%;
+            display:
+                inline-block;
 
-            margin: 0 0 24px;
+            width:
+                100%;
 
-            break-inside: avoid;
+            margin:
+                0 0 18px;
 
-            page-break-inside: avoid;
+            vertical-align:
+                top;
 
-            vertical-align: top;
+            break-inside:
+                avoid;
 
-            overflow: hidden;
+            page-break-inside:
+                avoid;
 
-            border-radius: 14px;
+            overflow:
+                hidden;
 
-            background: #111111;
+            border-radius:
+                11px;
+
+            background:
+                #111111;
+
         }
 
 
@@ -356,10 +761,18 @@
         ================================================== */
 
         .gallery-item img {
-            display: block;
 
-            width: 100%;
-            height: auto;
+            display:
+                block;
+
+            width:
+                100%;
+
+            height:
+                auto;
+
+            object-fit:
+                cover;
 
             transition:
                 transform
@@ -372,14 +785,22 @@
                 ),
 
                 opacity
-                0.4s ease;
+                0.35s
+                ease;
+
         }
 
 
         .gallery-item:hover img {
-            transform: scale(1.04);
 
-            opacity: 0.90;
+            transform:
+                scale(
+                    1.035
+                );
+
+            opacity:
+                0.94;
+
         }
 
 
@@ -388,36 +809,63 @@
         ================================================== */
 
         .video-item video {
-            display: block;
 
-            width: 100%;
-            height: auto;
+            display:
+                block;
 
-            background: #000000;
+            width:
+                100%;
 
-            object-fit: contain;
+            height:
+                auto;
 
-            cursor: pointer;
+            background:
+                #000000;
 
-            transition:
-                transform
-                0.6s
-                cubic-bezier(
-                    0.16,
-                    1,
-                    0.3,
-                    1
-                ),
+            object-fit:
+                contain;
 
-                opacity
-                0.4s ease;
+            cursor:
+                pointer;
+
         }
 
 
         .video-item:hover video {
-            transform: scale(1.02);
 
-            opacity: 0.95;
+            opacity:
+                0.96;
+
+        }
+
+
+        /* ==================================================
+           EMPTY MESSAGE
+        ================================================== */
+
+        .empty-message {
+
+            width:
+                100%;
+
+            padding:
+                80px 20px;
+
+            color:
+                var(--text-muted);
+
+            font-size:
+                0.85rem;
+
+            line-height:
+                1.6;
+
+            text-align:
+                center;
+
+            column-span:
+                all;
+
         }
 
 
@@ -426,21 +874,27 @@
         ================================================== */
 
         .video-backdrop {
-            position: fixed;
 
-            inset: 0;
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            z-index:
+                10000;
 
             background:
                 rgba(
                     0,
                     0,
                     0,
-                    0.84
+                    0.86
                 );
 
-            z-index: 1000;
+            cursor:
+                pointer;
 
-            cursor: pointer;
         }
 
 
@@ -449,16 +903,24 @@
         ================================================== */
 
         .video-item.video-zoomed {
-            position: fixed;
 
-            top: 50%;
-            left: 50%;
+            position:
+                fixed;
 
-            width: auto;
-            height: auto;
+            top:
+                50%;
 
-            max-width: 82vw;
-            max-height: 82vh;
+            left:
+                50%;
+
+            width:
+                auto;
+
+            max-width:
+                84vw;
+
+            max-height:
+                84vh;
 
             transform:
                 translate(
@@ -466,13 +928,20 @@
                     -50%
                 ) !important;
 
-            z-index: 1001;
+            z-index:
+                10001;
 
-            overflow: visible;
+            margin:
+                0;
 
-            border-radius: 12px;
+            overflow:
+                visible;
 
-            background: #000000;
+            border-radius:
+                10px;
+
+            background:
+                #000000;
 
             box-shadow:
                 0 30px 100px
@@ -482,38 +951,65 @@
                     0,
                     0.85
                 );
+
         }
 
 
         .video-item.video-zoomed video {
-            display: block;
 
-            width: auto;
-            height: auto;
+            display:
+                block;
 
-            max-width: 82vw;
-            max-height: 82vh;
+            width:
+                auto;
 
-            object-fit: contain;
+            max-width:
+                84vw;
 
-            transform: none !important;
+            max-height:
+                84vh;
 
-            opacity: 1;
+            object-fit:
+                contain;
+
+            transform:
+                none !important;
+
+            opacity:
+                1;
+
         }
 
 
         /* ==================================================
-           CLOSE BUTTON
+           VIDEO CLOSE
         ================================================== */
 
         .video-close-btn {
-            position: absolute;
 
-            top: -48px;
-            right: 0;
+            position:
+                absolute;
 
-            width: 40px;
-            height: 40px;
+            top:
+                -48px;
+
+            right:
+                0;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            width:
+                40px;
+
+            height:
+                40px;
 
             border:
                 1px solid
@@ -524,7 +1020,8 @@
                     0.35
                 );
 
-            border-radius: 50%;
+            border-radius:
+                50%;
 
             background:
                 rgba(
@@ -534,52 +1031,55 @@
                     0.75
                 );
 
-            color: #ffffff;
+            color:
+                #ffffff;
 
             font-family:
                 Arial,
                 sans-serif;
 
-            font-size: 26px;
+            font-size:
+                24px;
 
-            line-height: 36px;
+            line-height:
+                1;
 
-            text-align: center;
+            cursor:
+                pointer;
 
-            cursor: pointer;
+            z-index:
+                10002;
 
-            z-index: 1002;
-
-            transition:
-                background 0.3s ease,
-                color 0.3s ease,
-                border-color 0.3s ease;
         }
 
 
         .video-close-btn:hover {
-            background: var(--highlight);
 
-            color: #000000;
+            background:
+                var(--highlight);
 
-            border-color: var(--highlight);
+            color:
+                #000000;
+
+            border-color:
+                var(--highlight);
+
         }
 
 
         /* ==================================================
-           EMPTY MESSAGE
+           TABLET
         ================================================== */
 
-        .empty-message {
-            width: 100%;
+        @media (max-width: 900px) {
 
-            padding: 80px 0;
+            .gallery-grid {
 
-            text-align: center;
+                column-count:
+                    2;
 
-            color: var(--text-muted);
+            }
 
-            font-size: 1rem;
         }
 
 
@@ -587,19 +1087,690 @@
            MOBILE
         ================================================== */
 
-        @media (max-width: 900px) {
+        @media (max-width: 767px) {
+
+            body {
+
+                width:
+                    100%;
+
+                min-width:
+                    320px;
+
+                background:
+                    #000000;
+
+            }
+
+
+            #navbar-container {
+
+                width:
+                    100%;
+
+                height:
+                    54px;
+
+            }
+
+
+            #navbar-container .navbar {
+
+                width:
+                    100%;
+
+                max-width:
+                    none;
+
+            }
+
+
+            /* ==================================================
+               HERO
+            ================================================== */
+
+            .hero-section {
+
+                width:
+                    100%;
+
+                height:
+                    120px;
+
+                min-height:
+                    120px;
+
+                max-height:
+                    120px;
+
+            }
+
+
+            /* ==================================================
+               HERO IMAGE SLIGHTLY LOWER
+            ================================================== */
+
+            .hero-image {
+
+                top:
+                    8%;
+
+                height:
+                    110%;
+
+                object-position:
+                    center 60%;
+
+            }
+
+
+            /* ==================================================
+               LONG GRADIENT
+            ================================================== */
+
+            .hero-overlay {
+
+                background:
+
+                    linear-gradient(
+                        to bottom,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            0
+                        ) 0%,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            0
+                        ) 35%,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            0.03
+                        ) 42%,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            0.10
+                        ) 50%,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            0.22
+                        ) 58%,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            0.40
+                        ) 66%,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            0.60
+                        ) 74%,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            0.78
+                        ) 84%,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            0.92
+                        ) 93%,
+
+                        #000000 100%
+                    );
+
+            }
+
+
+            /* ==================================================
+               HERO CONTENT
+            ================================================== */
+
+            .hero-content {
+
+                width:
+                    100%;
+
+                max-width:
+                    none;
+
+                padding:
+                    0 14px;
+
+                transform:
+                    translateY(
+                        2px
+                    );
+
+            }
+
+
+            .back-link {
+
+                display:
+                    inline-flex;
+
+                margin:
+                    0 0 4px;
+
+                color:
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        0.76
+                    );
+
+                font-size:
+                    0.33rem;
+
+                font-weight:
+                    500;
+
+                letter-spacing:
+                    0.75px;
+
+                line-height:
+                    1;
+
+                text-transform:
+                    none;
+
+            }
+
+
+            .hero-content h1 {
+
+                margin:
+                    0 0 3px;
+
+                font-size:
+                    1.22rem;
+
+                line-height:
+                    1;
+
+                letter-spacing:
+                    -0.015em;
+
+            }
+
+
+            .hero-content p {
+
+                max-width:
+                    235px;
+
+                font-size:
+                    0.33rem;
+
+                line-height:
+                    1.32;
+
+            }
+
+
+            /* ==================================================
+               MEDIA BUTTONS
+            ================================================== */
+
+            .media-filter-section {
+
+                width:
+                    100%;
+
+                padding:
+                    14px 0 20px;
+
+            }
+
+
+            .media-filter {
+
+                gap:
+                    6px;
+
+            }
+
+
+            .media-btn {
+
+                min-width:
+                    42px;
+
+                min-height:
+                    18px;
+
+                height:
+                    18px;
+
+                padding:
+                    3px 9px;
+
+                border-radius:
+                    6px;
+
+                font-size:
+                    0.33rem;
+
+                line-height:
+                    1;
+
+            }
+
+
+            /* ==================================================
+               MASONRY GALLERY
+            ================================================== */
+
+            .gallery-grid-section {
+
+                width:
+                    100%;
+
+                max-width:
+                    none;
+
+                margin:
+                    0;
+
+                padding:
+                    0 10px 52px;
+
+            }
+
 
             .gallery-grid {
-                column-count: 2;
+
+                width:
+                    100%;
+
+                column-count:
+                    3;
+
+                column-gap:
+                    4px;
+
+            }
+
+
+            .gallery-item {
+
+                width:
+                    100%;
+
+                margin:
+                    0 0 4px;
+
+                border-radius:
+                    4px;
+
+            }
+
+
+            .gallery-item img {
+
+                width:
+                    100%;
+
+                height:
+                    auto;
+
+                transform:
+                    none;
+
+            }
+
+
+            .gallery-item:hover img {
+
+                transform:
+                    none;
+
+                opacity:
+                    1;
+
+            }
+
+
+            .video-item video {
+
+                width:
+                    100%;
+
+                height:
+                    auto;
+
+            }
+
+
+            /* ==================================================
+               VIDEO ZOOM
+            ================================================== */
+
+            .video-item.video-zoomed {
+
+                max-width:
+                    88vw;
+
+                max-height:
+                    72vh;
+
+                border-radius:
+                    7px;
+
+            }
+
+
+            .video-item.video-zoomed video {
+
+                max-width:
+                    88vw;
+
+                max-height:
+                    72vh;
+
+            }
+
+
+            .video-close-btn {
+
+                top:
+                    -34px;
+
+                width:
+                    28px;
+
+                height:
+                    28px;
+
+                font-size:
+                    19px;
+
+            }
+
+
+            .empty-message {
+
+                padding:
+                    35px 10px;
+
+                font-size:
+                    0.52rem;
+
             }
 
         }
 
 
-        @media (max-width: 600px) {
+        /* ==================================================
+           SMALL PHONES
+        ================================================== */
+
+        @media (max-width: 480px) {
+
+            .hero-section {
+
+                height:
+                    114px;
+
+                min-height:
+                    114px;
+
+                max-height:
+                    114px;
+
+            }
+
+
+            .hero-image {
+
+                top:
+                    9%;
+
+                height:
+                    111%;
+
+                object-position:
+                    center 61%;
+
+            }
+
+
+            .hero-content {
+
+                padding:
+                    0 12px;
+
+            }
+
+
+            .back-link {
+
+                margin-bottom:
+                    3px;
+
+                font-size:
+                    0.31rem;
+
+            }
+
+
+            .hero-content h1 {
+
+                font-size:
+                    1.14rem;
+
+            }
+
+
+            .hero-content p {
+
+                max-width:
+                    220px;
+
+                font-size:
+                    0.31rem;
+
+            }
+
+
+            .media-filter-section {
+
+                padding:
+                    13px 0 18px;
+
+            }
+
+
+            .gallery-grid-section {
+
+                padding:
+                    0 9px 46px;
+
+            }
+
 
             .gallery-grid {
-                column-count: 1;
+
+                column-gap:
+                    3px;
+
+            }
+
+
+            .gallery-item {
+
+                margin-bottom:
+                    3px;
+
+                border-radius:
+                    3px;
+
+            }
+
+        }
+
+
+        /* ==================================================
+           VERY SMALL PHONES
+        ================================================== */
+
+        @media (max-width: 360px) {
+
+            .hero-section {
+
+                height:
+                    108px;
+
+                min-height:
+                    108px;
+
+                max-height:
+                    108px;
+
+            }
+
+
+            .hero-image {
+
+                top:
+                    10%;
+
+                height:
+                    112%;
+
+                object-position:
+                    center 62%;
+
+            }
+
+
+            .back-link {
+
+                font-size:
+                    0.29rem;
+
+            }
+
+
+            .hero-content h1 {
+
+                font-size:
+                    1.06rem;
+
+            }
+
+
+            .hero-content p {
+
+                font-size:
+                    0.29rem;
+
+            }
+
+
+            .media-btn {
+
+                min-width:
+                    40px;
+
+                min-height:
+                    17px;
+
+                height:
+                    17px;
+
+                padding:
+                    3px 8px;
+
+                font-size:
+                    0.31rem;
+
+            }
+
+
+            .gallery-grid-section {
+
+                padding:
+                    0 8px 42px;
+
+            }
+
+
+            .gallery-grid {
+
+                column-gap:
+                    3px;
+
+            }
+
+
+            .gallery-item {
+
+                margin-bottom:
+                    3px;
+
+            }
+
+        }
+
+
+        /* ==================================================
+           REDUCED MOTION
+        ================================================== */
+
+        @media (
+            prefers-reduced-motion:
+            reduce
+        ) {
+
+            html {
+
+                scroll-behavior:
+                    auto;
+
+            }
+
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    0.01ms !important;
+
+                scroll-behavior:
+                    auto !important;
+
             }
 
         }
@@ -613,7 +1784,7 @@
 
 
     <!-- ==================================================
-         REUSABLE SCROLL TO TOP
+         SCROLL TO TOP
     ================================================== -->
 
     <div
@@ -622,7 +1793,7 @@
 
 
     <!-- ==================================================
-         REUSABLE NAVBAR
+         NAVBAR
     ================================================== -->
 
     <div
@@ -655,7 +1826,6 @@
             class="hero-content"
         >
 
-
             <a
                 href="portfolio.html"
                 class="back-link"
@@ -665,9 +1835,7 @@
             </a>
 
 
-            <h1
-                id="gallery-title"
-            >
+            <h1>
 
                 Sports
 
@@ -680,9 +1848,7 @@
             </h1>
 
 
-            <p
-                id="gallery-description"
-            >
+            <p>
 
                 A curation of action, energy,
                 performance, and powerful sports
@@ -707,7 +1873,6 @@
             class="media-filter"
         >
 
-
             <button
                 class="media-btn active"
                 data-media="photos"
@@ -724,7 +1889,6 @@
             >
                 Videos
             </button>
-
 
         </div>
 
@@ -748,7 +1912,7 @@
 
 
     <!-- ==================================================
-         REUSABLE FOOTER
+         FOOTER
     ================================================== -->
 
     <div
@@ -769,36 +1933,197 @@
     ></script>
 
 
-    <!-- ==================================================
-         JAVASCRIPT
-    ================================================== -->
-
     <script>
 
-
         /* ==================================================
-           LOAD REUSABLE SCROLL TO TOP
+           LOAD NAVBAR
         ================================================== */
 
         fetch(
-            './components/scroll-to-top.html'
+            './components/navbar.html',
+            {
+                cache:
+                    'no-store'
+            }
         )
 
-            .then(response => {
+        .then(
+            response => {
 
                 if (!response.ok) {
 
                     throw new Error(
-                        `Scroll component failed: ${response.status}`
+                        `Navbar HTTP error: ${response.status}`
                     );
 
                 }
 
                 return response.text();
 
-            })
+            }
+        )
 
-            .then(html => {
+        .then(
+            html => {
+
+                const container =
+                    document.getElementById(
+                        'navbar-container'
+                    );
+
+
+                if (
+                    !container
+                ) {
+
+                    return;
+
+                }
+
+
+                container.innerHTML =
+                    html;
+
+
+                const workLink =
+                    container.querySelector(
+                        '.nav-links a[data-page="work"]'
+                    );
+
+
+                if (
+                    workLink
+                ) {
+
+                    workLink.classList.add(
+                        'active'
+                    );
+
+                }
+
+
+                const mobileWorkLink =
+                    container.querySelector(
+                        '.mobile-nav-links a[data-page="work"]'
+                    );
+
+
+                if (
+                    mobileWorkLink
+                ) {
+
+                    mobileWorkLink.classList.add(
+                        'active'
+                    );
+
+                }
+
+            }
+        )
+
+        .catch(
+            error => {
+
+                console.error(
+                    'Navbar loading error:',
+                    error
+                );
+
+            }
+        );
+
+
+        /* ==================================================
+           LOAD FOOTER
+        ================================================== */
+
+        fetch(
+            './components/footer.html',
+            {
+                cache:
+                    'no-store'
+            }
+        )
+
+        .then(
+            response => {
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        `Footer HTTP error: ${response.status}`
+                    );
+
+                }
+
+                return response.text();
+
+            }
+        )
+
+        .then(
+            html => {
+
+                const container =
+                    document.getElementById(
+                        'footer-container'
+                    );
+
+
+                if (
+                    container
+                ) {
+
+                    container.innerHTML =
+                        html;
+
+                }
+
+            }
+        )
+
+        .catch(
+            error => {
+
+                console.error(
+                    'Footer loading error:',
+                    error
+                );
+
+            }
+        );
+
+
+        /* ==================================================
+           LOAD SCROLL TO TOP
+        ================================================== */
+
+        fetch(
+            './components/scroll-to-top.html',
+            {
+                cache:
+                    'no-store'
+            }
+        )
+
+        .then(
+            response => {
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        `Scroll component HTTP error: ${response.status}`
+                    );
+
+                }
+
+                return response.text();
+
+            }
+        )
+
+        .then(
+            html => {
 
                 const container =
                     document.getElementById(
@@ -806,12 +2131,17 @@
                     );
 
 
-                if (!container) {
+                if (
+                    !container
+                ) {
+
                     return;
+
                 }
 
 
-                container.innerHTML = html;
+                container.innerHTML =
+                    html;
 
 
                 const button =
@@ -820,15 +2150,20 @@
                     );
 
 
-                if (!button) {
+                if (
+                    !button
+                ) {
+
                     return;
+
                 }
 
 
                 function updateButton() {
 
                     if (
-                        window.scrollY > 500
+                        window.scrollY >
+                        500
                     ) {
 
                         button.classList.add(
@@ -836,6 +2171,7 @@
                         );
 
                     }
+
                     else {
 
                         button.classList.remove(
@@ -851,7 +2187,8 @@
                     'scroll',
                     updateButton,
                     {
-                        passive: true
+                        passive:
+                            true
                     }
                 );
 
@@ -861,8 +2198,13 @@
                     () => {
 
                         window.scrollTo({
-                            top: 0,
-                            behavior: 'smooth'
+
+                            top:
+                                0,
+
+                            behavior:
+                                'smooth'
+
                         });
 
                     }
@@ -871,124 +2213,24 @@
 
                 updateButton();
 
-            })
-
-            .catch(error => {
-
-                console.error(
-                    'Scroll-to-top component error:',
-                    error
-                );
-
-            });
-
-
-        /* ==================================================
-           LOAD REUSABLE NAVBAR
-        ================================================== */
-
-        fetch(
-            'components/navbar.html'
+            }
         )
 
-            .then(response => {
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        'Navbar could not be loaded'
-                    );
-
-                }
-
-                return response.text();
-
-            })
-
-            .then(data => {
-
-                document
-                    .getElementById(
-                        'navbar-container'
-                    )
-                    .innerHTML = data;
-
-
-                const workLink =
-                    document.querySelector(
-                        '.nav-links a[data-page="work"]'
-                    );
-
-
-                if (workLink) {
-
-                    workLink.classList.add(
-                        'active'
-                    );
-
-                }
-
-            })
-
-            .catch(error => {
+        .catch(
+            error => {
 
                 console.error(
-                    'Navbar loading error:',
+                    'Scroll component error:',
                     error
                 );
 
-            });
-
-
-        /* ==================================================
-           LOAD REUSABLE FOOTER
-        ================================================== */
-
-        fetch(
-            'components/footer.html'
-        )
-
-            .then(response => {
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        'Footer could not be loaded'
-                    );
-
-                }
-
-                return response.text();
-
-            })
-
-            .then(data => {
-
-                document
-                    .getElementById(
-                        'footer-container'
-                    )
-                    .innerHTML = data;
-
-            })
-
-            .catch(error => {
-
-                console.error(
-                    'Footer loading error:',
-                    error
-                );
-
-            });
+            }
+        );
 
 
         /* ==================================================
            SPORTS CONFIGURATION
         ================================================== */
-
-        const galleryName =
-            'Sports';
-
 
         const photoApi =
             '/api/sports-photos';
@@ -1002,100 +2244,12 @@
             '/api/sports-hero';
 
 
-        /* ==================================================
-           PAGE TITLE
-        ================================================== */
-
         document.title =
             'Sports | Auren Originals';
 
 
         /* ==================================================
-           HERO IMAGE
-        ================================================== */
-
-        const heroImage =
-            document.getElementById(
-                'sports-hero-image'
-            );
-
-
-        if (heroImage) {
-
-            heroImage.style.visibility =
-                'hidden';
-
-
-            heroImage.onload = () => {
-
-                heroImage.style.visibility =
-                    'visible';
-
-            };
-
-
-            fetch(
-                heroApi,
-                {
-                    method: 'GET',
-                    cache: 'no-store'
-                }
-            )
-
-                .then(response => {
-
-                    if (!response.ok) {
-
-                        throw new Error(
-                            `Sports hero API returned HTTP ${response.status}`
-                        );
-
-                    }
-
-                    return response.json();
-
-                })
-
-                .then(data => {
-
-                    const heroUrl =
-                        typeof data === 'string'
-                            ? data
-                            : (
-                                data?.secure_url ||
-                                data?.url ||
-                                ''
-                            );
-
-
-                    if (!heroUrl) {
-
-                        throw new Error(
-                            'Sports hero URL was not returned'
-                        );
-
-                    }
-
-
-                    heroImage.src =
-                        heroUrl;
-
-                })
-
-                .catch(error => {
-
-                    console.error(
-                        'Sports hero loading error:',
-                        error
-                    );
-
-                });
-
-        }
-
-
-        /* ==================================================
-           GALLERY ELEMENTS
+           ELEMENTS
         ================================================== */
 
         const galleryContainer =
@@ -1110,6 +2264,112 @@
             );
 
 
+        const heroImage =
+            document.getElementById(
+                'sports-hero-image'
+            );
+
+
+        /* ==================================================
+           HERO FROM CLOUDINARY API
+        ================================================== */
+
+        if (
+            heroImage
+        ) {
+
+            heroImage.style.visibility =
+                'hidden';
+
+
+            fetch(
+                heroApi,
+                {
+                    method:
+                        'GET',
+
+                    cache:
+                        'no-store'
+                }
+            )
+
+            .then(
+                response => {
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            `Sports hero API returned HTTP ${response.status}`
+                        );
+
+                    }
+
+
+                    return response.json();
+
+                }
+            )
+
+            .then(
+                data => {
+
+                    const heroUrl =
+                        data?.secure_url ||
+                        data?.url ||
+                        '';
+
+
+                    if (
+                        !heroUrl
+                    ) {
+
+                        throw new Error(
+                            'Sports hero URL was not returned.'
+                        );
+
+                    }
+
+
+                    heroImage.onload =
+                        () => {
+
+                            heroImage.style.visibility =
+                                'visible';
+
+                        };
+
+
+                    heroImage.onerror =
+                        () => {
+
+                            console.error(
+                                'Sports hero image failed:',
+                                heroUrl
+                            );
+
+                        };
+
+
+                    heroImage.src =
+                        heroUrl;
+
+                }
+            )
+
+            .catch(
+                error => {
+
+                    console.error(
+                        'Sports hero loading error:',
+                        error
+                    );
+
+                }
+            );
+
+        }
+
+
         /* ==================================================
            VIDEO STATE
         ================================================== */
@@ -1117,11 +2377,53 @@
         let activeVideoItem =
             null;
 
+
         let activeVideo =
             null;
 
+
         let videoBackdrop =
             null;
+
+
+        /* ==================================================
+           MEDIA URL
+        ================================================== */
+
+        function getMediaUrl(
+            media
+        ) {
+
+            if (
+                typeof media ===
+                'string'
+            ) {
+
+                return media;
+
+            }
+
+
+            if (
+                media &&
+                typeof media ===
+                'object'
+            ) {
+
+                return (
+
+                    media.secure_url ||
+                    media.url ||
+                    ''
+
+                );
+
+            }
+
+
+            return '';
+
+        }
 
 
         /* ==================================================
@@ -1129,17 +2431,23 @@
         ================================================== */
 
         function getVideoMimeType(
-            filename
+            media
         ) {
 
             const extension =
-                String(filename)
-                    .split('.')
-                    .pop()
-                    .toLowerCase();
+                String(
+                    media?.format ||
+                    media?.display_name ||
+                    media?.public_id ||
+                    media ||
+                    ''
+                )
+                .split('.')
+                .pop()
+                .toLowerCase();
 
 
-            const mimeTypes = {
+            const types = {
 
                 mp4:
                     'video/mp4',
@@ -1157,45 +2465,12 @@
 
 
             return (
-                mimeTypes[extension]
-                || 'video/mp4'
+                types[
+                    extension
+                ]
+                ||
+                'video/mp4'
             );
-
-        }
-
-
-        /* ==================================================
-           CLOUDINARY MEDIA URL
-        ================================================== */
-
-        function getMediaUrl(
-            media
-        ) {
-
-            if (
-                typeof media === 'string'
-            ) {
-
-                return media;
-
-            }
-
-
-            if (
-                media &&
-                typeof media === 'object'
-            ) {
-
-                return (
-                    media.secure_url ||
-                    media.url ||
-                    ''
-                );
-
-            }
-
-
-            return '';
 
         }
 
@@ -1213,27 +2488,19 @@
                 '';
 
 
-            console.log(
-                'Loading Sports photos from:',
-                photoApi
-            );
-
-
             fetch(
                 photoApi,
                 {
-                    method: 'GET',
-                    cache: 'no-store'
+                    method:
+                        'GET',
+
+                    cache:
+                        'no-store'
                 }
             )
 
-                .then(response => {
-
-                    console.log(
-                        'Sports photo API status:',
-                        response.status
-                    );
-
+            .then(
+                response => {
 
                     if (!response.ok) {
 
@@ -1246,18 +2513,22 @@
 
                     return response.json();
 
-                })
+                }
+            )
 
-                .then(photos => {
+            .then(
+                photos => {
 
                     console.log(
-                        'Sports photos:',
+                        'Sports photos received:',
                         photos
                     );
 
 
                     if (
-                        !Array.isArray(photos)
+                        !Array.isArray(
+                            photos
+                        )
                         ||
                         photos.length === 0
                     ) {
@@ -1287,7 +2558,9 @@
                                 );
 
 
-                            if (!imageUrl) {
+                            if (
+                                !imageUrl
+                            ) {
 
                                 console.warn(
                                     'Sports photo has no URL:',
@@ -1320,6 +2593,7 @@
 
 
                             image.alt =
+                                photo.display_name ||
                                 'Sports Gallery';
 
 
@@ -1332,25 +2606,12 @@
 
 
                             image.addEventListener(
-                                'load',
-                                () => {
-
-                                    console.log(
-                                        'Sports photo loaded:',
-                                        image.src
-                                    );
-
-                                }
-                            );
-
-
-                            image.addEventListener(
                                 'error',
                                 () => {
 
                                     console.error(
-                                        'Sports photo failed:',
-                                        image.src
+                                        'Sports photo failed to load:',
+                                        imageUrl
                                     );
 
                                 }
@@ -1372,9 +2633,11 @@
 
                     runGalleryAnimation();
 
-                })
+                }
+            )
 
-                .catch(error => {
+            .catch(
+                error => {
 
                     console.error(
                         'Sports photo loading error:',
@@ -1393,7 +2656,8 @@
 
                     `;
 
-                });
+                }
+            );
 
         }
 
@@ -1411,21 +2675,19 @@
                 '';
 
 
-            console.log(
-                'Loading Sports videos from:',
-                videoApi
-            );
-
-
             fetch(
                 videoApi,
                 {
-                    method: 'GET',
-                    cache: 'no-store'
+                    method:
+                        'GET',
+
+                    cache:
+                        'no-store'
                 }
             )
 
-                .then(response => {
+            .then(
+                response => {
 
                     if (!response.ok) {
 
@@ -1438,26 +2700,23 @@
 
                     return response.json();
 
-                })
+                }
+            )
 
-                .then(videos => {
+            .then(
+                videos => {
 
                     console.log(
-                        'Sports videos:',
+                        'Sports videos received:',
                         videos
                     );
 
 
                     if (
-                        !Array.isArray(photos)
-                    ) {
-
-                        return;
-
-                    }
-
-
-                    if (
+                        !Array.isArray(
+                            videos
+                        )
+                        ||
                         videos.length === 0
                     ) {
 
@@ -1486,7 +2745,9 @@
                                 );
 
 
-                            if (!videoUrl) {
+                            if (
+                                !videoUrl
+                            ) {
 
                                 console.warn(
                                     'Sports video has no URL:',
@@ -1526,6 +2787,13 @@
                                 true;
 
 
+                            videoElement.setAttribute(
+                                'aria-label',
+                                videoFile.display_name ||
+                                'Sports Video'
+                            );
+
+
                             const source =
                                 document.createElement(
                                     'source'
@@ -1538,10 +2806,7 @@
 
                             source.type =
                                 getVideoMimeType(
-                                    videoFile?.public_id ||
-                                    videoFile?.original_filename ||
-                                    videoFile?.filename ||
-                                    videoUrl
+                                    videoFile
                                 );
 
 
@@ -1591,9 +2856,11 @@
 
                     runGalleryAnimation();
 
-                })
+                }
+            )
 
-                .catch(error => {
+            .catch(
+                error => {
 
                     console.error(
                         'Sports video loading error:',
@@ -1612,13 +2879,14 @@
 
                     `;
 
-                });
+                }
+            );
 
         }
 
 
         /* ==================================================
-           OPEN ZOOMED VIDEO
+           OPEN VIDEO
         ================================================== */
 
         function openZoomedVideo(
@@ -1665,21 +2933,18 @@
                 true;
 
 
-            videoElement.pause();
-
-
             const closeButton =
                 document.createElement(
                     'button'
                 );
 
 
-            closeButton.className =
-                'video-close-btn';
-
-
             closeButton.type =
                 'button';
+
+
+            closeButton.className =
+                'video-close-btn';
 
 
             closeButton.setAttribute(
@@ -1703,6 +2968,7 @@
 
                     event.stopPropagation();
 
+
                     closeZoomedVideo();
 
                 }
@@ -1722,13 +2988,17 @@
 
 
         /* ==================================================
-           CLOSE ZOOMED VIDEO
+           CLOSE VIDEO
         ================================================== */
 
         function closeZoomedVideo() {
 
-            if (!activeVideoItem) {
+            if (
+                !activeVideoItem
+            ) {
+
                 return;
+
             }
 
 
@@ -1737,7 +3007,9 @@
             );
 
 
-            if (activeVideo) {
+            if (
+                activeVideo
+            ) {
 
                 activeVideo.pause();
 
@@ -1753,12 +3025,18 @@
                 );
 
 
-            if (closeButton) {
+            if (
+                closeButton
+            ) {
+
                 closeButton.remove();
+
             }
 
 
-            if (videoBackdrop) {
+            if (
+                videoBackdrop
+            ) {
 
                 videoBackdrop.remove();
 
@@ -1783,7 +3061,7 @@
 
 
         /* ==================================================
-           ESC KEY
+           ESCAPE
         ================================================== */
 
         document.addEventListener(
@@ -1791,7 +3069,8 @@
             event => {
 
                 if (
-                    event.key === 'Escape'
+                    event.key ===
+                    'Escape'
                 ) {
 
                     closeZoomedVideo();
@@ -1809,7 +3088,8 @@
         function runGalleryAnimation() {
 
             if (
-                typeof gsap === 'undefined'
+                typeof gsap ===
+                'undefined'
             ) {
 
                 return;
@@ -1817,25 +3097,42 @@
             }
 
 
+            gsap.killTweensOf(
+                '.gallery-item'
+            );
+
+
             gsap.fromTo(
 
                 '.gallery-item',
 
                 {
-                    y: 35,
-                    opacity: 0
+
+                    y:
+                        20,
+
+                    opacity:
+                        0
+
                 },
 
                 {
-                    y: 0,
-                    opacity: 1,
 
-                    duration: 0.85,
+                    y:
+                        0,
 
-                    stagger: 0.08,
+                    opacity:
+                        1,
+
+                    duration:
+                        0.6,
+
+                    stagger:
+                        0.04,
 
                     ease:
                         'power3.out'
+
                 }
 
             );
@@ -1855,9 +3152,9 @@
                     () => {
 
                         mediaButtons.forEach(
-                            btn => {
+                            item => {
 
-                                btn.classList.remove(
+                                item.classList.remove(
                                     'active'
                                 );
 
@@ -1870,21 +3167,16 @@
                         );
 
 
-                        const selectedMedia =
-                            button.dataset.media;
-
-
                         if (
-                            selectedMedia === 'photos'
+                            button.dataset.media ===
+                            'photos'
                         ) {
 
                             loadPhotos();
 
                         }
 
-                        else if (
-                            selectedMedia === 'videos'
-                        ) {
+                        else {
 
                             loadVideos();
 
@@ -1898,26 +3190,32 @@
 
 
         /* ==================================================
-           HERO ANIMATION
+           HERO CONTENT ANIMATION
         ================================================== */
 
         if (
-            typeof gsap !== 'undefined'
+            typeof gsap !==
+            'undefined'
         ) {
 
-            gsap.from(
+            gsap.to(
                 '.hero-content',
                 {
 
-                    y: 35,
+                    y:
+                        0,
 
-                    opacity: 0,
+                    opacity:
+                        1,
 
-                    duration: 1.1,
+                    duration:
+                        0.9,
 
-                    ease: 'power3.out',
+                    delay:
+                        0.12,
 
-                    delay: 0.2
+                    ease:
+                        'power3.out'
 
                 }
             );

@@ -10,7 +10,9 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Fashion | Auren Originals</title>
+    <title>
+        Fashion | Auren Originals
+    </title>
 
 
     <!-- ==================================================
@@ -23,14 +25,16 @@
     >
 
     <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;500&display=swap"
         rel="stylesheet"
     >
 
-
-    <!-- ==================================================
-         CSS
-    ================================================== -->
 
     <style>
 
@@ -40,13 +44,20 @@
 
         :root {
 
-            --bg-main: #000000;
+            --bg-main:
+                #000000;
 
-            --text-main: #ffffff;
+            --bg-secondary:
+                #1f1f1f;
 
-            --text-muted: #888888;
+            --text-main:
+                #ffffff;
 
-            --highlight: #FDAF45;
+            --text-muted:
+                #888888;
+
+            --highlight:
+                #FDAF45;
 
             --font-heading:
                 'Playfair Display',
@@ -55,6 +66,7 @@
             --font-body:
                 'Inter',
                 sans-serif;
+
         }
 
 
@@ -64,36 +76,58 @@
 
         * {
 
-            margin: 0;
-            padding: 0;
+            margin:
+                0;
 
-            box-sizing: border-box;
+            padding:
+                0;
+
+            box-sizing:
+                border-box;
+
         }
 
 
         html {
 
+            width:
+                100%;
+
             scroll-behavior:
                 smooth;
+
+            overflow-x:
+                hidden;
+
         }
 
 
         body {
 
+            width:
+                100%;
+
+            min-width:
+                320px;
+
+            margin:
+                0;
+
+            padding:
+                0;
+
+            background:
+                #000000;
+
+            color:
+                #ffffff;
+
             font-family:
                 var(--font-body);
 
-            line-height:
-                1.6;
-
-            color:
-                var(--text-main);
-
-            background:
-                var(--bg-main);
-
             overflow-x:
                 hidden;
+
         }
 
 
@@ -106,6 +140,37 @@
 
             font-weight:
                 400;
+
+        }
+
+
+        img {
+
+            display:
+                block;
+
+            max-width:
+                100%;
+
+        }
+
+
+        button {
+
+            font:
+                inherit;
+
+        }
+
+
+        a {
+
+            color:
+                inherit;
+
+            text-decoration:
+                none;
+
         }
 
 
@@ -113,29 +178,13 @@
 
             color:
                 var(--highlight);
+
         }
 
 
         /* ==================================================
            COMPONENT CONTAINERS
         ================================================== */
-
-        #navbar-container {
-
-            position:
-                relative;
-
-            z-index:
-                10000;
-        }
-
-
-        #footer-container {
-
-            width:
-                100%;
-        }
-
 
         #scroll-to-top-container {
 
@@ -144,6 +193,35 @@
 
             z-index:
                 99999;
+
+        }
+
+
+        #navbar-container {
+
+            position:
+                relative;
+
+            z-index:
+                10000;
+
+            width:
+                100%;
+
+            height:
+                54px;
+
+        }
+
+
+        #footer-container {
+
+            width:
+                100%;
+
+            overflow:
+                hidden;
+
         }
 
 
@@ -160,50 +238,52 @@
                 100%;
 
             height:
-                65vh;
+                430px;
 
             min-height:
-                400px;
+                430px;
+
+            overflow:
+                hidden;
 
             display:
                 flex;
 
-            flex-direction:
-                column;
-
-            justify-content:
+            align-items:
                 center;
 
-            align-items:
+            justify-content:
                 center;
 
             text-align:
                 center;
 
-            padding-top:
-                80px;
+            background:
+                #000000;
 
-            margin-bottom:
-                20px;
-
-            overflow:
-                hidden;
         }
 
+
+        /* ==================================================
+           HERO IMAGE
+        ================================================== */
 
         .hero-image {
 
             position:
                 absolute;
 
-            inset:
+            top:
+                6%;
+
+            left:
                 0;
 
             width:
                 100%;
 
             height:
-                100%;
+                108%;
 
             object-fit:
                 cover;
@@ -212,16 +292,22 @@
                 center;
 
             z-index:
-                -2;
+                0;
 
             visibility:
                 hidden;
 
+            transform:
+                scale(
+                    1.05
+                );
+
             animation:
                 heroZoom
-                10s
+                8s
                 ease-out
                 forwards;
+
         }
 
 
@@ -230,17 +316,29 @@
             from {
 
                 transform:
-                    scale(1.08);
+                    scale(
+                        1.07
+                    );
+
             }
 
             to {
 
                 transform:
-                    scale(1);
+                    scale(
+                        1
+                    );
+
             }
 
         }
 
+
+        /* ==================================================
+           HERO GRADIENT
+           CLEAR IMAGE THROUGH UPPER AREA
+           LONG FADE TO BLACK BELOW
+        ================================================== */
 
         .hero-overlay {
 
@@ -250,28 +348,75 @@
             inset:
                 0;
 
+            z-index:
+                1;
+
+            pointer-events:
+                none;
+
             background:
+
                 linear-gradient(
                     to bottom,
+
                     rgba(
                         0,
                         0,
                         0,
-                        0.40
+                        0
                     ) 0%,
 
                     rgba(
                         0,
                         0,
                         0,
-                        1
-                    ) 100%
+                        0
+                    ) 46%,
+
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.06
+                    ) 53%,
+
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.14
+                    ) 61%,
+
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.34
+                    ) 71%,
+
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.62
+                    ) 82%,
+
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.86
+                    ) 93%,
+
+                    #000000 100%
                 );
 
-            z-index:
-                -1;
         }
 
+
+        /* ==================================================
+           HERO CONTENT
+        ================================================== */
 
         .hero-content {
 
@@ -279,46 +424,79 @@
                 relative;
 
             z-index:
-                1;
+                2;
+
+            width:
+                100%;
 
             max-width:
-                900px;
+                1000px;
 
             padding:
                 0 5%;
+
+            transform:
+                translateY(
+                    25px
+                );
+
+            opacity:
+                0;
+
         }
 
+
+        /* ==================================================
+           BACK TO PORTFOLIO
+        ================================================== */
 
         .back-link {
 
             display:
-                inline-block;
+                inline-flex;
 
-            margin-bottom:
-                24px;
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            margin:
+                0 0 16px;
 
             color:
                 rgba(
                     255,
                     255,
                     255,
-                    0.70
+                    0.78
                 );
 
+            font-family:
+                var(--font-body);
+
             font-size:
-                0.85rem;
+                0.74rem;
+
+            font-weight:
+                500;
+
+            letter-spacing:
+                1.3px;
 
             text-transform:
                 uppercase;
 
-            letter-spacing:
-                2px;
-
-            text-decoration:
-                none;
-
             transition:
-                color 0.3s ease;
+                color
+                0.3s ease,
+
+                opacity
+                0.3s ease,
+
+                transform
+                0.3s ease;
+
         }
 
 
@@ -326,30 +504,47 @@
 
             color:
                 var(--highlight);
+
+            opacity:
+                1;
+
+            transform:
+                translateX(
+                    -3px
+                );
+
         }
 
 
+        /* ==================================================
+           HERO TITLE
+        ================================================== */
+
         .hero-content h1 {
+
+            margin:
+                0 0 16px;
 
             font-size:
                 clamp(
-                    3.5rem,
+                    3.4rem,
                     5vw,
-                    5rem
+                    5.3rem
                 );
 
             line-height:
-                1.1;
+                1;
 
-            margin-bottom:
-                24px;
+            letter-spacing:
+                -0.025em;
+
         }
 
 
         .hero-content p {
 
             max-width:
-                700px;
+                850px;
 
             margin:
                 0 auto;
@@ -359,11 +554,15 @@
                     255,
                     255,
                     255,
-                    0.80
+                    0.84
                 );
 
             font-size:
-                1.15rem;
+                1rem;
+
+            line-height:
+                1.65;
+
         }
 
 
@@ -377,7 +576,11 @@
                 100%;
 
             padding:
-                20px 5% 60px;
+                24px 5% 34px;
+
+            background:
+                #000000;
+
         }
 
 
@@ -386,28 +589,49 @@
             display:
                 flex;
 
-            justify-content:
-                center;
-
             align-items:
                 center;
 
+            justify-content:
+                center;
+
             gap:
-                14px;
+                7px;
+
         }
 
 
         .media-btn {
 
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            min-width:
+                78px;
+
+            min-height:
+                36px;
+
             padding:
-                12px 26px;
+                8px 16px;
 
             border:
                 1px solid
-                #444444;
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.18
+                );
 
             border-radius:
-                15px;
+                9px;
 
             background:
                 transparent;
@@ -419,7 +643,7 @@
                 var(--font-body);
 
             font-size:
-                0.95rem;
+                0.75rem;
 
             font-weight:
                 500;
@@ -428,20 +652,28 @@
                 pointer;
 
             transition:
-                background-color 0.3s ease,
-                color 0.3s ease,
-                border-color 0.3s ease,
-                transform 0.3s ease;
+                background-color
+                0.25s ease,
+
+                border-color
+                0.25s ease,
+
+                color
+                0.25s ease;
+
         }
 
 
         .media-btn:hover {
 
-            transform:
-                translateY(-2px);
-
             border-color:
-                var(--highlight);
+                rgba(
+                    253,
+                    175,
+                    69,
+                    0.65
+                );
+
         }
 
 
@@ -454,12 +686,13 @@
                 var(--highlight);
 
             color:
-                #1c1c1c;
+                #111111;
+
         }
 
 
         /* ==================================================
-           PINTEREST STYLE MASONRY
+           GALLERY
         ================================================== */
 
         .gallery-grid-section {
@@ -468,23 +701,28 @@
                 100%;
 
             max-width:
-                1320px;
+                1450px;
 
             margin:
                 0 auto;
 
             padding:
-                20px 5% 120px;
+                8px 5% 110px;
+
         }
 
 
         .gallery-grid {
 
+            width:
+                100%;
+
             column-count:
                 3;
 
             column-gap:
-                24px;
+                18px;
+
         }
 
 
@@ -497,7 +735,10 @@
                 100%;
 
             margin:
-                0 0 24px;
+                0 0 18px;
+
+            vertical-align:
+                top;
 
             break-inside:
                 avoid;
@@ -505,17 +746,15 @@
             page-break-inside:
                 avoid;
 
-            vertical-align:
-                top;
-
             overflow:
                 hidden;
 
             border-radius:
-                14px;
+                11px;
 
             background:
                 #111111;
+
         }
 
 
@@ -534,6 +773,9 @@
             height:
                 auto;
 
+            object-fit:
+                cover;
+
             transition:
                 transform
                 0.7s
@@ -545,17 +787,22 @@
                 ),
 
                 opacity
-                0.4s ease;
+                0.35s
+                ease;
+
         }
 
 
         .gallery-item:hover img {
 
             transform:
-                scale(1.04);
+                scale(
+                    1.035
+                );
 
             opacity:
-                0.90;
+                0.94;
+
         }
 
 
@@ -583,28 +830,44 @@
             cursor:
                 pointer;
 
-            transition:
-                transform
-                0.6s
-                cubic-bezier(
-                    0.16,
-                    1,
-                    0.3,
-                    1
-                ),
-
-                opacity
-                0.4s ease;
         }
 
 
         .video-item:hover video {
 
-            transform:
-                scale(1.02);
-
             opacity:
-                0.95;
+                0.96;
+
+        }
+
+
+        /* ==================================================
+           EMPTY
+        ================================================== */
+
+        .empty-message {
+
+            width:
+                100%;
+
+            padding:
+                80px 20px;
+
+            color:
+                var(--text-muted);
+
+            font-size:
+                0.85rem;
+
+            line-height:
+                1.6;
+
+            text-align:
+                center;
+
+            column-span:
+                all;
+
         }
 
 
@@ -620,24 +883,25 @@
             inset:
                 0;
 
+            z-index:
+                10000;
+
             background:
                 rgba(
                     0,
                     0,
                     0,
-                    0.84
+                    0.86
                 );
-
-            z-index:
-                1000;
 
             cursor:
                 pointer;
+
         }
 
 
         /* ==================================================
-           ZOOMED VIDEO
+           ZOOM VIDEO
         ================================================== */
 
         .video-item.video-zoomed {
@@ -654,14 +918,11 @@
             width:
                 auto;
 
-            height:
-                auto;
-
             max-width:
-                82vw;
+                84vw;
 
             max-height:
-                82vh;
+                84vh;
 
             transform:
                 translate(
@@ -670,13 +931,13 @@
                 ) !important;
 
             z-index:
-                1001;
+                10001;
 
-            overflow:
-                visible;
+            margin:
+                0;
 
             border-radius:
-                12px;
+                10px;
 
             background:
                 #000000;
@@ -687,8 +948,9 @@
                     0,
                     0,
                     0,
-                    0.85
+                    0.8
                 );
+
         }
 
 
@@ -700,14 +962,11 @@
             width:
                 auto;
 
-            height:
-                auto;
-
             max-width:
-                82vw;
+                84vw;
 
             max-height:
-                82vh;
+                84vh;
 
             object-fit:
                 contain;
@@ -715,13 +974,11 @@
             transform:
                 none !important;
 
-            opacity:
-                1;
         }
 
 
         /* ==================================================
-           CLOSE BUTTON
+           VIDEO CLOSE
         ================================================== */
 
         .video-close-btn {
@@ -735,6 +992,15 @@
             right:
                 0;
 
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
             width:
                 40px;
 
@@ -747,7 +1013,7 @@
                     255,
                     255,
                     255,
-                    0.35
+                    0.30
                 );
 
             border-radius:
@@ -769,24 +1035,14 @@
                 sans-serif;
 
             font-size:
-                26px;
+                24px;
 
             line-height:
-                36px;
-
-            text-align:
-                center;
+                1;
 
             cursor:
                 pointer;
 
-            z-index:
-                1002;
-
-            transition:
-                background 0.3s ease,
-                color 0.3s ease,
-                border-color 0.3s ease;
         }
 
 
@@ -795,36 +1051,795 @@
             background:
                 var(--highlight);
 
+            border-color:
+                var(--highlight);
+
             color:
                 #000000;
 
-            border-color:
-                var(--highlight);
         }
 
 
         /* ==================================================
-           EMPTY MESSAGE
+           TABLET
         ================================================== */
 
-        .empty-message {
+        @media (max-width: 900px) {
 
-            width:
-                100%;
+            .gallery-grid {
 
-            padding:
-                80px 0;
+                column-count:
+                    2;
 
-            text-align:
-                center;
+            }
 
-            color:
-                var(--text-muted);
-
-            font-size:
-                1rem;
         }
 
+
+        /* ==================================================
+           MOBILE
+        ================================================== */
+
+        @media (max-width: 767px) {
+
+            body {
+
+                width:
+                    100%;
+
+                min-width:
+                    320px;
+
+                background:
+                    #000000;
+
+            }
+
+
+            /* ==================================================
+               NAVBAR
+            ================================================== */
+
+            #navbar-container {
+
+                width:
+                    100%;
+
+                height:
+                    54px;
+
+            }
+
+
+            #navbar-container .navbar {
+
+                position:
+                    fixed;
+
+                top:
+                    0;
+
+                left:
+                    0;
+
+                transform:
+                    none;
+
+                width:
+                    100%;
+
+                max-width:
+                    none;
+
+                min-height:
+                    54px;
+
+                padding:
+                    7px 12px;
+
+                border-radius:
+                    0;
+
+                background:
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.96
+                    );
+
+                backdrop-filter:
+                    blur(
+                        3px
+                    );
+
+                -webkit-backdrop-filter:
+                    blur(
+                        3px
+                    );
+
+            }
+
+
+            #navbar-container .navbar .logo img {
+
+                height:
+                    37px;
+
+            }
+
+
+            #navbar-container .mobile-menu-toggle {
+
+                width:
+                    34px;
+
+                height:
+                    34px;
+
+            }
+
+
+            /* ==================================================
+               HERO
+            ================================================== */
+
+            .hero-section {
+
+                width:
+                    100%;
+
+                height:
+                    120px;
+
+                min-height:
+                    120px;
+
+                max-height:
+                    120px;
+
+            }
+
+
+            /* ==================================================
+               IMAGE SLIGHTLY LOWER
+            ================================================== */
+
+            .hero-image {
+
+                top:
+                    8%;
+
+                height:
+                    110%;
+
+                object-position:
+                    center 60%;
+
+            }
+
+
+            /* ==================================================
+               LARGE MOBILE GRADIENT
+
+               CLEAR IMAGE:
+               0% - 35%
+
+               LONG GRADIENT:
+               35% - 100%
+            ================================================== */
+
+            .hero-overlay {
+
+                background:
+
+                    linear-gradient(
+                        to bottom,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            0
+                        ) 0%,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            0
+                        ) 35%,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            0.03
+                        ) 42%,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            0.10
+                        ) 50%,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            0.22
+                        ) 58%,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            0.40
+                        ) 66%,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            0.60
+                        ) 74%,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            0.78
+                        ) 84%,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            0.92
+                        ) 93%,
+
+                        #000000 100%
+                    );
+
+            }
+
+
+            /* ==================================================
+               CONTENT
+            ================================================== */
+
+            .hero-content {
+
+                width:
+                    100%;
+
+                max-width:
+                    none;
+
+                padding:
+                    0 14px;
+
+                transform:
+                    translateY(
+                        2px
+                    );
+
+            }
+
+
+            /* ==================================================
+               BACK TO PORTFOLIO
+            ================================================== */
+
+            .back-link {
+
+                display:
+                    inline-flex;
+
+                margin:
+                    0 0 4px;
+
+                color:
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        0.76
+                    );
+
+                font-size:
+                    0.33rem;
+
+                font-weight:
+                    500;
+
+                letter-spacing:
+                    0.75px;
+
+                line-height:
+                    1;
+
+                text-transform:
+                    none;
+
+            }
+
+
+            .hero-content h1 {
+
+                margin:
+                    0 0 3px;
+
+                font-size:
+                    1.22rem;
+
+                line-height:
+                    1;
+
+            }
+
+
+            .hero-content p {
+
+                max-width:
+                    235px;
+
+                font-size:
+                    0.33rem;
+
+                line-height:
+                    1.32;
+
+            }
+
+
+            /* ==================================================
+               FILTER
+            ================================================== */
+
+            .media-filter-section {
+
+                width:
+                    100%;
+
+                padding:
+                    14px 0 20px;
+
+            }
+
+
+            .media-filter {
+
+                gap:
+                    6px;
+
+            }
+
+
+            .media-btn {
+
+                min-width:
+                    42px;
+
+                min-height:
+                    18px;
+
+                height:
+                    18px;
+
+                padding:
+                    3px 9px;
+
+                border-radius:
+                    6px;
+
+                font-size:
+                    0.33rem;
+
+                line-height:
+                    1;
+
+            }
+
+
+            /* ==================================================
+               MASONRY GALLERY
+            ================================================== */
+
+            .gallery-grid-section {
+
+                width:
+                    100%;
+
+                max-width:
+                    none;
+
+                margin:
+                    0;
+
+                padding:
+                    0 10px 52px;
+
+            }
+
+
+            .gallery-grid {
+
+                width:
+                    100%;
+
+                column-count:
+                    3;
+
+                column-gap:
+                    4px;
+
+            }
+
+
+            .gallery-item {
+
+                width:
+                    100%;
+
+                margin:
+                    0 0 4px;
+
+                border-radius:
+                    4px;
+
+            }
+
+
+            .gallery-item img {
+
+                width:
+                    100%;
+
+                height:
+                    auto;
+
+                transform:
+                    none;
+
+            }
+
+
+            .gallery-item:hover img {
+
+                transform:
+                    none;
+
+                opacity:
+                    1;
+
+            }
+
+
+            /* ==================================================
+               VIDEOS
+            ================================================== */
+
+            .video-item video {
+
+                width:
+                    100%;
+
+                height:
+                    auto;
+
+            }
+
+
+            /* ==================================================
+               VIDEO ZOOM
+            ================================================== */
+
+            .video-item.video-zoomed {
+
+                max-width:
+                    88vw;
+
+                max-height:
+                    72vh;
+
+                border-radius:
+                    7px;
+
+            }
+
+
+            .video-item.video-zoomed video {
+
+                max-width:
+                    88vw;
+
+                max-height:
+                    72vh;
+
+            }
+
+
+            .video-close-btn {
+
+                top:
+                    -34px;
+
+                width:
+                    28px;
+
+                height:
+                    28px;
+
+                font-size:
+                    19px;
+
+            }
+
+
+            .empty-message {
+
+                padding:
+                    35px 10px;
+
+                font-size:
+                    0.52rem;
+
+            }
+
+        }
+
+
+        /* ==================================================
+           SMALL PHONES
+        ================================================== */
+
+        @media (max-width: 480px) {
+
+            .hero-section {
+
+                height:
+                    114px;
+
+                min-height:
+                    114px;
+
+                max-height:
+                    114px;
+
+            }
+
+
+            .hero-image {
+
+                top:
+                    9%;
+
+                height:
+                    111%;
+
+                object-position:
+                    center 61%;
+
+            }
+
+
+            .hero-content {
+
+                padding:
+                    0 12px;
+
+            }
+
+
+            .back-link {
+
+                margin-bottom:
+                    3px;
+
+                font-size:
+                    0.31rem;
+
+            }
+
+
+            .hero-content h1 {
+
+                font-size:
+                    1.14rem;
+
+            }
+
+
+            .hero-content p {
+
+                max-width:
+                    220px;
+
+                font-size:
+                    0.31rem;
+
+            }
+
+
+            .media-filter-section {
+
+                padding:
+                    13px 0 18px;
+
+            }
+
+
+            .gallery-grid-section {
+
+                padding:
+                    0 9px 46px;
+
+            }
+
+
+            .gallery-grid {
+
+                column-gap:
+                    3px;
+
+            }
+
+
+            .gallery-item {
+
+                margin-bottom:
+                    3px;
+
+                border-radius:
+                    3px;
+
+            }
+
+        }
+
+
+        /* ==================================================
+           VERY SMALL PHONES
+        ================================================== */
+
+        @media (max-width: 360px) {
+
+            .hero-section {
+
+                height:
+                    108px;
+
+                min-height:
+                    108px;
+
+                max-height:
+                    108px;
+
+            }
+
+
+            .hero-image {
+
+                top:
+                    10%;
+
+                height:
+                    112%;
+
+                object-position:
+                    center 62%;
+
+            }
+
+
+            .back-link {
+
+                font-size:
+                    0.29rem;
+
+            }
+
+
+            .hero-content h1 {
+
+                font-size:
+                    1.06rem;
+
+            }
+
+
+            .hero-content p {
+
+                font-size:
+                    0.29rem;
+
+            }
+
+
+            .media-btn {
+
+                min-width:
+                    40px;
+
+                min-height:
+                    17px;
+
+                height:
+                    17px;
+
+                padding:
+                    3px 8px;
+
+                font-size:
+                    0.31rem;
+
+            }
+
+
+            .gallery-grid-section {
+
+                padding:
+                    0 8px 42px;
+
+            }
+
+
+            .gallery-grid {
+
+                column-gap:
+                    3px;
+
+            }
+
+
+            .gallery-item {
+
+                margin-bottom:
+                    3px;
+
+            }
+
+        }
+
+
+        /* ==================================================
+           REDUCED MOTION
+        ================================================== */
+
+        @media (
+            prefers-reduced-motion:
+            reduce
+        ) {
+
+            html {
+
+                scroll-behavior:
+                    auto;
+
+            }
+
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    0.01ms !important;
+
+                scroll-behavior:
+                    auto !important;
+
+            }
+
+        }
 
     </style>
 
@@ -835,7 +1850,7 @@
 
 
     <!-- ==================================================
-         REUSABLE SCROLL TO TOP
+         SCROLL TO TOP
     ================================================== -->
 
     <div
@@ -844,7 +1859,7 @@
 
 
     <!-- ==================================================
-         REUSABLE NAVBAR
+         NAVBAR
     ================================================== -->
 
     <div
@@ -877,15 +1892,12 @@
             class="hero-content"
         >
 
-
             <a
                 href="portfolio.html"
                 class="back-link"
                 onclick="history.back(); return false;"
             >
-
                 ← Back to Portfolio
-
             </a>
 
 
@@ -931,7 +1943,6 @@
             class="media-filter"
         >
 
-
             <button
                 class="media-btn active"
                 data-media="photos"
@@ -948,7 +1959,6 @@
             >
                 Videos
             </button>
-
 
         </div>
 
@@ -972,7 +1982,7 @@
 
 
     <!-- ==================================================
-         REUSABLE FOOTER
+         FOOTER
     ================================================== -->
 
     <div
@@ -985,30 +1995,26 @@
     ================================================== -->
 
     <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js">
-    </script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+    ></script>
 
     <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js">
-    </script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+    ></script>
 
-
-    <!-- ==================================================
-         JAVASCRIPT
-    ================================================== -->
 
     <script>
 
-
         /* ==================================================
-           LOAD REUSABLE SCROLL TO TOP
+           SCROLL TO TOP
         ================================================== */
 
         fetch(
             './components/scroll-to-top.html'
         )
 
-            .then(response => {
+        .then(
+            response => {
 
                 if (!response.ok) {
 
@@ -1020,9 +2026,11 @@
 
                 return response.text();
 
-            })
+            }
+        )
 
-            .then(html => {
+        .then(
+            html => {
 
                 const container =
                     document.getElementById(
@@ -1030,7 +2038,9 @@
                     );
 
 
-                if (!container) {
+                if (
+                    !container
+                ) {
 
                     return;
 
@@ -1047,7 +2057,9 @@
                     );
 
 
-                if (!button) {
+                if (
+                    !button
+                ) {
 
                     return;
 
@@ -1057,7 +2069,8 @@
                 function updateButton() {
 
                     if (
-                        window.scrollY > 500
+                        window.scrollY >
+                        500
                     ) {
 
                         button.classList.add(
@@ -1107,27 +2120,31 @@
 
                 updateButton();
 
-            })
+            }
+        )
 
-            .catch(error => {
+        .catch(
+            error => {
 
                 console.error(
                     'Scroll-to-top component error:',
                     error
                 );
 
-            });
+            }
+        );
 
 
         /* ==================================================
-           LOAD REUSABLE NAVBAR
+           NAVBAR
         ================================================== */
 
         fetch(
             'components/navbar.html'
         )
 
-            .then(response => {
+        .then(
+            response => {
 
                 if (!response.ok) {
 
@@ -1139,15 +2156,18 @@
 
                 return response.text();
 
-            })
+            }
+        )
 
-            .then(data => {
+        .then(
+            data => {
 
                 document
                     .getElementById(
                         'navbar-container'
                     )
-                    .innerHTML = data;
+                    .innerHTML =
+                    data;
 
 
                 const workLink =
@@ -1156,7 +2176,9 @@
                     );
 
 
-                if (workLink) {
+                if (
+                    workLink
+                ) {
 
                     workLink.classList.add(
                         'active'
@@ -1164,27 +2186,31 @@
 
                 }
 
-            })
+            }
+        )
 
-            .catch(error => {
+        .catch(
+            error => {
 
                 console.error(
                     'Navbar loading error:',
                     error
                 );
 
-            });
+            }
+        );
 
 
         /* ==================================================
-           LOAD REUSABLE FOOTER
+           FOOTER
         ================================================== */
 
         fetch(
             'components/footer.html'
         )
 
-            .then(response => {
+        .then(
+            response => {
 
                 if (!response.ok) {
 
@@ -1196,26 +2222,32 @@
 
                 return response.text();
 
-            })
+            }
+        )
 
-            .then(data => {
+        .then(
+            data => {
 
                 document
                     .getElementById(
                         'footer-container'
                     )
-                    .innerHTML = data;
+                    .innerHTML =
+                    data;
 
-            })
+            }
+        )
 
-            .catch(error => {
+        .catch(
+            error => {
 
                 console.error(
                     'Footer loading error:',
                     error
                 );
 
-            });
+            }
+        );
 
 
         /* ==================================================
@@ -1256,18 +2288,21 @@
             );
 
 
-        if (heroImage) {
+        if (
+            heroImage
+        ) {
 
             heroImage.style.visibility =
                 'hidden';
 
 
-            heroImage.onload = () => {
+            heroImage.onload =
+                () => {
 
-                heroImage.style.visibility =
-                    'visible';
+                    heroImage.style.visibility =
+                        'visible';
 
-            };
+                };
 
 
             fetch(
@@ -1281,7 +2316,8 @@
                 }
             )
 
-                .then(response => {
+            .then(
+                response => {
 
                     if (!response.ok) {
 
@@ -1293,13 +2329,17 @@
 
                     return response.json();
 
-                })
+                }
+            )
 
-                .then(data => {
+            .then(
+                data => {
 
                     const heroUrl =
                         typeof data === 'string'
+
                             ? data
+
                             : (
                                 data?.secure_url ||
                                 data?.url ||
@@ -1307,7 +2347,9 @@
                             );
 
 
-                    if (!heroUrl) {
+                    if (
+                        !heroUrl
+                    ) {
 
                         throw new Error(
                             'Fashion hero URL was not returned'
@@ -1319,16 +2361,19 @@
                     heroImage.src =
                         heroUrl;
 
-                })
+                }
+            )
 
-                .catch(error => {
+            .catch(
+                error => {
 
                     console.error(
                         'Fashion hero loading error:',
                         error
                     );
 
-                });
+                }
+            );
 
         }
 
@@ -1372,10 +2417,12 @@
         ) {
 
             const extension =
-                String(filename)
-                    .split('.')
-                    .pop()
-                    .toLowerCase();
+                String(
+                    filename
+                )
+                .split('.')
+                .pop()
+                .toLowerCase();
 
 
             const mimeTypes = {
@@ -1396,15 +2443,18 @@
 
 
             return (
-                mimeTypes[extension]
-                || 'video/mp4'
+                mimeTypes[
+                    extension
+                ]
+                ||
+                'video/mp4'
             );
 
         }
 
 
         /* ==================================================
-           CLOUDINARY MEDIA URL
+           MEDIA URL
         ================================================== */
 
         function getMediaUrl(
@@ -1412,7 +2462,8 @@
         ) {
 
             if (
-                typeof media === 'string'
+                typeof media ===
+                'string'
             ) {
 
                 return media;
@@ -1422,13 +2473,18 @@
 
             if (
                 media &&
-                typeof media === 'object'
+                typeof media ===
+                'object'
             ) {
 
                 return (
-                    media.secure_url ||
-                    media.url ||
+
+                    media.secure_url
+                    ||
+                    media.url
+                    ||
                     ''
+
                 );
 
             }
@@ -1452,12 +2508,6 @@
                 '';
 
 
-            console.log(
-                'Loading Fashion photos from:',
-                photoApi
-            );
-
-
             fetch(
                 photoApi,
                 {
@@ -1469,13 +2519,8 @@
                 }
             )
 
-                .then(response => {
-
-                    console.log(
-                        'Fashion photo API status:',
-                        response.status
-                    );
-
+            .then(
+                response => {
 
                     if (!response.ok) {
 
@@ -1485,18 +2530,13 @@
 
                     }
 
-
                     return response.json();
 
-                })
+                }
+            )
 
-                .then(photos => {
-
-                    console.log(
-                        'Fashion photos:',
-                        photos
-                    );
-
+            .then(
+                photos => {
 
                     if (
                         !Array.isArray(
@@ -1531,25 +2571,22 @@
                                 );
 
 
-                            if (!imageUrl) {
-
-                                console.warn(
-                                    'Fashion photo has no URL:',
-                                    photo
-                                );
+                            if (
+                                !imageUrl
+                            ) {
 
                                 return;
 
                             }
 
 
-                            const itemDiv =
+                            const galleryItem =
                                 document.createElement(
                                     'div'
                                 );
 
 
-                            itemDiv.className =
+                            galleryItem.className =
                                 'gallery-item';
 
 
@@ -1575,39 +2612,13 @@
                                 'async';
 
 
-                            image.addEventListener(
-                                'load',
-                                () => {
-
-                                    console.log(
-                                        'Fashion photo loaded:',
-                                        image.src
-                                    );
-
-                                }
-                            );
-
-
-                            image.addEventListener(
-                                'error',
-                                () => {
-
-                                    console.error(
-                                        'Fashion photo failed:',
-                                        image.src
-                                    );
-
-                                }
-                            );
-
-
-                            itemDiv.appendChild(
+                            galleryItem.appendChild(
                                 image
                             );
 
 
                             galleryContainer.appendChild(
-                                itemDiv
+                                galleryItem
                             );
 
                         }
@@ -1616,9 +2627,11 @@
 
                     runGalleryAnimation();
 
-                })
+                }
+            )
 
-                .catch(error => {
+            .catch(
+                error => {
 
                     console.error(
                         'Fashion photo loading error:',
@@ -1637,7 +2650,8 @@
 
                     `;
 
-                });
+                }
+            );
 
         }
 
@@ -1655,12 +2669,6 @@
                 '';
 
 
-            console.log(
-                'Loading Fashion videos from:',
-                videoApi
-            );
-
-
             fetch(
                 videoApi,
                 {
@@ -1672,13 +2680,8 @@
                 }
             )
 
-                .then(response => {
-
-                    console.log(
-                        'Fashion video API status:',
-                        response.status
-                    );
-
+            .then(
+                response => {
 
                     if (!response.ok) {
 
@@ -1688,18 +2691,13 @@
 
                     }
 
-
                     return response.json();
 
-                })
+                }
+            )
 
-                .then(videos => {
-
-                    console.log(
-                        'Fashion videos:',
-                        videos
-                    );
-
+            .then(
+                videos => {
 
                     if (
                         !Array.isArray(
@@ -1734,12 +2732,9 @@
                                 );
 
 
-                            if (!videoUrl) {
-
-                                console.warn(
-                                    'Fashion video has no URL:',
-                                    videoFile
-                                );
+                            if (
+                                !videoUrl
+                            ) {
 
                                 return;
 
@@ -1814,21 +2809,10 @@
 
                                     event.stopPropagation();
 
-
                                     openZoomedVideo(
                                         itemDiv,
                                         videoElement
                                     );
-
-                                }
-                            );
-
-
-                            videoElement.addEventListener(
-                                'contextmenu',
-                                event => {
-
-                                    event.preventDefault();
 
                                 }
                             );
@@ -1839,9 +2823,11 @@
 
                     runGalleryAnimation();
 
-                })
+                }
+            )
 
-                .catch(error => {
+            .catch(
+                error => {
 
                     console.error(
                         'Fashion video loading error:',
@@ -1860,13 +2846,14 @@
 
                     `;
 
-                });
+                }
+            );
 
         }
 
 
         /* ==================================================
-           OPEN ZOOMED VIDEO
+           OPEN VIDEO
         ================================================== */
 
         function openZoomedVideo(
@@ -1922,12 +2909,12 @@
                 );
 
 
-            closeButton.className =
-                'video-close-btn';
-
-
             closeButton.type =
                 'button';
+
+
+            closeButton.className =
+                'video-close-btn';
 
 
             closeButton.setAttribute(
@@ -1970,12 +2957,14 @@
 
 
         /* ==================================================
-           CLOSE ZOOMED VIDEO
+           CLOSE VIDEO
         ================================================== */
 
         function closeZoomedVideo() {
 
-            if (!activeVideoItem) {
+            if (
+                !activeVideoItem
+            ) {
 
                 return;
 
@@ -1987,7 +2976,9 @@
             );
 
 
-            if (activeVideo) {
+            if (
+                activeVideo
+            ) {
 
                 activeVideo.pause();
 
@@ -2003,14 +2994,18 @@
                 );
 
 
-            if (closeButton) {
+            if (
+                closeButton
+            ) {
 
                 closeButton.remove();
 
             }
 
 
-            if (videoBackdrop) {
+            if (
+                videoBackdrop
+            ) {
 
                 videoBackdrop.remove();
 
@@ -2035,7 +3030,7 @@
 
 
         /* ==================================================
-           ESC KEY
+           ESCAPE
         ================================================== */
 
         document.addEventListener(
@@ -2043,7 +3038,8 @@
             event => {
 
                 if (
-                    event.key === 'Escape'
+                    event.key ===
+                    'Escape'
                 ) {
 
                     closeZoomedVideo();
@@ -2070,6 +3066,11 @@
             }
 
 
+            gsap.killTweensOf(
+                '.gallery-item'
+            );
+
+
             gsap.fromTo(
 
                 '.gallery-item',
@@ -2077,7 +3078,7 @@
                 {
 
                     y:
-                        35,
+                        22,
 
                     opacity:
                         0
@@ -2093,16 +3094,27 @@
                         1,
 
                     duration:
-                        0.85,
+                        0.65,
 
                     stagger:
-                        0.08,
+                        0.045,
 
                     ease:
                         'power3.out'
+
                 }
 
             );
+
+
+            if (
+                typeof ScrollTrigger !==
+                'undefined'
+            ) {
+
+                ScrollTrigger.refresh();
+
+            }
 
         }
 
@@ -2119,9 +3131,9 @@
                     () => {
 
                         mediaButtons.forEach(
-                            btn => {
+                            item => {
 
-                                btn.classList.remove(
+                                item.classList.remove(
                                     'active'
                                 );
 
@@ -2172,24 +3184,24 @@
             'undefined'
         ) {
 
-            gsap.from(
+            gsap.to(
                 '.hero-content',
                 {
 
                     y:
-                        35,
-
-                    opacity:
                         0,
 
-                    duration:
-                        1.1,
+                    opacity:
+                        1,
 
-                    ease:
-                        'power3.out',
+                    duration:
+                        0.9,
 
                     delay:
-                        0.2
+                        0.12,
+
+                    ease:
+                        'power3.out'
 
                 }
             );
@@ -2199,7 +3211,6 @@
 
         /* ==================================================
            INITIAL LOAD
-           PHOTOS FIRST
         ================================================== */
 
         loadPhotos();
