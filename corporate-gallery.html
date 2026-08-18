@@ -20,20 +20,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;500&display=swap"
         rel="stylesheet"
     >
 
-
-    <!-- ==================================================
-         CSS
-    ================================================== -->
 
     <style>
 
@@ -137,6 +127,16 @@
 
             width:
                 100%;
+        }
+
+
+        #scroll-to-top-container {
+
+            position:
+                relative;
+
+            z-index:
+                99999;
         }
 
 
@@ -818,32 +818,40 @@
                 1rem;
         }
 
+
     </style>
 
 </head>
 
 
-
 <body>
+
 
     <!-- ==================================================
          REUSABLE SCROLL TO TOP
     ================================================== -->
 
-    <div id="scroll-to-top-container"></div>
+    <div
+        id="scroll-to-top-container"
+    ></div>
+
 
     <!-- ==================================================
          REUSABLE NAVBAR
     ================================================== -->
 
-    <div id="navbar-container"></div>
+    <div
+        id="navbar-container"
+    ></div>
 
 
     <!-- ==================================================
          HERO
     ================================================== -->
 
-    <header class="hero-section">
+    <header
+        class="hero-section"
+    >
 
 
         <img
@@ -854,10 +862,14 @@
         >
 
 
-        <div class="hero-overlay"></div>
+        <div
+            class="hero-overlay"
+        ></div>
 
 
-        <div class="hero-content">
+        <div
+            class="hero-content"
+        >
 
 
             <a
@@ -865,21 +877,30 @@
                 class="back-link"
                 onclick="history.back(); return false;"
             >
+
                 ← Back to Portfolio
+
             </a>
 
 
-            <h1 id="gallery-title">
+            <h1
+                id="gallery-title"
+            >
 
                 Corporate
-                <span class="highlight">
+
+                <span
+                    class="highlight"
+                >
                     Production.
                 </span>
 
             </h1>
 
 
-            <p id="gallery-description">
+            <p
+                id="gallery-description"
+            >
 
                 A curation of corporate events,
                 executive moments, brand stories,
@@ -897,14 +918,19 @@
          PHOTOS / VIDEOS
     ================================================== -->
 
-    <section class="media-filter-section">
+    <section
+        class="media-filter-section"
+    >
 
-        <div class="media-filter">
+        <div
+            class="media-filter"
+        >
 
 
             <button
                 class="media-btn active"
                 data-media="photos"
+                type="button"
             >
                 Photos
             </button>
@@ -913,6 +939,7 @@
             <button
                 class="media-btn"
                 data-media="videos"
+                type="button"
             >
                 Videos
             </button>
@@ -927,7 +954,9 @@
          GALLERY
     ================================================== -->
 
-    <section class="gallery-grid-section">
+    <section
+        class="gallery-grid-section"
+    >
 
         <div
             class="gallery-grid"
@@ -941,7 +970,9 @@
          REUSABLE FOOTER
     ================================================== -->
 
-    <div id="footer-container"></div>
+    <div
+        id="footer-container"
+    ></div>
 
 
     <!-- ==================================================
@@ -964,1102 +995,1211 @@
     <script>
 
 
-    /* ==================================================
-       LOAD REUSABLE NAVBAR
-    ================================================== */
-
-    fetch('components/navbar.html')
-
-        .then(response => {
-
-            if (!response.ok) {
-
-                throw new Error(
-                    'Navbar could not be loaded'
-                );
-
-            }
-
-            return response.text();
-
-        })
-
-        .then(data => {
-
-            document
-                .getElementById(
-                    'navbar-container'
-                )
-                .innerHTML = data;
-
-
-            const workLink =
-                document.querySelector(
-                    '.nav-links a[data-page="work"]'
-                );
-
-
-            if (workLink) {
-
-                workLink.classList.add(
-                    'active'
-                );
-
-            }
-
-        })
-
-        .catch(error => {
-
-            console.error(
-                'Navbar loading error:',
-                error
-            );
-
-        });
-
-
-    /* ==================================================
-       LOAD REUSABLE FOOTER
-    ================================================== */
-
-    fetch('components/footer.html')
-
-        .then(response => {
-
-            if (!response.ok) {
-
-                throw new Error(
-                    'Footer could not be loaded'
-                );
-
-            }
-
-            return response.text();
-
-        })
-
-        .then(data => {
-
-            document
-                .getElementById(
-                    'footer-container'
-                )
-                .innerHTML = data;
-
-        })
-
-        .catch(error => {
-
-            console.error(
-                'Footer loading error:',
-                error
-            );
-
-        });
-
-
-    /* ==================================================
-       CORPORATE CONFIGURATION
-    ================================================== */
-
-    const galleryName =
-        'Corporate';
-
-
-    const photoApi =
-        '/api/corporate-photos';
-
-
-    const videoApi =
-        '/api/corporate-videos';
-
-
-    const mediaFolder =
-        'corporate';
-
-
-    const serverOrigin =
-        window.location.origin;
-
-
-    /* ==================================================
-       PAGE TITLE
-    ================================================== */
-
-    document.title =
-        'Corporate | Auren Originals';
-
-
-    /* ==================================================
-       HERO IMAGE
-    ================================================== */
-
-    const heroImage =
-        document.getElementById(
-            'corporate-hero-image'
-        );
-
-
-    if (heroImage) {
-
-        heroImage.style.visibility =
-            'hidden';
-
-
-        heroImage.onload = () => {
-
-            heroImage.style.visibility =
-                'visible';
-
-        };
-
-
-        heroImage.src =
-            'images/hero-corporate.jpg';
-
-    }
-
-
-    /* ==================================================
-       GALLERY ELEMENTS
-    ================================================== */
-
-    const galleryContainer =
-        document.getElementById(
-            'dynamic-gallery'
-        );
-
-
-    const mediaButtons =
-        document.querySelectorAll(
-            '.media-btn'
-        );
-
-
-    /* ==================================================
-       VIDEO STATE
-    ================================================== */
-
-    let activeVideoItem =
-        null;
-
-    let activeVideo =
-        null;
-
-    let videoBackdrop =
-        null;
-
-
-    /* ==================================================
-       VIDEO MIME TYPE
-    ================================================== */
-
-    function getVideoMimeType(
-        filename
-    ) {
-
-        const extension =
-            filename
-                .split('.')
-                .pop()
-                .toLowerCase();
-
-
-        const mimeTypes = {
-
-            mp4:
-                'video/mp4',
-
-            webm:
-                'video/webm',
-
-            ogg:
-                'video/ogg',
-
-            mov:
-                'video/quicktime'
-
-        };
-
-
-        return (
-            mimeTypes[extension]
-            || 'video/mp4'
-        );
-
-    }
-
-
-    /* ==================================================
-       PHOTO PATH
-    ================================================== */
-
-    function getPhotoPath(
-        filename
-    ) {
-
-        return (
-            `${serverOrigin}/images/` +
-            `${mediaFolder}/photos/` +
-            encodeURIComponent(filename)
-        );
-
-    }
-
-
-    /* ==================================================
-       VIDEO PATH
-    ================================================== */
-
-    function getVideoPath(
-        filename
-    ) {
-
-        return (
-            `${serverOrigin}/images/` +
-            `${mediaFolder}/videos/` +
-            encodeURIComponent(filename)
-        );
-
-    }
-
-
-    /* ==================================================
-       LOAD PHOTOS
-    ================================================== */
-
-    function loadPhotos() {
-
-        closeZoomedVideo();
-
-
-        galleryContainer.innerHTML =
-            '';
-
-
-        console.log(
-            'Loading Corporate photos from:',
-            `${serverOrigin}${photoApi}`
-        );
-
+        /* ==================================================
+           LOAD REUSABLE SCROLL TO TOP
+        ================================================== */
 
         fetch(
-            `${serverOrigin}${photoApi}`,
-            {
-                method:
-                    'GET',
-
-                cache:
-                    'no-store'
-            }
+            './components/scroll-to-top.html'
         )
 
-        .then(response => {
+            .then(response => {
 
-            console.log(
-                'Corporate photo API status:',
-                response.status
-            );
+                if (!response.ok) {
 
-
-            if (!response.ok) {
-
-                throw new Error(
-                    `Corporate photo API returned HTTP ${response.status}`
-                );
-
-            }
-
-
-            return response.json();
-
-        })
-
-        .then(photos => {
-
-            console.log(
-                'Corporate photos:',
-                photos
-            );
-
-
-            if (
-                !Array.isArray(photos)
-                || photos.length === 0
-            ) {
-
-                galleryContainer.innerHTML = `
-
-                    <p class="empty-message">
-                        No Corporate photos
-                        available yet.
-                    </p>
-
-                `;
-
-                return;
-
-            }
-
-
-            photos.forEach(
-                photo => {
-
-                    const itemDiv =
-                        document.createElement(
-                            'div'
-                        );
-
-
-                    itemDiv.className =
-                        'gallery-item';
-
-
-                    const image =
-                        document.createElement(
-                            'img'
-                        );
-
-
-                    image.src =
-                        getPhotoPath(
-                            photo
-                        );
-
-
-                    image.alt =
-                        'Corporate Gallery';
-
-
-                    image.loading =
-                        'lazy';
-
-
-                    image.addEventListener(
-                        'load',
-                        () => {
-
-                            console.log(
-                                'Corporate photo loaded:',
-                                image.src
-                            );
-
-                        }
-                    );
-
-
-                    image.addEventListener(
-                        'error',
-                        () => {
-
-                            console.error(
-                                'Corporate photo failed:',
-                                image.src
-                            );
-
-                        }
-                    );
-
-
-                    itemDiv.appendChild(
-                        image
-                    );
-
-
-                    galleryContainer.appendChild(
-                        itemDiv
+                    throw new Error(
+                        `Scroll component failed: ${response.status}`
                     );
 
                 }
-            );
+
+                return response.text();
+
+            })
+
+            .then(html => {
+
+                const container =
+                    document.getElementById(
+                        'scroll-to-top-container'
+                    );
 
 
-            runGalleryAnimation();
+                if (!container) {
 
-        })
+                    return;
 
-        .catch(error => {
-
-            console.error(
-                'Corporate photo loading error:',
-                error
-            );
+                }
 
 
-            galleryContainer.innerHTML = `
-
-                <p class="empty-message">
-                    Could not load
-                    Corporate photos.
-                </p>
-
-            `;
-
-        });
-
-    }
+                container.innerHTML =
+                    html;
 
 
-    /* ==================================================
-       LOAD VIDEOS
-    ================================================== */
-
-    function loadVideos() {
-
-        closeZoomedVideo();
+                const button =
+                    container.querySelector(
+                        '#scroll-to-top'
+                    );
 
 
-        galleryContainer.innerHTML =
-            '';
+                if (!button) {
+
+                    return;
+
+                }
 
 
-        console.log(
-            'Loading Corporate videos from:',
-            `${serverOrigin}${videoApi}`
-        );
+                function updateButton() {
 
+                    if (
+                        window.scrollY > 500
+                    ) {
+
+                        button.classList.add(
+                            'show'
+                        );
+
+                    }
+
+                    else {
+
+                        button.classList.remove(
+                            'show'
+                        );
+
+                    }
+
+                }
+
+
+                window.addEventListener(
+                    'scroll',
+                    updateButton,
+                    {
+                        passive:
+                            true
+                    }
+                );
+
+
+                button.addEventListener(
+                    'click',
+                    () => {
+
+                        window.scrollTo({
+
+                            top:
+                                0,
+
+                            behavior:
+                                'smooth'
+
+                        });
+
+                    }
+                );
+
+
+                updateButton();
+
+            })
+
+            .catch(error => {
+
+                console.error(
+                    'Scroll-to-top component error:',
+                    error
+                );
+
+            });
+
+
+        /* ==================================================
+           LOAD REUSABLE NAVBAR
+        ================================================== */
 
         fetch(
-            `${serverOrigin}${videoApi}`,
-            {
-                method:
-                    'GET',
-
-                cache:
-                    'no-store'
-            }
+            'components/navbar.html'
         )
 
-        .then(response => {
+            .then(response => {
 
-            if (!response.ok) {
+                if (!response.ok) {
 
-                throw new Error(
-                    `Corporate video API returned HTTP ${response.status}`
+                    throw new Error(
+                        'Navbar could not be loaded'
+                    );
+
+                }
+
+                return response.text();
+
+            })
+
+            .then(data => {
+
+                document
+                    .getElementById(
+                        'navbar-container'
+                    )
+                    .innerHTML = data;
+
+
+                const workLink =
+                    document.querySelector(
+                        '.nav-links a[data-page="work"]'
+                    );
+
+
+                if (workLink) {
+
+                    workLink.classList.add(
+                        'active'
+                    );
+
+                }
+
+            })
+
+            .catch(error => {
+
+                console.error(
+                    'Navbar loading error:',
+                    error
+                );
+
+            });
+
+
+        /* ==================================================
+           LOAD REUSABLE FOOTER
+        ================================================== */
+
+        fetch(
+            'components/footer.html'
+        )
+
+            .then(response => {
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        'Footer could not be loaded'
+                    );
+
+                }
+
+                return response.text();
+
+            })
+
+            .then(data => {
+
+                document
+                    .getElementById(
+                        'footer-container'
+                    )
+                    .innerHTML = data;
+
+            })
+
+            .catch(error => {
+
+                console.error(
+                    'Footer loading error:',
+                    error
+                );
+
+            });
+
+
+        /* ==================================================
+           CORPORATE CONFIGURATION
+        ================================================== */
+
+        const galleryName =
+            'Corporate';
+
+
+        const photoApi =
+            '/api/corporate-photos';
+
+
+        const videoApi =
+            '/api/corporate-videos';
+
+
+        const heroApi =
+            '/api/corporate-hero';
+
+
+        /* ==================================================
+           PAGE TITLE
+        ================================================== */
+
+        document.title =
+            'Corporate | Auren Originals';
+
+
+        /* ==================================================
+           HERO IMAGE
+        ================================================== */
+
+        const heroImage =
+            document.getElementById(
+                'corporate-hero-image'
+            );
+
+
+        if (heroImage) {
+
+            heroImage.style.visibility =
+                'hidden';
+
+
+            heroImage.onload = () => {
+
+                heroImage.style.visibility =
+                    'visible';
+
+            };
+
+
+            fetch(
+                heroApi,
+                {
+                    method:
+                        'GET',
+
+                    cache:
+                        'no-store'
+                }
+            )
+
+                .then(response => {
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            `Corporate hero API returned HTTP ${response.status}`
+                        );
+
+                    }
+
+                    return response.json();
+
+                })
+
+                .then(data => {
+
+                    const heroUrl =
+                        typeof data === 'string'
+                            ? data
+                            : (
+                                data?.secure_url ||
+                                data?.url ||
+                                ''
+                            );
+
+
+                    if (!heroUrl) {
+
+                        throw new Error(
+                            'Corporate hero URL was not returned'
+                        );
+
+                    }
+
+
+                    heroImage.src =
+                        heroUrl;
+
+                })
+
+                .catch(error => {
+
+                    console.error(
+                        'Corporate hero loading error:',
+                        error
+                    );
+
+                });
+
+        }
+
+
+        /* ==================================================
+           GALLERY ELEMENTS
+        ================================================== */
+
+        const galleryContainer =
+            document.getElementById(
+                'dynamic-gallery'
+            );
+
+
+        const mediaButtons =
+            document.querySelectorAll(
+                '.media-btn'
+            );
+
+
+        /* ==================================================
+           VIDEO STATE
+        ================================================== */
+
+        let activeVideoItem =
+            null;
+
+        let activeVideo =
+            null;
+
+        let videoBackdrop =
+            null;
+
+
+        /* ==================================================
+           VIDEO MIME TYPE
+        ================================================== */
+
+        function getVideoMimeType(
+            filename
+        ) {
+
+            const extension =
+                String(filename)
+                    .split('.')
+                    .pop()
+                    .toLowerCase();
+
+
+            const mimeTypes = {
+
+                mp4:
+                    'video/mp4',
+
+                webm:
+                    'video/webm',
+
+                ogg:
+                    'video/ogg',
+
+                mov:
+                    'video/quicktime'
+
+            };
+
+
+            return (
+                mimeTypes[extension]
+                || 'video/mp4'
+            );
+
+        }
+
+
+        /* ==================================================
+           CLOUDINARY MEDIA URL
+        ================================================== */
+
+        function getMediaUrl(
+            media
+        ) {
+
+            if (
+                typeof media === 'string'
+            ) {
+
+                return media;
+
+            }
+
+
+            if (
+                media &&
+                typeof media === 'object'
+            ) {
+
+                return (
+                    media.secure_url ||
+                    media.url ||
+                    ''
                 );
 
             }
 
 
-            return response.json();
+            return '';
 
-        })
+        }
 
-        .then(videos => {
+
+        /* ==================================================
+           LOAD PHOTOS
+        ================================================== */
+
+        function loadPhotos() {
+
+            closeZoomedVideo();
+
+
+            galleryContainer.innerHTML =
+                '';
+
 
             console.log(
-                'Corporate videos:',
-                videos
+                'Loading Corporate photos from:',
+                photoApi
             );
 
 
-            if (
-                !Array.isArray(videos)
-                || videos.length === 0
-            ) {
+            fetch(
+                photoApi,
+                {
+                    method:
+                        'GET',
 
-                galleryContainer.innerHTML = `
+                    cache:
+                        'no-store'
+                }
+            )
 
-                    <p class="empty-message">
-                        No Corporate videos
-                        available yet.
-                    </p>
+                .then(response => {
 
-                `;
-
-                return;
-
-            }
-
-
-            videos.forEach(
-                videoFile => {
-
-                    const itemDiv =
-                        document.createElement(
-                            'div'
-                        );
-
-
-                    itemDiv.className =
-                        'gallery-item video-item';
-
-
-                    const videoElement =
-                        document.createElement(
-                            'video'
-                        );
-
-
-                    videoElement.preload =
-                        'metadata';
-
-
-                    videoElement.playsInline =
-                        true;
-
-
-                    videoElement.muted =
-                        true;
-
-
-                    const source =
-                        document.createElement(
-                            'source'
-                        );
-
-
-                    source.src =
-                        getVideoPath(
-                            videoFile
-                        );
-
-
-                    source.type =
-                        getVideoMimeType(
-                            videoFile
-                        );
-
-
-                    videoElement.appendChild(
-                        source
+                    console.log(
+                        'Corporate photo API status:',
+                        response.status
                     );
 
 
-                    itemDiv.appendChild(
-                        videoElement
+                    if (!response.ok) {
+
+                        throw new Error(
+                            `Corporate photo API returned HTTP ${response.status}`
+                        );
+
+                    }
+
+
+                    return response.json();
+
+                })
+
+                .then(photos => {
+
+                    console.log(
+                        'Corporate photos:',
+                        photos
                     );
 
 
-                    galleryContainer.appendChild(
-                        itemDiv
+                    if (
+                        !Array.isArray(
+                            photos
+                        )
+                        ||
+                        photos.length === 0
+                    ) {
+
+                        galleryContainer.innerHTML = `
+
+                            <p
+                                class="empty-message"
+                            >
+                                No Corporate photos
+                                available yet.
+                            </p>
+
+                        `;
+
+                        return;
+
+                    }
+
+
+                    photos.forEach(
+                        photo => {
+
+                            const imageUrl =
+                                getMediaUrl(
+                                    photo
+                                );
+
+
+                            if (!imageUrl) {
+
+                                console.warn(
+                                    'Corporate photo has no URL:',
+                                    photo
+                                );
+
+                                return;
+
+                            }
+
+
+                            const itemDiv =
+                                document.createElement(
+                                    'div'
+                                );
+
+
+                            itemDiv.className =
+                                'gallery-item';
+
+
+                            const image =
+                                document.createElement(
+                                    'img'
+                                );
+
+
+                            image.src =
+                                imageUrl;
+
+
+                            image.alt =
+                                'Corporate Gallery';
+
+
+                            image.loading =
+                                'lazy';
+
+
+                            image.decoding =
+                                'async';
+
+
+                            image.addEventListener(
+                                'load',
+                                () => {
+
+                                    console.log(
+                                        'Corporate photo loaded:',
+                                        image.src
+                                    );
+
+                                }
+                            );
+
+
+                            image.addEventListener(
+                                'error',
+                                () => {
+
+                                    console.error(
+                                        'Corporate photo failed:',
+                                        image.src
+                                    );
+
+                                }
+                            );
+
+
+                            itemDiv.appendChild(
+                                image
+                            );
+
+
+                            galleryContainer.appendChild(
+                                itemDiv
+                            );
+
+                        }
                     );
 
 
-                    /* Click = zoom */
+                    runGalleryAnimation();
 
-                    videoElement.addEventListener(
-                        'click',
-                        event => {
+                })
 
-                            event.stopPropagation();
+                .catch(error => {
+
+                    console.error(
+                        'Corporate photo loading error:',
+                        error
+                    );
 
 
-                            openZoomedVideo(
-                                itemDiv,
+                    galleryContainer.innerHTML = `
+
+                        <p
+                            class="empty-message"
+                        >
+                            Could not load
+                            Corporate photos.
+                        </p>
+
+                    `;
+
+                });
+
+        }
+
+
+        /* ==================================================
+           LOAD VIDEOS
+        ================================================== */
+
+        function loadVideos() {
+
+            closeZoomedVideo();
+
+
+            galleryContainer.innerHTML =
+                '';
+
+
+            console.log(
+                'Loading Corporate videos from:',
+                videoApi
+            );
+
+
+            fetch(
+                videoApi,
+                {
+                    method:
+                        'GET',
+
+                    cache:
+                        'no-store'
+                }
+            )
+
+                .then(response => {
+
+                    console.log(
+                        'Corporate video API status:',
+                        response.status
+                    );
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            `Corporate video API returned HTTP ${response.status}`
+                        );
+
+                    }
+
+
+                    return response.json();
+
+                })
+
+                .then(videos => {
+
+                    console.log(
+                        'Corporate videos:',
+                        videos
+                    );
+
+
+                    if (
+                        !Array.isArray(
+                            videos
+                        )
+                        ||
+                        videos.length === 0
+                    ) {
+
+                        galleryContainer.innerHTML = `
+
+                            <p
+                                class="empty-message"
+                            >
+                                No Corporate videos
+                                available yet.
+                            </p>
+
+                        `;
+
+                        return;
+
+                    }
+
+
+                    videos.forEach(
+                        videoFile => {
+
+                            const videoUrl =
+                                getMediaUrl(
+                                    videoFile
+                                );
+
+
+                            if (!videoUrl) {
+
+                                console.warn(
+                                    'Corporate video has no URL:',
+                                    videoFile
+                                );
+
+                                return;
+
+                            }
+
+
+                            const itemDiv =
+                                document.createElement(
+                                    'div'
+                                );
+
+
+                            itemDiv.className =
+                                'gallery-item video-item';
+
+
+                            const videoElement =
+                                document.createElement(
+                                    'video'
+                                );
+
+
+                            videoElement.preload =
+                                'metadata';
+
+
+                            videoElement.playsInline =
+                                true;
+
+
+                            videoElement.muted =
+                                true;
+
+
+                            const source =
+                                document.createElement(
+                                    'source'
+                                );
+
+
+                            source.src =
+                                videoUrl;
+
+
+                            source.type =
+                                getVideoMimeType(
+                                    videoFile?.public_id ||
+                                    videoFile?.original_filename ||
+                                    videoFile?.filename ||
+                                    videoUrl
+                                );
+
+
+                            videoElement.appendChild(
+                                source
+                            );
+
+
+                            itemDiv.appendChild(
                                 videoElement
                             );
 
+
+                            galleryContainer.appendChild(
+                                itemDiv
+                            );
+
+
+                            videoElement.addEventListener(
+                                'click',
+                                event => {
+
+                                    event.stopPropagation();
+
+
+                                    openZoomedVideo(
+                                        itemDiv,
+                                        videoElement
+                                    );
+
+                                }
+                            );
+
+
+                            videoElement.addEventListener(
+                                'contextmenu',
+                                event => {
+
+                                    event.preventDefault();
+
+                                }
+                            );
+
                         }
                     );
 
 
-                    /* Disable right click */
+                    runGalleryAnimation();
 
-                    videoElement.addEventListener(
-                        'contextmenu',
-                        event => {
+                })
 
-                            event.preventDefault();
+                .catch(error => {
 
-                        }
+                    console.error(
+                        'Corporate video loading error:',
+                        error
                     );
+
+
+                    galleryContainer.innerHTML = `
+
+                        <p
+                            class="empty-message"
+                        >
+                            Could not load
+                            Corporate videos.
+                        </p>
+
+                    `;
+
+                });
+
+        }
+
+
+        /* ==================================================
+           OPEN ZOOMED VIDEO
+        ================================================== */
+
+        function openZoomedVideo(
+            itemDiv,
+            videoElement
+        ) {
+
+            closeZoomedVideo();
+
+
+            activeVideoItem =
+                itemDiv;
+
+
+            activeVideo =
+                videoElement;
+
+
+            videoBackdrop =
+                document.createElement(
+                    'div'
+                );
+
+
+            videoBackdrop.className =
+                'video-backdrop';
+
+
+            document.body.appendChild(
+                videoBackdrop
+            );
+
+
+            document.body.style.overflow =
+                'hidden';
+
+
+            itemDiv.classList.add(
+                'video-zoomed'
+            );
+
+
+            videoElement.controls =
+                true;
+
+
+            videoElement.pause();
+
+
+            const closeButton =
+                document.createElement(
+                    'button'
+                );
+
+
+            closeButton.className =
+                'video-close-btn';
+
+
+            closeButton.type =
+                'button';
+
+
+            closeButton.setAttribute(
+                'aria-label',
+                'Close video'
+            );
+
+
+            closeButton.textContent =
+                '×';
+
+
+            itemDiv.appendChild(
+                closeButton
+            );
+
+
+            closeButton.addEventListener(
+                'click',
+                event => {
+
+                    event.stopPropagation();
+
+                    closeZoomedVideo();
 
                 }
             );
 
 
-            runGalleryAnimation();
+            videoBackdrop.addEventListener(
+                'click',
+                () => {
 
-        })
+                    closeZoomedVideo();
 
-        .catch(error => {
-
-            console.error(
-                'Corporate video loading error:',
-                error
+                }
             );
 
-
-            galleryContainer.innerHTML = `
-
-                <p class="empty-message">
-                    Could not load
-                    Corporate videos.
-                </p>
-
-            `;
-
-        });
-
-    }
+        }
 
 
-    /* ==================================================
-       OPEN ZOOMED VIDEO
-    ================================================== */
+        /* ==================================================
+           CLOSE ZOOMED VIDEO
+        ================================================== */
 
-    function openZoomedVideo(
-        itemDiv,
-        videoElement
-    ) {
+        function closeZoomedVideo() {
 
-        closeZoomedVideo();
+            if (!activeVideoItem) {
 
-
-        activeVideoItem =
-            itemDiv;
-
-
-        activeVideo =
-            videoElement;
-
-
-        /* Backdrop */
-
-        videoBackdrop =
-            document.createElement(
-                'div'
-            );
-
-
-        videoBackdrop.className =
-            'video-backdrop';
-
-
-        document.body.appendChild(
-            videoBackdrop
-        );
-
-
-        /* Lock page */
-
-        document.body.style.overflow =
-            'hidden';
-
-
-        /* Zoom */
-
-        itemDiv.classList.add(
-            'video-zoomed'
-        );
-
-
-        /* Controls appear only when zoomed */
-
-        videoElement.controls =
-            true;
-
-
-        /* Do not autoplay */
-
-        videoElement.pause();
-
-
-        /* Close button */
-
-        const closeButton =
-            document.createElement(
-                'button'
-            );
-
-
-        closeButton.className =
-            'video-close-btn';
-
-
-        closeButton.type =
-            'button';
-
-
-        closeButton.setAttribute(
-            'aria-label',
-            'Close video'
-        );
-
-
-        closeButton.textContent =
-            '×';
-
-
-        itemDiv.appendChild(
-            closeButton
-        );
-
-
-        closeButton.addEventListener(
-            'click',
-            event => {
-
-                event.stopPropagation();
-
-                closeZoomedVideo();
+                return;
 
             }
-        );
 
 
-        /* Click backdrop */
-
-        videoBackdrop.addEventListener(
-            'click',
-            () => {
-
-                closeZoomedVideo();
-
-            }
-        );
-
-    }
-
-
-    /* ==================================================
-       CLOSE ZOOMED VIDEO
-    ================================================== */
-
-    function closeZoomedVideo() {
-
-        if (!activeVideoItem) {
-
-            return;
-
-        }
-
-
-        activeVideoItem.classList.remove(
-            'video-zoomed'
-        );
-
-
-        if (activeVideo) {
-
-            activeVideo.pause();
-
-            activeVideo.controls =
-                false;
-
-        }
-
-
-        const closeButton =
-            activeVideoItem.querySelector(
-                '.video-close-btn'
+            activeVideoItem.classList.remove(
+                'video-zoomed'
             );
 
 
-        if (closeButton) {
+            if (activeVideo) {
 
-            closeButton.remove();
+                activeVideo.pause();
 
-        }
+                activeVideo.controls =
+                    false;
+
+            }
 
 
-        if (videoBackdrop) {
+            const closeButton =
+                activeVideoItem.querySelector(
+                    '.video-close-btn'
+                );
 
-            videoBackdrop.remove();
 
-            videoBackdrop =
+            if (closeButton) {
+
+                closeButton.remove();
+
+            }
+
+
+            if (videoBackdrop) {
+
+                videoBackdrop.remove();
+
+                videoBackdrop =
+                    null;
+
+            }
+
+
+            document.body.style.overflow =
+                '';
+
+
+            activeVideoItem =
+                null;
+
+
+            activeVideo =
                 null;
 
         }
 
 
-        document.body.style.overflow =
-            '';
+        /* ==================================================
+           ESC KEY
+        ================================================== */
+
+        document.addEventListener(
+            'keydown',
+            event => {
+
+                if (
+                    event.key === 'Escape'
+                ) {
+
+                    closeZoomedVideo();
+
+                }
+
+            }
+        );
 
 
-        activeVideoItem =
-            null;
+        /* ==================================================
+           GALLERY ANIMATION
+        ================================================== */
 
-
-        activeVideo =
-            null;
-
-    }
-
-
-    /* ==================================================
-       ESC KEY
-    ================================================== */
-
-    document.addEventListener(
-        'keydown',
-        event => {
+        function runGalleryAnimation() {
 
             if (
-                event.key === 'Escape'
+                typeof gsap ===
+                'undefined'
             ) {
 
-                closeZoomedVideo();
+                return;
 
             }
 
+
+            gsap.fromTo(
+
+                '.gallery-item',
+
+                {
+
+                    y:
+                        35,
+
+                    opacity:
+                        0
+
+                },
+
+                {
+
+                    y:
+                        0,
+
+                    opacity:
+                        1,
+
+                    duration:
+                        0.85,
+
+                    stagger:
+                        0.08,
+
+                    ease:
+                        'power3.out'
+                }
+
+            );
+
         }
-    );
 
 
-    /* ==================================================
-       GALLERY ANIMATION
-    ================================================== */
+        /* ==================================================
+           MEDIA BUTTONS
+        ================================================== */
 
-    function runGalleryAnimation() {
+        mediaButtons.forEach(
+            button => {
+
+                button.addEventListener(
+                    'click',
+                    () => {
+
+                        mediaButtons.forEach(
+                            btn => {
+
+                                btn.classList.remove(
+                                    'active'
+                                );
+
+                            }
+                        );
+
+
+                        button.classList.add(
+                            'active'
+                        );
+
+
+                        const selectedMedia =
+                            button.dataset.media;
+
+
+                        if (
+                            selectedMedia ===
+                            'photos'
+                        ) {
+
+                            loadPhotos();
+
+                        }
+
+                        else if (
+                            selectedMedia ===
+                            'videos'
+                        ) {
+
+                            loadVideos();
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* ==================================================
+           HERO ANIMATION
+        ================================================== */
 
         if (
-            typeof gsap ===
+            typeof gsap !==
             'undefined'
         ) {
 
-            return;
+            gsap.from(
+                '.hero-content',
+                {
 
-        }
+                    y:
+                        35,
 
+                    opacity:
+                        0,
 
-        gsap.fromTo(
+                    duration:
+                        1.1,
 
-            '.gallery-item',
+                    ease:
+                        'power3.out',
 
-            {
-                y:
-                    35,
-
-                opacity:
-                    0
-
-            },
-
-            {
-                y:
-                    0,
-
-                opacity:
-                    1,
-
-                duration:
-                    0.85,
-
-                stagger:
-                    0.08,
-
-                ease:
-                    'power3.out'
-            }
-
-        );
-
-    }
-
-
-    /* ==================================================
-       MEDIA BUTTONS
-    ================================================== */
-
-    mediaButtons.forEach(
-        button => {
-
-            button.addEventListener(
-                'click',
-                () => {
-
-                    mediaButtons.forEach(
-                        btn => {
-
-                            btn.classList.remove(
-                                'active'
-                            );
-
-                        }
-                    );
-
-
-                    button.classList.add(
-                        'active'
-                    );
-
-
-                    const selectedMedia =
-                        button.dataset.media;
-
-
-                    if (
-                        selectedMedia ===
-                        'photos'
-                    ) {
-
-                        loadPhotos();
-
-                    }
-
-                    else if (
-                        selectedMedia ===
-                        'videos'
-                    ) {
-
-                        loadVideos();
-
-                    }
+                    delay:
+                        0.2
 
                 }
             );
 
         }
-    );
 
 
-    /* ==================================================
-       HERO ANIMATION
-    ================================================== */
+        /* ==================================================
+           INITIAL LOAD
+           PHOTOS FIRST
+        ================================================== */
 
-    if (
-        typeof gsap !==
-        'undefined'
-    ) {
+        loadPhotos();
 
-        gsap.from(
-            '.hero-content',
-            {
-
-                y:
-                    35,
-
-                opacity:
-                    0,
-
-                duration:
-                    1.1,
-
-                ease:
-                    'power3.out',
-
-                delay:
-                    0.2
-
-            }
-        );
-
-    }
-
-
-    /* ==================================================
-       INITIAL LOAD
-       PHOTOS FIRST
-    ================================================== */
-
-    loadPhotos();
-
-/* ==================================================
-   LOAD REUSABLE SCROLL TO TOP
-================================================== */
-
-fetch('./components/scroll-to-top.html')
-
-    .then(response => {
-
-        if (!response.ok) {
-
-            throw new Error(
-                `Scroll component failed: ${response.status}`
-            );
-
-        }
-
-        return response.text();
-
-    })
-
-    .then(html => {
-
-        const container =
-            document.getElementById(
-                'scroll-to-top-container'
-            );
-
-        if (!container) {
-            return;
-        }
-
-        container.innerHTML = html;
-
-
-        const button =
-            container.querySelector(
-                '#scroll-to-top'
-            );
-
-        if (!button) {
-            return;
-        }
-
-
-        /* =========================================
-           SHOW AFTER SCROLLING
-        ========================================= */
-
-        function updateButton() {
-
-            if (window.scrollY > 500) {
-
-                button.classList.add(
-                    'show'
-                );
-
-            } else {
-
-                button.classList.remove(
-                    'show'
-                );
-
-            }
-
-        }
-
-
-        window.addEventListener(
-            'scroll',
-            updateButton,
-            {
-                passive: true
-            }
-        );
-
-
-        /* =========================================
-           CLICK
-        ========================================= */
-
-        button.addEventListener(
-            'click',
-            () => {
-
-                window.scrollTo({
-
-                    top: 0,
-
-                    behavior: 'smooth'
-
-                });
-
-            }
-        );
-
-
-        /* Initial state */
-
-        updateButton();
-
-    })
-
-    .catch(error => {
-
-        console.error(
-            'Scroll-to-top component error:',
-            error
-        );
-
-    });
-    
-</script>
-
+    </script>
 
 </body>
 

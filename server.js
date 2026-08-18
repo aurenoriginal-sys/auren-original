@@ -1,646 +1,755 @@
 const express = require('express');
-const fs = require('fs');
-const path = require('path');
 const cors = require('cors');
+const path = require('path');
+const cloudinary = require('cloudinary').v2;
 
 require('dotenv').config();
 
 const app = express();
-app.use(express.json());
-const PORT = 3000;
+
+
+/* ==================================================
+   SERVER
+================================================== */
+
+const PORT =
+    process.env.PORT || 3000;
+
+
+app.use(
+    express.json({
+        limit: '1mb'
+    })
+);
+
 
 app.use(cors());
 
-/* ==================================================
-   SERVE HTML, IMAGES, VIDEOS, COMPONENTS, ETC.
-================================================== */
-
-app.use(express.static(path.join(__dirname)));
-
 
 /* ==================================================
-   WEDDING PHOTOS
+   STATIC WEBSITE FILES
 ================================================== */
 
-app.get('/api/wedding-photos', (req, res) => {
-
-    const directoryPath = path.join(
-        __dirname,
-        'images',
-        'wedding',
-        'photos'
-    );
-
-    fs.readdir(directoryPath, (err, files) => {
-
-        if (err) {
-
-            console.error(
-                'Could not scan wedding photos:',
-                err
-            );
-
-            return res.status(500).json({
-                error:
-                    'Unable to scan wedding photos folder.'
-            });
-        }
-
-        const images = files.filter(file =>
-            /\.(jpg|jpeg|png|webp|gif)$/i.test(file)
-        );
-
-        console.log(
-            'Wedding photos found:',
-            images
-        );
-
-        res.json(images);
-    });
-});
+app.use(
+    express.static(
+        path.join(__dirname)
+    )
+);
 
 
 /* ==================================================
-   WEDDING VIDEOS
+   CLOUDINARY CONFIGURATION
 ================================================== */
 
-app.get('/api/wedding-videos', (req, res) => {
+cloudinary.config({
 
-    const directoryPath = path.join(
-        __dirname,
-        'images',
-        'wedding',
-        'videos'
-    );
+    cloud_name:
+        process.env.CLOUDINARY_CLOUD_NAME,
 
-    fs.readdir(directoryPath, (err, files) => {
+    api_key:
+        process.env.CLOUDINARY_API_KEY,
 
-        if (err) {
-
-            console.error(
-                'Could not scan wedding videos:',
-                err
-            );
-
-            return res.status(500).json({
-                error:
-                    'Unable to scan wedding videos folder.'
-            });
-        }
-
-        const videos = files.filter(file =>
-            /\.(mp4|webm|ogg|mov)$/i.test(file)
-        );
-
-        console.log(
-            'Wedding videos found:',
-            videos
-        );
-
-        res.json(videos);
-    });
-});
-
-
-/* ==================================================
-   PRE-WEDDING PHOTOS
-================================================== */
-
-app.get('/api/pre-wedding-photos', (req, res) => {
-
-    const directoryPath = path.join(
-        __dirname,
-        'images',
-        'pre-wedding',
-        'photos'
-    );
-
-    fs.readdir(directoryPath, (err, files) => {
-
-        if (err) {
-
-            console.error(
-                'Could not scan pre-wedding photos:',
-                err
-            );
-
-            return res.status(500).json({
-                error:
-                    'Unable to scan pre-wedding photos folder.'
-            });
-        }
-
-        const images = files.filter(file =>
-            /\.(jpg|jpeg|png|webp|gif)$/i.test(file)
-        );
-
-        console.log(
-            'Pre-wedding photos found:',
-            images
-        );
-
-        res.json(images);
-    });
-});
-
-
-/* ==================================================
-   PRE-WEDDING VIDEOS
-================================================== */
-
-app.get('/api/pre-wedding-videos', (req, res) => {
-
-    const directoryPath = path.join(
-        __dirname,
-        'images',
-        'pre-wedding',
-        'videos'
-    );
-
-    fs.readdir(directoryPath, (err, files) => {
-
-        if (err) {
-
-            console.error(
-                'Could not scan pre-wedding videos:',
-                err
-            );
-
-            return res.status(500).json({
-                error:
-                    'Unable to scan pre-wedding videos folder.'
-            });
-        }
-
-        const videos = files.filter(file =>
-            /\.(mp4|webm|ogg|mov)$/i.test(file)
-        );
-
-        console.log(
-            'Pre-wedding videos found:',
-            videos
-        );
-
-        res.json(videos);
-    });
-});
-
-
-/* ==================================================
-   FASHION PHOTOS
-================================================== */
-
-app.get('/api/fashion-photos', (req, res) => {
-
-    const directoryPath = path.join(
-        __dirname,
-        'images',
-        'fashion',
-        'photos'
-    );
-
-    fs.readdir(directoryPath, (err, files) => {
-
-        if (err) {
-
-            console.error(
-                'Could not scan fashion photos:',
-                err
-            );
-
-            return res.status(500).json({
-                error:
-                    'Unable to scan fashion photos folder.'
-            });
-        }
-
-        const images = files.filter(file =>
-            /\.(jpg|jpeg|png|webp|gif)$/i.test(file)
-        );
-
-        console.log(
-            'Fashion photos found:',
-            images
-        );
-
-        res.json(images);
-    });
-});
-
-
-/* ==================================================
-   FASHION VIDEOS
-================================================== */
-
-app.get('/api/fashion-videos', (req, res) => {
-
-    const directoryPath = path.join(
-        __dirname,
-        'images',
-        'fashion',
-        'videos'
-    );
-
-    fs.readdir(directoryPath, (err, files) => {
-
-        if (err) {
-
-            console.error(
-                'Could not scan fashion videos:',
-                err
-            );
-
-            return res.status(500).json({
-                error:
-                    'Unable to scan fashion videos folder.'
-            });
-        }
-
-        const videos = files.filter(file =>
-            /\.(mp4|webm|ogg|mov)$/i.test(file)
-        );
-
-        console.log(
-            'Fashion videos found:',
-            videos
-        );
-
-        res.json(videos);
-    });
-});
-
-/* ==================================================
-   SPORTS PHOTOS
-================================================== */
-
-app.get('/api/sports-photos', (req, res) => {
-
-    const directoryPath = path.join(
-        __dirname,
-        'images',
-        'sports',
-        'photos'
-    );
-
-    fs.readdir(directoryPath, (err, files) => {
-
-        if (err) {
-
-            console.error(
-                'Could not scan sports photos:',
-                err
-            );
-
-            return res.status(500).json({
-                error:
-                    'Unable to scan sports photos folder.'
-            });
-        }
-
-        const images = files.filter(file =>
-            /\.(jpg|jpeg|png|webp|gif)$/i.test(file)
-        );
-
-        console.log(
-            'Sports photos found:',
-            images
-        );
-
-        res.json(images);
-    });
-});
-
-
-/* ==================================================
-   SPORTS VIDEOS
-================================================== */
-
-app.get('/api/sports-videos', (req, res) => {
-
-    const directoryPath = path.join(
-        __dirname,
-        'images',
-        'sports',
-        'videos'
-    );
-
-    fs.readdir(directoryPath, (err, files) => {
-
-        if (err) {
-
-            console.error(
-                'Could not scan sports videos:',
-                err
-            );
-
-            return res.status(500).json({
-                error:
-                    'Unable to scan sports videos folder.'
-            });
-        }
-
-        const videos = files.filter(file =>
-            /\.(mp4|webm|ogg|mov)$/i.test(file)
-        );
-
-        console.log(
-            'Sports videos found:',
-            videos
-        );
-
-        res.json(videos);
-    });
-});
-
-/* ==================================================
-   CORPORATE PHOTOS
-================================================== */
-
-app.get('/api/corporate-photos', (req, res) => {
-
-    const directoryPath = path.join(
-        __dirname,
-        'images',
-        'corporate',
-        'photos'
-    );
-
-    fs.readdir(directoryPath, (err, files) => {
-
-        if (err) {
-
-            console.error(
-                'Could not scan corporate photos:',
-                err
-            );
-
-            return res.status(500).json({
-                error:
-                    'Unable to scan corporate photos folder.'
-            });
-        }
-
-        const images = files.filter(file =>
-            /\.(jpg|jpeg|png|webp|gif)$/i.test(file)
-        );
-
-        console.log(
-            'Corporate photos found:',
-            images
-        );
-
-        res.json(images);
-    });
-});
-
-
-/* ==================================================
-   CORPORATE VIDEOS
-================================================== */
-
-app.get('/api/corporate-videos', (req, res) => {
-
-    const directoryPath = path.join(
-        __dirname,
-        'images',
-        'corporate',
-        'videos'
-    );
-
-    fs.readdir(directoryPath, (err, files) => {
-
-        if (err) {
-
-            console.error(
-                'Could not scan corporate videos:',
-                err
-            );
-
-            return res.status(500).json({
-                error:
-                    'Unable to scan corporate videos folder.'
-            });
-        }
-
-        const videos = files.filter(file =>
-            /\.(mp4|webm|ogg|mov)$/i.test(file)
-        );
-
-        console.log(
-            'Corporate videos found:',
-            videos
-        );
-
-        res.json(videos);
-    });
-});
-
-/* ==================================================
-   COMMERCIAL PHOTOS
-================================================== */
-
-app.get('/api/commercial-photos', (req, res) => {
-
-    const directoryPath = path.join(
-        __dirname,
-        'images',
-        'commercial',
-        'photos'
-    );
-
-    fs.readdir(directoryPath, (err, files) => {
-
-        if (err) {
-
-            console.error(
-                'Could not scan commercial photos:',
-                err
-            );
-
-            return res.status(500).json({
-                error:
-                    'Unable to scan commercial photos folder.'
-            });
-        }
-
-        const images = files.filter(file =>
-            /\.(jpg|jpeg|png|webp|gif)$/i.test(file)
-        );
-
-        console.log(
-            'Commercial photos found:',
-            images
-        );
-
-        res.json(images);
-    });
-});
-
-
-/* ==================================================
-   COMMERCIAL VIDEOS
-================================================== */
-
-app.get('/api/commercial-videos', (req, res) => {
-
-    const directoryPath = path.join(
-        __dirname,
-        'images',
-        'commercial',
-        'videos'
-    );
-
-    fs.readdir(directoryPath, (err, files) => {
-
-        if (err) {
-
-            console.error(
-                'Could not scan commercial videos:',
-                err
-            );
-
-            return res.status(500).json({
-                error:
-                    'Unable to scan commercial videos folder.'
-            });
-        }
-
-        const videos = files.filter(file =>
-            /\.(mp4|webm|ogg|mov)$/i.test(file)
-        );
-
-        console.log(
-            'Commercial videos found:',
-            videos
-        );
-
-        res.json(videos);
-    });
-});
-
-/* ==================================================
-   BRANDING PHOTOS
-================================================== */
-
-app.get('/api/branding-photos', (req, res) => {
-
-    const directoryPath = path.join(
-        __dirname,
-        'images',
-        'branding',
-        'photos'
-    );
-
-    fs.readdir(directoryPath, (err, files) => {
-
-        if (err) {
-
-            console.error(
-                'Could not scan branding photos:',
-                err
-            );
-
-            return res.status(500).json({
-                error:
-                    'Unable to scan branding photos folder.'
-            });
-        }
-
-        const images = files.filter(file =>
-            /\.(jpg|jpeg|png|webp|gif)$/i.test(file)
-        );
-
-        console.log(
-            'Branding photos found:',
-            images
-        );
-
-        res.json(images);
-
-    });
+    api_secret:
+        process.env.CLOUDINARY_API_SECRET
 
 });
 
 
 /* ==================================================
-   BRANDING VIDEOS
+   CLOUDINARY ROOT ASSET FOLDER
 ================================================== */
 
-app.get('/api/branding-videos', (req, res) => {
+const CLOUDINARY_ROOT_FOLDER =
+    'auren';
 
-    const directoryPath = path.join(
-        __dirname,
-        'images',
-        'branding',
-        'videos'
-    );
-
-    fs.readdir(directoryPath, (err, files) => {
-
-        if (err) {
-
-            console.error(
-                'Could not scan branding videos:',
-                err
-            );
-
-            return res.status(500).json({
-                error:
-                    'Unable to scan branding videos folder.'
-            });
-        }
-
-        const videos = files.filter(file =>
-            /\.(mp4|webm|ogg|mov)$/i.test(file)
-        );
-
-        console.log(
-            'Branding videos found:',
-            videos
-        );
-
-        res.json(videos);
-
-    });
-
-});
 
 /* ==================================================
-   START SERVER
+   GALLERY CONFIGURATION
 ================================================== */
-// Your existing routes
-// Your existing API code
-// Your existing static-file setup
+
+const GALLERY_CONFIG = {
+
+    branding: {
+        name: 'Branding',
+        folder: 'branding'
+    },
+
+    commercial: {
+        name: 'Commercial',
+        folder: 'commercial'
+    },
+
+    corporate: {
+        name: 'Corporate',
+        folder: 'corporate'
+    },
+
+    fashion: {
+        name: 'Fashion',
+        folder: 'fashion'
+    },
+
+    sports: {
+        name: 'Sports',
+        folder: 'sports'
+    },
+
+    wedding: {
+        name: 'Wedding',
+        folder: 'wedding'
+    },
+
+    'pre-wedding': {
+        name: 'Pre-Wedding',
+        folder: 'pre-wedding'
+    }
+
+};
+
+
+/* ==================================================
+   CLOUDINARY CONFIG VALIDATION
+================================================== */
+
+function validateCloudinaryConfig() {
+
+    const missing = [];
+
+
+    if (
+        !process.env.CLOUDINARY_CLOUD_NAME
+    ) {
+
+        missing.push(
+            'CLOUDINARY_CLOUD_NAME'
+        );
+
+    }
+
+
+    if (
+        !process.env.CLOUDINARY_API_KEY
+    ) {
+
+        missing.push(
+            'CLOUDINARY_API_KEY'
+        );
+
+    }
+
+
+    if (
+        !process.env.CLOUDINARY_API_SECRET
+    ) {
+
+        missing.push(
+            'CLOUDINARY_API_SECRET'
+        );
+
+    }
+
+
+    if (
+        missing.length > 0
+    ) {
+
+        console.warn(
+            'Missing Cloudinary variables:',
+            missing.join(', ')
+        );
+
+
+        return false;
+
+    }
+
+
+    return true;
+
+}
+
+
+/* ==================================================
+   GET ASSETS FROM AN ASSET FOLDER
+================================================== */
+
+async function getAssetsFromFolder(
+    assetFolder
+) {
+
+    if (
+        !validateCloudinaryConfig()
+    ) {
+
+        throw new Error(
+            'Cloudinary is not configured.'
+        );
+
+    }
+
+
+    const resources = [];
+
+    let nextCursor =
+        undefined;
+
+
+    do {
+
+        const options = {
+
+            max_results:
+                500
+
+        };
+
+
+        if (
+            nextCursor
+        ) {
+
+            options.next_cursor =
+                nextCursor;
+
+        }
+
+
+        const result =
+            await cloudinary.api.resources_by_asset_folder(
+                assetFolder,
+                options
+            );
+
+
+        if (
+            Array.isArray(
+                result.resources
+            )
+        ) {
+
+            resources.push(
+                ...result.resources
+            );
+
+        }
+
+
+        nextCursor =
+            result.next_cursor;
+
+    }
+
+    while (
+        nextCursor
+    );
+
+
+    return resources;
+
+}
+
+
+/* ==================================================
+   MEDIA RESPONSE FORMAT
+================================================== */
+
+function formatMedia(
+    resources
+) {
+
+    return resources
+
+        .map(
+            resource => {
+
+                return {
+
+                    url:
+                        resource.secure_url,
+
+                    secure_url:
+                        resource.secure_url,
+
+                    public_id:
+                        resource.public_id,
+
+                    display_name:
+                        resource.display_name,
+
+                    format:
+                        resource.format,
+
+                    resource_type:
+                        resource.resource_type,
+
+                    bytes:
+                        resource.bytes,
+
+                    width:
+                        resource.width,
+
+                    height:
+                        resource.height
+
+                };
+
+            }
+        )
+
+        .sort(
+            (
+                first,
+                second
+            ) => {
+
+                return String(
+                    first.display_name ||
+                    first.public_id ||
+                    ''
+                )
+                .localeCompare(
+                    String(
+                        second.display_name ||
+                        second.public_id ||
+                        ''
+                    ),
+                    undefined,
+                    {
+                        numeric:
+                            true,
+
+                        sensitivity:
+                            'base'
+                    }
+                );
+
+            }
+        );
+
+}
+
+
+/* ==================================================
+   GALLERY PHOTOS
+================================================== */
+
+async function getGalleryPhotos(
+    galleryKey,
+    req,
+    res
+) {
+
+    const config =
+        GALLERY_CONFIG[
+            galleryKey
+        ];
+
+
+    try {
+
+        const assetFolder =
+            `${CLOUDINARY_ROOT_FOLDER}/` +
+            `${config.folder}/photos`;
+
+
+        console.log(
+            `Searching ${config.name} photos in:`,
+            assetFolder
+        );
+
+
+        const resources =
+            await getAssetsFromFolder(
+                assetFolder
+            );
+
+
+        const photos =
+            resources.filter(
+                resource =>
+                    resource.resource_type ===
+                    'image'
+            );
+
+
+        console.log(
+            `${config.name} photos found:`,
+            photos.length
+        );
+
+
+        return res.json(
+            formatMedia(
+                photos
+            )
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            `${config.name} photos error:`,
+            error
+        );
+
+
+        return res
+            .status(500)
+            .json({
+
+                error:
+                    `Unable to load ${config.name} photos.`
+
+            });
+
+    }
+
+}
+
+
+/* ==================================================
+   GALLERY VIDEOS
+================================================== */
+
+async function getGalleryVideos(
+    galleryKey,
+    req,
+    res
+) {
+
+    const config =
+        GALLERY_CONFIG[
+            galleryKey
+        ];
+
+
+    try {
+
+        const assetFolder =
+            `${CLOUDINARY_ROOT_FOLDER}/` +
+            `${config.folder}/videos`;
+
+
+        console.log(
+            `Searching ${config.name} videos in:`,
+            assetFolder
+        );
+
+
+        const resources =
+            await getAssetsFromFolder(
+                assetFolder
+            );
+
+
+        const videos =
+            resources.filter(
+                resource =>
+                    resource.resource_type ===
+                    'video'
+            );
+
+
+        console.log(
+            `${config.name} videos found:`,
+            videos.length
+        );
+
+
+        return res.json(
+            formatMedia(
+                videos
+            )
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            `${config.name} videos error:`,
+            error
+        );
+
+
+        return res
+            .status(500)
+            .json({
+
+                error:
+                    `Unable to load ${config.name} videos.`
+
+            });
+
+    }
+
+}
+
+
+/* ==================================================
+   FIND HERO IMAGE
+   HERO IMAGES ARE DIRECTLY INSIDE:
+   auren/
+================================================== */
+
+async function findHeroImage(
+    galleryKey
+) {
+
+    const config =
+        GALLERY_CONFIG[
+            galleryKey
+        ];
+
+
+    const resources =
+        await getAssetsFromFolder(
+            CLOUDINARY_ROOT_FOLDER
+        );
+
+
+    const expectedHeroName =
+        `hero-${config.folder}`;
+
+
+    console.log(
+        `Looking for hero: ${expectedHeroName}`
+    );
+
+
+    const hero =
+        resources.find(
+            resource => {
+
+                const publicId =
+                    String(
+                        resource.public_id ||
+                        ''
+                    )
+                    .split('/')
+                    .pop()
+                    .toLowerCase();
+
+
+                const displayName =
+                    String(
+                        resource.display_name ||
+                        ''
+                    )
+                    .toLowerCase();
+
+
+                return (
+
+                    publicId ===
+                    expectedHeroName.toLowerCase()
+
+                    ||
+
+                    displayName
+                        .startsWith(
+                            expectedHeroName
+                                .toLowerCase()
+                        )
+
+                );
+
+            }
+        );
+
+
+    if (
+        hero
+    ) {
+
+        console.log(
+            `${config.name} hero found:`,
+            hero.secure_url
+        );
+
+
+        return hero;
+
+    }
+
+
+    console.warn(
+        `${config.name} hero not found.`
+    );
+
+
+    return null;
+
+}
+
+
+/* ==================================================
+   GALLERY API ROUTES
+================================================== */
+
+Object.keys(
+    GALLERY_CONFIG
+)
+.forEach(
+    galleryKey => {
+
+
+        /* ==========================================
+           PHOTOS
+        ========================================== */
+
+        app.get(
+            `/api/${galleryKey}-photos`,
+            (req, res) => {
+
+                return getGalleryPhotos(
+                    galleryKey,
+                    req,
+                    res
+                );
+
+            }
+        );
+
+
+        /* ==========================================
+           VIDEOS
+        ========================================== */
+
+        app.get(
+            `/api/${galleryKey}-videos`,
+            (req, res) => {
+
+                return getGalleryVideos(
+                    galleryKey,
+                    req,
+                    res
+                );
+
+            }
+        );
+
+
+        /* ==========================================
+           HERO
+        ========================================== */
+
+        app.get(
+            `/api/${galleryKey}-hero`,
+            async (req, res) => {
+
+                const config =
+                    GALLERY_CONFIG[
+                        galleryKey
+                    ];
+
+
+                try {
+
+                    const hero =
+                        await findHeroImage(
+                            galleryKey
+                        );
+
+
+                    if (
+                        !hero
+                    ) {
+
+                        return res
+                            .status(404)
+                            .json({
+
+                                error:
+                                    `${config.name} hero image not found.`
+
+                            });
+
+                    }
+
+
+                    return res.json({
+
+                        url:
+                            hero.secure_url,
+
+                        secure_url:
+                            hero.secure_url,
+
+                        public_id:
+                            hero.public_id,
+
+                        display_name:
+                            hero.display_name
+
+                    });
+
+                }
+
+                catch (error) {
+
+                    console.error(
+                        `${config.name} hero error:`,
+                        error
+                    );
+
+
+                    return res
+                        .status(500)
+                        .json({
+
+                            error:
+                                `Unable to load ${config.name} hero image.`
+
+                        });
+
+                }
+
+            }
+        );
+
+    }
+);
+
 
 /* ==================================================
    HTML ESCAPE HELPER
 ================================================== */
 
-function escapeHtml(value) {
+function escapeHtml(
+    value
+) {
 
     return String(value)
+
         .replace(
             /&/g,
             '&amp;'
         )
+
         .replace(
             /</g,
             '&lt;'
         )
+
         .replace(
             />/g,
             '&gt;'
         )
+
         .replace(
             /"/g,
             '&quot;'
         )
+
         .replace(
             /'/g,
             '&#039;'
         );
 
 }
+
 
 /* ==================================================
    CONTACT FORM - RESEND
@@ -653,14 +762,23 @@ app.post(
         try {
 
             const {
+
                 name,
+
                 email,
+
                 phone,
+
                 company,
+
                 projectType,
+
                 budget,
+
                 timeline,
+
                 message
+
             } = req.body;
 
 
@@ -669,20 +787,29 @@ app.post(
             ========================================== */
 
             if (
+
                 !name ||
+
                 !email ||
+
                 !phone ||
+
                 !projectType ||
+
                 !budget ||
+
                 !timeline ||
+
                 !message
+
             ) {
 
                 return res
                     .status(400)
                     .json({
 
-                        success: false,
+                        success:
+                            false,
 
                         message:
                             'Please fill all required fields.'
@@ -700,17 +827,21 @@ app.post(
                 process.env.RESEND_API_KEY;
 
 
-            if (!apiKey) {
+            if (
+                !apiKey
+            ) {
 
                 console.error(
                     'RESEND_API_KEY is not configured.'
                 );
 
+
                 return res
                     .status(500)
                     .json({
 
-                        success: false,
+                        success:
+                            false,
 
                         message:
                             'Email service is not configured.'
@@ -721,18 +852,21 @@ app.post(
 
 
             /* ==========================================
-               EMAIL CONTENT
+               EMAIL TEXT
             ========================================== */
 
             const emailText = `
 
 New Project Enquiry
 
-Name: ${name}
+Name:
+${name}
 
-Email: ${email}
+Email:
+${email}
 
-Phone: ${phone}
+Phone:
+${phone}
 
 Company / Brand:
 ${company || 'Not provided'}
@@ -749,8 +883,12 @@ ${timeline}
 Message:
 ${message}
 
-            `;
+`;
 
+
+            /* ==========================================
+               EMAIL HTML
+            ========================================== */
 
             const emailHtml = `
 
@@ -778,7 +916,8 @@ ${message}
                 <p>
                     <strong>Company / Brand:</strong>
                     ${escapeHtml(
-                        company || 'Not provided'
+                        company ||
+                        'Not provided'
                     )}
                 </p>
 
@@ -802,11 +941,15 @@ ${message}
                 </h3>
 
                 <p>
-                    ${escapeHtml(message)
+                    ${
+                        escapeHtml(
+                            message
+                        )
                         .replace(
                             /\n/g,
                             '<br>'
-                        )}
+                        )
+                    }
                 </p>
 
             `;
@@ -836,15 +979,6 @@ ${message}
 
                         body:
                             JSON.stringify({
-
-                                /*
-                                 * Temporary Resend sender.
-                                 * Later, after verifying
-                                 * aurenoriginal.in,
-                                 * change this to:
-                                 *
-                                 * hello@aurenoriginal.in
-                                 */
 
                                 from:
                                     'Auren Originals <onboarding@resend.dev>',
@@ -894,7 +1028,8 @@ ${message}
                     .status(502)
                     .json({
 
-                        success: false,
+                        success:
+                            false,
 
                         message:
                             'Unable to send your enquiry.'
@@ -918,7 +1053,8 @@ ${message}
                 .status(200)
                 .json({
 
-                    success: true,
+                    success:
+                        true,
 
                     message:
                         'Message sent successfully.'
@@ -939,7 +1075,8 @@ ${message}
                 .status(500)
                 .json({
 
-                    success: false,
+                    success:
+                        false,
 
                     message:
                         'Unable to send your enquiry.'
@@ -953,14 +1090,16 @@ ${message}
 
 
 /* ==================================================
-   YOUR EXISTING SERVER START
+   SERVER START
 ================================================== */
 
-app.listen(PORT, () => {
+app.listen(
+    PORT,
+    () => {
 
-    console.log(
-        `🚀 Server is running! View your site at: http://localhost:${PORT}`
-    );
+        console.log(
+            `🚀 Server is running! View your site at: http://localhost:${PORT}`
+        );
 
-});
-
+    }
+);

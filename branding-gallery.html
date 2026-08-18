@@ -903,6 +903,7 @@
 
             }
 
+
             .hero-section {
 
                 height:
@@ -946,7 +947,6 @@
         class="hero-section"
     >
 
-
         <img
             src=""
             alt="Auren Branding Hero"
@@ -963,7 +963,6 @@
         <div
             class="hero-content"
         >
-
 
             <a
                 href="portfolio.html"
@@ -1017,15 +1016,12 @@
             class="media-filter"
         >
 
-
             <button
                 class="media-btn active"
                 data-media="photos"
                 type="button"
             >
-
                 Photos
-
             </button>
 
 
@@ -1034,11 +1030,8 @@
                 data-media="videos"
                 type="button"
             >
-
                 Videos
-
             </button>
-
 
         </div>
 
@@ -1143,10 +1136,6 @@
                 }
 
 
-                /* ------------------------------------------
-                   SHOW AFTER SCROLLING
-                ------------------------------------------ */
-
                 function updateButton() {
 
                     if (
@@ -1157,9 +1146,7 @@
                             'show'
                         );
 
-                    }
-
-                    else {
+                    } else {
 
                         button.classList.remove(
                             'show'
@@ -1178,10 +1165,6 @@
                     }
                 );
 
-
-                /* ------------------------------------------
-                   CLICK
-                ------------------------------------------ */
 
                 button.addEventListener(
                     'click',
@@ -1330,12 +1313,8 @@
             '/api/branding-videos';
 
 
-        const mediaFolder =
-            'branding';
-
-
-        const serverOrigin =
-            window.location.origin;
+        const heroApi =
+            '/api/branding-hero';
 
 
         /* ==================================================
@@ -1370,8 +1349,59 @@
             };
 
 
-            heroImage.src =
-                'images/hero-branding.jpg';
+            fetch(heroApi, {
+                method: 'GET',
+                cache: 'no-store'
+            })
+
+                .then(response => {
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            `Branding hero API returned HTTP ${response.status}`
+                        );
+
+                    }
+
+                    return response.json();
+
+                })
+
+                .then(data => {
+
+                    const heroUrl =
+                        typeof data === 'string'
+                            ? data
+                            : (
+                                data?.secure_url ||
+                                data?.url ||
+                                ''
+                            );
+
+
+                    if (!heroUrl) {
+
+                        throw new Error(
+                            'Branding hero URL was not returned'
+                        );
+
+                    }
+
+
+                    heroImage.src =
+                        heroUrl;
+
+                })
+
+                .catch(error => {
+
+                    console.error(
+                        'Branding hero loading error:',
+                        error
+                    );
+
+                });
 
         }
 
@@ -1447,39 +1477,44 @@
 
 
         /* ==================================================
-           PHOTO PATH
+           CLOUDINARY MEDIA URL
+           
+           The API should return either:
+           - direct URL strings
+           - { url: "..." }
+           - { secure_url: "..." }
         ================================================== */
 
-        function getPhotoPath(
-            filename
+        function getMediaUrl(
+            media
         ) {
 
-            return (
-                `${serverOrigin}/images/` +
-                `${mediaFolder}/photos/` +
-                encodeURIComponent(
-                    filename
-                )
-            );
+            if (
+                typeof media ===
+                'string'
+            ) {
 
-        }
+                return media;
+
+            }
 
 
-        /* ==================================================
-           VIDEO PATH
-        ================================================== */
+            if (
+                media &&
+                typeof media ===
+                'object'
+            ) {
 
-        function getVideoPath(
-            filename
-        ) {
+                return (
+                    media.secure_url ||
+                    media.url ||
+                    ''
+                );
 
-            return (
-                `${serverOrigin}/images/` +
-                `${mediaFolder}/videos/` +
-                encodeURIComponent(
-                    filename
-                )
-            );
+            }
+
+
+            return '';
 
         }
 
@@ -1499,12 +1534,12 @@
 
             console.log(
                 'Loading Branding photos from:',
-                `${serverOrigin}${photoApi}`
+                photoApi
             );
 
 
             fetch(
-                `${serverOrigin}${photoApi}`,
+                photoApi,
                 {
                     method:
                         'GET',
@@ -1570,6 +1605,24 @@
                     photos.forEach(
                         photo => {
 
+                            const imageUrl =
+                                getMediaUrl(
+                                    photo
+                                );
+
+
+                            if (!imageUrl) {
+
+                                console.warn(
+                                    'Branding photo has no URL:',
+                                    photo
+                                );
+
+                                return;
+
+                            }
+
+
                             const itemDiv =
                                 document.createElement(
                                     'div'
@@ -1587,9 +1640,7 @@
 
 
                             image.src =
-                                getPhotoPath(
-                                    photo
-                                );
+                                imageUrl;
 
 
                             image.alt =
@@ -1598,6 +1649,10 @@
 
                             image.loading =
                                 'lazy';
+
+
+                            image.decoding =
+                                'async';
 
 
                             image.addEventListener(
@@ -1682,12 +1737,12 @@
 
             console.log(
                 'Loading Branding videos from:',
-                `${serverOrigin}${videoApi}`
+                videoApi
             );
 
 
             fetch(
-                `${serverOrigin}${videoApi}`,
+                videoApi,
                 {
                     method:
                         'GET',
@@ -1753,6 +1808,24 @@
                     videos.forEach(
                         videoFile => {
 
+                            const videoUrl =
+                                getMediaUrl(
+                                    videoFile
+                                );
+
+
+                            if (!videoUrl) {
+
+                                console.warn(
+                                    'Branding video has no URL:',
+                                    videoFile
+                                );
+
+                                return;
+
+                            }
+
+
                             const itemDiv =
                                 document.createElement(
                                     'div'
@@ -1788,14 +1861,15 @@
 
 
                             source.src =
-                                getVideoPath(
-                                    videoFile
-                                );
+                                videoUrl;
 
 
                             source.type =
                                 getVideoMimeType(
-                                    videoFile
+                                    videoFile?.public_id ||
+                                    videoFile?.original_filename ||
+                                    videoFile?.filename ||
+                                    videoUrl
                                 );
 
 
@@ -1815,8 +1889,6 @@
                                 );
 
 
-                            /* Click = zoom */
-
                             videoElement.addEventListener(
                                 'click',
                                 event => {
@@ -1832,8 +1904,6 @@
                                 }
                             );
 
-
-                            /* Disable right click */
 
                             videoElement.addEventListener(
                                 'contextmenu',
@@ -1896,8 +1966,6 @@
                 videoElement;
 
 
-            /* Backdrop */
-
             videoBackdrop =
                 document.createElement(
                     'div'
@@ -1913,31 +1981,21 @@
             );
 
 
-            /* Lock page */
-
             document.body.style.overflow =
                 'hidden';
 
-
-            /* Zoom */
 
             itemDiv.classList.add(
                 'video-zoomed'
             );
 
 
-            /* Controls */
-
             videoElement.controls =
                 true;
 
 
-            /* Don't autoplay */
-
             videoElement.pause();
 
-
-            /* Close button */
 
             const closeButton =
                 document.createElement(
@@ -1979,8 +2037,6 @@
                 }
             );
 
-
-            /* Backdrop click */
 
             videoBackdrop.addEventListener(
                 'click',

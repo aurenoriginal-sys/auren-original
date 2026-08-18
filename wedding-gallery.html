@@ -20,12 +20,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;500&display=swap"
         rel="stylesheet"
     >
@@ -36,10 +30,6 @@
     ================================================== -->
 
     <style>
-
-        /* ==================================================
-           THEME
-        ================================================== */
 
         :root {
 
@@ -140,6 +130,16 @@
         }
 
 
+        #scroll-to-top-container {
+
+            position:
+                relative;
+
+            z-index:
+                99999;
+        }
+
+
         /* ==================================================
            HERO
         ================================================== */
@@ -206,6 +206,9 @@
 
             z-index:
                 -2;
+
+            visibility:
+                hidden;
 
             animation:
                 heroZoom
@@ -308,7 +311,9 @@
                 none;
 
             transition:
-                color 0.3s ease;
+                color
+                0.3s
+                ease;
         }
 
 
@@ -418,10 +423,17 @@
                 pointer;
 
             transition:
-                background-color 0.3s ease,
-                color 0.3s ease,
-                border-color 0.3s ease,
-                transform 0.3s ease;
+                background-color
+                0.3s ease,
+
+                color
+                0.3s ease,
+
+                border-color
+                0.3s ease,
+
+                transform
+                0.3s ease;
         }
 
 
@@ -535,7 +547,8 @@
                 ),
 
                 opacity
-                0.4s ease;
+                0.4s
+                ease;
         }
 
 
@@ -584,7 +597,8 @@
                 ),
 
                 opacity
-                0.4s ease;
+                0.4s
+                ease;
         }
 
 
@@ -774,9 +788,14 @@
                 1002;
 
             transition:
-                background 0.3s ease,
-                color 0.3s ease,
-                border-color 0.3s ease;
+                background
+                0.3s ease,
+
+                color
+                0.3s ease,
+
+                border-color
+                0.3s ease;
         }
 
 
@@ -815,47 +834,91 @@
                 1rem;
         }
 
+
+        /* ==================================================
+           MOBILE
+        ================================================== */
+
+        @media (max-width: 900px) {
+
+            .gallery-grid {
+
+                column-count:
+                    2;
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .gallery-grid {
+
+                column-count:
+                    1;
+
+            }
+
+            .hero-section {
+
+                height:
+                    58vh;
+
+            }
+
+        }
+
     </style>
 
 </head>
 
 
-
 <body>
+
 
     <!-- ==================================================
          REUSABLE SCROLL TO TOP
     ================================================== -->
 
-    <div id="scroll-to-top-container"></div>
+    <div
+        id="scroll-to-top-container"
+    ></div>
+
 
     <!-- ==================================================
          REUSABLE NAVBAR
     ================================================== -->
 
-    <div id="navbar-container"></div>
+    <div
+        id="navbar-container"
+    ></div>
 
 
     <!-- ==================================================
          HERO
     ================================================== -->
 
-    <header class="hero-section">
-
+    <header
+        class="hero-section"
+    >
 
         <img
-    src="images/hero-wedding.jpg"
-    alt="Auren Wedding Hero"
-    class="hero-image"
->
+            src=""
+            alt="Auren Wedding Hero"
+            class="hero-image"
+            id="wedding-hero-image"
+        >
 
 
+        <div
+            class="hero-overlay"
+        ></div>
 
-        <div class="hero-overlay"></div>
 
-
-        <div class="hero-content">
-
+        <div
+            class="hero-content"
+        >
 
             <a
                 href="portfolio.html"
@@ -866,17 +929,24 @@
             </a>
 
 
-            <h1 id="gallery-title">
+            <h1
+                id="gallery-title"
+            >
 
                 Wedding
-                <span class="highlight">
+
+                <span
+                    class="highlight"
+                >
                     Production.
                 </span>
 
             </h1>
 
 
-            <p id="gallery-description">
+            <p
+                id="gallery-description"
+            >
 
                 A curation of intimate moments,
                 luxury direction, and timeless styling
@@ -893,14 +963,18 @@
          PHOTOS / VIDEOS
     ================================================== -->
 
-    <section class="media-filter-section">
+    <section
+        class="media-filter-section"
+    >
 
-        <div class="media-filter">
-
+        <div
+            class="media-filter"
+        >
 
             <button
                 class="media-btn active"
                 data-media="photos"
+                type="button"
             >
                 Photos
             </button>
@@ -909,10 +983,10 @@
             <button
                 class="media-btn"
                 data-media="videos"
+                type="button"
             >
                 Videos
             </button>
-
 
         </div>
 
@@ -923,7 +997,9 @@
          GALLERY
     ================================================== -->
 
-    <section class="gallery-grid-section">
+    <section
+        class="gallery-grid-section"
+    >
 
         <div
             class="gallery-grid"
@@ -937,7 +1013,9 @@
          REUSABLE FOOTER
     ================================================== -->
 
-    <div id="footer-container"></div>
+    <div
+        id="footer-container"
+    ></div>
 
 
     <!-- ==================================================
@@ -945,1189 +1023,1302 @@
     ================================================== -->
 
     <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js">
-    </script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+    ></script>
 
     <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js">
-    </script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+    ></script>
 
-
-    <!-- ==================================================
-         JAVASCRIPT
-    ================================================== -->
 
     <script>
 
-    /* ==================================================
-       LOAD REUSABLE NAVBAR
-    ================================================== */
-
-    fetch('components/navbar.html')
-
-        .then(response => {
-
-            if (!response.ok) {
-                throw new Error(
-                    'Navbar could not be loaded'
-                );
-            }
-
-            return response.text();
-
-        })
-
-        .then(data => {
-
-            document
-                .getElementById(
-                    'navbar-container'
-                )
-                .innerHTML = data;
-
-
-            /* Work / Portfolio active */
-
-            const workLink =
-                document.querySelector(
-                    '.nav-links a[data-page="work"]'
-                );
-
-
-            if (workLink) {
-                workLink.classList.add('active');
-            }
-
-        })
-
-        .catch(error => {
-
-            console.error(
-                'Navbar loading error:',
-                error
-            );
-
-        });
-
-
-    /* ==================================================
-       LOAD REUSABLE FOOTER
-    ================================================== */
-
-    fetch('components/footer.html')
-
-        .then(response => {
-
-            if (!response.ok) {
-                throw new Error(
-                    'Footer could not be loaded'
-                );
-            }
-
-            return response.text();
-
-        })
-
-        .then(data => {
-
-            document
-                .getElementById(
-                    'footer-container'
-                )
-                .innerHTML = data;
-
-        })
-
-        .catch(error => {
-
-            console.error(
-                'Footer loading error:',
-                error
-            );
-
-        });
-
-
-   /* ==================================================
-   READ CATEGORY FROM URL
-================================================== */
-
-const params =
-    new URLSearchParams(
-        window.location.search
-    );
-
-const galleryCategory =
-    params.get('category-2') || 'wedding';
-
-
-const isPreWedding =
-    galleryCategory === 'pre-wedding';
-
-
-const galleryName =
-    isPreWedding
-        ? 'Pre-Wedding'
-        : 'Wedding';
-
-
-/* ==================================================
-   SET CORRECT HERO IMAGE BEFORE DISPLAY
-================================================== */
-
-const heroImage =
-    document.querySelector('.hero-image');
-
-const heroImagePath =
-    isPreWedding
-        ? 'images/hero-pre-wedding.jpg'
-        : 'images/hero-wedding.jpg';
-
-
-if (heroImage) {
-
-    heroImage.style.visibility = 'hidden';
-
-    heroImage.onload = () => {
-
-        heroImage.style.visibility = 'visible';
-
-    };
-
-    heroImage.src =
-        heroImagePath;
-
-}
-
-
-/* ==================================================
-   API ENDPOINTS
-================================================== */
-
-const photoApi =
-    isPreWedding
-        ? '/api/pre-wedding-photos'
-        : '/api/wedding-photos';
-
-
-const videoApi =
-    isPreWedding
-        ? '/api/pre-wedding-videos'
-        : '/api/wedding-videos';
-
-
-/* ==================================================
-   MEDIA FOLDER
-================================================== */
-
-const mediaFolder =
-    isPreWedding
-        ? 'pre-wedding'
-        : 'wedding';
-
-    /* ==================================================
-       SERVER ORIGIN
-    ================================================== */
-
-    const serverOrigin =
-        window.location.origin;
-
-
-    /* ==================================================
-       UPDATE PAGE TITLE
-    ================================================== */
-
-    document.title =
-        `${galleryName} | Auren Originals`;
-
-
-    /* ==================================================
-       UPDATE HERO TITLE
-    ================================================== */
-
-    const galleryTitle =
-        document.getElementById(
-            'gallery-title'
-        );
-
-
-    if (galleryTitle) {
-
-        galleryTitle.innerHTML = `
-
-            ${galleryName}
-
-            <span class="highlight">
-                Production.
-            </span>
-
-        `;
-
-    }
-
-
-    /* ==================================================
-       UPDATE HERO DESCRIPTION
-    ================================================== */
-
-    const galleryDescription =
-        document.getElementById(
-            'gallery-description'
-        );
-
-
-    if (galleryDescription) {
-
-        galleryDescription.textContent =
-            isPreWedding
-
-                ? 'A curation of romantic moments, cinematic imagery, and timeless pre-wedding stories captured in pristine detail.'
-
-                : 'A curation of intimate moments, luxury direction, and timeless styling captured in pristine detail.';
-
-    }
-
-
-    /* ==================================================
-       GALLERY ELEMENTS
-    ================================================== */
-
-    const galleryContainer =
-        document.getElementById(
-            'dynamic-gallery'
-        );
-
-
-    const mediaButtons =
-        document.querySelectorAll(
-            '.media-btn'
-        );
-
-
-    /* ==================================================
-       VIDEO STATE
-    ================================================== */
-
-    let activeVideoItem = null;
-
-    let activeVideo = null;
-
-    let videoBackdrop = null;
-
-
-    /* ==================================================
-       VIDEO MIME TYPE
-    ================================================== */
-
-    function getVideoMimeType(filename) {
-
-        const extension =
-            filename
-                .split('.')
-                .pop()
-                .toLowerCase();
-
-
-        const mimeTypes = {
-
-            mp4:
-                'video/mp4',
-
-            webm:
-                'video/webm',
-
-            ogg:
-                'video/ogg',
-
-            mov:
-                'video/quicktime'
-
-        };
-
-
-        return (
-            mimeTypes[extension]
-            || 'video/mp4'
-        );
-
-    }
-
-
-    /* ==================================================
-       GALLERY PATH
-    ================================================== */
-
-    function getPhotoPath(filename) {
-
-        return (
-            `${serverOrigin}/images/` +
-            `${mediaFolder}/photos/` +
-            encodeURIComponent(filename)
-        );
-
-    }
-
-
-    function getVideoPath(filename) {
-
-        return (
-            `${serverOrigin}/images/` +
-            `${mediaFolder}/videos/` +
-            encodeURIComponent(filename)
-        );
-
-    }
-
-
-    /* ==================================================
-       LOAD PHOTOS
-    ================================================== */
-
-    function loadPhotos() {
-
-        closeZoomedVideo();
-
-
-        galleryContainer.innerHTML = '';
-
-
-        console.log(
-            '--------------------------------'
-        );
-
-        console.log(
-            'Loading gallery photos'
-        );
-
-        console.log(
-            'Gallery:',
-            galleryName
-        );
-
-        console.log(
-            'API:',
-            `${serverOrigin}${photoApi}`
-        );
-
-        console.log(
-            'Folder:',
-            mediaFolder
-        );
-
-        console.log(
-            '--------------------------------'
-        );
-
+        /* ==================================================
+           LOAD SCROLL TO TOP
+        ================================================== */
 
         fetch(
-            `${serverOrigin}${photoApi}`,
-            {
-                method: 'GET',
-                cache: 'no-store'
-            }
+            './components/scroll-to-top.html'
         )
 
-        .then(response => {
+            .then(response => {
 
-            console.log(
-                'Photo API status:',
-                response.status
-            );
+                if (!response.ok) {
 
+                    throw new Error(
+                        `Scroll component failed: ${response.status}`
+                    );
 
-            if (!response.ok) {
+                }
 
-                throw new Error(
-                    `Photo API returned HTTP ${response.status}`
-                );
+                return response.text();
 
-            }
+            })
 
+            .then(html => {
 
-            return response.json();
-
-        })
-
-        .then(photos => {
-
-            console.log(
-                'Photo API response:',
-                photos
-            );
-
-
-            if (!Array.isArray(photos)) {
-
-                throw new Error(
-                    'Photo API did not return an array'
-                );
-
-            }
-
-
-            if (photos.length === 0) {
-
-                galleryContainer.innerHTML = `
-
-                    <p class="empty-message">
-                        No ${galleryName.toLowerCase()}
-                        photos available yet.
-                    </p>
-
-                `;
-
-                return;
-
-            }
-
-
-            /* =========================================
-               CREATE PHOTO ITEMS
-            ========================================= */
-
-            photos.forEach(photo => {
-
-                const itemDiv =
-                    document.createElement(
-                        'div'
+                const container =
+                    document.getElementById(
+                        'scroll-to-top-container'
                     );
 
 
-                itemDiv.className =
-                    'gallery-item';
+                if (!container) {
+                    return;
+                }
 
 
-                const image =
-                    document.createElement(
-                        'img'
+                container.innerHTML =
+                    html;
+
+
+                const button =
+                    container.querySelector(
+                        '#scroll-to-top'
                     );
 
 
-                image.src =
-                    getPhotoPath(photo);
+                if (!button) {
+                    return;
+                }
 
 
-                image.alt =
-                    `${galleryName} Gallery`;
+                function updateButton() {
 
+                    if (
+                        window.scrollY > 500
+                    ) {
 
-                image.loading =
-                    'lazy';
-
-
-                image.addEventListener(
-                    'load',
-                    () => {
-
-                        console.log(
-                            'Photo loaded:',
-                            image.src
+                        button.classList.add(
+                            'show'
                         );
 
+                    } else {
+
+                        button.classList.remove(
+                            'show'
+                        );
+
+                    }
+
+                }
+
+
+                window.addEventListener(
+                    'scroll',
+                    updateButton,
+                    {
+                        passive: true
                     }
                 );
 
 
-                image.addEventListener(
-                    'error',
-                    () => {
-
-                        console.error(
-                            'Photo failed to load:',
-                            image.src
-                        );
-
-                    }
-                );
-
-
-                itemDiv.appendChild(
-                    image
-                );
-
-
-                galleryContainer.appendChild(
-                    itemDiv
-                );
-
-            });
-
-
-            console.log(
-                'Gallery items created:',
-                galleryContainer.children.length
-            );
-
-
-            runGalleryAnimation();
-
-        })
-
-        .catch(error => {
-
-            console.error(
-                'PHOTO LOAD ERROR:',
-                error
-            );
-
-
-            galleryContainer.innerHTML = `
-
-                <p class="empty-message">
-                    Could not load
-                    ${galleryName.toLowerCase()}
-                    photos.
-                </p>
-
-            `;
-
-        });
-
-    }
-
-
-    /* ==================================================
-       LOAD VIDEOS
-    ================================================== */
-
-    function loadVideos() {
-
-        closeZoomedVideo();
-
-
-        galleryContainer.innerHTML = '';
-
-
-        console.log(
-            `Loading ${galleryName} videos from:`,
-            `${serverOrigin}${videoApi}`
-        );
-
-
-        fetch(
-            `${serverOrigin}${videoApi}`,
-            {
-                method: 'GET',
-                cache: 'no-store'
-            }
-        )
-
-        .then(response => {
-
-            if (!response.ok) {
-
-                throw new Error(
-                    `Video API returned ${response.status}`
-                );
-
-            }
-
-            return response.json();
-
-        })
-
-        .then(videos => {
-
-            console.log(
-                `${galleryName} videos found:`,
-                videos
-            );
-
-
-            if (
-                !Array.isArray(videos)
-                || videos.length === 0
-            ) {
-
-                galleryContainer.innerHTML = `
-
-                    <p class="empty-message">
-                        No ${galleryName.toLowerCase()}
-                        videos available yet.
-                    </p>
-
-                `;
-
-                return;
-
-            }
-
-
-            videos.forEach(videoFile => {
-
-                const itemDiv =
-                    document.createElement(
-                        'div'
-                    );
-
-
-                itemDiv.className =
-                    'gallery-item video-item scroll-anim';
-
-
-                const videoElement =
-                    document.createElement(
-                        'video'
-                    );
-
-
-                videoElement.preload =
-                    'metadata';
-
-
-                videoElement.playsInline =
-                    true;
-
-
-                videoElement.muted =
-                    true;
-
-
-                const source =
-                    document.createElement(
-                        'source'
-                    );
-
-
-                source.src =
-                    getVideoPath(
-                        videoFile
-                    );
-
-
-                source.type =
-                    getVideoMimeType(
-                        videoFile
-                    );
-
-
-                videoElement.appendChild(
-                    source
-                );
-
-
-                itemDiv.appendChild(
-                    videoElement
-                );
-
-
-                galleryContainer.appendChild(
-                    itemDiv
-                );
-
-
-                /* Click video = open zoom */
-
-                videoElement.addEventListener(
+                button.addEventListener(
                     'click',
-                    event => {
+                    () => {
 
-                        event.stopPropagation();
+                        window.scrollTo({
 
-                        openZoomedVideo(
-                            itemDiv,
-                            videoElement
-                        );
+                            top:
+                                0,
+
+                            behavior:
+                                'smooth'
+
+                        });
 
                     }
                 );
 
 
-                /* Prevent normal context menu */
+                updateButton();
 
-                videoElement.addEventListener(
-                    'contextmenu',
-                    event => {
+            })
 
-                        event.preventDefault();
+            .catch(error => {
 
-                    }
+                console.error(
+                    'Scroll-to-top component error:',
+                    error
                 );
 
             });
 
 
-            runGalleryAnimation();
+        /* ==================================================
+           LOAD NAVBAR
+        ================================================== */
 
-        })
+        fetch(
+            'components/navbar.html'
+        )
 
-        .catch(error => {
+            .then(response => {
 
-            console.error(
-                `${galleryName} video loading error:`,
-                error
+                if (!response.ok) {
+
+                    throw new Error(
+                        'Navbar could not be loaded'
+                    );
+
+                }
+
+                return response.text();
+
+            })
+
+            .then(data => {
+
+                document
+                    .getElementById(
+                        'navbar-container'
+                    )
+                    .innerHTML = data;
+
+
+                const workLink =
+                    document.querySelector(
+                        '.nav-links a[data-page="work"]'
+                    );
+
+
+                if (workLink) {
+
+                    workLink.classList.add(
+                        'active'
+                    );
+
+                }
+
+            })
+
+            .catch(error => {
+
+                console.error(
+                    'Navbar loading error:',
+                    error
+                );
+
+            });
+
+
+        /* ==================================================
+           LOAD FOOTER
+        ================================================== */
+
+        fetch(
+            'components/footer.html'
+        )
+
+            .then(response => {
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        'Footer could not be loaded'
+                    );
+
+                }
+
+                return response.text();
+
+            })
+
+            .then(data => {
+
+                document
+                    .getElementById(
+                        'footer-container'
+                    )
+                    .innerHTML = data;
+
+            })
+
+            .catch(error => {
+
+                console.error(
+                    'Footer loading error:',
+                    error
+                );
+
+            });
+
+
+        /* ==================================================
+           CATEGORY
+        ================================================== */
+
+        const params =
+            new URLSearchParams(
+                window.location.search
             );
 
 
-            galleryContainer.innerHTML = `
+        const galleryCategory =
+            params.get('category-2')
+            || 'wedding';
 
-                <p class="empty-message">
-                    Could not load
-                    ${galleryName.toLowerCase()}
-                    videos.
-                </p>
+
+        const isPreWedding =
+            galleryCategory
+            === 'pre-wedding';
+
+
+        const galleryName =
+            isPreWedding
+                ? 'Pre-Wedding'
+                : 'Wedding';
+
+
+        /* ==================================================
+           API ENDPOINTS
+        ================================================== */
+
+        const photoApi =
+            isPreWedding
+                ? '/api/pre-wedding-photos'
+                : '/api/wedding-photos';
+
+
+        const videoApi =
+            isPreWedding
+                ? '/api/pre-wedding-videos'
+                : '/api/wedding-videos';
+
+
+        const heroApi =
+            isPreWedding
+                ? '/api/pre-wedding-hero'
+                : '/api/wedding-hero';
+
+
+        /* ==================================================
+           PAGE TITLE
+        ================================================== */
+
+        document.title =
+            `${galleryName} | Auren Originals`;
+
+
+        /* ==================================================
+           HERO
+        ================================================== */
+
+        const heroImage =
+            document.getElementById(
+                'wedding-hero-image'
+            );
+
+
+        if (heroImage) {
+
+            heroImage.style.visibility =
+                'hidden';
+
+
+            heroImage.onload = () => {
+
+                heroImage.style.visibility =
+                    'visible';
+
+            };
+
+
+            fetch(
+                heroApi,
+                {
+                    method:
+                        'GET',
+
+                    cache:
+                        'no-store'
+                }
+            )
+
+                .then(response => {
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            `${galleryName} hero API returned HTTP ${response.status}`
+                        );
+
+                    }
+
+                    return response.json();
+
+                })
+
+                .then(data => {
+
+                    const heroUrl =
+                        typeof data === 'string'
+                            ? data
+                            : (
+                                data?.secure_url ||
+                                data?.url ||
+                                ''
+                            );
+
+
+                    if (!heroUrl) {
+
+                        throw new Error(
+                            `${galleryName} hero URL was not returned`
+                        );
+
+                    }
+
+
+                    heroImage.src =
+                        heroUrl;
+
+                })
+
+                .catch(error => {
+
+                    console.error(
+                        `${galleryName} hero loading error:`,
+                        error
+                    );
+
+                });
+
+        }
+
+
+        /* ==================================================
+           UPDATE TITLE
+        ================================================== */
+
+        const galleryTitle =
+            document.getElementById(
+                'gallery-title'
+            );
+
+
+        if (galleryTitle) {
+
+            galleryTitle.innerHTML = `
+
+                ${galleryName}
+
+                <span class="highlight">
+                    Production.
+                </span>
 
             `;
 
-        });
-
-    }
+        }
 
 
-    /* ==================================================
-       OPEN ZOOMED VIDEO
-    ================================================== */
+        /* ==================================================
+           UPDATE DESCRIPTION
+        ================================================== */
 
-    function openZoomedVideo(
-        itemDiv,
-        videoElement
-    ) {
-
-        closeZoomedVideo();
-
-
-        activeVideoItem =
-            itemDiv;
-
-
-        activeVideo =
-            videoElement;
-
-
-        /* Backdrop */
-
-        videoBackdrop =
-            document.createElement(
-                'div'
+        const galleryDescription =
+            document.getElementById(
+                'gallery-description'
             );
 
 
-        videoBackdrop.className =
-            'video-backdrop';
+        if (galleryDescription) {
+
+            galleryDescription.textContent =
+                isPreWedding
+
+                    ? 'A curation of romantic moments, cinematic imagery, and timeless pre-wedding stories captured in pristine detail.'
+
+                    : 'A curation of intimate moments, luxury direction, and timeless styling captured in pristine detail.';
+
+        }
 
 
-        document.body.appendChild(
-            videoBackdrop
-        );
+        /* ==================================================
+           GALLERY
+        ================================================== */
 
-
-        /* Lock page */
-
-        document.body.style.overflow =
-            'hidden';
-
-
-        /* Zoom */
-
-        itemDiv.classList.add(
-            'video-zoomed'
-        );
-
-
-        /* Controls only after zoom */
-
-        videoElement.controls =
-            true;
-
-
-        /* Keep paused */
-
-        videoElement.pause();
-
-
-        /* Close button */
-
-        const closeButton =
-            document.createElement(
-                'button'
+        const galleryContainer =
+            document.getElementById(
+                'dynamic-gallery'
             );
 
 
-        closeButton.className =
-            'video-close-btn';
-
-
-        closeButton.type =
-            'button';
-
-
-        closeButton.setAttribute(
-            'aria-label',
-            'Close video'
-        );
-
-
-        closeButton.textContent =
-            '×';
-
-
-        itemDiv.appendChild(
-            closeButton
-        );
-
-
-        closeButton.addEventListener(
-            'click',
-            event => {
-
-                event.stopPropagation();
-
-                closeZoomedVideo();
-
-            }
-        );
-
-
-        /* Click backdrop */
-
-        videoBackdrop.addEventListener(
-            'click',
-            () => {
-
-                closeZoomedVideo();
-
-            }
-        );
-
-    }
-
-
-    /* ==================================================
-       CLOSE ZOOMED VIDEO
-    ================================================== */
-
-    function closeZoomedVideo() {
-
-        if (!activeVideoItem) {
-
-            return;
-
-        }
-
-
-        activeVideoItem.classList.remove(
-            'video-zoomed'
-        );
-
-
-        if (activeVideo) {
-
-            activeVideo.pause();
-
-            activeVideo.controls =
-                false;
-
-        }
-
-
-        const closeButton =
-            activeVideoItem.querySelector(
-                '.video-close-btn'
+        const mediaButtons =
+            document.querySelectorAll(
+                '.media-btn'
             );
 
 
-        if (closeButton) {
+        /* ==================================================
+           VIDEO STATE
+        ================================================== */
 
-            closeButton.remove();
+        let activeVideoItem =
+            null;
 
-        }
+        let activeVideo =
+            null;
 
-
-        if (videoBackdrop) {
-
-            videoBackdrop.remove();
-
-            videoBackdrop =
-                null;
-
-        }
-
-
-        document.body.style.overflow =
-            '';
-
-
-        activeVideoItem =
+        let videoBackdrop =
             null;
 
 
-        activeVideo =
-            null;
+        /* ==================================================
+           VIDEO MIME
+        ================================================== */
 
-    }
-
-
-    /* ==================================================
-       ESC KEY
-    ================================================== */
-
-    document.addEventListener(
-        'keydown',
-        event => {
-
-            if (
-                event.key === 'Escape'
-            ) {
-
-                closeZoomedVideo();
-
-            }
-
-        }
-    );
-
-
-    /* ==================================================
-       GALLERY ANIMATION
-    ================================================== */
-
-    function runGalleryAnimation() {
-
-        if (
-            typeof gsap === 'undefined'
+        function getVideoMimeType(
+            filename
         ) {
 
-            return;
+            const extension =
+                String(filename)
+                    .split('.')
+                    .pop()
+                    .toLowerCase();
+
+
+            const mimeTypes = {
+
+                mp4:
+                    'video/mp4',
+
+                webm:
+                    'video/webm',
+
+                ogg:
+                    'video/ogg',
+
+                mov:
+                    'video/quicktime'
+
+            };
+
+
+            return (
+                mimeTypes[extension]
+                || 'video/mp4'
+            );
 
         }
 
 
-        gsap.fromTo(
+        /* ==================================================
+           CLOUDINARY URL
+        ================================================== */
 
-            '.gallery-item',
+        function getMediaUrl(
+            media
+        ) {
 
-            {
-                y: 35,
-                opacity: 0
-            },
+            if (
+                typeof media === 'string'
+            ) {
 
-            {
-                y: 0,
-                opacity: 1,
-
-                duration:
-                    0.85,
-
-                stagger:
-                    0.08,
-
-                ease:
-                    'power3.out'
+                return media;
 
             }
 
-        );
 
-    }
+            if (
+                media &&
+                typeof media === 'object'
+            ) {
+
+                return (
+                    media.secure_url ||
+                    media.url ||
+                    ''
+                );
+
+            }
 
 
-    /* ==================================================
-       MEDIA BUTTONS
-    ================================================== */
+            return '';
 
-    mediaButtons.forEach(
-        button => {
+        }
 
-            button.addEventListener(
-                'click',
-                () => {
 
-                    mediaButtons.forEach(
-                        btn => {
+        /* ==================================================
+           LOAD PHOTOS
+        ================================================== */
 
-                            btn.classList.remove(
-                                'active'
+        function loadPhotos() {
+
+            closeZoomedVideo();
+
+
+            galleryContainer.innerHTML =
+                '';
+
+
+            console.log(
+                `Loading ${galleryName} photos from:`,
+                photoApi
+            );
+
+
+            fetch(
+                photoApi,
+                {
+                    method:
+                        'GET',
+
+                    cache:
+                        'no-store'
+                }
+            )
+
+                .then(response => {
+
+                    console.log(
+                        `${galleryName} photo API status:`,
+                        response.status
+                    );
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            `${galleryName} photo API returned HTTP ${response.status}`
+                        );
+
+                    }
+
+
+                    return response.json();
+
+                })
+
+                .then(photos => {
+
+                    console.log(
+                        `${galleryName} photos:`,
+                        photos
+                    );
+
+
+                    if (
+                        !Array.isArray(
+                            photos
+                        )
+                        ||
+                        photos.length === 0
+                    ) {
+
+                        galleryContainer.innerHTML = `
+
+                            <p
+                                class="empty-message"
+                            >
+                                No ${
+                                    galleryName
+                                        .toLowerCase()
+                                }
+                                photos available yet.
+                            </p>
+
+                        `;
+
+                        return;
+
+                    }
+
+
+                    photos.forEach(
+                        photo => {
+
+                            const imageUrl =
+                                getMediaUrl(
+                                    photo
+                                );
+
+
+                            if (!imageUrl) {
+
+                                console.warn(
+                                    `${galleryName} photo has no URL:`,
+                                    photo
+                                );
+
+                                return;
+
+                            }
+
+
+                            const itemDiv =
+                                document.createElement(
+                                    'div'
+                                );
+
+
+                            itemDiv.className =
+                                'gallery-item';
+
+
+                            const image =
+                                document.createElement(
+                                    'img'
+                                );
+
+
+                            image.src =
+                                imageUrl;
+
+
+                            image.alt =
+                                `${galleryName} Gallery`;
+
+
+                            image.loading =
+                                'lazy';
+
+
+                            image.decoding =
+                                'async';
+
+
+                            image.addEventListener(
+                                'load',
+                                () => {
+
+                                    console.log(
+                                        `${galleryName} photo loaded:`,
+                                        image.src
+                                    );
+
+                                }
+                            );
+
+
+                            image.addEventListener(
+                                'error',
+                                () => {
+
+                                    console.error(
+                                        `${galleryName} photo failed:`,
+                                        image.src
+                                    );
+
+                                }
+                            );
+
+
+                            itemDiv.appendChild(
+                                image
+                            );
+
+
+                            galleryContainer.appendChild(
+                                itemDiv
                             );
 
                         }
                     );
 
 
-                    button.classList.add(
-                        'active'
+                    runGalleryAnimation();
+
+                })
+
+                .catch(error => {
+
+                    console.error(
+                        `${galleryName} photo loading error:`,
+                        error
                     );
 
 
-                    const selectedMedia =
-                        button.dataset.media;
+                    galleryContainer.innerHTML = `
+
+                        <p
+                            class="empty-message"
+                        >
+                            Could not load
+                            ${
+                                galleryName
+                                    .toLowerCase()
+                            }
+                            photos.
+                        </p>
+
+                    `;
+
+                });
+
+        }
+
+
+        /* ==================================================
+           LOAD VIDEOS
+        ================================================== */
+
+        function loadVideos() {
+
+            closeZoomedVideo();
+
+
+            galleryContainer.innerHTML =
+                '';
+
+
+            console.log(
+                `Loading ${galleryName} videos from:`,
+                videoApi
+            );
+
+
+            fetch(
+                videoApi,
+                {
+                    method:
+                        'GET',
+
+                    cache:
+                        'no-store'
+                }
+            )
+
+                .then(response => {
+
+                    console.log(
+                        `${galleryName} video API status:`,
+                        response.status
+                    );
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            `${galleryName} video API returned HTTP ${response.status}`
+                        );
+
+                    }
+
+
+                    return response.json();
+
+                })
+
+                .then(videos => {
+
+                    console.log(
+                        `${galleryName} videos:`,
+                        videos
+                    );
 
 
                     if (
-                        selectedMedia ===
-                        'photos'
+                        !Array.isArray(
+                            videos
+                        )
+                        ||
+                        videos.length === 0
                     ) {
 
-                        loadPhotos();
+                        galleryContainer.innerHTML = `
+
+                            <p
+                                class="empty-message"
+                            >
+                                No ${
+                                    galleryName
+                                        .toLowerCase()
+                                }
+                                videos available yet.
+                            </p>
+
+                        `;
+
+                        return;
 
                     }
 
 
-                    else if (
-                        selectedMedia ===
-                        'videos'
-                    ) {
+                    videos.forEach(
+                        videoFile => {
 
-                        loadVideos();
+                            const videoUrl =
+                                getMediaUrl(
+                                    videoFile
+                                );
 
-                    }
+
+                            if (!videoUrl) {
+
+                                console.warn(
+                                    `${galleryName} video has no URL:`,
+                                    videoFile
+                                );
+
+                                return;
+
+                            }
+
+
+                            const itemDiv =
+                                document.createElement(
+                                    'div'
+                                );
+
+
+                            itemDiv.className =
+                                'gallery-item video-item';
+
+
+                            const videoElement =
+                                document.createElement(
+                                    'video'
+                                );
+
+
+                            videoElement.preload =
+                                'metadata';
+
+
+                            videoElement.playsInline =
+                                true;
+
+
+                            videoElement.muted =
+                                true;
+
+
+                            const source =
+                                document.createElement(
+                                    'source'
+                                );
+
+
+                            source.src =
+                                videoUrl;
+
+
+                            source.type =
+                                getVideoMimeType(
+                                    videoFile?.public_id ||
+                                    videoFile?.original_filename ||
+                                    videoFile?.filename ||
+                                    videoUrl
+                                );
+
+
+                            videoElement.appendChild(
+                                source
+                            );
+
+
+                            itemDiv.appendChild(
+                                videoElement
+                            );
+
+
+                            galleryContainer.appendChild(
+                                itemDiv
+                            );
+
+
+                            videoElement.addEventListener(
+                                'click',
+                                event => {
+
+                                    event.stopPropagation();
+
+
+                                    openZoomedVideo(
+                                        itemDiv,
+                                        videoElement
+                                    );
+
+                                }
+                            );
+
+
+                            videoElement.addEventListener(
+                                'contextmenu',
+                                event => {
+
+                                    event.preventDefault();
+
+                                }
+                            );
+
+                        }
+                    );
+
+
+                    runGalleryAnimation();
+
+                })
+
+                .catch(error => {
+
+                    console.error(
+                        `${galleryName} video loading error:`,
+                        error
+                    );
+
+
+                    galleryContainer.innerHTML = `
+
+                        <p
+                            class="empty-message"
+                        >
+                            Could not load
+                            ${
+                                galleryName
+                                    .toLowerCase()
+                            }
+                            videos.
+                        </p>
+
+                    `;
+
+                });
+
+        }
+
+
+        /* ==================================================
+           OPEN ZOOMED VIDEO
+        ================================================== */
+
+        function openZoomedVideo(
+            itemDiv,
+            videoElement
+        ) {
+
+            closeZoomedVideo();
+
+
+            activeVideoItem =
+                itemDiv;
+
+
+            activeVideo =
+                videoElement;
+
+
+            videoBackdrop =
+                document.createElement(
+                    'div'
+                );
+
+
+            videoBackdrop.className =
+                'video-backdrop';
+
+
+            document.body.appendChild(
+                videoBackdrop
+            );
+
+
+            document.body.style.overflow =
+                'hidden';
+
+
+            itemDiv.classList.add(
+                'video-zoomed'
+            );
+
+
+            videoElement.controls =
+                true;
+
+
+            videoElement.pause();
+
+
+            const closeButton =
+                document.createElement(
+                    'button'
+                );
+
+
+            closeButton.className =
+                'video-close-btn';
+
+
+            closeButton.type =
+                'button';
+
+
+            closeButton.setAttribute(
+                'aria-label',
+                'Close video'
+            );
+
+
+            closeButton.textContent =
+                '×';
+
+
+            itemDiv.appendChild(
+                closeButton
+            );
+
+
+            closeButton.addEventListener(
+                'click',
+                event => {
+
+                    event.stopPropagation();
+
+                    closeZoomedVideo();
+
+                }
+            );
+
+
+            videoBackdrop.addEventListener(
+                'click',
+                () => {
+
+                    closeZoomedVideo();
 
                 }
             );
 
         }
-    );
 
 
-    /* ==================================================
-       HERO ANIMATION
-    ================================================== */
+        /* ==================================================
+           CLOSE ZOOMED VIDEO
+        ================================================== */
 
-    if (
-        typeof gsap !== 'undefined'
-    ) {
+        function closeZoomedVideo() {
 
-        gsap.from(
-            '.hero-content',
-            {
+            if (!activeVideoItem) {
+                return;
+            }
 
-                y: 35,
 
-                opacity: 0,
+            activeVideoItem.classList.remove(
+                'video-zoomed'
+            );
 
-                duration: 1.1,
 
-                ease:
-                    'power3.out',
+            if (activeVideo) {
 
-                delay:
-                    0.2
+                activeVideo.pause();
+
+                activeVideo.controls =
+                    false;
 
             }
-        );
-
-    }
 
 
-    /* ==================================================
-       INITIAL LOAD
-       PHOTOS FIRST
-    ================================================== */
-
-    loadPhotos();
-
-/* ==================================================
-   LOAD REUSABLE SCROLL TO TOP
-================================================== */
-
-fetch('./components/scroll-to-top.html')
-
-    .then(response => {
-
-        if (!response.ok) {
-
-            throw new Error(
-                `Scroll component failed: ${response.status}`
-            );
-
-        }
-
-        return response.text();
-
-    })
-
-    .then(html => {
-
-        const container =
-            document.getElementById(
-                'scroll-to-top-container'
-            );
-
-        if (!container) {
-            return;
-        }
-
-        container.innerHTML = html;
-
-
-        const button =
-            container.querySelector(
-                '#scroll-to-top'
-            );
-
-        if (!button) {
-            return;
-        }
-
-
-        /* =========================================
-           SHOW AFTER SCROLLING
-        ========================================= */
-
-        function updateButton() {
-
-            if (window.scrollY > 500) {
-
-                button.classList.add(
-                    'show'
+            const closeButton =
+                activeVideoItem.querySelector(
+                    '.video-close-btn'
                 );
 
-            } else {
 
-                button.classList.remove(
-                    'show'
-                );
+            if (closeButton) {
+
+                closeButton.remove();
 
             }
+
+
+            if (videoBackdrop) {
+
+                videoBackdrop.remove();
+
+                videoBackdrop =
+                    null;
+
+            }
+
+
+            document.body.style.overflow =
+                '';
+
+
+            activeVideoItem =
+                null;
+
+
+            activeVideo =
+                null;
 
         }
 
 
-        window.addEventListener(
-            'scroll',
-            updateButton,
-            {
-                passive: true
-            }
-        );
+        /* ==================================================
+           ESC KEY
+        ================================================== */
 
+        document.addEventListener(
+            'keydown',
+            event => {
 
-        /* =========================================
-           CLICK
-        ========================================= */
+                if (
+                    event.key === 'Escape'
+                ) {
 
-        button.addEventListener(
-            'click',
-            () => {
+                    closeZoomedVideo();
 
-                window.scrollTo({
-
-                    top: 0,
-
-                    behavior: 'smooth'
-
-                });
+                }
 
             }
         );
 
 
-        /* Initial state */
+        /* ==================================================
+           GALLERY ANIMATION
+        ================================================== */
 
-        updateButton();
+        function runGalleryAnimation() {
 
-    })
+            if (
+                typeof gsap ===
+                'undefined'
+            ) {
 
-    .catch(error => {
+                return;
 
-        console.error(
-            'Scroll-to-top component error:',
-            error
+            }
+
+
+            gsap.fromTo(
+
+                '.gallery-item',
+
+                {
+
+                    y:
+                        35,
+
+                    opacity:
+                        0
+
+                },
+
+                {
+
+                    y:
+                        0,
+
+                    opacity:
+                        1,
+
+                    duration:
+                        0.85,
+
+                    stagger:
+                        0.08,
+
+                    ease:
+                        'power3.out'
+
+                }
+
+            );
+
+        }
+
+
+        /* ==================================================
+           MEDIA BUTTONS
+        ================================================== */
+
+        mediaButtons.forEach(
+            button => {
+
+                button.addEventListener(
+                    'click',
+                    () => {
+
+                        mediaButtons.forEach(
+                            btn => {
+
+                                btn.classList.remove(
+                                    'active'
+                                );
+
+                            }
+                        );
+
+
+                        button.classList.add(
+                            'active'
+                        );
+
+
+                        const selectedMedia =
+                            button.dataset.media;
+
+
+                        if (
+                            selectedMedia ===
+                            'photos'
+                        ) {
+
+                            loadPhotos();
+
+                        }
+
+                        else if (
+                            selectedMedia ===
+                            'videos'
+                        ) {
+
+                            loadVideos();
+
+                        }
+
+                    }
+                );
+
+            }
         );
 
-    });
-    
-</script>
 
+        /* ==================================================
+           HERO ANIMATION
+        ================================================== */
+
+        if (
+            typeof gsap !==
+            'undefined'
+        ) {
+
+            gsap.from(
+                '.hero-content',
+                {
+
+                    y:
+                        35,
+
+                    opacity:
+                        0,
+
+                    duration:
+                        1.1,
+
+                    ease:
+                        'power3.out',
+
+                    delay:
+                        0.2
+
+                }
+            );
+
+        }
+
+
+        /* ==================================================
+           INITIAL LOAD
+           PHOTOS FIRST
+        ================================================== */
+
+        loadPhotos();
+
+    </script>
 
 </body>
 
