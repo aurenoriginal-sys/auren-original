@@ -70,39 +70,246 @@ const CLOUDINARY_ROOT_FOLDER =
 const GALLERY_CONFIG = {
 
     branding: {
-        name: 'Branding',
-        folder: 'branding'
+
+        name:
+            'Branding',
+
+        folder:
+            'branding'
+
     },
+
 
     commercial: {
-        name: 'Commercial',
-        folder: 'commercial'
+
+        name:
+            'Commercial',
+
+        folder:
+            'commercial'
+
     },
+
 
     corporate: {
-        name: 'Corporate',
-        folder: 'corporate'
+
+        name:
+            'Corporate',
+
+        folder:
+            'corporate'
+
     },
+
 
     fashion: {
-        name: 'Fashion',
-        folder: 'fashion'
+
+        name:
+            'Fashion',
+
+        folder:
+            'fashion'
+
     },
+
 
     sports: {
-        name: 'Sports',
-        folder: 'sports'
+
+        name:
+            'Sports',
+
+        folder:
+            'sports'
+
     },
+
 
     wedding: {
-        name: 'Wedding',
-        folder: 'wedding'
+
+        name:
+            'Wedding',
+
+        folder:
+            'wedding'
+
     },
 
+
     'pre-wedding': {
-        name: 'Pre-Wedding',
-        folder: 'pre-wedding'
+
+        name:
+            'Pre-Wedding',
+
+        folder:
+            'pre-wedding'
+
     }
+
+};
+
+
+/* ==================================================
+   SHARED ROOT ASSETS
+   These are directly inside:
+   auren/
+================================================== */
+
+const ROOT_ASSETS = {
+
+    logo:
+        'logo.png',
+
+
+    heroBranding:
+        'hero-branding.jpg',
+
+
+    heroCommercial:
+        'hero-commercial.jpg',
+
+
+    heroCorporate:
+        'hero-corporate.jpg',
+
+
+    heroFashion:
+        'hero-fashion.jpg',
+
+
+    heroHome:
+        'hero-image.jpg',
+
+
+    heroPreWedding:
+        'hero-pre-wedding.jpg',
+
+
+    heroSports:
+        'hero-sports.jpg',
+
+
+    heroWedding:
+        'hero-wedding.jpg',
+
+
+    aboutGallery1:
+        'about-gallery-1.jpg',
+
+
+    aboutGallery2:
+        'about-gallery-2.jpg',
+
+
+    aboutGallery3:
+        'about-gallery-3.jpg',
+
+
+    aboutGallery4:
+        'about-gallery-4.jpg',
+
+
+    aboutGallery5:
+        'about-gallery-5.jpg',
+
+
+    branding1:
+        'branding1-image.jpg',
+
+
+    commercial1:
+        'commercial1-image.JPG',
+
+
+    corporate1:
+        'corporate1-image.jpg',
+
+
+    fashion1:
+        'fashion1-image.jpg',
+
+
+    founder:
+        'founder.jpg',
+
+
+    gallery1:
+        'gallery-1.jpg',
+
+
+    gallery2:
+        'gallery-2.jpg',
+
+
+    gallery3:
+        'gallery-3.jpg',
+
+
+    industryArchitecture:
+        'industry-architecture.jpg',
+
+
+    industryCommercial:
+        'industry-commercial.jpg',
+
+
+    industryCorporate:
+        'industry-corporate.jpg',
+
+
+    industryEcommerce:
+        'industry-ecommerce.jpg',
+
+
+    industryFashion:
+        'industry-fashion.jpg',
+
+
+    industryHospitality:
+        'industry-hospitality.jpg',
+
+
+    industrySports:
+        'industry-sports.jpg',
+
+
+    industryWeddings:
+        'industry-weddings.jpg',
+
+
+    serviceBranding:
+        'service-branding.jpg',
+
+
+    serviceCreativeDirection:
+        'service-creative-direction.jpg',
+
+
+    serviceDigitalMarketing:
+        'service-digital-marketing.jpg',
+
+
+    servicePhotography:
+        'service-photography.jpg',
+
+
+    sports1:
+        'sports1-image.jpg',
+
+
+    transitionCta:
+        'transition-cta.jpg',
+
+
+    transitionImage:
+        'transition-image.jpg',
+
+
+    wedding1:
+        'wedding1-image.jpg',
+
+
+    wedding2:
+        'wedding2-image.jpg'
 
 };
 
@@ -170,7 +377,7 @@ function validateCloudinaryConfig() {
 
 
 /* ==================================================
-   GET ASSETS FROM AN ASSET FOLDER
+   GET ASSETS FROM ASSET FOLDER
 ================================================== */
 
 async function getAssetsFromFolder(
@@ -250,7 +457,7 @@ async function getAssetsFromFolder(
 
 
 /* ==================================================
-   MEDIA RESPONSE FORMAT
+   FORMAT MEDIA RESPONSE
 ================================================== */
 
 function formatMedia(
@@ -315,11 +522,13 @@ function formatMedia(
                     ),
                     undefined,
                     {
+
                         numeric:
                             true,
 
                         sensitivity:
                             'base'
+
                     }
                 );
 
@@ -327,6 +536,573 @@ function formatMedia(
         );
 
 }
+
+
+/* ==================================================
+   FIND FILE NAME
+================================================== */
+
+function getResourceFileName(
+    resource
+) {
+
+    const displayName =
+        String(
+            resource.display_name ||
+            ''
+        )
+        .trim();
+
+
+    const publicId =
+        String(
+            resource.public_id ||
+            ''
+        )
+        .split('/')
+        .pop()
+        .trim();
+
+
+    const format =
+        String(
+            resource.format ||
+            ''
+        )
+        .trim();
+
+
+    /*
+     * Cloudinary display_name may be:
+     *
+     * logo
+     *
+     * logo.png
+     *
+     * Public ID may be:
+     *
+     * logo
+     */
+
+
+    if (
+        displayName
+    ) {
+
+        return displayName;
+
+    }
+
+
+    if (
+        publicId
+    ) {
+
+        if (
+            format &&
+            !publicId
+                .toLowerCase()
+                .endsWith(
+                    `.${format.toLowerCase()}`
+                )
+        ) {
+
+            return `${publicId}.${format}`;
+
+        }
+
+
+        return publicId;
+
+    }
+
+
+    return '';
+
+}
+
+
+/* ==================================================
+   ROOT ASSET FINDER
+================================================== */
+
+async function getRootAsset(
+    filename
+) {
+
+    const resources =
+        await getAssetsFromFolder(
+            CLOUDINARY_ROOT_FOLDER
+        );
+
+
+    const requestedName =
+        String(
+            filename
+        )
+        .trim()
+        .toLowerCase();
+
+
+    const requestedBaseName =
+        requestedName
+            .replace(
+                /\.[^.]+$/,
+                ''
+            );
+
+
+    const asset =
+        resources.find(
+            resource => {
+
+                const fileName =
+                    getResourceFileName(
+                        resource
+                    )
+                    .toLowerCase();
+
+
+                const baseName =
+                    fileName
+                        .replace(
+                            /\.[^.]+$/,
+                            ''
+                        );
+
+
+                const publicId =
+                    String(
+                        resource.public_id ||
+                        ''
+                    )
+                    .split('/')
+                    .pop()
+                    .toLowerCase()
+                    .replace(
+                        /\.[^.]+$/,
+                        ''
+                    );
+
+
+                return (
+
+                    fileName ===
+                    requestedName
+
+                    ||
+
+                    baseName ===
+                    requestedBaseName
+
+                    ||
+
+                    publicId ===
+                    requestedBaseName
+
+                );
+
+            }
+        );
+
+
+    return asset || null;
+
+}
+
+
+/* ==================================================
+   ROOT ASSET RESPONSE
+================================================== */
+
+function formatRootAsset(
+    resource
+) {
+
+    if (
+        !resource
+    ) {
+
+        return null;
+
+    }
+
+
+    return {
+
+        url:
+            resource.secure_url,
+
+        secure_url:
+            resource.secure_url,
+
+        public_id:
+            resource.public_id,
+
+        display_name:
+            resource.display_name,
+
+        format:
+            resource.format,
+
+        resource_type:
+            resource.resource_type,
+
+        bytes:
+            resource.bytes,
+
+        width:
+            resource.width,
+
+        height:
+            resource.height
+
+    };
+
+}
+
+
+/* ==================================================
+   ROOT ASSET API
+================================================== */
+
+app.get(
+    '/api/root-assets',
+    async (req, res) => {
+
+        try {
+
+            const resources =
+                await getAssetsFromFolder(
+                    CLOUDINARY_ROOT_FOLDER
+                );
+
+
+            return res.json(
+                formatMedia(
+                    resources
+                )
+            );
+
+        }
+        catch (error) {
+
+            console.error(
+                'Root assets error:',
+                error
+            );
+
+
+            return res
+                .status(500)
+                .json({
+
+                    error:
+                        'Unable to load root assets.'
+
+                });
+
+        }
+
+    }
+);
+
+
+/* ==================================================
+   GENERIC ROOT ASSET API
+================================================== */
+
+app.get(
+    '/api/root-asset/:filename',
+    async (req, res) => {
+
+        try {
+
+            const fileName =
+                decodeURIComponent(
+                    req.params.filename
+                );
+
+
+            const asset =
+                await getRootAsset(
+                    fileName
+                );
+
+
+            if (
+                !asset
+            ) {
+
+                return res
+                    .status(404)
+                    .json({
+
+                        error:
+                            `Root asset not found: ${fileName}`
+
+                    });
+
+            }
+
+
+            return res.json(
+                formatRootAsset(
+                    asset
+                )
+            );
+
+        }
+        catch (error) {
+
+            console.error(
+                'Root asset lookup error:',
+                error
+            );
+
+
+            return res
+                .status(500)
+                .json({
+
+                    error:
+                        'Unable to load root asset.'
+
+                });
+
+        }
+
+    }
+);
+
+
+/* ==================================================
+   SITE LOGO
+================================================== */
+
+app.get(
+    '/api/site-logo',
+    async (req, res) => {
+
+        try {
+
+            const logo =
+                await getRootAsset(
+                    ROOT_ASSETS.logo
+                );
+
+
+            if (
+                !logo
+            ) {
+
+                return res
+                    .status(404)
+                    .json({
+
+                        error:
+                            'Logo not found in Cloudinary.'
+
+                    });
+
+            }
+
+
+            console.log(
+                'Site logo found:',
+                logo.secure_url
+            );
+
+
+            return res.json(
+                formatRootAsset(
+                    logo
+                )
+            );
+
+        }
+        catch (error) {
+
+            console.error(
+                'Site logo error:',
+                error
+            );
+
+
+            return res
+                .status(500)
+                .json({
+
+                    error:
+                        'Unable to load site logo.'
+
+                });
+
+        }
+
+    }
+);
+
+
+/* ==================================================
+   GENERIC HERO API HELPER
+================================================== */
+
+async function sendHeroAsset(
+    filename,
+    req,
+    res
+) {
+
+    try {
+
+        const hero =
+            await getRootAsset(
+                filename
+            );
+
+
+        if (
+            !hero
+        ) {
+
+            return res
+                .status(404)
+                .json({
+
+                    error:
+                        `Hero asset not found: ${filename}`
+
+                });
+
+        }
+
+
+        console.log(
+            `Hero found (${filename}):`,
+            hero.secure_url
+        );
+
+
+        return res.json(
+            formatRootAsset(
+                hero
+            )
+        );
+
+    }
+    catch (error) {
+
+        console.error(
+            `Hero error (${filename}):`,
+            error
+        );
+
+
+        return res
+            .status(500)
+            .json({
+
+                error:
+                    `Unable to load hero asset: ${filename}`
+
+            });
+
+    }
+
+}
+
+
+/* ==================================================
+   HERO ROUTES
+================================================== */
+
+app.get(
+    '/api/hero-branding',
+    (req, res) =>
+        sendHeroAsset(
+            ROOT_ASSETS.heroBranding,
+            req,
+            res
+        )
+);
+
+
+app.get(
+    '/api/hero-commercial',
+    (req, res) =>
+        sendHeroAsset(
+            ROOT_ASSETS.heroCommercial,
+            req,
+            res
+        )
+);
+
+
+app.get(
+    '/api/hero-corporate',
+    (req, res) =>
+        sendHeroAsset(
+            ROOT_ASSETS.heroCorporate,
+            req,
+            res
+        )
+);
+
+
+app.get(
+    '/api/hero-fashion',
+    (req, res) =>
+        sendHeroAsset(
+            ROOT_ASSETS.heroFashion,
+            req,
+            res
+        )
+);
+
+
+app.get(
+    '/api/hero-sports',
+    (req, res) =>
+        sendHeroAsset(
+            ROOT_ASSETS.heroSports,
+            req,
+            res
+        )
+);
+
+
+app.get(
+    '/api/hero-wedding',
+    (req, res) =>
+        sendHeroAsset(
+            ROOT_ASSETS.heroWedding,
+            req,
+            res
+        )
+);
+
+
+app.get(
+    '/api/hero-pre-wedding',
+    (req, res) =>
+        sendHeroAsset(
+            ROOT_ASSETS.heroPreWedding,
+            req,
+            res
+        )
+);
+
+
+app.get(
+    '/api/hero-home',
+    (req, res) =>
+        sendHeroAsset(
+            ROOT_ASSETS.heroHome,
+            req,
+            res
+        )
+);
 
 
 /* ==================================================
@@ -385,7 +1161,6 @@ async function getGalleryPhotos(
         );
 
     }
-
     catch (error) {
 
         console.error(
@@ -464,7 +1239,6 @@ async function getGalleryVideos(
         );
 
     }
-
     catch (error) {
 
         console.error(
@@ -488,104 +1262,7 @@ async function getGalleryVideos(
 
 
 /* ==================================================
-   FIND HERO IMAGE
-   HERO IMAGES ARE DIRECTLY INSIDE:
-   auren/
-================================================== */
-
-async function findHeroImage(
-    galleryKey
-) {
-
-    const config =
-        GALLERY_CONFIG[
-            galleryKey
-        ];
-
-
-    const resources =
-        await getAssetsFromFolder(
-            CLOUDINARY_ROOT_FOLDER
-        );
-
-
-    const expectedHeroName =
-        `hero-${config.folder}`;
-
-
-    console.log(
-        `Looking for hero: ${expectedHeroName}`
-    );
-
-
-    const hero =
-        resources.find(
-            resource => {
-
-                const publicId =
-                    String(
-                        resource.public_id ||
-                        ''
-                    )
-                    .split('/')
-                    .pop()
-                    .toLowerCase();
-
-
-                const displayName =
-                    String(
-                        resource.display_name ||
-                        ''
-                    )
-                    .toLowerCase();
-
-
-                return (
-
-                    publicId ===
-                    expectedHeroName.toLowerCase()
-
-                    ||
-
-                    displayName
-                        .startsWith(
-                            expectedHeroName
-                                .toLowerCase()
-                        )
-
-                );
-
-            }
-        );
-
-
-    if (
-        hero
-    ) {
-
-        console.log(
-            `${config.name} hero found:`,
-            hero.secure_url
-        );
-
-
-        return hero;
-
-    }
-
-
-    console.warn(
-        `${config.name} hero not found.`
-    );
-
-
-    return null;
-
-}
-
-
-/* ==================================================
-   GALLERY API ROUTES
+   GALLERY ROUTES
 ================================================== */
 
 Object.keys(
@@ -631,80 +1308,76 @@ Object.keys(
         );
 
 
-        /* ==========================================
-           HERO
-        ========================================== */
+        /*
+         * Keep the existing gallery hero
+         * endpoint names used by your HTML:
+         *
+         * /api/branding-hero
+         * /api/commercial-hero
+         * /api/corporate-hero
+         * /api/fashion-hero
+         * /api/sports-hero
+         * /api/wedding-hero
+         * /api/pre-wedding-hero
+         */
 
         app.get(
             `/api/${galleryKey}-hero`,
             async (req, res) => {
 
-                const config =
-                    GALLERY_CONFIG[
+                const heroMap = {
+
+                    branding:
+                        ROOT_ASSETS.heroBranding,
+
+                    commercial:
+                        ROOT_ASSETS.heroCommercial,
+
+                    corporate:
+                        ROOT_ASSETS.heroCorporate,
+
+                    fashion:
+                        ROOT_ASSETS.heroFashion,
+
+                    sports:
+                        ROOT_ASSETS.heroSports,
+
+                    wedding:
+                        ROOT_ASSETS.heroWedding,
+
+                    'pre-wedding':
+                        ROOT_ASSETS.heroPreWedding
+
+                };
+
+
+                const heroFile =
+                    heroMap[
                         galleryKey
                     ];
 
 
-                try {
-
-                    const hero =
-                        await findHeroImage(
-                            galleryKey
-                        );
-
-
-                    if (
-                        !hero
-                    ) {
-
-                        return res
-                            .status(404)
-                            .json({
-
-                                error:
-                                    `${config.name} hero image not found.`
-
-                            });
-
-                    }
-
-
-                    return res.json({
-
-                        url:
-                            hero.secure_url,
-
-                        secure_url:
-                            hero.secure_url,
-
-                        public_id:
-                            hero.public_id,
-
-                        display_name:
-                            hero.display_name
-
-                    });
-
-                }
-
-                catch (error) {
-
-                    console.error(
-                        `${config.name} hero error:`,
-                        error
-                    );
-
+                if (
+                    !heroFile
+                ) {
 
                     return res
-                        .status(500)
+                        .status(404)
                         .json({
 
                             error:
-                                `Unable to load ${config.name} hero image.`
+                                'Hero configuration not found.'
 
                         });
 
                 }
+
+
+                return sendHeroAsset(
+                    heroFile,
+                    req,
+                    res
+                );
 
             }
         );
@@ -923,17 +1596,23 @@ ${message}
 
                 <p>
                     <strong>Project Type:</strong>
-                    ${escapeHtml(projectType)}
+                    ${escapeHtml(
+                        projectType
+                    )}
                 </p>
 
                 <p>
                     <strong>Estimated Budget:</strong>
-                    ${escapeHtml(budget)}
+                    ${escapeHtml(
+                        budget
+                    )}
                 </p>
 
                 <p>
                     <strong>Project Timeline:</strong>
-                    ${escapeHtml(timeline)}
+                    ${escapeHtml(
+                        timeline
+                    )}
                 </p>
 
                 <h3>
@@ -1062,7 +1741,6 @@ ${message}
                 });
 
         }
-
         catch (error) {
 
             console.error(

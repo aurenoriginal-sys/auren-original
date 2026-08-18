@@ -116,9 +116,10 @@
             >
 
                 <img
-                    src="YOUR_CLOUDINARY_LOGO_URL"
-                    alt="Auren Logo"
-                >
+    id="site-logo-footer"
+    src="/images/logo.png"
+    alt="Auren Logo"
+>
 
             </a>
 
@@ -211,3 +212,22 @@
     </div>
 
 </footer>
+
+<script>
+fetch('/api/site-logo')
+    .then(response => response.json())
+    .then(data => {
+        const logo =
+            document.getElementById('site-logo-footer');
+
+        if (logo && data.secure_url) {
+            logo.src = data.secure_url;
+        }
+    })
+    .catch(error => {
+        console.error(
+            'Footer logo loading error:',
+            error
+        );
+    });
+</script>
