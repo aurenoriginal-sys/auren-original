@@ -4372,8 +4372,21 @@
                         }
 
 
-                        window.location.href =
-                            'thank-you.html';
+                        /* ==========================================
+   SUCCESS
+========================================== */
+
+if (typeof gtag === 'function') {
+
+    gtag(
+        'event',
+        'generate_lead'
+    );
+
+}
+
+window.location.href =
+    'thank-you.html';
 
                     }
 
