@@ -816,25 +816,41 @@ async function getRootAsset(
    ROOT ASSET RESPONSE
 ================================================== */
 
-function formatRootAsset(
-    resource
-) {
+function formatRootAsset(resource) {
 
-    if (
-        !resource
-    ) {
-
+    if (!resource) {
         return null;
-
     }
 
+    const optimizedUrl =
+        cloudinary.url(
+            resource.public_id,
+            {
+                secure: true,
+
+                resource_type:
+                    resource.resource_type || 'image',
+
+                fetch_format:
+                    'auto',
+
+                quality:
+                    'auto',
+
+                dpr:
+                    'auto'
+            }
+        );
 
     return {
 
         url:
-            resource.secure_url,
+            optimizedUrl,
 
         secure_url:
+            optimizedUrl,
+
+        original_url:
             resource.secure_url,
 
         public_id:
