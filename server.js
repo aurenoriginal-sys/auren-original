@@ -7,6 +7,107 @@ require('dotenv').config();
 
 const app = express();
 
+/* ==================================================
+   SEO FILES
+================================================== */
+
+app.get('/sitemap.xml', (req, res) => {
+
+    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>https://aurenoriginal.in/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <url>
+        <loc>https://aurenoriginal.in/portfolio.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://aurenoriginal.in/services.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://aurenoriginal.in/about.html</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://aurenoriginal.in/contact.html</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://aurenoriginal.in/wedding.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://aurenoriginal.in/fashion.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://aurenoriginal.in/sports.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://aurenoriginal.in/corporate.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://aurenoriginal.in/commercial.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://aurenoriginal.in/branding.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+</urlset>`;
+
+
+    res
+        .status(200)
+        .type('application/xml')
+        .send(sitemap);
+
+});
+
+
+app.get('/robots.txt', (req, res) => {
+
+    const robots = `User-agent: *
+Allow: /
+
+Sitemap: https://aurenoriginal.in/sitemap.xml`;
+
+
+    res
+        .status(200)
+        .type('text/plain')
+        .send(robots);
+
+});
 
 /* ==================================================
    SERVER

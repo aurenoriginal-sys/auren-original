@@ -10,14 +10,98 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>
-        About | Auren Originals
-    </title>
-
-
     <!-- ==================================================
-         GOOGLE FONTS
-    ================================================== -->
+     SEO
+================================================== -->
+
+<title>
+    Auren Originals | About
+</title>
+
+<meta
+    name="description"
+    content="Learn about Auren Originals, a Chennai-based creative agency and production house focused on photography, creative direction, branding, digital marketing and meaningful visual storytelling."
+>
+
+<meta
+    name="keywords"
+    content="Auren Originals about, creative agency Chennai, production house Chennai, photography agency, branding agency, creative direction, visual storytelling"
+>
+
+<meta
+    name="author"
+    content="Auren Originals"
+>
+
+<meta
+    name="robots"
+    content="index, follow"
+>
+
+<link
+    rel="canonical"
+    href="https://YOUR-DOMAIN.com/about.html"
+>
+
+
+<!-- ==================================================
+     OPEN GRAPH
+================================================== -->
+
+<meta
+    property="og:type"
+    content="website"
+>
+
+<meta
+    property="og:title"
+    content="Auren Originals | About"
+>
+
+<meta
+    property="og:description"
+    content="Discover the people, philosophy and creative purpose behind Auren Originals."
+>
+
+<meta
+    property="og:url"
+    content="https://YOUR-DOMAIN.com/about.html"
+>
+
+<meta
+    property="og:site_name"
+    content="Auren Originals"
+>
+
+<meta
+    property="og:image"
+    content="https://YOUR-DOMAIN.com/og-image.jpg"
+>
+
+
+<!-- ==================================================
+     TWITTER / X
+================================================== -->
+
+<meta
+    name="twitter:card"
+    content="summary_large_image"
+>
+
+<meta
+    name="twitter:title"
+    content="Auren Originals | About"
+>
+
+<meta
+    name="twitter:description"
+    content="Discover the people, philosophy and creative purpose behind Auren Originals."
+>
+
+<meta
+    name="twitter:image"
+    content="https://YOUR-DOMAIN.com/og-image.jpg"
+>
 
     <link
         rel="preconnect"
@@ -35,7 +119,6 @@
         rel="stylesheet"
     >
 
-
     <style>
 
         /* ==================================================
@@ -44,45 +127,23 @@
 
         :root {
 
-            --bg:
-                #000000;
-
-            --bg-soft:
-                #1b1b1b;
-
-            --white:
-                #ffffff;
-
-            --muted:
-                #858585;
-
-            --highlight:
-                #FDAF45;
+            --bg: #000000;
+            --bg-soft: #1b1b1b;
+            --white: #ffffff;
+            --muted: #858585;
+            --highlight: #FDAF45;
 
             --line:
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.12
-                );
+                rgba(255,255,255,.12);
 
             --gold-line:
-                rgba(
-                    253,
-                    175,
-                    69,
-                    0.40
-                );
+                rgba(253,175,69,.40);
 
             --heading:
-                'Playfair Display',
-                serif;
+                'Playfair Display', serif;
 
             --body:
-                'Inter',
-                sans-serif;
-
+                'Inter', sans-serif;
         }
 
 
@@ -91,107 +152,56 @@
         ================================================== */
 
         * {
-
-            margin:
-                0;
-
-            padding:
-                0;
-
-            box-sizing:
-                border-box;
-
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-
 
         html {
-
-            width:
-                100%;
-
-            scroll-behavior:
-                smooth;
-
-            overflow-x:
-                hidden;
-
+            width: 100%;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
-
 
         body {
+            width: 100%;
+            min-width: 320px;
+            margin: 0;
+            padding: 0;
 
-            width:
-                100%;
+            background: var(--bg);
+            color: var(--white);
 
-            min-width:
-                320px;
+            font-family: var(--body);
 
-            background:
-                var(--bg);
-
-            color:
-                var(--white);
-
-            font-family:
-                var(--body);
-
-            overflow-x:
-                hidden;
-
+            overflow-x: hidden;
         }
-
 
         h1,
         h2,
-        h3,
-        h4 {
-
-            font-family:
-                var(--heading);
-
-            font-weight:
-                400;
-
+        h3 {
+            font-family: var(--heading);
+            font-weight: 400;
         }
-
-
-        a {
-
-            color:
-                inherit;
-
-            text-decoration:
-                none;
-
-        }
-
 
         img {
+            display: block;
+            max-width: 100%;
+        }
 
-            display:
-                block;
-
-            width:
-                100%;
-
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
 
         /* ==================================================
-           GLOBAL CONTAINER
+           CONTAINER
         ================================================== */
 
         .about-container {
-
-            width:
-                min(
-                    90vw,
-                    1720px
-                );
-
-            margin:
-                0 auto;
-
+            width: min(90vw,1180px);
+            margin: 0 auto;
         }
 
 
@@ -200,35 +210,19 @@
         ================================================== */
 
         #navbar-container {
-
-            position:
-                relative;
-
-            z-index:
-                10000;
-
-            width:
-                100%;
-
+            position: relative;
+            z-index: 10000;
+            width: 100%;
+            height: 54px;
         }
-
 
         #footer-container {
-
-            width:
-                100%;
-
+            width: 100%;
         }
 
-
         #scroll-to-top-container {
-
-            position:
-                relative;
-
-            z-index:
-                99999;
-
+            position: relative;
+            z-index: 99999;
         }
 
 
@@ -237,60 +231,33 @@
         ================================================== */
 
         .section-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
 
-            display:
-                flex;
+            margin-bottom: 16px;
 
-            align-items:
-                center;
+            color: var(--highlight);
 
-            gap:
-                9px;
+            font-size: .62rem;
+            font-weight: 500;
+            letter-spacing: 1.7px;
 
-            margin-bottom:
-                18px;
-
-            color:
-                var(--highlight);
-
-            font-size:
-                0.66rem;
-
-            font-weight:
-                500;
-
-            letter-spacing:
-                1.8px;
-
-            line-height:
-                1;
-
-            text-transform:
-                uppercase;
-
+            line-height: 1;
+            text-transform: uppercase;
         }
 
-
         .section-label::before {
+            content: "";
 
-            content:
-                "";
+            width: 6px;
+            height: 6px;
 
-            width:
-                6px;
+            flex: 0 0 6px;
 
-            height:
-                6px;
+            border-radius: 50%;
 
-            flex:
-                0 0 6px;
-
-            border-radius:
-                50%;
-
-            background:
-                var(--highlight);
-
+            background: var(--highlight);
         }
 
 
@@ -299,15 +266,8 @@
         ================================================== */
 
         .reveal {
-
-            opacity:
-                0;
-
-            transform:
-                translateY(
-                    25px
-                );
-
+            opacity: 0;
+            transform: translateY(25px);
         }
 
 
@@ -316,77 +276,44 @@
         ================================================== */
 
         .about-hero {
+            min-height: 680px;
 
-            min-height:
-                780px;
+            display: flex;
+            align-items: center;
 
-            display:
-                flex;
+            padding: 150px 0 100px;
 
-            align-items:
-                flex-end;
-
-            padding:
-                250px 0
-                100px;
-
-            background:
-                #000000;
-
+            background: #000000;
         }
-
 
         .hero-content {
-
-            max-width:
-                720px;
-
+            width: 100%;
+            max-width: 850px;
         }
-
 
         .hero-title {
+            max-width: 850px;
 
             font-size:
-                clamp(
-                    4rem,
-                    6.2vw,
-                    6.5rem
-                );
+                clamp(4rem,6vw,6.3rem);
 
-            line-height:
-                0.98;
-
-            letter-spacing:
-                -0.035em;
-
+            line-height: .96;
+            letter-spacing: -.035em;
         }
-
 
         .hero-title .highlight {
-
-            color:
-                var(--highlight);
-
+            color: var(--highlight);
         }
 
-
         .hero-copy {
+            max-width: 650px;
 
-            max-width:
-                540px;
+            margin-top: 28px;
 
-            margin-top:
-                30px;
+            color: var(--muted);
 
-            color:
-                var(--muted);
-
-            font-size:
-                0.78rem;
-
-            line-height:
-                1.75;
-
+            font-size: .85rem;
+            line-height: 1.7;
         }
 
 
@@ -395,215 +322,111 @@
         ================================================== */
 
         .who-section {
-
-            padding:
-                100px 0;
-
+            padding: 100px 0 125px;
         }
-
 
         .who-grid {
-
-            display:
-                grid;
+            display: grid;
 
             grid-template-columns:
-                0.8fr
-                1.2fr;
+                .8fr 1.2fr;
 
-            gap:
-                90px;
+            gap: 90px;
 
-            align-items:
-                start;
-
+            align-items: start;
         }
-
 
         .who-heading {
-
             font-size:
-                clamp(
-                    2.6rem,
-                    4vw,
-                    4.4rem
-                );
+                clamp(2.7rem,4vw,4.4rem);
 
-            line-height:
-                1.03;
-
-            letter-spacing:
-                -0.025em;
-
+            line-height: 1;
+            letter-spacing: -.03em;
         }
-
 
         .who-copy {
+            padding-top: 30px;
 
-            max-width:
-                720px;
+            color: var(--muted);
 
-            padding-top:
-                40px;
-
-            color:
-                var(--muted);
-
-            font-size:
-                0.82rem;
-
-            line-height:
-                1.65;
-
+            font-size: .78rem;
+            line-height: 1.75;
         }
 
-
         .who-copy strong {
-
-            color:
-                var(--white);
-
-            font-weight:
-                400;
-
+            color: var(--white);
+            font-weight: 400;
         }
 
 
         /* ==================================================
-           WHY WE EXIST
+           PURPOSE
         ================================================== */
 
         .purpose-section {
-
-            padding:
-                0 0
-                155px;
-
+            padding: 0 0 150px;
         }
-
 
         .purpose-header {
-
-            margin-bottom:
-                50px;
-
+            margin-bottom: 45px;
         }
-
 
         .purpose-title {
-
             font-size:
-                clamp(
-                    2.6rem,
-                    4vw,
-                    4.3rem
-                );
+                clamp(2.7rem,4vw,4.4rem);
 
-            line-height:
-                1.03;
-
-            letter-spacing:
-                -0.025em;
-
+            line-height: 1.03;
+            letter-spacing: -.03em;
         }
-
 
         .purpose-grid {
-
-            display:
-                grid;
+            display: grid;
 
             grid-template-columns:
-                repeat(
-                    3,
-                    1fr
-                );
+                repeat(3,minmax(0,1fr));
 
-            gap:
-                18px;
-
+            gap: 16px;
         }
 
-
         .purpose-card {
+            min-height: 170px;
 
-            min-height:
-                175px;
+            padding: 28px;
 
-            padding:
-                28px;
-
-            background:
-                var(--bg-soft);
+            background: var(--bg-soft);
 
             border:
                 1px solid
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.09
-                );
+                rgba(255,255,255,.09);
 
-            border-radius:
-                8px;
+            border-radius: 8px;
 
             transition:
-                transform
-                0.35s ease,
-
-                border-color
-                0.35s ease;
-
+                transform .35s ease,
+                border-color .35s ease;
         }
-
 
         .purpose-card:hover {
-
-            transform:
-                translateY(
-                    -4px
-                );
+            transform: translateY(-4px);
 
             border-color:
-                rgba(
-                    253,
-                    175,
-                    69,
-                    0.30
-                );
-
+                rgba(253,175,69,.30);
         }
-
 
         .purpose-quote {
+            font-family: var(--heading);
 
-            font-family:
-                var(--heading);
-
-            font-size:
-                1.1rem;
-
-            line-height:
-                1.25;
-
+            font-size: 1.08rem;
+            line-height: 1.28;
         }
 
-
         .purpose-description {
+            margin-top: 17px;
 
-            margin-top:
-                18px;
+            color: var(--muted);
 
-            color:
-                var(--muted);
-
-            font-size:
-                0.65rem;
-
-            line-height:
-                1.65;
-
+            font-size: .65rem;
+            line-height: 1.65;
         }
 
 
@@ -612,253 +435,197 @@
         ================================================== */
 
         .philosophy-section {
-
-            padding:
-                0 0
-                150px;
-
+            padding: 0 0 150px;
         }
-
 
         .philosophy-title {
-
-            margin-bottom:
-                50px;
+            margin-bottom: 48px;
 
             font-size:
-                clamp(
-                    2.7rem,
-                    4vw,
-                    4.4rem
-                );
+                clamp(2.7rem,4vw,4.4rem);
 
-            line-height:
-                1.03;
-
+            line-height: 1.03;
         }
-
 
         .philosophy-grid {
-
-            display:
-                grid;
+            display: grid;
 
             grid-template-columns:
-                repeat(
-                    2,
-                    1fr
-                );
-
-        }
-
-
-        .philosophy-card {
-
-            min-height:
-                155px;
-
-            padding:
-                28px 35px;
+                repeat(2,1fr);
 
             border-top:
-                1px solid
-                var(--gold-line);
+                1px solid var(--gold-line);
 
-            border-right:
-                1px solid
-                var(--gold-line);
-
+            border-left:
+                0px solid var(--gold-line);
         }
 
+        .philosophy-card {
+            min-height: 155px;
 
-        .philosophy-card:nth-child(2n) {
+            padding: 28px 35px;
 
             border-right:
-                none;
-
-        }
-
-
-        .philosophy-card:nth-child(n + 3) {
+                1px solid var(--gold-line);
 
             border-bottom:
-                1px solid
-                var(--gold-line);
-
+                1px solid var(--gold-line);
         }
 
+        .philosophy-card:nth-child(2n) {
+            border-right: none;
+        }
 
         .philosophy-name {
-
-            font-size:
-                1.05rem;
-
+            font-size: 1.05rem;
         }
 
-
         .philosophy-copy {
+            max-width: 450px;
 
-            max-width:
-                450px;
+            margin-top: 12px;
 
-            margin-top:
-                12px;
+            color: var(--muted);
 
-            color:
-                var(--muted);
-
-            font-size:
-                0.67rem;
-
-            line-height:
-                1.7;
-
+            font-size: .67rem;
+            line-height: 1.7;
         }
 
 
         /* ==================================================
-           FOUNDER
+           FOUNDERS
         ================================================== */
 
         .founder-section {
-
-            padding:
-                0 0
-                145px;
-
+            padding: 0 0 150px;
         }
 
+        .founder-heading {
+            margin-bottom: 48px;
+        }
+
+        .founder-heading h2 {
+            font-size:
+                clamp(2.7rem,4vw,4.4rem);
+
+            line-height: 1.02;
+            letter-spacing: -.03em;
+        }
 
         .founder-grid {
+            width: 100%;
 
-            display:
-                grid;
+            display: grid;
 
             grid-template-columns:
-                0.82fr
-                1.18fr;
+                repeat(3,minmax(0,1fr));
 
-            gap:
-                95px;
+            gap: 22px;
 
-            align-items:
-                center;
-
-            padding:
-                0 45px;
-
+            align-items: start;
         }
 
+        .founder-card {
+            width: 100%;
+            min-width: 0;
+        }
+
+
+        /* ==================================================
+           FOUNDER IMAGE — 4:5
+        ================================================== */
 
         .founder-image {
+            position: relative;
 
-            width:
-                100%;
+            width: 100%;
 
-            aspect-ratio:
-                0.84 / 1;
+            /* EXACT 4:5 RATIO */
+            aspect-ratio: 4 / 5;
 
-            overflow:
-                hidden;
+            overflow: hidden;
 
-            background:
-                #151515;
+            border-radius: 12px;
 
+            background: #151515;
         }
-
 
         .founder-image img {
+            width: 100%;
+            height: 100%;
 
-            width:
-                100%;
+            object-fit: cover;
+            object-position: center;
 
-            height:
-                100%;
+            transition:
+                transform .8s
+                cubic-bezier(.16,1,.3,1),
 
-            object-fit:
-                cover;
+                filter .45s ease;
+        }
 
-            object-position:
-                center;
+        .founder-card:hover
+        .founder-image img {
 
+            transform: scale(1.035);
+
+            filter:
+                brightness(.90);
         }
 
 
-        .founder-quote {
+        /* ==================================================
+           FOUNDER DETAILS
+        ================================================== */
 
-            max-width:
-                760px;
-
-            font-size:
-                clamp(
-                    2rem,
-                    3vw,
-                    3.35rem
-                );
-
-            line-height:
-                1.17;
-
-            letter-spacing:
-                -0.02em;
-
+        .founder-info {
+            padding: 18px 4px 0;
         }
 
+        .founder-number {
+            display: block;
 
-        .founder-copy {
+            margin-bottom: 8px;
 
-            max-width:
-                700px;
+            color: var(--highlight);
 
-            margin-top:
-                28px;
+            font-size: .55rem;
+            font-weight: 500;
 
-            color:
-                var(--muted);
-
-            font-size:
-                0.76rem;
-
-            line-height:
-                1.75;
-
+            letter-spacing: 1.4px;
         }
-
 
         .founder-name {
+            margin: 0;
 
-            margin-top:
-                25px;
+            font-family: var(--heading);
 
-            font-family:
-                var(--body);
-
-            font-size:
-                0.78rem;
-
-            font-weight:
-                500;
-
+            font-size: 1.40rem;
+            line-height: 1.05;
         }
 
-
         .founder-role {
+            margin-top: 6px;
 
-            margin-top:
-                4px;
+            color: var(--muted);
 
-            color:
-                var(--muted);
+            font-size: .58rem;
+            font-weight: 500;
 
-            font-size:
-                0.62rem;
+            letter-spacing: 1.15px;
 
-            text-transform:
-                uppercase;
+            text-transform: uppercase;
+        }
 
-            letter-spacing:
-                1.2px;
+        .founder-copy {
+            max-width: 360px;
 
+            margin-top: 12px;
+
+            color: var(--muted);
+
+            font-size: .64rem;
+            line-height: 1.65;
         }
 
 
@@ -867,122 +634,70 @@
         ================================================== */
 
         .values-section {
-
-            padding:
-                0 0
-                145px;
-
+            padding: 0 0 145px;
         }
-
 
         .values-title {
-
-            margin-bottom:
-                48px;
+            margin-bottom: 45px;
 
             font-size:
-                clamp(
-                    2.7rem,
-                    4vw,
-                    4.4rem
-                );
+                clamp(2.7rem,4vw,4.4rem);
 
-            line-height:
-                1.03;
-
+            line-height: 1.03;
         }
-
 
         .values-list {
-
             border-top:
                 1px solid
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.11
-                );
-
+                rgba(255,255,255,.11);
         }
 
-
         .value-row {
+            min-height: 90px;
 
-            min-height:
-                92px;
+            display: flex;
 
-            display:
-                flex;
+            align-items: center;
+            justify-content: space-between;
 
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            padding:
-                0 8px;
+            padding: 0 8px;
 
             border-bottom:
                 1px solid
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.11
-                );
+                rgba(255,255,255,.11);
 
+            transition:
+                padding .35s ease;
         }
 
+        .value-row:hover {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
 
         .value-name {
-
-            font-family:
-                var(--heading);
+            font-family: var(--heading);
 
             font-size:
-                clamp(
-                    1.4rem,
-                    2.3vw,
-                    2.1rem
-                );
-
+                clamp(1.4rem,2.2vw,2rem);
         }
 
-
         .value-arrow {
+            width: 34px;
+            height: 34px;
 
-            width:
-                34px;
+            display: flex;
 
-            height:
-                34px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
+            align-items: center;
+            justify-content: center;
 
             border:
                 1px solid
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.25
-                );
+                rgba(255,255,255,.25);
 
-            border-radius:
-                50%;
+            border-radius: 50%;
 
-            font-size:
-                0.75rem;
-
+            font-size: .75rem;
         }
 
 
@@ -991,52 +706,28 @@
         ================================================== */
 
         .statement-section {
+            padding: 110px 0 120px;
 
-            padding:
-                110px 0
-                120px;
-
-            text-align:
-                center;
-
+            text-align: center;
         }
-
 
         .statement-text {
+            max-width: 950px;
 
-            max-width:
-                1000px;
+            margin: 0 auto;
 
-            margin:
-                0 auto;
-
-            font-family:
-                var(--heading);
+            font-family: var(--heading);
 
             font-size:
-                clamp(
-                    1.3rem,
-                    3.4vw,
-                    3.15rem
-                );
+                clamp(1.4rem,3vw,3.1rem);
 
-            line-height:
-                1.2;
-
-            letter-spacing:
-                -0.025em;
-
+            line-height: 1.2;
+            letter-spacing: -.025em;
         }
 
-
         .statement-highlight {
-
-            color:
-                var(--highlight);
-
-            font-style:
-                italic;
-
+            color: var(--highlight);
+            font-style: italic;
         }
 
 
@@ -1045,278 +736,163 @@
         ================================================== */
 
         .about-gallery-section {
+            width: 100%;
 
-            width:
-                100%;
+            overflow: hidden;
 
-            overflow:
-                hidden;
-
-            background:
-                #000000;
-
+            padding: 0 0 20px;
         }
 
-
         .about-gallery-track {
+            display: flex;
 
-            display:
-                flex;
+            width: max-content;
 
-            width:
-                max-content;
-
-            gap:
-                14px;
+            gap: 14px;
 
             animation:
                 aboutGalleryScroll
                 38s
                 linear
                 infinite;
-
         }
-
 
         .gallery-image {
-
             flex:
                 0 0
-                clamp(
-                    280px,
-                    18.5vw,
-                    370px
-                );
+                clamp(280px,18vw,370px);
 
-            height:
-                520px;
+            height: 520px;
 
-            overflow:
-                hidden;
+            overflow: hidden;
 
-            border-radius:
-                10px;
+            border-radius: 10px;
 
-            background:
-                #151515;
-
+            background: #151515;
         }
-
 
         .gallery-image img {
+            width: 100%;
+            height: 100%;
 
-            width:
-                100%;
-
-            height:
-                100%;
-
-            object-fit:
-                cover;
-
+            object-fit: cover;
         }
-
 
         @keyframes aboutGalleryScroll {
 
             from {
-
-                transform:
-                    translateX(
-                        0
-                    );
-
+                transform: translateX(0);
             }
 
             to {
-
                 transform:
                     translateX(
-                        calc(
-                            -50% -
-                            7px
-                        )
+                        calc(-50% - 7px)
                     );
-
             }
 
         }
 
 
         /* ==================================================
-           FINAL CTA
+           CTA
         ================================================== */
 
         .about-cta {
+            min-height: 560px;
 
-            min-height:
-                600px;
+            display: flex;
 
-            display:
-                flex;
+            align-items: center;
+            justify-content: center;
 
-            align-items:
-                center;
+            padding: 90px 0;
 
-            justify-content:
-                center;
-
-            padding:
-                100px 0;
-
-            text-align:
-                center;
-
+            text-align: center;
         }
-
 
         .about-cta-inner {
-
-            width:
-                min(
-                    1100px,
-                    90%
-                );
-
-            margin:
-                0 auto;
-
+            width: min(950px,90%);
+            margin: 0 auto;
         }
-
 
         .about-cta h2 {
-
-            max-width:
-                850px;
-
-            margin:
-                0 auto;
-
             font-size:
-                clamp(
-                    4rem,
-                    6.2vw,
-                    6.4rem
-                );
+                clamp(3.7rem,6vw,6.2rem);
 
-            line-height:
-                0.98;
-
-            letter-spacing:
-                -0.035em;
-
+            line-height: .96;
+            letter-spacing: -.035em;
         }
-
 
         .cta-line-highlight {
+            display: block;
 
-            display:
-                block;
+            margin-top: 6px;
 
-            margin-top:
-                8px;
+            color: var(--highlight);
 
-            color:
-                var(--highlight);
-
-            font-style:
-                italic;
-
+            font-style: italic;
         }
-
 
         .about-cta .action-buttons {
+            display: flex;
 
-            display:
-                flex;
+            align-items: center;
+            justify-content: center;
 
-            align-items:
-                center;
+            gap: 10px;
 
-            justify-content:
-                center;
-
-            gap:
-                12px;
-
-            margin-top:
-                55px;
-
+            margin-top: 45px;
         }
 
+        .about-cta .action-buttons a {
+            display: inline-flex;
 
-        .about-cta
-        .action-buttons a {
+            align-items: center;
+            justify-content: center;
 
-            display:
-                inline-flex;
+            min-width: 130px;
+            height: 40px;
 
-            align-items:
-                center;
+            padding: 0 20px;
 
-            justify-content:
-                center;
+            border-radius: 10px;
 
-            min-width:
-                135px;
-
-            height:
-                42px;
-
-            padding:
-                0 22px;
-
-            border-radius:
-                12px;
-
-            font-family:
-                var(--body);
-
-            font-size:
-                0.78rem;
-
-            font-weight:
-                500;
-
+            font-size: .74rem;
+            font-weight: 500;
         }
-
 
         .about-cta
         .action-buttons
         [data-action="contact"] {
 
-            background:
-                var(--highlight);
+            background: var(--highlight);
 
             border:
                 1px solid
                 var(--highlight);
 
-            color:
-                #ffffff;
-
+            color: #ffffff;
         }
-
 
         .about-cta
         .action-buttons
         [data-action="portfolio"] {
 
-            background:
-                transparent;
+            background: transparent;
 
             border:
                 1px solid
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.75
-                );
+                rgba(255,255,255,.72);
 
-            color:
-                #ffffff;
+            color: #ffffff;
+        }
 
+        .about-cta
+        .action-buttons
+        a:hover {
+
+            transform: translateY(-2px);
         }
 
 
@@ -1324,31 +900,25 @@
            TABLET
         ================================================== */
 
-        @media (max-width: 1000px) {
+        @media (max-width:950px) {
 
             .who-grid {
-
                 grid-template-columns:
-                    1fr;
+                    1fr 1fr;
 
-                gap:
-                    30px;
-
+                gap: 45px;
             }
 
-
             .founder-grid {
+                gap: 14px;
+            }
 
-                grid-template-columns:
-                    1fr
-                    1fr;
+            .founder-name {
+                font-size: 1.20rem;
+            }
 
-                gap:
-                    45px;
-
-                padding:
-                    0;
-
+            .founder-copy {
+                font-size: .58rem;
             }
 
         }
@@ -1358,680 +928,486 @@
            MOBILE
         ================================================== */
 
-        @media (max-width: 760px) {
+        @media (max-width:760px) {
 
             .about-container {
-
                 width:
-                    calc(
-                        100% - 30px
-                    );
-
+                    calc(100% - 30px);
             }
 
 
-            /* ==========================================
-               HERO
-            ========================================== */
+            /* HERO */
 
             .about-hero {
-
-                min-height:
-                    285px;
+                min-height: 285px;
 
                 padding:
-                    50px 0
-                    42px;
+                    55px 0 45px;
 
                 align-items:
                     flex-end;
-
             }
-
 
             .hero-content {
-
-                max-width:
-                    280px;
-
+                max-width: 300px;
             }
-
 
             .hero-title {
-
-                font-size:
-                    1.68rem;
-
-                line-height:
-                    0.98;
-
-                letter-spacing:
-                    -0.025em;
-
+                font-size: 1.72rem;
+                line-height: .98;
             }
-
 
             .hero-copy {
+                max-width: 250px;
 
-                max-width:
-                    240px;
+                margin-top: 11px;
 
-                margin-top:
-                    11px;
-
-                font-size:
-                    0.42rem;
-
-                line-height:
-                    1.45;
-
+                font-size: .42rem;
+                line-height: 1.5;
             }
 
 
-            /* ==========================================
-               WHO
-            ========================================== */
+            /* WHO */
 
             .who-section {
-
                 padding:
-                    62px 0
-                    62px;
-
+                    62px 0 68px;
             }
-
 
             .section-label {
+                gap: 6px;
 
-                gap:
-                    6px;
+                margin-bottom: 12px;
 
-                margin-bottom:
-                    12px;
+                font-size: .40rem;
 
-                font-size:
-                    0.40rem;
-
-                letter-spacing:
-                    1.05px;
-
+                letter-spacing: 1.05px;
             }
-
 
             .section-label::before {
+                width: 5px;
+                height: 5px;
 
-                width:
-                    5px;
-
-                height:
-                    5px;
-
-                flex-basis:
-                    5px;
-
+                flex-basis: 5px;
             }
-
 
             .who-grid {
-
-                display:
-                    block;
-
+                display: block;
             }
-
 
             .who-heading {
-
-                font-size:
-                    1.80rem;
-
+                font-size: 1.82rem;
             }
-
 
             .who-copy {
+                padding-top: 24px;
 
-                max-width:
-                    100%;
-
-                padding-top:
-                    24px;
-
-                font-size:
-                    0.48rem;
-
-                line-height:
-                    1.55;
-
+                font-size: .48rem;
+                line-height: 1.55;
             }
 
 
-            /* ==========================================
-               PURPOSE
-            ========================================== */
+            /* PURPOSE */
 
             .purpose-section {
-
                 padding:
-                    0 0
-                    65px;
-
+                    0 0 70px;
             }
-
 
             .purpose-header {
-
-                margin-bottom:
-                    24px;
-
+                margin-bottom: 25px;
             }
-
 
             .purpose-title {
-
-                font-size:
-                    1.80rem;
-
+                font-size: 1.84rem;
             }
-
 
             .purpose-grid {
-
-                display:
-                    grid;
-
-                grid-template-columns:
-                    1fr;
-
-                gap:
-                    10px;
-
+                grid-template-columns: 1fr;
+                gap: 9px;
             }
-
 
             .purpose-card {
-
-                min-height:
-                    112px;
-
-                padding:
-                    18px;
-
-                border-radius:
-                    7px;
-
+                min-height: 115px;
+                padding: 18px;
             }
-
 
             .purpose-quote {
-
-                font-size:
-                    0.86rem;
-
-                line-height:
-                    1.18;
-
+                font-size: .84rem;
             }
-
 
             .purpose-description {
-
-                margin-top:
-                    12px;
-
-                font-size:
-                    0.39rem;
-
-                line-height:
-                    1.45;
-
+                margin-top: 11px;
+                font-size: .39rem;
             }
 
 
-            /* ==========================================
-               PHILOSOPHY
-            ========================================== */
+            /* PHILOSOPHY */
 
             .philosophy-section {
-
                 padding:
-                    0 0
-                    72px;
-
+                    0 0 75px;
             }
-
 
             .philosophy-title {
-
-                margin-bottom:
-                    28px;
-
-                font-size:
-                    1.86rem;
-
+                margin-bottom: 28px;
+                font-size: 1.84rem;
             }
-
 
             .philosophy-grid {
-
-                display:
-                    block;
-
-                border-top:
-                    1px solid
-                    var(--gold-line);
-
+                display: block;
             }
 
-
             .philosophy-card {
-
-                min-height:
-                    95px;
+                min-height: 98px;
 
                 padding:
                     17px 22px;
 
-                border-top:
-                    none;
-
-                border-right:
-                    none;
-
-                border-bottom:
-                    1px solid
-                    var(--gold-line);
-
+                border-right: none;
             }
-
-
-            .philosophy-card:nth-child(n + 3) {
-
-                border-bottom:
-                    1px solid
-                    var(--gold-line);
-
-            }
-
 
             .philosophy-name {
-
-                font-size:
-                    0.72rem;
-
+                font-size: .72rem;
             }
-
 
             .philosophy-copy {
+                margin-top: 7px;
 
-                margin-top:
-                    7px;
+                max-width: 250px;
 
-                max-width:
-                    245px;
-
-                font-size:
-                    0.39rem;
-
-                line-height:
-                    1.45;
-
+                font-size: .39rem;
+                line-height: 1.45;
             }
 
 
-            /* ==========================================
-               FOUNDER
-            ========================================== */
+            /* ==================================================
+               FOUNDERS — MOBILE 4:5
+            ================================================== */
 
             .founder-section {
-
                 padding:
-                    0 0
-                    72px;
-
+                    0 0 75px;
             }
 
+            .founder-heading {
+                margin-bottom: 30px;
+            }
+
+            .founder-heading h2 {
+                font-size: 1.86rem;
+            }
 
             .founder-grid {
+                display: grid;
 
-                display:
-                    grid;
+                grid-template-columns: 1fr;
 
-                grid-template-columns:
-                    95px
-                    minmax(
-                        0,
-                        1fr
-                    );
+                gap: 40px;
 
-                gap:
-                    18px;
-
-                align-items:
-                    start;
-
-                padding:
-                    0;
-
+                width: 100%;
             }
 
+            .founder-card {
+                width: 100%;
+
+                display: flex;
+
+                flex-direction: column;
+
+                align-items: center;
+            }
 
             .founder-image {
 
-                width:
-                    95px;
+                width: 78%;
 
-                height:
-                    125px;
+                max-width: 315px;
 
-                aspect-ratio:
-                    auto;
+                /* EXACT 4:5 */
+                aspect-ratio: 4 / 5;
 
+                overflow: hidden;
+
+                border-radius: 10px;
+
+                margin: 0 auto;
             }
 
+            .founder-image img {
 
-            .founder-quote {
+                width: 100%;
+                height: 100%;
 
-                font-size:
-                    0.83rem;
+                object-fit: cover;
 
-                line-height:
-                    1.18;
-
+                object-position: center;
             }
 
+            .founder-info {
 
-            .founder-copy {
+                width: 78%;
 
-                margin-top:
-                    11px;
+                max-width: 315px;
 
-                font-size:
-                    0.38rem;
+                padding:
+                    13px 2px 0;
 
-                line-height:
-                    1.45;
-
+                margin: 0 auto;
             }
 
+            .founder-number {
+                margin-bottom: 6px;
+                font-size: .40rem;
+            }
 
             .founder-name {
-
-                margin-top:
-                    11px;
-
-                font-size:
-                    0.43rem;
-
+                font-size: 1.16rem;
             }
-
 
             .founder-role {
+                margin-top: 5px;
+                font-size: .43rem;
+            }
 
-                font-size:
-                    0.35rem;
+            .founder-copy {
+                max-width: 270px;
 
-                letter-spacing:
-                    0.7px;
+                margin-top: 9px;
 
+                font-size: .46rem;
+                line-height: 1.50;
             }
 
 
-            /* ==========================================
-               VALUES
-            ========================================== */
+            /* VALUES */
 
             .values-section {
-
                 padding:
-                    0 0
-                    72px;
-
+                    0 0 75px;
             }
-
 
             .values-title {
-
-                margin-bottom:
-                    25px;
-
-                font-size:
-                    1.84rem;
-
+                margin-bottom: 25px;
+                font-size: 1.84rem;
             }
-
 
             .value-row {
-
-                min-height:
-                    64px;
-
-                padding:
-                    0 2px;
-
+                min-height: 65px;
             }
-
 
             .value-name {
-
-                font-size:
-                    0.84rem;
-
+                font-size: .86rem;
             }
-
 
             .value-arrow {
+                width: 25px;
+                height: 25px;
 
-                width:
-                    25px;
-
-                height:
-                    25px;
-
-                font-size:
-                    0.56rem;
-
+                font-size: .55rem;
             }
 
 
-            /* ==========================================
-               STATEMENT
-            ========================================== */
+            /* STATEMENT */
 
             .statement-section {
-
                 padding:
-                    68px 0
-                    72px;
-
+                    70px 0;
             }
-
 
             .statement-text {
-
-                font-size:
-                    1.00rem;
-
-                line-height:
-                    1.28;
-
+                font-size: 1rem;
+                line-height: 1.30;
             }
 
 
-            /* ==========================================
-               IMAGE MARQUEE
-            ========================================== */
+            /* ==================================================
+               MOBILE GALLERY — 9:16
+            ================================================== */
+
+            .about-gallery-section {
+                width: 100%;
+                overflow: hidden;
+            }
 
             .about-gallery-track {
-
-                gap:
-                    5px;
+                gap: 7px;
 
                 animation-duration:
                     32s;
-
             }
-
 
             .gallery-image {
 
                 flex:
-                    0 0
-                    48vw;
+                    0 0 56.25vw;
+
+                width:
+                    56.25vw;
 
                 height:
-                    245px;
+                    auto;
+
+                aspect-ratio:
+                    9 / 16;
+
+                overflow:
+                    hidden;
 
                 border-radius:
-                    4px;
+                    6px;
+            }
 
+            .gallery-image img {
+                width: 100%;
+                height: 100%;
+
+                object-fit: cover;
+                object-position: center;
             }
 
 
-            /* ==========================================
-               CTA
-            ========================================== */
+            /* CTA */
 
             .about-cta {
-
-                min-height:
-                    375px;
+                min-height: 380px;
 
                 padding:
-                    65px 0
-                    70px;
-
+                    70px 0;
             }
-
 
             .about-cta h2 {
-
-                font-size:
-                    2.45rem;
-
-                line-height:
-                    0.96;
-
+                font-size: 2.45rem;
             }
-
-
-            .cta-line-highlight {
-
-                margin-top:
-                    5px;
-
-            }
-
 
             .about-cta
             .action-buttons {
-
-                flex-direction:
-                    row;
-
-                gap:
-                    6px;
-
-                margin-top:
-                    30px;
-
+                margin-top: 30px;
+                gap: 6px;
             }
-
 
             .about-cta
             .action-buttons a {
+                min-width: 92px;
+                height: 28px;
 
-                min-width:
-                    92px;
+                padding: 0 10px;
 
-                height:
-                    28px;
+                border-radius: 7px;
 
-                padding:
-                    0 11px;
-
-                border-radius:
-                    7px;
-
-                font-size:
-                    0.43rem;
-
+                font-size: .43rem;
             }
 
         }
 
 
         /* ==================================================
-           VERY SMALL PHONE
+           SMALL PHONES
         ================================================== */
 
-        @media (max-width: 380px) {
+        @media (max-width:380px) {
 
             .about-hero {
-
-                min-height:
-                    275px;
-
+                min-height: 275px;
             }
-
 
             .hero-title {
-
-                font-size:
-                    1.58rem;
-
+                font-size: 1.58rem;
             }
-
 
             .who-heading,
             .purpose-title,
             .philosophy-title,
             .values-title {
-
-                font-size:
-                    1.70rem;
-
+                font-size: 1.70rem;
             }
 
+
+            /* Founder 4:5 */
 
             .founder-grid {
-
-                grid-template-columns:
-                    88px
-                    minmax(
-                        0,
-                        1fr
-                    );
-
-                gap:
-                    15px;
-
+                gap: 32px;
             }
-
 
             .founder-image {
 
+                width: 78%;
+
+                max-width: 285px;
+
+                aspect-ratio:
+                    4 / 5;
+            }
+
+            .founder-info {
+
+                width: 78%;
+
+                max-width: 285px;
+            }
+
+            .founder-name {
+                font-size: 1.08rem;
+            }
+
+            .founder-copy {
+                max-width: 235px;
+                font-size: .42rem;
+            }
+
+
+            /* Gallery remains 9:16 */
+
+            .gallery-image {
+
+                flex-basis:
+                    56.25vw;
+
                 width:
-                    88px;
+                    56.25vw;
 
-                height:
-                    118px;
-
+                aspect-ratio:
+                    9 / 16;
             }
-
-
-            .founder-quote {
-
-                font-size:
-                    0.76rem;
-
-            }
-
 
             .about-cta h2 {
+                font-size: 2.25rem;
+            }
 
-                font-size:
-                    2.25rem;
+        }
 
+
+        /* ==================================================
+           REDUCED MOTION
+        ================================================== */
+
+        @media (
+            prefers-reduced-motion: reduce
+        ) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            .about-gallery-track {
+                animation: none;
+            }
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                    .01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    .01ms !important;
+
+                scroll-behavior:
+                    auto !important;
             }
 
         }
@@ -2048,57 +1424,46 @@
          SCROLL TO TOP
     ================================================== -->
 
-    <div
-        id="scroll-to-top-container"
-    ></div>
+    <div id="scroll-to-top-container"></div>
 
 
     <!-- ==================================================
          NAVBAR
     ================================================== -->
 
-    <div
-        id="navbar-container"
-    ></div>
+    <div id="navbar-container"></div>
 
 
     <!-- ==================================================
          HERO
     ================================================== -->
 
-    <section
-        class="about-hero"
-    >
+    <section class="about-hero">
 
-        <div
-            class="about-container"
-        >
+        <div class="about-container">
 
-            <div
-                class="hero-content"
-            >
+            <div class="hero-content">
 
-                <h1
-                    class="hero-title reveal"
-                >
+                <p class="section-label reveal">
+                    About Auren Originals
+                </p>
+
+
+                <h1 class="hero-title reveal">
 
                     More Than A Creative
                     <br>
 
                     Agency
 
-                    <span
-                        class="highlight"
-                    >
+                    <span class="highlight">
                         .
                     </span>
 
                 </h1>
 
 
-                <p
-                    class="hero-copy reveal"
-                >
+                <p class="hero-copy reveal">
 
                     We are a team driven by curiosity,
                     creativity and craftsmanship —
@@ -2117,39 +1482,26 @@
          WHO WE ARE
     ================================================== -->
 
-    <section
-        class="who-section"
-    >
+    <section class="who-section">
 
-        <div
-            class="about-container"
-        >
+        <div class="about-container">
 
-            <div
-                class="who-grid"
-            >
+            <div class="who-grid">
 
                 <div>
 
-                    <p
-                        class="section-label reveal"
-                    >
+                    <p class="section-label reveal">
                         About
                     </p>
 
-
-                    <h2
-                        class="who-heading reveal"
-                    >
+                    <h2 class="who-heading reveal">
                         Who We Are.
                     </h2>
 
                 </div>
 
 
-                <p
-                    class="who-copy reveal"
-                >
+                <p class="who-copy reveal">
 
                     Auren Originals is a creative agency
                     and production house bringing together
@@ -2181,56 +1533,36 @@
 
 
     <!-- ==================================================
-         WHY WE EXIST
+         PURPOSE
     ================================================== -->
 
-    <section
-        class="purpose-section"
-    >
+    <section class="purpose-section">
 
-        <div
-            class="about-container"
-        >
+        <div class="about-container">
 
-            <div
-                class="purpose-header"
-            >
+            <div class="purpose-header">
 
-                <p
-                    class="section-label reveal"
-                >
+                <p class="section-label reveal">
                     Purpose
                 </p>
 
-
-                <h2
-                    class="purpose-title reveal"
-                >
+                <h2 class="purpose-title reveal">
                     Why We Exist.
                 </h2>
 
             </div>
 
 
-            <div
-                class="purpose-grid"
-            >
+            <div class="purpose-grid">
 
-                <article
-                    class="purpose-card reveal"
-                >
+                <article class="purpose-card reveal">
 
-                    <h3
-                        class="purpose-quote"
-                    >
+                    <h3 class="purpose-quote">
                         "We believe every brand has
                         a story worth telling."
                     </h3>
 
-
-                    <p
-                        class="purpose-description"
-                    >
+                    <p class="purpose-description">
                         Creating narratives that educate,
                         inspire and connect.
                     </p>
@@ -2238,21 +1570,14 @@
                 </article>
 
 
-                <article
-                    class="purpose-card reveal"
-                >
+                <article class="purpose-card reveal">
 
-                    <h3
-                        class="purpose-quote"
-                    >
+                    <h3 class="purpose-quote">
                         "Great visuals create
                         lasting impressions."
                     </h3>
 
-
-                    <p
-                        class="purpose-description"
-                    >
+                    <p class="purpose-description">
                         Engineering meaning through
                         compelling visual direction.
                     </p>
@@ -2260,21 +1585,14 @@
                 </article>
 
 
-                <article
-                    class="purpose-card reveal"
-                >
+                <article class="purpose-card reveal">
 
-                    <h3
-                        class="purpose-quote"
-                    >
+                    <h3 class="purpose-quote">
                         "We create with intention,
                         not trends."
                     </h3>
 
-
-                    <p
-                        class="purpose-description"
-                    >
+                    <p class="purpose-description">
                         Designing strategies that stand
                         the test of time.
                     </p>
@@ -2292,46 +1610,28 @@
          PHILOSOPHY
     ================================================== -->
 
-    <section
-        class="philosophy-section"
-    >
+    <section class="philosophy-section">
 
-        <div
-            class="about-container"
-        >
+        <div class="about-container">
 
-            <p
-                class="section-label reveal"
-            >
+            <p class="section-label reveal">
                 Philosophy
             </p>
 
-
-            <h2
-                class="philosophy-title reveal"
-            >
+            <h2 class="philosophy-title reveal">
                 Our Philosophy.
             </h2>
 
 
-            <div
-                class="philosophy-grid"
-            >
+            <div class="philosophy-grid">
 
-                <article
-                    class="philosophy-card reveal"
-                >
+                <article class="philosophy-card reveal">
 
-                    <h3
-                        class="philosophy-name"
-                    >
+                    <h3 class="philosophy-name">
                         Purpose Before Pixels
                     </h3>
 
-
-                    <p
-                        class="philosophy-copy"
-                    >
+                    <p class="philosophy-copy">
                         Every project begins with
                         understanding, not execution.
                         We discover the underlying
@@ -2341,20 +1641,13 @@
                 </article>
 
 
-                <article
-                    class="philosophy-card reveal"
-                >
+                <article class="philosophy-card reveal">
 
-                    <h3
-                        class="philosophy-name"
-                    >
+                    <h3 class="philosophy-name">
                         Craft Over Convenience
                     </h3>
 
-
-                    <p
-                        class="philosophy-copy"
-                    >
+                    <p class="philosophy-copy">
                         Attention to detail is never
                         optional. We obsess over
                         precision in every frame.
@@ -2363,20 +1656,13 @@
                 </article>
 
 
-                <article
-                    class="philosophy-card reveal"
-                >
+                <article class="philosophy-card reveal">
 
-                    <h3
-                        class="philosophy-name"
-                    >
+                    <h3 class="philosophy-name">
                         People First
                     </h3>
 
-
-                    <p
-                        class="philosophy-copy"
-                    >
+                    <p class="philosophy-copy">
                         Strong relationships create
                         stronger work. We collaborate
                         deeply and listen attentively.
@@ -2385,20 +1671,13 @@
                 </article>
 
 
-                <article
-                    class="philosophy-card reveal"
-                >
+                <article class="philosophy-card reveal">
 
-                    <h3
-                        class="philosophy-name"
-                    >
+                    <h3 class="philosophy-name">
                         Always Evolving
                     </h3>
 
-
-                    <p
-                        class="philosophy-copy"
-                    >
+                    <p class="philosophy-copy">
                         We continuously learn, adapt
                         and improve, keeping our visual
                         language fresh and refined.
@@ -2414,84 +1693,150 @@
 
 
     <!-- ==================================================
-         FOUNDER
+         FOUNDERS
     ================================================== -->
 
-    <section
-        class="founder-section"
-    >
+    <section class="founder-section">
 
-        <div
-            class="about-container"
-        >
+        <div class="about-container">
 
-            <p
-                class="section-label reveal"
-            >
-                Founder
-            </p>
+            <div class="founder-heading">
 
+                <p class="section-label reveal">
+                    Founders
+                </p>
 
-            <div
-                class="founder-grid"
-            >
+                <h2 class="reveal">
+                    The People Behind Auren.
+                </h2>
 
-                <div
-                    class="founder-image reveal"
-                >
-
-                    <img
-                        id="founder-image"
-                        src=""
-                        alt="Founder of Auren Originals"
-                        loading="lazy"
-                    >
-
-                </div>
+            </div>
 
 
-                <div>
-
-                    <h2
-                        class="founder-quote reveal"
-                    >
-                        "Curiosity drives our craft.
-                        We build brands for a modern
-                        era with substance."
-                    </h2>
+            <div class="founder-grid">
 
 
-                    <p
-                        class="founder-copy reveal"
-                    >
-                        I founded Auren Originals
-                        because I believed in the
-                        absolute power of honest
-                        craftsmanship.
+                <!-- FOUNDER 01 -->
 
-                        <br><br>
+                <article class="founder-card">
 
-                        We live in a world saturated
-                        by noise and quick solutions.
-                        My goal is to build an oasis
-                        for meaningful artistic direction.
-                    </p>
+                    <div class="founder-image reveal">
 
+                        <img
+                            id="founder-image-1"
+                            src=""
+                            alt="Founder 1"
+                            loading="lazy"
+                        >
 
-                    <div
-                        class="founder-name reveal"
-                    >
-                        Harish
                     </div>
 
 
-                    <div
-                        class="founder-role reveal"
-                    >
-                        Founder & Creative Director
+                    <div class="founder-info">
+
+                        <span class="founder-number">
+                            
+                        </span>
+
+                        <h3 class="founder-name reveal">
+                            Harish
+                        </h3>
+
+                        <p class="founder-role reveal">
+                            Founder & Creative Director
+                        </p>
+
+                        <p class="founder-copy reveal">
+                            Curiosity drives our craft.
+                            We build brands for a modern
+                            era with substance and intent.
+                        </p>
+
                     </div>
 
-                </div>
+                </article>
+
+
+                <!-- CO-FOUNDER 02 -->
+
+                <article class="founder-card">
+
+                    <div class="founder-image reveal">
+
+                        <img
+                            id="founder-image-2"
+                            src=""
+                            alt="Co-Founder 2"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div class="founder-info">
+
+                        <span class="founder-number">
+                            
+                        </span>
+
+                        <h3 class="founder-name reveal">
+                            Sai Dhanush
+                        </h3>
+
+                        <p class="founder-role reveal">
+                            Co-Founder
+                        </p>
+
+                        <p class="founder-copy reveal">
+                            Bringing thoughtful creative
+                            direction, collaboration and
+                            a strong eye for meaningful work.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- CO-FOUNDER 03 -->
+
+                <article class="founder-card">
+
+                    <div class="founder-image reveal">
+
+                        <img
+                            id="founder-image-3"
+                            src=""
+                            alt="Co-Founder 3"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div class="founder-info">
+
+                        <span class="founder-number">
+                            
+                        </span>
+
+                        <h3 class="founder-name reveal">
+                            Vijay
+                        </h3>
+
+                        <p class="founder-role reveal">
+                            Co-Founder
+                        </p>
+
+                        <p class="founder-copy reveal">
+                            Shaping ideas into meaningful
+                            experiences through a refined
+                            creative perspective.
+                        </p>
+
+                    </div>
+
+                </article>
 
             </div>
 
@@ -2504,134 +1849,73 @@
          VALUES
     ================================================== -->
 
-    <section
-        class="values-section"
-    >
+    <section class="values-section">
 
-        <div
-            class="about-container"
-        >
+        <div class="about-container">
 
-            <p
-                class="section-label reveal"
-            >
+            <p class="section-label reveal">
                 Values
             </p>
 
-
-            <h2
-                class="values-title reveal"
-            >
+            <h2 class="values-title reveal">
                 What We Stand For.
             </h2>
 
 
-            <div
-                class="values-list"
-            >
+            <div class="values-list">
 
-                <a
-                    href="#"
-                    class="value-row reveal"
-                >
-
-                    <span
-                        class="value-name"
-                    >
+                <a href="#" class="value-row reveal">
+                    <span class="value-name">
                         Quality
                     </span>
 
-
-                    <span
-                        class="value-arrow"
-                    >
+                    <span class="value-arrow">
                         ↗
                     </span>
-
                 </a>
 
 
-                <a
-                    href="#"
-                    class="value-row reveal"
-                >
-
-                    <span
-                        class="value-name"
-                    >
+                <a href="#" class="value-row reveal">
+                    <span class="value-name">
                         Honesty
                     </span>
 
-
-                    <span
-                        class="value-arrow"
-                    >
+                    <span class="value-arrow">
                         ↗
                     </span>
-
                 </a>
 
 
-                <a
-                    href="#"
-                    class="value-row reveal"
-                >
-
-                    <span
-                        class="value-name"
-                    >
+                <a href="#" class="value-row reveal">
+                    <span class="value-name">
                         Creativity
                     </span>
 
-
-                    <span
-                        class="value-arrow"
-                    >
+                    <span class="value-arrow">
                         ↗
                     </span>
-
                 </a>
 
 
-                <a
-                    href="#"
-                    class="value-row reveal"
-                >
-
-                    <span
-                        class="value-name"
-                    >
+                <a href="#" class="value-row reveal">
+                    <span class="value-name">
                         Consistency
                     </span>
 
-
-                    <span
-                        class="value-arrow"
-                    >
+                    <span class="value-arrow">
                         ↗
                     </span>
-
                 </a>
 
 
-                <a
-                    href="#"
-                    class="value-row reveal"
-                >
-
-                    <span
-                        class="value-name"
-                    >
+                <a href="#" class="value-row reveal">
+                    <span class="value-name">
                         Long-term Relationships
                     </span>
 
-
-                    <span
-                        class="value-arrow"
-                    >
+                    <span class="value-arrow">
                         ↗
                     </span>
-
                 </a>
 
             </div>
@@ -2645,17 +1929,11 @@
          STATEMENT
     ================================================== -->
 
-    <section
-        class="statement-section"
-    >
+    <section class="statement-section">
 
-        <div
-            class="about-container"
-        >
+        <div class="about-container">
 
-            <p
-                class="statement-text reveal"
-            >
+            <p class="statement-text reveal">
 
                 We're building more than a creative
                 agency.
@@ -2663,9 +1941,7 @@
                 <br>
 
                 We're building a brand that creates work
-                <span
-                    class="statement-highlight"
-                >
+                <span class="statement-highlight">
                     with purpose and lasting impact.
                 </span>
 
@@ -2680,13 +1956,10 @@
          IMAGE MARQUEE
     ================================================== -->
 
-    <section
-        class="about-gallery-section"
-    >
+    <section class="about-gallery-section">
 
-        <div
-            class="about-gallery-track"
-        >
+        <div class="about-gallery-track">
+
 
             <div class="gallery-image">
                 <img
@@ -2736,6 +2009,9 @@
                     loading="lazy"
                 >
             </div>
+
+
+            <!-- DUPLICATES -->
 
 
             <div class="gallery-image">
@@ -2796,21 +2072,15 @@
          FINAL CTA
     ================================================== -->
 
-    <section
-        class="about-cta"
-    >
+    <section class="about-cta">
 
-        <div
-            class="about-cta-inner"
-        >
+        <div class="about-cta-inner">
 
             <h2>
 
                 Let's Create
 
-                <span
-                    class="cta-line-highlight"
-                >
+                <span class="cta-line-highlight">
                     What Matters.
                 </span>
 
@@ -2831,9 +2101,7 @@
          FOOTER
     ================================================== -->
 
-    <div
-        id="footer-container"
-    ></div>
+    <div id="footer-container"></div>
 
 
     <!-- ==================================================
@@ -2871,8 +2139,7 @@
                     await fetch(
                         `/api/root-asset/${encodeURIComponent(filename)}`,
                         {
-                            cache:
-                                'no-store'
+                            cache: 'no-store'
                         }
                     );
 
@@ -2922,17 +2189,27 @@
 
 
         /* ==================================================
-           FOUNDER
+           FOUNDER IMAGES
         ================================================== */
 
         loadRootAsset(
             'founder.jpg',
-            'founder-image'
+            'founder-image-1'
+        );
+
+        loadRootAsset(
+            'founder-2.jpg',
+            'founder-image-2'
+        );
+
+        loadRootAsset(
+            'founder-3.jpg',
+            'founder-image-3'
         );
 
 
         /* ==================================================
-           ABOUT GALLERY
+           GALLERY ASSETS
         ================================================== */
 
         const aboutGalleryAssets = [
@@ -2994,11 +2271,11 @@
             asset => {
 
                 asset.ids.forEach(
-                    id => {
+                    elementId => {
 
                         loadRootAsset(
                             asset.filename,
-                            id
+                            elementId
                         );
 
                     }
@@ -3015,122 +2292,110 @@
         fetch(
             './components/scroll-to-top.html',
             {
-                cache:
-                    'no-store'
+                cache: 'no-store'
             }
         )
 
-        .then(
-            response => {
+        .then(response => {
 
-                if (!response.ok) {
+            if (!response.ok) {
 
-                    throw new Error(
-                        'Scroll component failed'
+                throw new Error(
+                    'Scroll component failed'
+                );
+
+            }
+
+            return response.text();
+
+        })
+
+        .then(html => {
+
+            const container =
+                document.getElementById(
+                    'scroll-to-top-container'
+                );
+
+
+            if (!container)
+                return;
+
+
+            container.innerHTML =
+                html;
+
+
+            const button =
+                container.querySelector(
+                    '#scroll-to-top'
+                );
+
+
+            if (!button)
+                return;
+
+
+            function updateButton() {
+
+                if (
+                    window.scrollY > 500
+                ) {
+
+                    button.classList.add(
+                        'show'
                     );
 
                 }
 
-                return response.text();
+                else {
 
-            }
-        )
-
-        .then(
-            html => {
-
-                const container =
-                    document.getElementById(
-                        'scroll-to-top-container'
+                    button.classList.remove(
+                        'show'
                     );
 
-
-                if (!container) {
-                    return;
                 }
-
-
-                container.innerHTML =
-                    html;
-
-
-                const button =
-                    container.querySelector(
-                        '#scroll-to-top'
-                    );
-
-
-                if (!button) {
-                    return;
-                }
-
-
-                function updateButton() {
-
-                    if (
-                        window.scrollY > 500
-                    ) {
-
-                        button.classList.add(
-                            'show'
-                        );
-
-                    }
-
-                    else {
-
-                        button.classList.remove(
-                            'show'
-                        );
-
-                    }
-
-                }
-
-
-                window.addEventListener(
-                    'scroll',
-                    updateButton,
-                    {
-                        passive:
-                            true
-                    }
-                );
-
-
-                button.addEventListener(
-                    'click',
-                    () => {
-
-                        window.scrollTo({
-
-                            top:
-                                0,
-
-                            behavior:
-                                'smooth'
-
-                        });
-
-                    }
-                );
-
-
-                updateButton();
 
             }
-        )
 
-        .catch(
-            error => {
 
-                console.error(
-                    'Scroll-to-top error:',
-                    error
-                );
+            window.addEventListener(
+                'scroll',
+                updateButton,
+                {
+                    passive: true
+                }
+            );
 
-            }
-        );
+
+            button.addEventListener(
+                'click',
+                () => {
+
+                    window.scrollTo({
+
+                        top: 0,
+
+                        behavior: 'smooth'
+
+                    });
+
+                }
+            );
+
+
+            updateButton();
+
+        })
+
+        .catch(error => {
+
+            console.error(
+                'Scroll component error:',
+                error
+            );
+
+        });
 
 
         /* ==================================================
@@ -3140,88 +2405,80 @@
         fetch(
             './components/action-buttons.html',
             {
-                cache:
-                    'no-store'
+                cache: 'no-store'
             }
         )
 
-        .then(
-            response => {
+        .then(response => {
 
-                if (!response.ok) {
+            if (!response.ok) {
 
-                    throw new Error(
-                        'Action buttons failed'
-                    );
-
-                }
-
-                return response.text();
-
-            }
-        )
-
-        .then(
-            html => {
-
-                const container =
-                    document.getElementById(
-                        'about-action-buttons'
-                    );
-
-
-                if (!container) {
-                    return;
-                }
-
-
-                container.innerHTML =
-                    html;
-
-
-                const contact =
-                    container.querySelector(
-                        '[data-action="contact"]'
-                    );
-
-
-                const portfolio =
-                    container.querySelector(
-                        '[data-action="portfolio"]'
-                    );
-
-
-                if (
-                    contact &&
-                    portfolio
-                ) {
-
-                    container.innerHTML =
-                        '';
-
-                    container.appendChild(
-                        contact
-                    );
-
-                    container.appendChild(
-                        portfolio
-                    );
-
-                }
-
-            }
-        )
-
-        .catch(
-            error => {
-
-                console.error(
-                    'Action buttons error:',
-                    error
+                throw new Error(
+                    'Action buttons failed'
                 );
 
             }
-        );
+
+            return response.text();
+
+        })
+
+        .then(html => {
+
+            const container =
+                document.getElementById(
+                    'about-action-buttons'
+                );
+
+
+            if (!container)
+                return;
+
+
+            container.innerHTML =
+                html;
+
+
+            const portfolioButton =
+                container.querySelector(
+                    '[data-action="portfolio"]'
+                );
+
+
+            const contactButton =
+                container.querySelector(
+                    '[data-action="contact"]'
+                );
+
+
+            if (
+                contactButton &&
+                portfolioButton
+            ) {
+
+                container.innerHTML =
+                    '';
+
+                container.appendChild(
+                    contactButton
+                );
+
+                container.appendChild(
+                    portfolioButton
+                );
+
+            }
+
+        })
+
+        .catch(error => {
+
+            console.error(
+                'Action buttons error:',
+                error
+            );
+
+        });
 
 
         /* ==================================================
@@ -3231,87 +2488,79 @@
         fetch(
             './components/navbar.html',
             {
-                cache:
-                    'no-store'
+                cache: 'no-store'
             }
         )
 
-        .then(
-            response => {
+        .then(response => {
 
-                if (!response.ok) {
+            if (!response.ok) {
 
-                    throw new Error(
-                        'Navbar could not be loaded'
-                    );
-
-                }
-
-                return response.text();
-
-            }
-        )
-
-        .then(
-            html => {
-
-                const navbar =
-                    document.getElementById(
-                        'navbar-container'
-                    );
-
-
-                if (!navbar) {
-                    return;
-                }
-
-
-                navbar.innerHTML =
-                    html;
-
-
-                const aboutLink =
-                    navbar.querySelector(
-                        '.nav-links a[data-page="about"]'
-                    );
-
-
-                const mobileAboutLink =
-                    navbar.querySelector(
-                        '.mobile-nav-links a[data-page="about"]'
-                    );
-
-
-                if (aboutLink) {
-
-                    aboutLink.classList.add(
-                        'active'
-                    );
-
-                }
-
-
-                if (mobileAboutLink) {
-
-                    mobileAboutLink.classList.add(
-                        'active'
-                    );
-
-                }
-
-            }
-        )
-
-        .catch(
-            error => {
-
-                console.error(
-                    'Navbar error:',
-                    error
+                throw new Error(
+                    'Navbar could not be loaded'
                 );
 
             }
-        );
+
+            return response.text();
+
+        })
+
+        .then(html => {
+
+            const navbar =
+                document.getElementById(
+                    'navbar-container'
+                );
+
+
+            if (!navbar)
+                return;
+
+
+            navbar.innerHTML =
+                html;
+
+
+            const aboutLink =
+                navbar.querySelector(
+                    '.nav-links a[data-page="about"]'
+                );
+
+
+            const mobileAboutLink =
+                navbar.querySelector(
+                    '.mobile-nav-links a[data-page="about"]'
+                );
+
+
+            if (aboutLink) {
+
+                aboutLink.classList.add(
+                    'active'
+                );
+
+            }
+
+
+            if (mobileAboutLink) {
+
+                mobileAboutLink.classList.add(
+                    'active'
+                );
+
+            }
+
+        })
+
+        .catch(error => {
+
+            console.error(
+                'Navbar error:',
+                error
+            );
+
+        });
 
 
         /* ==================================================
@@ -3321,56 +2570,49 @@
         fetch(
             './components/footer.html',
             {
-                cache:
-                    'no-store'
+                cache: 'no-store'
             }
         )
 
-        .then(
-            response => {
+        .then(response => {
 
-                if (!response.ok) {
+            if (!response.ok) {
 
-                    throw new Error(
-                        'Footer could not be loaded'
-                    );
-
-                }
-
-                return response.text();
-
-            }
-        )
-
-        .then(
-            html => {
-
-                const footer =
-                    document.getElementById(
-                        'footer-container'
-                    );
-
-
-                if (footer) {
-
-                    footer.innerHTML =
-                        html;
-
-                }
-
-            }
-        )
-
-        .catch(
-            error => {
-
-                console.error(
-                    'Footer error:',
-                    error
+                throw new Error(
+                    'Footer could not be loaded'
                 );
 
             }
-        );
+
+            return response.text();
+
+        })
+
+        .then(html => {
+
+            const footer =
+                document.getElementById(
+                    'footer-container'
+                );
+
+
+            if (footer) {
+
+                footer.innerHTML =
+                    html;
+
+            }
+
+        })
+
+        .catch(error => {
+
+            console.error(
+                'Footer error:',
+                error
+            );
+
+        });
 
 
         /* ==================================================
@@ -3383,17 +2625,13 @@
 
             {
 
-                opacity:
-                    1,
+                y: 0,
 
-                y:
-                    0,
+                opacity: 1,
 
-                duration:
-                    0.9,
+                duration: .9,
 
-                stagger:
-                    0.10,
+                stagger: .08,
 
                 ease:
                     'power3.out'
@@ -3431,14 +2669,11 @@
 
                         {
 
-                            opacity:
-                                1,
+                            y: 0,
 
-                            y:
-                                0,
+                            opacity: 1,
 
-                            duration:
-                                0.75,
+                            duration: .75,
 
                             ease:
                                 'power3.out',
@@ -3465,6 +2700,174 @@
 
 
         /* ==================================================
+           FOUNDER CARD ENTRANCE
+        ================================================== */
+
+        gsap.utils
+            .toArray(
+                '.founder-card'
+            )
+            .forEach(
+                (card,index) => {
+
+                    gsap.fromTo(
+
+                        card,
+
+                        {
+
+                            y: 28,
+
+                            opacity: 0
+
+                        },
+
+                        {
+
+                            y: 0,
+
+                            opacity: 1,
+
+                            duration: .75,
+
+                            delay:
+                                index * .08,
+
+                            ease:
+                                'power3.out',
+
+                            scrollTrigger: {
+
+                                trigger:
+                                    card,
+
+                                start:
+                                    'top 88%',
+
+                                once:
+                                    true
+
+                            }
+
+                        }
+
+                    );
+
+                }
+            );
+
+
+        /* ==================================================
+           FOUNDER IMAGE REVEAL
+        ================================================== */
+
+        gsap.utils
+            .toArray(
+                '.founder-image img'
+            )
+            .forEach(
+                image => {
+
+                    gsap.fromTo(
+
+                        image,
+
+                        {
+
+                            scale: 1.045
+
+                        },
+
+                        {
+
+                            scale: 1,
+
+                            duration: 1,
+
+                            ease:
+                                'power3.out',
+
+                            scrollTrigger: {
+
+                                trigger:
+                                    image,
+
+                                start:
+                                    'top 90%',
+
+                                once:
+                                    true
+
+                            }
+
+                        }
+
+                    );
+
+                }
+            );
+
+
+        /* ==================================================
+           FOUNDER DETAILS
+        ================================================== */
+
+        gsap.utils
+            .toArray(
+                '.founder-card'
+            )
+            .forEach(
+                card => {
+
+                    gsap.fromTo(
+
+                        card.querySelectorAll(
+                            '.founder-info > *'
+                        ),
+
+                        {
+
+                            y: 12,
+
+                            opacity: 0
+
+                        },
+
+                        {
+
+                            y: 0,
+
+                            opacity: 1,
+
+                            duration: .50,
+
+                            stagger: .06,
+
+                            ease:
+                                'power3.out',
+
+                            scrollTrigger: {
+
+                                trigger:
+                                    card,
+
+                                start:
+                                    'top 82%',
+
+                                once:
+                                    true
+
+                            }
+
+                        }
+
+                    );
+
+                }
+            );
+
+
+        /* ==================================================
            PURPOSE CARDS
         ================================================== */
 
@@ -3474,27 +2877,21 @@
 
             {
 
-                opacity:
-                    0,
+                y: 20,
 
-                y:
-                    20
+                opacity: 0
 
             },
 
             {
 
-                opacity:
-                    1,
+                y: 0,
 
-                y:
-                    0,
+                opacity: 1,
 
-                duration:
-                    0.6,
+                duration: .60,
 
-                stagger:
-                    0.08,
+                stagger: .08,
 
                 ease:
                     'power3.out',
@@ -3518,106 +2915,47 @@
 
 
         /* ==================================================
-           FOUNDER
+           GALLERY SCROLL
         ================================================== */
 
-        gsap.fromTo(
+        if (
+            window.matchMedia(
+                '(prefers-reduced-motion: no-preference)'
+            ).matches
+        ) {
 
-            '.founder-image',
+            gsap.to(
 
-            {
+                '.about-gallery-track',
 
-                opacity:
-                    0,
+                {
 
-                x:
-                    -30
+                    xPercent: -10,
 
-            },
+                    ease: 'none',
 
-            {
+                    scrollTrigger: {
 
-                opacity:
-                    1,
+                        trigger:
+                            '.about-gallery-section',
 
-                x:
-                    0,
+                        start:
+                            'top bottom',
 
-                duration:
-                    0.8,
+                        end:
+                            'bottom top',
 
-                ease:
-                    'power3.out',
+                        scrub: 1
 
-                scrollTrigger: {
-
-                    trigger:
-                        '.founder-section',
-
-                    start:
-                        'top 85%',
-
-                    once:
-                        true
+                    }
 
                 }
 
-            }
+            );
 
-        );
-
-
-        /* ==================================================
-           GALLERY
-        ================================================== */
-
-        gsap.fromTo(
-
-            '.about-gallery-section',
-
-            {
-
-                opacity:
-                    0,
-
-                y:
-                    20
-
-            },
-
-            {
-
-                opacity:
-                    1,
-
-                y:
-                    0,
-
-                duration:
-                    0.8,
-
-                ease:
-                    'power3.out',
-
-                scrollTrigger: {
-
-                    trigger:
-                        '.about-gallery-section',
-
-                    start:
-                        'top 90%',
-
-                    once:
-                        true
-
-                }
-
-            }
-
-        );
+        }
 
     </script>
-
 
 </body>
 

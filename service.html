@@ -10,10 +10,98 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>
-        Services | Auren Originals
-    </title>
+   <!-- ==================================================
+     SEO
+================================================== -->
 
+<title>
+    Auren Originals | Creative Services
+</title>
+
+<meta
+    name="description"
+    content="Explore Auren Originals creative services including photography, creative direction, branding and digital marketing for brands, businesses and meaningful visual stories."
+>
+
+<meta
+    name="keywords"
+    content="Auren Originals services, creative agency Chennai, photography services Chennai, creative direction, branding services, digital marketing, commercial photography, wedding photography"
+>
+
+<meta
+    name="author"
+    content="Auren Originals"
+>
+
+<meta
+    name="robots"
+    content="index, follow"
+>
+
+<link
+    rel="canonical"
+    href="https://YOUR-DOMAIN.com/services.html"
+>
+
+
+<!-- ==================================================
+     OPEN GRAPH
+================================================== -->
+
+<meta
+    property="og:type"
+    content="website"
+>
+
+<meta
+    property="og:title"
+    content="Auren Originals | Creative Services"
+>
+
+<meta
+    property="og:description"
+    content="Photography, creative direction, branding and digital marketing crafted with purpose by Auren Originals."
+>
+
+<meta
+    property="og:url"
+    content="https://YOUR-DOMAIN.com/services.html"
+>
+
+<meta
+    property="og:site_name"
+    content="Auren Originals"
+>
+
+<meta
+    property="og:image"
+    content="https://YOUR-DOMAIN.com/og-image.jpg"
+>
+
+
+<!-- ==================================================
+     TWITTER / X
+================================================== -->
+
+<meta
+    name="twitter:card"
+    content="summary_large_image"
+>
+
+<meta
+    name="twitter:title"
+    content="Auren Originals | Creative Services"
+>
+
+<meta
+    name="twitter:description"
+    content="Photography, creative direction, branding and digital marketing crafted with purpose by Auren Originals."
+>
+
+<meta
+    name="twitter:image"
+    content="https://YOUR-DOMAIN.com/og-image.jpg"
+>
 
     <!-- ==================================================
          GOOGLE FONTS
@@ -550,6 +638,9 @@
             margin-bottom:
                 42px;
 
+            cursor:
+                default;
+
         }
 
 
@@ -591,6 +682,10 @@
         }
 
 
+        /* ==================================================
+           SERVICE CONTENT
+        ================================================== */
+
         .service-content {
 
             max-width:
@@ -598,8 +693,13 @@
 
             transition:
                 transform
-                0.45s
-                ease;
+                0.5s
+                cubic-bezier(
+                    0.16,
+                    1,
+                    0.3,
+                    1
+                );
 
         }
 
@@ -644,11 +744,24 @@
 
             transition:
                 color
-                0.3s
-                ease;
+                0.35s
+                ease,
+
+                transform
+                0.45s
+                cubic-bezier(
+                    0.16,
+                    1,
+                    0.3,
+                    1
+                );
 
         }
 
+
+        /* ==================================================
+           SERVICE DESCRIPTION
+        ================================================== */
 
         .service-description {
 
@@ -667,8 +780,103 @@
             line-height:
                 1.65;
 
+            opacity:
+                0;
+
+            transform:
+                translateY(
+                    18px
+                );
+
+            max-height:
+                0;
+
+            overflow:
+                hidden;
+
+            pointer-events:
+                none;
+
+            transition:
+
+                opacity
+                0.42s
+                ease,
+
+                transform
+                0.52s
+                cubic-bezier(
+                    0.16,
+                    1,
+                    0.3,
+                    1
+                ),
+
+                max-height
+                0.52s
+                cubic-bezier(
+                    0.16,
+                    1,
+                    0.3,
+                    1
+                );
+
         }
 
+
+        /* ==================================================
+           DESKTOP SERVICE HOVER
+        ================================================== */
+
+        @media (min-width: 701px) {
+
+            .service-block:hover
+            .service-description {
+
+                opacity:
+                    1;
+
+                transform:
+                    translateY(
+                        0
+                    );
+
+                max-height:
+                    120px;
+
+            }
+
+
+            .service-block:hover
+            .service-content {
+
+                transform:
+                    translateX(
+                        7px
+                    );
+
+            }
+
+
+            .service-block:hover
+            .service-title {
+
+                color:
+                    var(--orange);
+
+                transform:
+                    translateY(
+                        -2px
+                    );
+
+            }
+
+        }
+
+
+        /* ==================================================
+           SERVICE IMAGE
+        ================================================== */
 
         .service-image {
 
@@ -710,33 +918,19 @@
                 );
 
             transition:
+
                 transform
                 0.8s
-                ease,
+                cubic-bezier(
+                    0.16,
+                    1,
+                    0.3,
+                    1
+                ),
 
                 filter
                 0.45s
                 ease;
-
-        }
-
-
-        .service-block:hover
-        .service-content {
-
-            transform:
-                translateX(
-                    7px
-                );
-
-        }
-
-
-        .service-block:hover
-        .service-title {
-
-            color:
-                var(--orange);
 
         }
 
@@ -1002,6 +1196,68 @@
         }
 
 
+        .industry-description {
+
+            max-width:
+                240px;
+
+            margin-top:
+                9px;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.72
+                );
+
+            font-size:
+                0.62rem;
+
+            line-height:
+                1.45;
+
+            opacity:
+                0;
+
+            transform:
+                translateY(
+                    10px
+                );
+
+            transition:
+
+                opacity
+                0.40s
+                ease,
+
+                transform
+                0.50s
+                cubic-bezier(
+                    0.16,
+                    1,
+                    0.3,
+                    1
+                );
+
+        }
+
+
+        .industry-card:hover
+        .industry-description {
+
+            opacity:
+                1;
+
+            transform:
+                translateY(
+                    0
+                );
+
+        }
+
+
         .industry-card:hover
         .industry-image {
 
@@ -1068,6 +1324,9 @@
 
         .process-item {
 
+            position:
+                relative;
+
             display:
                 grid;
 
@@ -1088,6 +1347,19 @@
             border-bottom:
                 1px solid
                 var(--line);
+
+            transition:
+                background
+                0.35s
+                ease,
+
+                border-color
+                0.35s
+                ease,
+
+                padding
+                0.35s
+                ease;
 
         }
 
@@ -1130,6 +1402,234 @@
 
             line-height:
                 1.65;
+
+        }
+
+
+        /* ==================================================
+           MOBILE PROCESS
+        ================================================== */
+
+        .process-item::after {
+
+            content:
+                '+';
+
+            display:
+                none;
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .process-item {
+
+                cursor:
+                    pointer;
+
+            }
+
+
+            .process-item::after {
+
+                display:
+                    flex;
+
+                align-items:
+                    center;
+
+                justify-content:
+                    center;
+
+                position:
+                    absolute;
+
+                right:
+                    0;
+
+                top:
+                    50%;
+
+                width:
+                    18px;
+
+                height:
+                    18px;
+
+                transform:
+                    translateY(
+                        -50%
+                    );
+
+                color:
+                    var(--orange);
+
+                font-size:
+                    0.62rem;
+
+                line-height:
+                    1;
+
+                transition:
+                    transform
+                    0.35s
+                    ease;
+
+            }
+
+
+            .process-item.is-open {
+
+                padding:
+                    15px 24px
+                    15px 0;
+
+                border-bottom-color:
+                    rgba(
+                        253,
+                        175,
+                        69,
+                        0.30
+                    );
+
+            }
+
+
+            .process-item.is-open::after {
+
+                content:
+                    '−';
+
+                transform:
+                    translateY(
+                        -50%
+                    );
+
+            }
+
+
+            .process-item
+            .process-description {
+
+                max-height:
+                    0;
+
+                overflow:
+                    hidden;
+
+                opacity:
+                    0;
+
+                transform:
+                    translateY(
+                        10px
+                    );
+
+                transition:
+
+                    max-height
+                    0.50s
+                    cubic-bezier(
+                        0.16,
+                        1,
+                        0.3,
+                        1
+                    ),
+
+                    opacity
+                    0.35s
+                    ease,
+
+                    transform
+                    0.45s
+                    cubic-bezier(
+                        0.16,
+                        1,
+                        0.3,
+                        1
+                    );
+
+            }
+
+
+            .process-item.is-open
+            .process-description {
+
+                max-height:
+                    110px;
+
+                opacity:
+                    1;
+
+                transform:
+                    translateY(
+                        0
+                    );
+
+            }
+
+
+            .process-item
+            .process-name {
+
+                transition:
+
+                    color
+                    0.30s
+                    ease,
+
+                    transform
+                    0.35s
+                    cubic-bezier(
+                        0.16,
+                        1,
+                        0.3,
+                        1
+                    );
+
+            }
+
+
+            .process-item.is-open
+            .process-name {
+
+                color:
+                    var(--orange);
+
+                transform:
+                    translateX(
+                        3px
+                    );
+
+            }
+
+
+            .process-item
+            .process-number {
+
+                transition:
+                    transform
+                    0.35s
+                    cubic-bezier(
+                        0.16,
+                        1,
+                        0.3,
+                        1
+                    );
+
+            }
+
+
+            .process-item.is-open
+            .process-number {
+
+                transform:
+                    translateX(
+                        3px
+                    );
+
+            }
 
         }
 
@@ -1704,6 +2204,15 @@
                 min-height:
                     520px;
 
+                display:
+                    flex;
+
+                align-items:
+                    center;
+
+                justify-content:
+                    center;
+
                 padding:
                     85px 0
                     70px;
@@ -1713,33 +2222,46 @@
 
             .services-hero-content {
 
+                width:
+                    100%;
+
                 max-width:
-                    280px;
+                    300px;
+
+                margin:
+                    0 auto;
+
+                text-align:
+                    center;
 
             }
 
 
+            .services-hero
             .section-label {
 
-                margin-bottom:
-                    12px;
-
-                font-size:
-                    0.46rem;
-
-                letter-spacing:
-                    1.2px;
+                text-align:
+                    center;
 
             }
 
 
             .services-hero h1 {
 
+                max-width:
+                    300px;
+
+                margin:
+                    0 auto;
+
                 font-size:
                     2.8rem;
 
                 line-height:
                     0.96;
+
+                text-align:
+                    center;
 
             }
 
@@ -1749,8 +2271,8 @@
                 max-width:
                     245px;
 
-                margin-top:
-                    19px;
+                margin:
+                    19px auto 0;
 
                 font-size:
                     0.56rem;
@@ -1758,11 +2280,14 @@
                 line-height:
                     1.5;
 
+                text-align:
+                    center;
+
             }
 
 
             /* ==========================================
-               HERO BUTTONS
+               MOBILE HERO BUTTONS - SMALL
             ========================================== */
 
             .services-hero
@@ -1771,26 +2296,52 @@
                 width:
                     100%;
 
-                margin-top:
-                    24px;
+                margin:
+                    20px auto 0;
 
-                flex-direction:
-                    row;
+                display:
+                    flex;
 
                 align-items:
                     center;
 
+                justify-content:
+                    center;
+
                 gap:
-                    7px;
+                    5px;
 
             }
 
 
             .services-hero
-            .action-buttons > * {
+            .action-buttons a,
+            .services-hero
+            .action-buttons button {
 
-                flex:
-                    0 0 auto;
+                min-width:
+                    70px !important;
+
+                width:
+                    70px !important;
+
+                height:
+                    22px !important;
+
+                min-height:
+                    22px !important;
+
+                padding:
+                    3px 8px !important;
+
+                border-radius:
+                    5px !important;
+
+                font-size:
+                    0.39rem !important;
+
+                line-height:
+                    1 !important;
 
             }
 
@@ -1843,30 +2394,58 @@
             .services-section {
 
                 padding:
-                    62px 0
-                    72px;
+                    66px 0
+                    78px;
 
             }
 
 
             .services-header {
 
+                width:
+                    100%;
+
                 margin-bottom:
-                    27px;
+                    36px;
+
+            }
+
+
+            .services-header
+            .section-label {
+
+                margin-bottom:
+                    11px;
 
             }
 
 
             .services-header h2 {
 
+                max-width:
+                    260px;
+
                 font-size:
-                    2.2rem;
+                    2.15rem;
+
+                line-height:
+                    .98;
+
+                letter-spacing:
+                    -.025em;
 
             }
 
 
+            /* ==========================================
+               MOBILE SERVICE BLOCK
+            ========================================== */
+
             .service-block,
             .service-block.reverse {
+
+                position:
+                    relative;
 
                 display:
                     flex;
@@ -1874,65 +2453,92 @@
                 flex-direction:
                     column;
 
-                gap:
-                    15px;
-
                 align-items:
                     flex-start;
+
+                gap:
+                    14px;
+
+                width:
+                    100%;
 
                 min-height:
                     auto;
 
                 margin-bottom:
-                    42px;
+                    54px;
+
+                padding:
+                    0;
 
             }
 
 
-            .service-block.reverse
-            .service-content,
-            .service-block.reverse
-            .service-image {
+            .service-block:last-child {
 
-                order:
-                    unset;
-
-            }
-
-
-            /*
-             * Match the reference:
-             * text and image alternate naturally.
-             */
-
-            .service-block:nth-of-type(
-                2n
-            ) {
-
-                align-items:
-                    flex-end;
+                margin-bottom:
+                    0;
 
             }
 
 
             .service-content {
 
+                position:
+                    relative;
+
                 width:
-                    70%;
+                    82%;
 
                 max-width:
                     none;
 
+                padding-left:
+                    18px;
+
+                transform:
+                    none !important;
+
             }
 
 
-            .service-block:nth-of-type(
-                2n
-            )
+            .service-content::before {
+
+                content:
+                    '';
+
+                position:
+                    absolute;
+
+                left:
+                    0;
+
+                top:
+                    3px;
+
+                width:
+                    2px;
+
+                height:
+                    54px;
+
+                border-radius:
+                    999px;
+
+                background:
+                    var(--orange);
+
+            }
+
+
+            .service-block:nth-child(even)
             .service-content {
 
-                text-align:
-                    left;
+                margin-left:
+                    auto;
+
+                padding-left:
+                    18px;
 
             }
 
@@ -1940,13 +2546,13 @@
             .service-number {
 
                 margin-bottom:
-                    9px;
+                    8px;
 
                 font-size:
-                    0.44rem;
+                    .43rem;
 
                 letter-spacing:
-                    1px;
+                    1.2px;
 
             }
 
@@ -1954,10 +2560,13 @@
             .service-title {
 
                 font-size:
-                    1.45rem;
+                    1.55rem;
 
                 line-height:
-                    1;
+                    .98;
+
+                letter-spacing:
+                    -.02em;
 
             }
 
@@ -1965,28 +2574,70 @@
             .service-description {
 
                 display:
+                    block;
+
+                max-width:
+                    235px;
+
+                margin-top:
+                    9px;
+
+                color:
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        .62
+                    );
+
+                font-size:
+                    .42rem;
+
+                line-height:
+                    1.58;
+
+                opacity:
+                    1;
+
+                transform:
                     none;
+
+                max-height:
+                    none;
+
+                overflow:
+                    visible;
+
+                pointer-events:
+                    auto;
 
             }
 
 
             .service-image {
 
+                position:
+                    relative;
+
                 width:
-                    72%;
+                    76%;
 
                 height:
-                    150px;
+                    154px;
+
+                margin-top:
+                    2px;
 
                 border-radius:
-                    8px;
+                    10px;
+
+                align-self:
+                    flex-start;
 
             }
 
 
-            .service-block:nth-of-type(
-                2n
-            )
+            .service-block:nth-child(even)
             .service-image {
 
                 align-self:
@@ -1995,13 +2646,49 @@
             }
 
 
-            .service-block:nth-of-type(
-                2n + 1
-            )
-            .service-image {
+            .service-image::after {
 
-                align-self:
-                    flex-start;
+                content:
+                    '';
+
+                position:
+                    absolute;
+
+                left:
+                    10px;
+
+                right:
+                    10px;
+
+                bottom:
+                    -6px;
+
+                height:
+                    1px;
+
+                background:
+                    rgba(
+                        253,
+                        175,
+                        69,
+                        .30
+                    );
+
+                pointer-events:
+                    none;
+
+            }
+
+
+            .service-image img {
+
+                transform:
+                    scale(
+                        1.02
+                    );
+
+                filter:
+                    none;
 
             }
 
@@ -2015,14 +2702,41 @@
             }
 
 
+            .service-block:hover
+            .service-title {
+
+                color:
+                    var(--white);
+
+                transform:
+                    none;
+
+            }
+
+
+            .service-block:hover
+            .service-image img {
+
+                transform:
+                    scale(
+                        1.02
+                    );
+
+                filter:
+                    none;
+
+            }
+
+
             /* ==========================================
                INDUSTRIES
+               LEFT ALIGNED
             ========================================== */
 
             .industries-section {
 
                 padding:
-                    72px 0
+                    68px 0
                     78px;
 
             }
@@ -2030,21 +2744,57 @@
 
             .industries-header {
 
-                margin-bottom:
-                    26px;
+                width:
+                    100%;
+
+                max-width:
+                    320px;
+
+                margin:
+                    0 0 28px;
+
+                text-align:
+                    left;
+
+            }
+
+
+            .industries-header
+            .section-label {
+
+                text-align:
+                    left;
 
             }
 
 
             .industries-header h2 {
 
+                max-width:
+                    280px;
+
+                margin:
+                    0;
+
                 font-size:
-                    2.2rem;
+                    2.05rem;
+
+                line-height:
+                    .98;
+
+                letter-spacing:
+                    -.025em;
+
+                text-align:
+                    left;
 
             }
 
 
             .industry-grid {
+
+                width:
+                    100%;
 
                 grid-template-columns:
                     repeat(
@@ -2056,15 +2806,52 @@
                     );
 
                 gap:
-                    7px;
+                    10px;
 
             }
 
 
             .industry-card {
 
+                min-width:
+                    0;
+
+                aspect-ratio:
+                    .86 / 1;
+
                 border-radius:
-                    7px;
+                    10px;
+
+            }
+
+
+            .industry-overlay {
+
+                background:
+                    linear-gradient(
+                        to top,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            .92
+                        ) 0%,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            .58
+                        ) 48%,
+
+                        rgba(
+                            0,
+                            0,
+                            0,
+                            .10
+                        ) 100%
+                    );
 
             }
 
@@ -2072,13 +2859,13 @@
             .industry-content {
 
                 left:
-                    8px;
+                    11px;
 
                 right:
-                    8px;
+                    11px;
 
                 bottom:
-                    8px;
+                    11px;
 
             }
 
@@ -2086,13 +2873,10 @@
             .industry-number {
 
                 margin-bottom:
-                    3px;
+                    4px;
 
                 font-size:
-                    0.36rem;
-
-                letter-spacing:
-                    0.8px;
+                    .34rem;
 
             }
 
@@ -2100,7 +2884,10 @@
             .industry-name {
 
                 font-size:
-                    0.90rem;
+                    .92rem;
+
+                line-height:
+                    1.05;
 
             }
 
@@ -2108,19 +2895,56 @@
             .industry-tag {
 
                 margin-top:
-                    4px;
+                    5px;
 
                 font-size:
-                    0.38rem;
+                    .35rem;
 
                 letter-spacing:
-                    0.7px;
+                    .7px;
+
+            }
+
+
+            .industry-description {
+
+                max-width:
+                    100%;
+
+                margin-top:
+                    6px;
+
+                font-size:
+                    .37rem;
+
+                line-height:
+                    1.40;
+
+                opacity:
+                    1;
+
+                transform:
+                    none;
+
+            }
+
+
+            .industry-card:hover
+            .industry-image {
+
+                transform:
+                    scale(
+                        1.02
+                    );
+
+                filter:
+                    none;
 
             }
 
 
             /* ==========================================
-               PROCESS
+               HOW WE WORK
             ========================================== */
 
             .process-section {
@@ -2173,7 +2997,7 @@
             .process-number {
 
                 font-size:
-                    0.40rem;
+                    .40rem;
 
             }
 
@@ -2184,7 +3008,7 @@
                     var(--body);
 
                 font-size:
-                    0.57rem;
+                    .57rem;
 
                 font-weight:
                     500;
@@ -2195,7 +3019,7 @@
             .process-description {
 
                 font-size:
-                    0.42rem;
+                    .42rem;
 
                 line-height:
                     1.45;
@@ -2266,7 +3090,7 @@
             .why-number {
 
                 font-size:
-                    0.38rem;
+                    .38rem;
 
             }
 
@@ -2277,7 +3101,7 @@
                     13px;
 
                 font-size:
-                    0.55rem;
+                    .55rem;
 
             }
 
@@ -2288,7 +3112,7 @@
                     5px;
 
                 font-size:
-                    0.38rem;
+                    .38rem;
 
                 line-height:
                     1.45;
@@ -2320,7 +3144,7 @@
             .testimonial-quote {
 
                 font-size:
-                    0.94rem;
+                    .94rem;
 
                 line-height:
                     1.30;
@@ -2329,7 +3153,7 @@
 
 
             /* ==========================================
-               TRANSITION IMAGE
+               TRANSITION
             ========================================== */
 
             .cta-transition {
@@ -2351,10 +3175,10 @@
             .cta-transition-label {
 
                 font-size:
-                    0.40rem;
+                    .40rem;
 
                 letter-spacing:
-                    0.8px;
+                    .8px;
 
             }
 
@@ -2381,7 +3205,7 @@
                     2.45rem;
 
                 line-height:
-                    0.95;
+                    .95;
 
             }
 
@@ -2395,7 +3219,7 @@
                     20px;
 
                 font-size:
-                    0.48rem;
+                    .48rem;
 
                 line-height:
                     1.5;
@@ -2403,11 +3227,13 @@
             }
 
 
+            /* SMALL FINAL CTA BUTTON */
+
             .final-cta
             .action-buttons {
 
                 margin-top:
-                    22px;
+                    20px;
 
                 flex-direction:
                     row;
@@ -2416,7 +3242,39 @@
                     center;
 
                 gap:
-                    6px;
+                    5px;
+
+            }
+
+
+            .final-cta
+            .action-buttons a,
+            .final-cta
+            .action-buttons button {
+
+                min-width:
+                    70px !important;
+
+                width:
+                    70px !important;
+
+                height:
+                    22px !important;
+
+                min-height:
+                    22px !important;
+
+                padding:
+                    3px 8px !important;
+
+                border-radius:
+                    5px !important;
+
+                font-size:
+                    .39rem !important;
+
+                line-height:
+                    1 !important;
 
             }
 
@@ -2437,6 +3295,14 @@
             }
 
 
+            .services-hero-content {
+
+                max-width:
+                    285px;
+
+            }
+
+
             .services-hero h1 {
 
                 font-size:
@@ -2445,10 +3311,60 @@
             }
 
 
+            .services-hero-copy {
+
+                max-width:
+                    225px;
+
+            }
+
+
+            .services-hero
+            .action-buttons a,
+            .services-hero
+            .action-buttons button {
+
+                min-width:
+                    66px !important;
+
+                width:
+                    66px !important;
+
+                height:
+                    21px !important;
+
+                min-height:
+                    21px !important;
+
+                font-size:
+                    .37rem !important;
+
+            }
+
+
             .service-content {
 
                 width:
-                    72%;
+                    84%;
+
+            }
+
+
+            .service-title {
+
+                font-size:
+                    1.46rem;
+
+            }
+
+
+            .service-description {
+
+                max-width:
+                    220px;
+
+                font-size:
+                    .39rem;
 
             }
 
@@ -2456,7 +3372,7 @@
             .service-image {
 
                 width:
-                    73%;
+                    78%;
 
                 height:
                     142px;
@@ -2467,7 +3383,18 @@
             .industry-name {
 
                 font-size:
-                    0.84rem;
+                    .84rem;
+
+            }
+
+
+            .industry-description {
+
+                font-size:
+                    .34rem;
+
+                line-height:
+                    1.35;
 
             }
 
@@ -2489,6 +3416,67 @@
 
                 font-size:
                     2.30rem;
+
+            }
+
+
+            .final-cta
+            .action-buttons a,
+            .final-cta
+            .action-buttons button {
+
+                min-width:
+                    66px !important;
+
+                width:
+                    66px !important;
+
+                height:
+                    21px !important;
+
+                min-height:
+                    21px !important;
+
+                font-size:
+                    .37rem !important;
+
+            }
+
+        }
+
+
+        /* ==================================================
+           REDUCED MOTION
+        ================================================== */
+
+        @media (
+            prefers-reduced-motion:
+            reduce
+        ) {
+
+            html {
+
+                scroll-behavior:
+                    auto;
+
+            }
+
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    0.01ms !important;
+
+                scroll-behavior:
+                    auto !important;
 
             }
 
@@ -2659,6 +3647,8 @@
             </div>
 
 
+            <!-- PHOTOGRAPHY -->
+
             <article
                 class="service-block reveal"
             >
@@ -2686,7 +3676,9 @@
                     >
                         Capture stories with purpose across
                         sports, fashion, weddings, commercial,
-                        architecture and corporate.
+                        architecture and corporate. Our team
+                        masters light, composition, and timing
+                        to immortalize raw elegance.
                     </p>
 
                 </div>
@@ -2707,6 +3699,8 @@
 
             </article>
 
+
+            <!-- CREATIVE DIRECTION -->
 
             <article
                 class="service-block reverse reveal"
@@ -2733,9 +3727,11 @@
                     <p
                         class="service-description"
                     >
-                        Transform ideas into meaningful
-                        visual experiences from concept
-                        to execution.
+                        Transform ideas into meaningful visual
+                        experiences from concept to execution.
+                        We shape the complete aesthetic blueprint
+                        to align every design decision with your
+                        brand's truth.
                     </p>
 
                 </div>
@@ -2756,6 +3752,8 @@
 
             </article>
 
+
+            <!-- BRANDING -->
 
             <article
                 class="service-block reveal"
@@ -2784,6 +3782,9 @@
                     >
                         Build memorable identities that
                         communicate with clarity and consistency.
+                        From wordmarks and logotypes to holistic
+                        design systems, we build foundations that
+                        refuse to blend in.
                     </p>
 
                 </div>
@@ -2804,6 +3805,8 @@
 
             </article>
 
+
+            <!-- DIGITAL MARKETING -->
 
             <article
                 class="service-block reverse reveal"
@@ -2830,9 +3833,11 @@
                     <p
                         class="service-description"
                     >
-                        Create strategies and content that
-                        help brands grow and reach the right
-                        audience.
+                        Create strategies and content that help
+                        brands grow and reach the right audience.
+                        We translate artistic craft into digital
+                        relevance, ensuring your stories thrive
+                        across all platforms.
                     </p>
 
                 </div>
@@ -2894,6 +3899,8 @@
                 class="industry-grid"
             >
 
+                <!-- SPORTS -->
+
                 <article
                     class="industry-card reveal"
                 >
@@ -2906,11 +3913,9 @@
                         loading="lazy"
                     >
 
-
                     <div
                         class="industry-overlay"
                     ></div>
-
 
                     <div
                         class="industry-content"
@@ -2922,13 +3927,11 @@
                             01
                         </span>
 
-
                         <h3
                             class="industry-name"
                         >
                             Sports
                         </h3>
-
 
                         <span
                             class="industry-tag"
@@ -2936,10 +3939,20 @@
                             Performance
                         </span>
 
+                        <p
+                            class="industry-description"
+                        >
+                            High-energy visual storytelling
+                            built around movement, intensity,
+                            and performance.
+                        </p>
+
                     </div>
 
                 </article>
 
+
+                <!-- FASHION -->
 
                 <article
                     class="industry-card reveal"
@@ -2953,11 +3966,9 @@
                         loading="lazy"
                     >
 
-
                     <div
                         class="industry-overlay"
                     ></div>
-
 
                     <div
                         class="industry-content"
@@ -2969,13 +3980,11 @@
                             02
                         </span>
 
-
                         <h3
                             class="industry-name"
                         >
                             Fashion
                         </h3>
-
 
                         <span
                             class="industry-tag"
@@ -2983,10 +3992,20 @@
                             Editorial
                         </span>
 
+                        <p
+                            class="industry-description"
+                        >
+                            Distinctive fashion imagery shaped
+                            through styling, mood, and strong
+                            visual direction.
+                        </p>
+
                     </div>
 
                 </article>
 
+
+                <!-- CORPORATE -->
 
                 <article
                     class="industry-card reveal"
@@ -3000,11 +4019,9 @@
                         loading="lazy"
                     >
 
-
                     <div
                         class="industry-overlay"
                     ></div>
-
 
                     <div
                         class="industry-content"
@@ -3016,13 +4033,11 @@
                             03
                         </span>
 
-
                         <h3
                             class="industry-name"
                         >
                             Corporate
                         </h3>
-
 
                         <span
                             class="industry-tag"
@@ -3030,10 +4045,20 @@
                             Identity
                         </span>
 
+                        <p
+                            class="industry-description"
+                        >
+                            Professional visual content that
+                            gives brands a confident, consistent
+                            presence.
+                        </p>
+
                     </div>
 
                 </article>
 
+
+                <!-- COMMERCIAL -->
 
                 <article
                     class="industry-card reveal"
@@ -3047,11 +4072,9 @@
                         loading="lazy"
                     >
 
-
                     <div
                         class="industry-overlay"
                     ></div>
-
 
                     <div
                         class="industry-content"
@@ -3063,13 +4086,11 @@
                             04
                         </span>
 
-
                         <h3
                             class="industry-name"
                         >
                             Commercial
                         </h3>
-
 
                         <span
                             class="industry-tag"
@@ -3077,10 +4098,20 @@
                             Campaign
                         </span>
 
+                        <p
+                            class="industry-description"
+                        >
+                            Purpose-built campaign visuals
+                            designed to communicate clearly
+                            and drive attention.
+                        </p>
+
                     </div>
 
                 </article>
 
+
+                <!-- E-COMMERCE -->
 
                 <article
                     class="industry-card reveal"
@@ -3094,11 +4125,9 @@
                         loading="lazy"
                     >
 
-
                     <div
                         class="industry-overlay"
                     ></div>
-
 
                     <div
                         class="industry-content"
@@ -3110,13 +4139,11 @@
                             05
                         </span>
 
-
                         <h3
                             class="industry-name"
                         >
                             E-commerce
                         </h3>
-
 
                         <span
                             class="industry-tag"
@@ -3124,10 +4151,20 @@
                             Retail
                         </span>
 
+                        <p
+                            class="industry-description"
+                        >
+                            Clean, considered imagery that
+                            helps products feel premium,
+                            desirable, and ready to sell.
+                        </p>
+
                     </div>
 
                 </article>
 
+
+                <!-- WEDDINGS -->
 
                 <article
                     class="industry-card reveal"
@@ -3141,11 +4178,9 @@
                         loading="lazy"
                     >
 
-
                     <div
                         class="industry-overlay"
                     ></div>
-
 
                     <div
                         class="industry-content"
@@ -3157,13 +4192,11 @@
                             06
                         </span>
 
-
                         <h3
                             class="industry-name"
                         >
                             Weddings
                         </h3>
-
 
                         <span
                             class="industry-tag"
@@ -3171,10 +4204,20 @@
                             Intimate
                         </span>
 
+                        <p
+                            class="industry-description"
+                        >
+                            Emotion-led imagery that preserves
+                            atmosphere, personality, and
+                            meaningful moments.
+                        </p>
+
                     </div>
 
                 </article>
 
+
+                <!-- HOSPITALITY -->
 
                 <article
                     class="industry-card reveal"
@@ -3188,11 +4231,9 @@
                         loading="lazy"
                     >
 
-
                     <div
                         class="industry-overlay"
                     ></div>
-
 
                     <div
                         class="industry-content"
@@ -3204,13 +4245,11 @@
                             07
                         </span>
 
-
                         <h3
                             class="industry-name"
                         >
                             Hospitality
                         </h3>
-
 
                         <span
                             class="industry-tag"
@@ -3218,10 +4257,20 @@
                             Lifestyle
                         </span>
 
+                        <p
+                            class="industry-description"
+                        >
+                            Warm, aspirational visuals that
+                            communicate experience, place,
+                            and hospitality.
+                        </p>
+
                     </div>
 
                 </article>
 
+
+                <!-- ARCHITECTURE -->
 
                 <article
                     class="industry-card reveal"
@@ -3235,11 +4284,9 @@
                         loading="lazy"
                     >
 
-
                     <div
                         class="industry-overlay"
                     ></div>
-
 
                     <div
                         class="industry-content"
@@ -3251,19 +4298,25 @@
                             08
                         </span>
 
-
                         <h3
                             class="industry-name"
                         >
                             Architecture
                         </h3>
 
-
                         <span
                             class="industry-tag"
                         >
                             Space
                         </span>
+
+                        <p
+                            class="industry-description"
+                        >
+                            Precise visual storytelling that
+                            highlights form, material,
+                            architecture, and atmosphere.
+                        </p>
 
                     </div>
 
@@ -3277,7 +4330,7 @@
 
 
     <!-- ==================================================
-         PROCESS
+         HOW WE WORK
     ================================================== -->
 
     <section
@@ -3313,7 +4366,7 @@
             >
 
                 <div
-                    class="process-item reveal"
+                    class="process-item process-card reveal"
                 >
 
                     <span
@@ -3322,13 +4375,11 @@
                         01
                     </span>
 
-
                     <h3
                         class="process-name"
                     >
                         Discover
                     </h3>
-
 
                     <p
                         class="process-description"
@@ -3342,7 +4393,7 @@
 
 
                 <div
-                    class="process-item reveal"
+                    class="process-item process-card reveal"
                 >
 
                     <span
@@ -3351,13 +4402,11 @@
                         02
                     </span>
 
-
                     <h3
                         class="process-name"
                     >
                         Strategy
                     </h3>
-
 
                     <p
                         class="process-description"
@@ -3370,7 +4419,7 @@
 
 
                 <div
-                    class="process-item reveal"
+                    class="process-item process-card reveal"
                 >
 
                     <span
@@ -3379,13 +4428,11 @@
                         03
                     </span>
 
-
                     <h3
                         class="process-name"
                     >
                         Production
                     </h3>
-
 
                     <p
                         class="process-description"
@@ -3398,7 +4445,7 @@
 
 
                 <div
-                    class="process-item reveal"
+                    class="process-item process-card reveal"
                 >
 
                     <span
@@ -3407,13 +4454,11 @@
                         04
                     </span>
 
-
                     <h3
                         class="process-name"
                     >
                         Post Production
                     </h3>
-
 
                     <p
                         class="process-description"
@@ -3426,7 +4471,7 @@
 
 
                 <div
-                    class="process-item reveal"
+                    class="process-item process-card reveal"
                 >
 
                     <span
@@ -3435,13 +4480,11 @@
                         05
                     </span>
 
-
                     <h3
                         class="process-name"
                     >
                         Delivery
                     </h3>
-
 
                     <p
                         class="process-description"
@@ -3504,11 +4547,9 @@
                         01
                     </span>
 
-
                     <h3>
                         Purpose-driven Creativity
                     </h3>
-
 
                     <p>
                         Every project starts with intention
@@ -3528,11 +4569,9 @@
                         02
                     </span>
 
-
                     <h3>
                         Attention to Detail
                     </h3>
-
 
                     <p>
                         Every visual decision is treated
@@ -3552,11 +4591,9 @@
                         03
                     </span>
 
-
                     <h3>
                         Consistent Brand Language
                     </h3>
-
 
                     <p>
                         Visuals that feel unified across
@@ -3576,11 +4613,9 @@
                         04
                     </span>
 
-
                     <h3>
                         Long-term Partnerships
                     </h3>
-
 
                     <p>
                         We build relationships, not
@@ -3935,7 +4970,8 @@
                 );
 
 
-            if (!container) return;
+            if (!container)
+                return;
 
 
             container.innerHTML =
@@ -3948,7 +4984,8 @@
                 );
 
 
-            if (!button) return;
+            if (!button)
+                return;
 
 
             function updateScrollButton() {
@@ -3978,8 +5015,7 @@
                 'scroll',
                 updateScrollButton,
                 {
-                    passive:
-                        true
+                    passive:true
                 }
             );
 
@@ -3990,11 +5026,9 @@
 
                     window.scrollTo({
 
-                        top:
-                            0,
+                        top:0,
 
-                        behavior:
-                            'smooth'
+                        behavior:'smooth'
 
                     });
 
@@ -4044,10 +5078,6 @@
 
         .then(html => {
 
-            /* ==========================================
-               HERO
-            ========================================== */
-
             const heroButtons =
                 document.getElementById(
                     'hero-action-buttons'
@@ -4066,18 +5096,11 @@
                     );
 
 
-                if (portfolioButton) {
-
+                if (portfolioButton)
                     portfolioButton.remove();
-
-                }
 
             }
 
-
-            /* ==========================================
-               FINAL CTA
-            ========================================== */
 
             const finalButtons =
                 document.getElementById(
@@ -4111,11 +5134,9 @@
                     finalButtons.innerHTML =
                         '';
 
-
                     finalButtons.appendChild(
                         contactButton
                     );
-
 
                     finalButtons.appendChild(
                         portfolioButton
@@ -4171,7 +5192,8 @@
                 );
 
 
-            if (!container) return;
+            if (!container)
+                return;
 
 
             container.innerHTML =
@@ -4277,26 +5299,89 @@
         ================================================== */
 
         gsap.to(
+
             '.services-hero .reveal',
+
             {
 
-                y:
-                    0,
+                y:0,
 
-                opacity:
-                    1,
+                opacity:1,
 
-                duration:
-                    0.85,
+                duration:.85,
 
-                stagger:
-                    0.08,
+                stagger:.08,
 
-                ease:
-                    'power3.out'
+                ease:'power3.out'
 
             }
+
         );
+
+
+        /* ==================================================
+           MOBILE HOW WE WORK
+        ================================================== */
+
+        const processItems =
+            document.querySelectorAll(
+                '.process-card'
+            );
+
+
+        if (
+            processItems.length
+        ) {
+
+            processItems.forEach(
+                item => {
+
+                    item.addEventListener(
+                        'click',
+                        () => {
+
+                            if (
+                                window.innerWidth >
+                                700
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            const wasOpen =
+                                item.classList.contains(
+                                    'is-open'
+                                );
+
+
+                            processItems.forEach(
+                                otherItem => {
+
+                                    otherItem.classList.remove(
+                                        'is-open'
+                                    );
+
+                                }
+                            );
+
+
+                            if (!wasOpen) {
+
+                                item.classList.add(
+                                    'is-open'
+                                );
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+        }
 
 
         /* ==================================================
@@ -4333,20 +5418,18 @@
 
 
                     gsap.to(
+
                         element,
+
                         {
 
-                            y:
-                                0,
+                            y:0,
 
-                            opacity:
-                                1,
+                            opacity:1,
 
-                            duration:
-                                0.75,
+                            duration:.75,
 
-                            ease:
-                                'power3.out',
+                            ease:'power3.out',
 
                             scrollTrigger: {
 
@@ -4356,12 +5439,12 @@
                                 start:
                                     'top 90%',
 
-                                once:
-                                    true
+                                once:true
 
                             }
 
                         }
+
                     );
 
                 }
@@ -4385,33 +5468,25 @@
 
                         {
 
-                            y:
-                                25,
+                            y:25,
 
-                            opacity:
-                                0,
+                            opacity:0,
 
-                            scale:
-                                0.985
+                            scale:.985
 
                         },
 
                         {
 
-                            y:
-                                0,
+                            y:0,
 
-                            opacity:
-                                1,
+                            opacity:1,
 
-                            scale:
-                                1,
+                            scale:1,
 
-                            duration:
-                                0.8,
+                            duration:.8,
 
-                            ease:
-                                'power3.out',
+                            ease:'power3.out',
 
                             scrollTrigger: {
 
@@ -4421,8 +5496,7 @@
                                 start:
                                     'top 92%',
 
-                                once:
-                                    true
+                                once:true
 
                             }
 
@@ -4443,7 +5517,7 @@
                 '.industry-card'
             )
             .forEach(
-                (card, index) => {
+                (card,index) => {
 
                     gsap.fromTo(
 
@@ -4451,36 +5525,30 @@
 
                         {
 
-                            y:
-                                20,
+                            y:20,
 
-                            opacity:
-                                0,
+                            opacity:0,
 
-                            scale:
-                                0.99
+                            scale:.99
 
                         },
 
                         {
 
-                            y:
-                                0,
+                            y:0,
 
-                            opacity:
-                                1,
+                            opacity:1,
 
-                            scale:
-                                1,
+                            scale:1,
 
-                            duration:
-                                0.6,
+                            duration:.6,
 
                             delay:
-                                (index % 4) * 0.04,
+                                (
+                                    index % 4
+                                ) * .04,
 
-                            ease:
-                                'power3.out',
+                            ease:'power3.out',
 
                             scrollTrigger: {
 
@@ -4490,8 +5558,7 @@
                                 start:
                                     'top 92%',
 
-                                once:
-                                    true
+                                once:true
 
                             }
 
@@ -4513,30 +5580,23 @@
 
             {
 
-                y:
-                    18,
+                y:18,
 
-                opacity:
-                    0
+                opacity:0
 
             },
 
             {
 
-                y:
-                    0,
+                y:0,
 
-                opacity:
-                    1,
+                opacity:1,
 
-                duration:
-                    0.55,
+                duration:.55,
 
-                stagger:
-                    0.06,
+                stagger:.06,
 
-                ease:
-                    'power3.out',
+                ease:'power3.out',
 
                 scrollTrigger: {
 
@@ -4546,8 +5606,7 @@
                     start:
                         'top 90%',
 
-                    once:
-                        true
+                    once:true
 
                 }
 
@@ -4557,7 +5616,7 @@
 
 
         /* ==================================================
-           WHY CARDS
+           WHY
         ================================================== */
 
         gsap.fromTo(
@@ -4566,30 +5625,23 @@
 
             {
 
-                y:
-                    18,
+                y:18,
 
-                opacity:
-                    0
+                opacity:0
 
             },
 
             {
 
-                y:
-                    0,
+                y:0,
 
-                opacity:
-                    1,
+                opacity:1,
 
-                duration:
-                    0.55,
+                duration:.55,
 
-                stagger:
-                    0.07,
+                stagger:.07,
 
-                ease:
-                    'power3.out',
+                ease:'power3.out',
 
                 scrollTrigger: {
 
@@ -4599,8 +5651,7 @@
                     start:
                         'top 90%',
 
-                    once:
-                        true
+                    once:true
 
                 }
 
@@ -4619,21 +5670,17 @@
 
             {
 
-                opacity:
-                    0
+                opacity:0
 
             },
 
             {
 
-                opacity:
-                    1,
+                opacity:1,
 
-                duration:
-                    0.9,
+                duration:.9,
 
-                ease:
-                    'power2.out',
+                ease:'power2.out',
 
                 scrollTrigger: {
 
@@ -4643,8 +5690,7 @@
                     start:
                         'top 95%',
 
-                    once:
-                        true
+                    once:true
 
                 }
 
@@ -4683,8 +5729,7 @@
                     start:
                         'top 95%',
 
-                    once:
-                        true
+                    once:true
 
                 }
 
