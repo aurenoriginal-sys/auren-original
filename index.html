@@ -183,6 +183,22 @@
         rel="stylesheet"
     >
 
+    <!-- ==================================================
+     HOMEPAGE HERO PRELOAD
+================================================== -->
+
+<link
+    rel="preload"
+    as="image"
+    href="/optimized/hero-home?w=1600"
+    imagesrcset="
+        /optimized/hero-home?w=768 768w,
+        /optimized/hero-home?w=1024 1024w,
+        /optimized/hero-home?w=1600 1600w
+    "
+    imagesizes="100vw"
+    fetchpriority="high"
+>
 
     <style>
 
@@ -2912,13 +2928,25 @@
             >
 
                 <img
-                    class="hero-bg"
-                    id="home-hero-image"
-                    src=""
-                    alt="Auren Originals creative agency visual storytelling and photography"
-                    fetchpriority="high"
-                    decoding="async"
-                >
+    class="hero-bg"
+    id="home-hero-image"
+
+    src="/optimized/hero-home?w=1600"
+
+    srcset="
+        /optimized/hero-home?w=768 768w,
+        /optimized/hero-home?w=1024 1024w,
+        /optimized/hero-home?w=1600 1600w
+    "
+
+    sizes="100vw"
+
+    alt="Auren Originals creative agency visual storytelling and photography"
+
+    fetchpriority="high"
+
+    decoding="async"
+>
 
             </div>
 
@@ -3532,11 +3560,7 @@
            HOMEPAGE ASSETS
         ================================================== */
 
-        loadRootAsset(
-            'hero-image.jpg',
-            'home-hero-image'
-        );
-
+        
 
         loadRootAsset(
             'transition-image.jpg',

@@ -961,6 +961,169 @@ async function getRootAsset(
 
 }
 
+/* ==================================================
+   OPTIMIZED HOMEPAGE HERO
+   Direct image endpoint for fast LCP discovery
+================================================== */
+
+app.get(
+    '/optimized/hero-home',
+    async (req, res) => {
+
+        try {
+
+            const hero =
+                await getRootAsset(
+                    ROOT_ASSETS.heroHome
+                );
+
+
+            if (!hero) {
+
+                return res
+                    .status(404)
+                    .send(
+                        'Homepage hero image not found.'
+                    );
+
+            }
+
+
+            let requestedWidth =
+                Number(
+                    req.query.w
+                );
+
+
+            if (
+                !Number.isFinite(
+                    requestedWidth
+                )
+            ) {
+
+                requestedWidth =
+                    1600;
+
+            }
+
+
+            /*
+             * Keep requested sizes sensible.
+             * Mobile:
+             * 768
+             *
+             * Desktop:
+             * 1600
+             */
+
+            const allowedWidths = [
+                480,
+                768,
+                1024,
+                1280,
+                1600
+            ];
+
+
+            const width =
+                allowedWidths.reduce(
+                    (
+                        closest,
+                        current
+                    ) => {
+
+                        return Math.abs(
+                            current -
+                            requestedWidth
+                        )
+                        <
+                        Math.abs(
+                            closest -
+                            requestedWidth
+                        )
+                            ? current
+                            : closest;
+
+                    },
+                    allowedWidths[0]
+                );
+
+
+            const optimizedUrl =
+                cloudinary.url(
+                    hero.public_id,
+                    {
+
+                        secure:
+                            true,
+
+                        resource_type:
+                            'image',
+
+                        transformation: [
+
+                            {
+                                width:
+                                    width,
+
+                                crop:
+                                    'limit'
+                            },
+
+                            {
+                                quality:
+                                    'auto'
+                            },
+
+                            {
+                                fetch_format:
+                                    'auto'
+                            }
+
+                        ]
+
+                    }
+                );
+
+
+            /*
+             * Browser can discover this image directly.
+             * We intentionally redirect to Cloudinary's
+             * optimized CDN URL.
+             */
+
+            res.set(
+                'Cache-Control',
+                'public, max-age=86400'
+            );
+
+
+            return res.redirect(
+                302,
+                optimizedUrl
+            );
+
+        }
+
+        catch (error) {
+
+            console.error(
+                'Optimized hero error:',
+                error
+            );
+
+
+            return res
+                .status(500)
+                .send(
+                    'Unable to load homepage hero.'
+                );
+
+        }
+
+    }
+);
+
 
 /* ==================================================
    ROOT ASSET RESPONSE
