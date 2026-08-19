@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Page Not Found | Auren Originals
+    </title>
+
+    <meta
+        name="robots"
+        content="noindex, nofollow"
+    >
+
+    <style>
+
+        :root {
+            --bg: #000000;
+            --text: #ffffff;
+            --muted: #888888;
+            --highlight: #FDAF45;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .error-page {
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .logo {
+            width: 82px;
+            height: auto;
+            margin: 0 auto 50px;
+        }
+
+        .label {
+            margin-bottom: 16px;
+            color: var(--highlight);
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .error-code {
+            margin-bottom: 10px;
+            font-family: Georgia, serif;
+            font-size: clamp(5rem, 15vw, 10rem);
+            font-weight: 400;
+            line-height: 0.9;
+        }
+
+        h1 {
+            margin-bottom: 18px;
+            font-family: Georgia, serif;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 400;
+        }
+
+        p {
+            max-width: 500px;
+            margin: 0 auto 32px;
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 130px;
+            padding: 12px 20px;
+            border-radius: 9px;
+            font-size: 0.85rem;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--highlight);
+            color: #ffffff;
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(255,255,255,0.25);
+            color: #ffffff;
+        }
+
+        @media (max-width: 600px) {
+
+            .logo {
+                width: 66px;
+                margin-bottom: 36px;
+            }
+
+            .error-code {
+                font-size: 6rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 0.78rem;
+            }
+
+            .btn {
+                min-width: 110px;
+                padding: 10px 16px;
+                font-size: 0.72rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <main class="error-page">
+
+        <img
+            class="logo"
+            src="https://aurenoriginal.in/logo.png"
+            alt="Auren Originals"
+        >
+
+        <div class="label">
+            AUREN ORIGINALS
+        </div>
+
+        <div class="error-code">
+            404
+        </div>
+
+        <h1>
+            This Page Went Somewhere.
+        </h1>
+
+        <p>
+            The page you're looking for doesn't exist,
+            may have moved, or the link may be incorrect.
+            Let's get you back to something meaningful.
+        </p>
+
+        <div class="actions">
+
+            <a
+                href="/"
+                class="btn btn-primary"
+            >
+                Back Home
+            </a>
+
+            <a
+                href="/portfolio.html"
+                class="btn btn-secondary"
+            >
+                View Portfolio
+            </a>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
