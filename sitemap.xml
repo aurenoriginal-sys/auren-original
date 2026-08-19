@@ -46,7 +46,7 @@
 
     <!-- Wedding -->
     <url>
-        <loc>https://aurenoriginal.in/wedding.html</loc>
+        <loc>https://aurenoriginal.in/wedding-gallery.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -54,7 +54,7 @@
 
     <!-- Fashion -->
     <url>
-        <loc>https://aurenoriginal.in/fashion.html</loc>
+        <loc>https://aurenoriginal.in/fashion-gallery.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -62,7 +62,7 @@
 
     <!-- Sports -->
     <url>
-        <loc>https://aurenoriginal.in/sports.html</loc>
+        <loc>https://aurenoriginal.in/sports-gallery.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -70,7 +70,7 @@
 
     <!-- Corporate -->
     <url>
-        <loc>https://aurenoriginal.in/corporate.html</loc>
+        <loc>https://aurenoriginal.in/corporate-gallery.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -78,7 +78,7 @@
 
     <!-- Commercial -->
     <url>
-        <loc>https://aurenoriginal.in/commercial.html</loc>
+        <loc>https://aurenoriginal.in/commercial-gallery.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -86,7 +86,7 @@
 
     <!-- Branding -->
     <url>
-        <loc>https://aurenoriginal.in/branding.html</loc>
+        <loc>https://aurenoriginal.in/branding-gallery.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
