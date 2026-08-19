@@ -7,6 +7,7 @@ require('dotenv').config();
 
 const app = express();
 
+
 /* ==================================================
    SEO FILES
 ================================================== */
@@ -86,7 +87,7 @@ app.get('/sitemap.xml', (req, res) => {
 </urlset>`;
 
 
-    res
+    return res
         .status(200)
         .type('application/xml')
         .send(sitemap);
@@ -102,12 +103,13 @@ Allow: /
 Sitemap: https://aurenoriginal.in/sitemap.xml`;
 
 
-    res
+    return res
         .status(200)
         .type('text/plain')
         .send(robots);
 
 });
+
 
 /* ==================================================
    SERVER
@@ -124,7 +126,9 @@ app.use(
 );
 
 
-app.use(cors());
+app.use(
+    cors()
+);
 
 
 /* ==================================================
@@ -162,6 +166,22 @@ cloudinary.config({
 
 const CLOUDINARY_ROOT_FOLDER =
     'auren';
+
+
+/* ==================================================
+   PERFORMANCE SETTINGS
+================================================== */
+
+const IMAGE_MAX_WIDTH =
+    1600;
+
+
+const GALLERY_IMAGE_MAX_WIDTH =
+    1400;
+
+
+const VIDEO_MAX_WIDTH =
+    1280;
 
 
 /* ==================================================
@@ -251,8 +271,6 @@ const GALLERY_CONFIG = {
 
 /* ==================================================
    SHARED ROOT ASSETS
-   These are directly inside:
-   auren/
 ================================================== */
 
 const ROOT_ASSETS = {
@@ -558,7 +576,139 @@ async function getAssetsFromFolder(
 
 
 /* ==================================================
-   FORMAT MEDIA RESPONSE
+   OPTIMIZED CLOUDINARY URL
+================================================== */
+
+function buildOptimizedCloudinaryUrl(
+    resource,
+    maxWidth
+) {
+
+    if (
+        !resource
+    ) {
+
+        return null;
+
+    }
+
+
+    if (
+        !resource.public_id
+    ) {
+
+        return resource.secure_url || null;
+
+    }
+
+
+    /* ==========================================
+       IMAGE
+    ========================================== */
+
+    if (
+        resource.resource_type ===
+        'image'
+    ) {
+
+        return cloudinary.url(
+
+            resource.public_id,
+
+            {
+
+                secure:
+                    true,
+
+                resource_type:
+                    'image',
+
+                transformation: [
+
+                    {
+                        width:
+                            maxWidth,
+
+                        crop:
+                            'limit'
+                    },
+
+                    {
+                        quality:
+                            'auto'
+                    },
+
+                    {
+                        fetch_format:
+                            'auto'
+                    }
+
+                ]
+
+            }
+
+        );
+
+    }
+
+
+    /* ==========================================
+       VIDEO
+    ========================================== */
+
+    if (
+        resource.resource_type ===
+        'video'
+    ) {
+
+        return cloudinary.url(
+
+            resource.public_id,
+
+            {
+
+                secure:
+                    true,
+
+                resource_type:
+                    'video',
+
+                transformation: [
+
+                    {
+                        width:
+                            maxWidth,
+
+                        crop:
+                            'limit'
+                    },
+
+                    {
+                        quality:
+                            'auto'
+                    },
+
+                    {
+                        fetch_format:
+                            'auto'
+                    }
+
+                ]
+
+            }
+
+        );
+
+    }
+
+
+    return resource.secure_url || null;
+
+}
+
+
+/* ==================================================
+   MEDIA RESPONSE
 ================================================== */
 
 function formatMedia(
@@ -570,12 +720,25 @@ function formatMedia(
         .map(
             resource => {
 
+                const optimizedUrl =
+                    buildOptimizedCloudinaryUrl(
+                        resource,
+                        resource.resource_type ===
+                        'video'
+                            ? VIDEO_MAX_WIDTH
+                            : GALLERY_IMAGE_MAX_WIDTH
+                    );
+
+
                 return {
 
                     url:
-                        resource.secure_url,
+                        optimizedUrl,
 
                     secure_url:
+                        optimizedUrl,
+
+                    original_url:
                         resource.secure_url,
 
                     public_id:
@@ -671,19 +834,6 @@ function getResourceFileName(
             ''
         )
         .trim();
-
-
-    /*
-     * Cloudinary display_name may be:
-     *
-     * logo
-     *
-     * logo.png
-     *
-     * Public ID may be:
-     *
-     * logo
-     */
 
 
     if (
@@ -816,31 +966,25 @@ async function getRootAsset(
    ROOT ASSET RESPONSE
 ================================================== */
 
-function formatRootAsset(resource) {
+function formatRootAsset(
+    resource
+) {
 
-    if (!resource) {
+    if (
+        !resource
+    ) {
+
         return null;
+
     }
 
+
     const optimizedUrl =
-        cloudinary.url(
-            resource.public_id,
-            {
-                secure: true,
-
-                resource_type:
-                    resource.resource_type || 'image',
-
-                fetch_format:
-                    'auto',
-
-                quality:
-                    'auto',
-
-                dpr:
-                    'auto'
-            }
+        buildOptimizedCloudinaryUrl(
+            resource,
+            IMAGE_MAX_WIDTH
         );
+
 
     return {
 
@@ -902,6 +1046,7 @@ app.get(
             );
 
         }
+
         catch (error) {
 
             console.error(
@@ -970,6 +1115,7 @@ app.get(
             );
 
         }
+
         catch (error) {
 
             console.error(
@@ -1038,6 +1184,7 @@ app.get(
             );
 
         }
+
         catch (error) {
 
             console.error(
@@ -1108,6 +1255,7 @@ async function sendHeroAsset(
         );
 
     }
+
     catch (error) {
 
         console.error(
@@ -1278,6 +1426,7 @@ async function getGalleryPhotos(
         );
 
     }
+
     catch (error) {
 
         console.error(
@@ -1356,6 +1505,7 @@ async function getGalleryVideos(
         );
 
     }
+
     catch (error) {
 
         console.error(
@@ -1387,7 +1537,6 @@ Object.keys(
 )
 .forEach(
     galleryKey => {
-
 
         /* ==========================================
            PHOTOS
@@ -1425,18 +1574,9 @@ Object.keys(
         );
 
 
-        /*
-         * Keep the existing gallery hero
-         * endpoint names used by your HTML:
-         *
-         * /api/branding-hero
-         * /api/commercial-hero
-         * /api/corporate-hero
-         * /api/fashion-hero
-         * /api/sports-hero
-         * /api/wedding-hero
-         * /api/pre-wedding-hero
-         */
+        /* ==========================================
+           HERO
+        ========================================== */
 
         app.get(
             `/api/${galleryKey}-hero`,
@@ -1858,6 +1998,7 @@ ${message}
                 });
 
         }
+
         catch (error) {
 
             console.error(
