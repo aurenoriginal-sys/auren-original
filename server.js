@@ -577,6 +577,7 @@ async function getAssetsFromFolder(
 
 /* ==================================================
    OPTIMIZED CLOUDINARY URL
+   VERSION-AWARE
 ================================================== */
 
 function buildOptimizedCloudinaryUrl(
@@ -612,9 +613,7 @@ function buildOptimizedCloudinaryUrl(
     ) {
 
         return cloudinary.url(
-
             resource.public_id,
-
             {
 
                 secure:
@@ -622,6 +621,19 @@ function buildOptimizedCloudinaryUrl(
 
                 resource_type:
                     'image',
+
+                /*
+                 * IMPORTANT:
+                 * Include the current Cloudinary
+                 * asset version.
+                 *
+                 * When the same asset is replaced
+                 * in Cloudinary, the version changes.
+                 * That creates a new delivery URL
+                 * and avoids stale CDN/browser copies.
+                 */
+                version:
+                    resource.version,
 
                 transformation: [
 
@@ -646,7 +658,6 @@ function buildOptimizedCloudinaryUrl(
                 ]
 
             }
-
         );
 
     }
@@ -662,9 +673,7 @@ function buildOptimizedCloudinaryUrl(
     ) {
 
         return cloudinary.url(
-
             resource.public_id,
-
             {
 
                 secure:
@@ -672,6 +681,13 @@ function buildOptimizedCloudinaryUrl(
 
                 resource_type:
                     'video',
+
+                /*
+                 * Include current asset version
+                 * for the same cache-busting behavior.
+                 */
+                version:
+                    resource.version,
 
                 transformation: [
 
@@ -708,6 +724,52 @@ function buildOptimizedCloudinaryUrl(
 
 
 /* ==================================================
+   ORIGINAL VERSIONED CLOUDINARY URL
+================================================== */
+
+function buildOriginalCloudinaryUrl(
+    resource
+) {
+
+    if (
+        !resource
+    ) {
+
+        return null;
+
+    }
+
+
+    if (
+        !resource.public_id
+    ) {
+
+        return resource.secure_url || null;
+
+    }
+
+
+    return cloudinary.url(
+        resource.public_id,
+        {
+
+            secure:
+                true,
+
+            resource_type:
+                resource.resource_type,
+
+            version:
+                resource.version
+
+        }
+
+    );
+
+}
+
+
+/* ==================================================
    MEDIA RESPONSE
 ================================================== */
 
@@ -723,10 +785,17 @@ function formatMedia(
                 const optimizedUrl =
                     buildOptimizedCloudinaryUrl(
                         resource,
+
                         resource.resource_type ===
                         'video'
                             ? VIDEO_MAX_WIDTH
                             : GALLERY_IMAGE_MAX_WIDTH
+                    );
+
+
+                const originalUrl =
+                    buildOriginalCloudinaryUrl(
+                        resource
                     );
 
 
@@ -739,7 +808,7 @@ function formatMedia(
                         optimizedUrl,
 
                     original_url:
-                        resource.secure_url,
+                        originalUrl,
 
                     public_id:
                         resource.public_id,
@@ -760,11 +829,19 @@ function formatMedia(
                         resource.width,
 
                     height:
-                        resource.height
+                        resource.height,
+
+                    /*
+                     * Expose the current Cloudinary
+                     * version to the frontend.
+                     */
+                    version:
+                        resource.version
 
                 };
 
             }
+
         )
 
         .sort(
@@ -794,9 +871,11 @@ function formatMedia(
                             'base'
 
                     }
+
                 );
 
             }
+
         );
 
 }
@@ -954,6 +1033,7 @@ async function getRootAsset(
                 );
 
             }
+
         );
 
 
@@ -961,9 +1041,10 @@ async function getRootAsset(
 
 }
 
+
 /* ==================================================
    OPTIMIZED HOMEPAGE HERO
-   Direct image endpoint for fast LCP discovery
+   DIRECT IMAGE ENDPOINT
 ================================================== */
 
 app.get(
@@ -978,7 +1059,9 @@ app.get(
                 );
 
 
-            if (!hero) {
+            if (
+                !hero
+            ) {
 
                 return res
                     .status(404)
@@ -1009,11 +1092,6 @@ app.get(
 
             /*
              * Keep requested sizes sensible.
-             * Mobile:
-             * 768
-             *
-             * Desktop:
-             * 1600
              */
 
             const allowedWidths = [
@@ -1060,6 +1138,13 @@ app.get(
                         resource_type:
                             'image',
 
+                        /*
+                         * IMPORTANT:
+                         * Use the current Cloudinary version.
+                         */
+                        version:
+                            hero.version,
+
                         transformation: [
 
                             {
@@ -1083,18 +1168,22 @@ app.get(
                         ]
 
                     }
+
                 );
 
 
             /*
-             * Browser can discover this image directly.
-             * We intentionally redirect to Cloudinary's
-             * optimized CDN URL.
+             * Browser can discover this image
+             * directly through the optimized URL.
+             *
+             * Keep a short cache because the URL
+             * itself changes whenever Cloudinary
+             * asset version changes.
              */
 
             res.set(
                 'Cache-Control',
-                'public, max-age=86400'
+                'public, max-age=300'
             );
 
 
@@ -1149,6 +1238,12 @@ function formatRootAsset(
         );
 
 
+    const originalUrl =
+        buildOriginalCloudinaryUrl(
+            resource
+        );
+
+
     return {
 
         url:
@@ -1158,7 +1253,7 @@ function formatRootAsset(
             optimizedUrl,
 
         original_url:
-            resource.secure_url,
+            originalUrl,
 
         public_id:
             resource.public_id,
@@ -1179,7 +1274,13 @@ function formatRootAsset(
             resource.width,
 
         height:
-            resource.height
+            resource.height,
+
+        /*
+         * Current Cloudinary version.
+         */
+        version:
+            resource.version
 
     };
 
@@ -1340,6 +1441,12 @@ app.get(
             );
 
 
+            console.log(
+                'Site logo version:',
+                logo.version
+            );
+
+
             return res.json(
                 formatRootAsset(
                     logo
@@ -1408,6 +1515,12 @@ async function sendHeroAsset(
         console.log(
             `Hero found (${filename}):`,
             hero.secure_url
+        );
+
+
+        console.log(
+            `Hero version (${filename}):`,
+            hero.version
         );
 
 
@@ -1800,6 +1913,7 @@ Object.keys(
                 );
 
             }
+
         );
 
     }
@@ -2187,6 +2301,7 @@ ${message}
     }
 );
 
+
 /* ==================================================
    CUSTOM 404
 ================================================== */
@@ -2205,6 +2320,8 @@ app.use(
 
     }
 );
+
+
 /* ==================================================
    CUSTOM 404 PAGE
 ================================================== */
@@ -2223,6 +2340,8 @@ app.use(
 
     }
 );
+
+
 /* ==================================================
    SERVER START
 ================================================== */
