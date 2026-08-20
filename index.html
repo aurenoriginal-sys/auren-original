@@ -7,7 +7,7 @@
      GOOGLE ANALYTICS 4
 ================================================== -->
 
-<script
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=cIlClmhDSvbhEVEfaGRaPa06iQKxa-HMZNyNZDI7vUOBZcT721mN2LFTzu5a0WAyIh2geNG8DPYZ3T8JHPGv0b8Bh-iUNk4Bhj8OJbw-AEAqwQyGqUk3l1NGbh1B9I7IAJ5o3x5JW1zKVUC3qCoGua4iwBF5hGDobixH9JWe_D6JJ25XzMVZGhoxeeWMAqPrCBXydkEucTEKGpHIva41QIHYIR8BecNj1DfuMxDH6kpfbvWxu6rRXtaaa57YFyetja0nxl0dc8MmMxOwdY_GK1982LEm53KLB60NGhRPZxX6JlxhaiFElXQK454J9MigxDmFbwh947aKSofUOwH-Cg" charset="UTF-8"></script><script
     async
     src="https://www.googletagmanager.com/gtag/js?id=G-VECH9J2L1M"
 ></script>
@@ -1215,7 +1215,7 @@
                 #000000;
 
             padding:
-                40px 0 90px;
+                0;
 
         }
 
@@ -1229,14 +1229,17 @@
                 100%;
 
             /*
-             * Three viewport heights provide
-             * enough scroll distance for two
-             * smooth slide transitions while
-             * keeping the final slide visible
-             * before the gallery releases.
+             * The stage itself is one viewport tall.
+             *
+             * ScrollTrigger provides the additional
+             * 200% pinned scroll distance for the
+             * two slide transitions.
+             *
+             * This prevents the large empty black
+             * area that appeared after the gallery.
              */
             height:
-                300vh;
+                100vh;
 
         }
 
@@ -4684,11 +4687,18 @@
                             start:
                                 "top top",
 
+                            /*
+                             * Two viewport lengths of scroll:
+                             *
+                             * 0%   = Slide 1
+                             * 50%  = Slide 2
+                             * 100% = Slide 3
+                             */
                             end:
-                                "bottom bottom",
+                                "+=200%",
 
                             scrub:
-                                1.35,
+                                1.15,
 
                             pin:
                                 viewport,
