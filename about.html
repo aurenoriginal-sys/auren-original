@@ -763,64 +763,65 @@
 
         /* ==================================================
            IMAGE MARQUEE
+           CLEAN 3-SET SEAMLESS LOOP
         ================================================== */
 
         .about-gallery-section {
             width: 100%;
-
             overflow: hidden;
-
             padding: 0 0 20px;
         }
 
         .about-gallery-track {
             display: flex;
-
             width: max-content;
-
-            gap: 14px;
-
+            gap: 0;
+            margin: 0;
+            padding: 0;
             animation:
                 aboutGalleryScroll
                 38s
                 linear
                 infinite;
+            will-change: transform;
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .about-gallery-set {
+            display: flex;
+            flex: 0 0 auto;
+            gap: 14px;
+            padding-right: 14px;
+            box-sizing: border-box;
         }
 
         .gallery-image {
-            flex:
-                0 0
-                clamp(280px,18vw,370px);
-
+            flex: 0 0 clamp(280px, 18vw, 370px);
+            width: clamp(280px, 18vw, 370px);
             height: 520px;
-
             overflow: hidden;
-
             border-radius: 10px;
-
             background: #151515;
         }
 
         .gallery-image img {
+            display: block;
             width: 100%;
             height: 100%;
-
             object-fit: cover;
+            object-position: center;
         }
 
         @keyframes aboutGalleryScroll {
-
             from {
-                transform: translateX(0);
+                transform: translate3d(0, 0, 0);
             }
 
             to {
-                transform:
-                    translateX(
-                        calc(-50% - 7px)
-                    );
+                transform: translate3d(-33.333333%, 0, 0);
             }
-
         }
 
 
@@ -1261,37 +1262,26 @@
             }
 
             .about-gallery-track {
-                gap: 7px;
+                animation-duration: 32s;
+            }
 
-                animation-duration:
-                    32s;
+            .about-gallery-set {
+                gap: 7px;
+                padding-right: 7px;
             }
 
             .gallery-image {
-
-                flex:
-                    0 0 56.25vw;
-
-                width:
-                    56.25vw;
-
-                height:
-                    auto;
-
-                aspect-ratio:
-                    9 / 16;
-
-                overflow:
-                    hidden;
-
-                border-radius:
-                    6px;
+                flex: 0 0 56.25vw;
+                width: 56.25vw;
+                height: auto;
+                aspect-ratio: 9 / 16;
+                overflow: hidden;
+                border-radius: 6px;
             }
 
             .gallery-image img {
                 width: 100%;
                 height: 100%;
-
                 object-fit: cover;
                 object-position: center;
             }
@@ -1990,107 +1980,132 @@
 
         <div class="about-gallery-track">
 
+            <!-- SET 1 -->
+            <div class="about-gallery-set">
 
-            <div class="gallery-image">
-                <img
-                    id="about-gallery-1"
-                    src=""
-                    alt="Auren Originals"
-                    loading="lazy"
-                >
+                <div class="gallery-image">
+                    <img
+                        data-gallery-file="about-gallery-1.jpg"
+                        alt="Auren Originals"
+                    >
+                </div>
+
+                <div class="gallery-image">
+                    <img
+                        data-gallery-file="about-gallery-2.jpg"
+                        alt="Auren Originals"
+                    >
+                </div>
+
+                <div class="gallery-image">
+                    <img
+                        data-gallery-file="about-gallery-3.jpg"
+                        alt="Auren Originals"
+                    >
+                </div>
+
+                <div class="gallery-image">
+                    <img
+                        data-gallery-file="about-gallery-4.jpg"
+                        alt="Auren Originals"
+                    >
+                </div>
+
+                <div class="gallery-image">
+                    <img
+                        data-gallery-file="about-gallery-5.jpg"
+                        alt="Auren Originals"
+                    >
+                </div>
+
             </div>
 
 
-            <div class="gallery-image">
-                <img
-                    id="about-gallery-2"
-                    src=""
-                    alt="Auren Originals"
-                    loading="lazy"
-                >
+            <!-- SET 2 -->
+            <div
+                class="about-gallery-set"
+                aria-hidden="true"
+            >
+
+                <div class="gallery-image">
+                    <img
+                        data-gallery-file="about-gallery-1.jpg"
+                        alt=""
+                    >
+                </div>
+
+                <div class="gallery-image">
+                    <img
+                        data-gallery-file="about-gallery-2.jpg"
+                        alt=""
+                    >
+                </div>
+
+                <div class="gallery-image">
+                    <img
+                        data-gallery-file="about-gallery-3.jpg"
+                        alt=""
+                    >
+                </div>
+
+                <div class="gallery-image">
+                    <img
+                        data-gallery-file="about-gallery-4.jpg"
+                        alt=""
+                    >
+                </div>
+
+                <div class="gallery-image">
+                    <img
+                        data-gallery-file="about-gallery-5.jpg"
+                        alt=""
+                    >
+                </div>
+
             </div>
 
 
-            <div class="gallery-image">
-                <img
-                    id="about-gallery-3"
-                    src=""
-                    alt="Auren Originals"
-                    loading="lazy"
-                >
-            </div>
+            <!-- SET 3 -->
+            <div
+                class="about-gallery-set"
+                aria-hidden="true"
+            >
 
+                <div class="gallery-image">
+                    <img
+                        data-gallery-file="about-gallery-1.jpg"
+                        alt=""
+                    >
+                </div>
 
-            <div class="gallery-image">
-                <img
-                    id="about-gallery-4"
-                    src=""
-                    alt="Auren Originals"
-                    loading="lazy"
-                >
-            </div>
+                <div class="gallery-image">
+                    <img
+                        data-gallery-file="about-gallery-2.jpg"
+                        alt=""
+                    >
+                </div>
 
+                <div class="gallery-image">
+                    <img
+                        data-gallery-file="about-gallery-3.jpg"
+                        alt=""
+                    >
+                </div>
 
-            <div class="gallery-image">
-                <img
-                    id="about-gallery-5"
-                    src=""
-                    alt="Auren Originals"
-                    loading="lazy"
-                >
-            </div>
+                <div class="gallery-image">
+                    <img
+                        data-gallery-file="about-gallery-4.jpg"
+                        alt=""
+                    >
+                </div>
 
+                <div class="gallery-image">
+                    <img
+                        data-gallery-file="about-gallery-5.jpg"
+                        alt=""
+                    >
+                </div>
 
-            <!-- DUPLICATES -->
-
-
-            <div class="gallery-image">
-                <img
-                    id="about-gallery-1-duplicate"
-                    src=""
-                    alt=""
-                    aria-hidden="true"
-                >
-            </div>
-
-
-            <div class="gallery-image">
-                <img
-                    id="about-gallery-2-duplicate"
-                    src=""
-                    alt=""
-                    aria-hidden="true"
-                >
-            </div>
-
-
-            <div class="gallery-image">
-                <img
-                    id="about-gallery-3-duplicate"
-                    src=""
-                    alt=""
-                    aria-hidden="true"
-                >
-            </div>
-
-
-            <div class="gallery-image">
-                <img
-                    id="about-gallery-4-duplicate"
-                    src=""
-                    alt=""
-                    aria-hidden="true"
-                >
-            </div>
-
-
-            <div class="gallery-image">
-                <img
-                    id="about-gallery-5-duplicate"
-                    src=""
-                    alt=""
-                    aria-hidden="true"
-                >
             </div>
 
         </div>
@@ -2240,79 +2255,115 @@
 
         /* ==================================================
            GALLERY ASSETS
+           LOAD EACH IMAGE ONCE FOR ALL 3 SETS
         ================================================== */
 
-        const aboutGalleryAssets = [
+        async function loadAboutGalleryImages() {
 
-            {
-                filename:
-                    'about-gallery-1.jpg',
+            const images =
+                document.querySelectorAll(
+                    '.about-gallery-track img[data-gallery-file]'
+                );
 
-                ids: [
-                    'about-gallery-1',
-                    'about-gallery-1-duplicate'
-                ]
-            },
 
-            {
-                filename:
-                    'about-gallery-2.jpg',
+            if (!images.length) {
 
-                ids: [
-                    'about-gallery-2',
-                    'about-gallery-2-duplicate'
-                ]
-            },
+                return;
 
-            {
-                filename:
-                    'about-gallery-3.jpg',
-
-                ids: [
-                    'about-gallery-3',
-                    'about-gallery-3-duplicate'
-                ]
-            },
-
-            {
-                filename:
-                    'about-gallery-4.jpg',
-
-                ids: [
-                    'about-gallery-4',
-                    'about-gallery-4-duplicate'
-                ]
-            },
-
-            {
-                filename:
-                    'about-gallery-5.jpg',
-
-                ids: [
-                    'about-gallery-5',
-                    'about-gallery-5-duplicate'
-                ]
             }
 
-        ];
+
+            const cache = new Map();
 
 
-        aboutGalleryAssets.forEach(
-            asset => {
+            for (const image of images) {
 
-                asset.ids.forEach(
-                    elementId => {
+                const filename =
+                    image.dataset.galleryFile;
 
-                        loadRootAsset(
-                            asset.filename,
-                            elementId
+
+                if (!filename) {
+
+                    continue;
+
+                }
+
+
+                try {
+
+                    let imageUrl =
+                        cache.get(filename);
+
+
+                    if (!imageUrl) {
+
+                        const response =
+                            await fetch(
+                                `/api/root-asset/${encodeURIComponent(filename)}`,
+                                { cache: 'no-store' }
+                            );
+
+
+                        if (!response.ok) {
+
+                            throw new Error(
+                                `Failed to load ${filename}: HTTP ${response.status}`
+                            );
+
+                        }
+
+
+                        const data =
+                            await response.json();
+
+
+                        if (!data || !data.secure_url) {
+
+                            throw new Error(
+                                `No secure URL returned for ${filename}`
+                            );
+
+                        }
+
+
+                        imageUrl =
+                            data.secure_url;
+
+
+                        cache.set(
+                            filename,
+                            imageUrl
                         );
 
                     }
-                );
+
+
+                    /*
+                     * Do not lazy-load marquee images.
+                     * All three sets should be ready before
+                     * the animation reaches them.
+                     */
+
+                    image.src =
+                        imageUrl;
+
+                }
+
+                catch (error) {
+
+                    console.error(
+                        `Gallery image error (${filename}):`,
+                        error
+                    );
+
+                }
 
             }
-        );
+
+        }
+
+
+        loadAboutGalleryImages();
 
 
         /* ==================================================
@@ -2945,45 +2996,10 @@
 
 
         /* ==================================================
-           GALLERY SCROLL
+           IMAGE MARQUEE
+           CSS ANIMATION ONLY — NO GSAP TRANSFORM
         ================================================== */
 
-        if (
-            window.matchMedia(
-                '(prefers-reduced-motion: no-preference)'
-            ).matches
-        ) {
-
-            gsap.to(
-
-                '.about-gallery-track',
-
-                {
-
-                    xPercent: -10,
-
-                    ease: 'none',
-
-                    scrollTrigger: {
-
-                        trigger:
-                            '.about-gallery-section',
-
-                        start:
-                            'top bottom',
-
-                        end:
-                            'bottom top',
-
-                        scrub: 1
-
-                    }
-
-                }
-
-            );
-
-        }
 
     </script>
 
