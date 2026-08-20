@@ -7,7 +7,7 @@
      GOOGLE ANALYTICS 4
 ================================================== -->
 
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=cIlClmhDSvbhEVEfaGRaPa06iQKxa-HMZNyNZDI7vUOBZcT721mN2LFTzu5a0WAyIh2geNG8DPYZ3T8JHPGv0b8Bh-iUNk4Bhj8OJbw-AEAqwQyGqUk3l1NGbh1B9I7IAJ5o3x5JW1zKVUC3qCoGua4iwBF5hGDobixH9JWe_D6JJ25XzMVZGhoxeeWMAqPrCBXydkEucTEKGpHIva41QIHYIR8BecNj1DfuMxDH6kpfbvWxu6rRXtaaa57YFyetja0nxl0dc8MmMxOwdY_GK1982LEm53KLB60NGhRPZxX6JlxhaiFElXQK454J9MigxDmFbwh947aKSofUOwH-Cg" charset="UTF-8"></script><script
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=o6Krfux4N9b2p_dazNIZydpDWzzWongwPmHzT0Ia7A0Av-_hnMI8KDIwp59v4LONRFT9nnJyqxT3x7DW4wFC_G5lnaWZDqvzkCR5OelWoMYSpaBoxB_X6vE6bEjQxFIjSfiKFvTY6eRKTzV1ig-Xp5wvTybKdA7YT2Djy1l2npl01S3KPnppcnfMq18D1YBDaQ3gNQ1BSVKv2e8OiAZsLOcGYt7b8FiYjdGc5GTQH8uEG06h3teDa4LidrpN2kYHdXZRCuMF2xdLE5JRLSN10wLclSTykV9UVFpTK1r-XIrlSeFPXtIDalxTCgGZ2rGIvbrU1Ya4GO7vBWBDsyFVew" charset="UTF-8"></script><script
     async
     src="https://www.googletagmanager.com/gtag/js?id=G-VECH9J2L1M"
 ></script>
@@ -1200,7 +1200,7 @@
 
         /* ==================================================
            GALLERY
-           DESKTOP - SMOOTH PINNED SLIDER
+           DESKTOP - SMOOTH STICKY SLIDER
         ================================================== */
 
         .gallery-section {
@@ -1220,6 +1220,17 @@
         }
 
 
+        /*
+         * 300vh gives the sticky viewport 200vh of actual
+         * scrolling after it reaches the top:
+         *
+         *   first 100vh  = slide 1 -> slide 2
+         *   second 100vh = slide 2 -> slide 3
+         *
+         * There is no GSAP pin/unpin, so the gallery cannot
+         * snap when entering or leaving this section.
+         */
+
         .gallery-stage {
 
             position:
@@ -1228,18 +1239,8 @@
             width:
                 100%;
 
-            /*
-             * The stage itself is one viewport tall.
-             *
-             * ScrollTrigger provides the additional
-             * 200% pinned scroll distance for the
-             * two slide transitions.
-             *
-             * This prevents the large empty black
-             * area that appeared after the gallery.
-             */
             height:
-                100vh;
+                300vh;
 
         }
 
@@ -1247,7 +1248,10 @@
         .gallery-viewport {
 
             position:
-                relative;
+                sticky;
+
+            top:
+                0;
 
             width:
                 100%;
@@ -1299,16 +1303,10 @@
             background:
                 #111111;
 
-            /*
-             * Horizontal centering lives in CSS.
-             * GSAP animates only the custom
-             * --gallery-y variable, so zooming
-             * cannot move the panel sideways.
-             */
             transform:
                 translate3d(
                     -50%,
-                    var(--gallery-y, 0),
+                    0,
                     0
                 );
 
@@ -1320,6 +1318,9 @@
 
             -webkit-backface-visibility:
                 hidden;
+
+            contain:
+                paint;
 
         }
 
@@ -1366,10 +1367,14 @@
                 center;
 
             transform:
-                translate3d(0, 0, 0);
+                translate3d(
+                    0,
+                    0,
+                    0
+                );
 
             will-change:
-                auto;
+                transform;
 
             backface-visibility:
                 hidden;
@@ -1385,7 +1390,12 @@
 
             box-shadow:
                 0 -20px 60px
-                rgba(0, 0, 0, 0.30);
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.30
+                );
 
         }
 
@@ -4480,11 +4490,11 @@
 
             /* ==================================================
                DESKTOP GALLERY
-               SMOOTH PINNED SLIDER
+               SMOOTH STICKY SLIDER
+               NO GSAP PIN / NO PIN-EXIT SNAP
             ================================================== */
 
-            let desktopGallery =
-                null;
+            let desktopGallery = null;
 
 
             /* ==================================================
@@ -4565,7 +4575,81 @@
 
 
             /* ==================================================
-               REMOVE EXISTING GALLERY TRIGGER
+               SET GALLERY POSITIONS
+            ================================================== */
+
+            function setGalleryInitialPositions() {
+
+                const panel1 =
+                    document.querySelector(
+                        ".gallery-panel.panel-1"
+                    );
+
+                const panel2 =
+                    document.querySelector(
+                        ".gallery-panel.panel-2"
+                    );
+
+                const panel3 =
+                    document.querySelector(
+                        ".gallery-panel.panel-3"
+                    );
+
+
+                if (
+                    !panel1 ||
+                    !panel2 ||
+                    !panel3
+                ) {
+
+                    return false;
+
+                }
+
+
+                /*
+                 * Keep horizontal centering in CSS.
+                 * GSAP controls ONLY vertical movement.
+                 *
+                 * 112% of the panel height places the next
+                 * panel completely below the viewport while
+                 * still avoiding any x-axis transform conflict.
+                 */
+
+                gsap.set(
+                    panel1,
+                    {
+                        xPercent: -50,
+                        yPercent: 0,
+                        force3D: true
+                    }
+                );
+
+                gsap.set(
+                    panel2,
+                    {
+                        xPercent: -50,
+                        yPercent: 112,
+                        force3D: true
+                    }
+                );
+
+                gsap.set(
+                    panel3,
+                    {
+                        xPercent: -50,
+                        yPercent: 112,
+                        force3D: true
+                    }
+                );
+
+                return true;
+
+            }
+
+
+            /* ==================================================
+               REMOVE OLD GALLERY TRIGGER
             ================================================== */
 
             function removeGalleryTrigger() {
@@ -4576,8 +4660,7 @@
 
                     desktopGallery.kill();
 
-                    desktopGallery =
-                        null;
+                    desktopGallery = null;
 
                 }
 
@@ -4614,11 +4697,6 @@
                         "gallery-stage"
                     );
 
-                const viewport =
-                    document.getElementById(
-                        "gallery-viewport"
-                    );
-
                 const panel2 =
                     document.querySelector(
                         ".gallery-panel.panel-2"
@@ -4632,7 +4710,6 @@
 
                 if (
                     !stage ||
-                    !viewport ||
                     !panel2 ||
                     !panel3
                 ) {
@@ -4642,38 +4719,33 @@
                 }
 
 
+                if (
+                    !setGalleryInitialPositions()
+                ) {
+
+                    return null;
+
+                }
+
+
                 /*
-                 * IMPORTANT:
+                 * The viewport is CSS sticky.
                  *
-                 * The X position is controlled ONLY by CSS:
+                 * This is deliberate:
                  *
-                 *     left: 50%;
-                 *     translateX(-50%);
-                 *
-                 * GSAP only changes --gallery-y.
-                 * This prevents zoom from fighting the animation.
+                 * - No GSAP pin entry jump.
+                 * - No GSAP pin exit jump.
+                 * - The first slide is already visible.
+                 * - The final slide remains visible until the
+                 *   sticky section naturally finishes.
                  */
-
-                gsap.set(
-                    panel2,
-                    {
-                        "--gallery-y": "100%"
-                    }
-                );
-
-                gsap.set(
-                    panel3,
-                    {
-                        "--gallery-y": "100%"
-                    }
-                );
-
 
                 const timeline =
                     gsap.timeline({
 
                         defaults: {
-                            ease: "none"
+                            ease:
+                                "none"
                         },
 
                         scrollTrigger: {
@@ -4687,27 +4759,11 @@
                             start:
                                 "top top",
 
-                            /*
-                             * Two viewport lengths of scroll:
-                             *
-                             * 0%   = Slide 1
-                             * 50%  = Slide 2
-                             * 100% = Slide 3
-                             */
                             end:
-                                "+=200%",
+                                "bottom bottom",
 
                             scrub:
-                                1.15,
-
-                            pin:
-                                viewport,
-
-                            pinSpacing:
-                                true,
-
-                            anticipatePin:
-                                1,
+                                1.4,
 
                             invalidateOnRefresh:
                                 true,
@@ -4724,59 +4780,50 @@
 
 
                 /*
-                 * First panel remains completely static.
-                 * Therefore the gallery enters with the first
-                 * image already visible and does not animate
-                 * into place.
+                 * First 50% of the gallery's scroll range:
+                 * panel 2 rises over panel 1.
                  */
-
-
-                /* ==================================================
-                   SLIDE 1 -> SLIDE 2
-                ================================================== */
 
                 timeline.to(
                     panel2,
                     {
-
-                        "--gallery-y":
-                            "0%",
-
-                        duration:
-                            1,
-
-                        ease:
-                            "none"
-
-                    }
-                );
-
-
-                /* ==================================================
-                   SLIDE 2 -> SLIDE 3
-                ================================================== */
-
-                timeline.to(
-                    panel3,
-                    {
-
-                        "--gallery-y":
-                            "0%",
+                        yPercent:
+                            0,
 
                         duration:
                             1,
 
                         ease:
-                            "none"
+                            "none",
 
+                        force3D:
+                            true
                     }
                 );
 
 
                 /*
-                 * Final frame stays visible while the pinned
-                 * section finishes naturally.
+                 * Second 50%:
+                 * panel 3 rises over panel 2.
                  */
+
+                timeline.to(
+                    panel3,
+                    {
+                        yPercent:
+                            0,
+
+                        duration:
+                            1,
+
+                        ease:
+                            "none",
+
+                        force3D:
+                            true
+                    }
+                );
+
 
                 return timeline;
 
@@ -4836,11 +4883,10 @@
 
             /* ==================================================
                RESIZE / BROWSER ZOOM
-               ONLY REFRESH
-               DO NOT REBUILD THE TIMELINE
+               ONLY REFRESH - DO NOT REBUILD
             ================================================== */
 
-            let galleryResizeTimer;
+            let galleryRefreshTimer = null;
 
 
             window.addEventListener(
@@ -4848,11 +4894,11 @@
                 () => {
 
                     clearTimeout(
-                        galleryResizeTimer
+                        galleryRefreshTimer
                     );
 
 
-                    galleryResizeTimer =
+                    galleryRefreshTimer =
                         setTimeout(
                             () => {
 
@@ -4897,6 +4943,7 @@
                     );
 
                 }
+
             );
 
 
