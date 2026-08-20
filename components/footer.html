@@ -2,12 +2,11 @@
 
 /* ==================================================
    AUREN FOOTER
-   MOBILE REFERENCE MATCH
+   SAME DYNAMIC LOGO SYSTEM AS NAVBAR
 ================================================== */
 
 .footer {
 
-    
     width: 100%;
 
     background:
@@ -296,7 +295,6 @@
 
 /* ==================================================
    MOBILE
-   MATCH THE PROVIDED SCREENSHOT
 ================================================== */
 
 @media (max-width: 767px) {
@@ -708,6 +706,16 @@
                 aria-label="Auren Originals Home"
             >
 
+                <!--
+                    Initial logo source.
+
+                    The JavaScript below immediately
+                    replaces this with the current
+                    Cloudinary logo returned by:
+
+                    /api/site-logo
+                -->
+
                 <img
                     id="site-logo-footer"
                     src="https://res.cloudinary.com/uye4ufpk/image/upload/v1787215613/logo.png"
@@ -850,3 +858,71 @@
 
 
 </footer>
+
+
+<!-- ==================================================
+     FOOTER LOGO LOADER
+     SAME SYSTEM AS NAVBAR
+================================================== -->
+
+<script>
+
+fetch('/api/site-logo')
+
+    .then(
+        response => {
+
+            if (
+                !response.ok
+            ) {
+
+                throw new Error(
+                    `Logo API returned ${response.status}`
+                );
+
+            }
+
+            return response.json();
+
+        }
+    )
+
+    .then(
+        data => {
+
+            const logo =
+                document.getElementById(
+                    'site-logo-footer'
+                );
+
+
+            if (
+                logo &&
+                data &&
+                data.secure_url
+            ) {
+
+                /*
+                 * Use the same current Cloudinary
+                 * URL returned by the server.
+                 */
+                logo.src =
+                    data.secure_url;
+
+            }
+
+        }
+    )
+
+    .catch(
+        error => {
+
+            console.error(
+                'Footer logo loading error:',
+                error
+            );
+
+        }
+    );
+
+</script>
