@@ -1200,7 +1200,7 @@
 
         /* ==================================================
            GALLERY
-           DESKTOP - SMOOTH CONTINUOUS SLIDER
+           DESKTOP - SMOOTH PINNED SLIDER
         ================================================== */
 
         .gallery-section {
@@ -1229,28 +1229,22 @@
                 100%;
 
             /*
-             * 350vh gives the last slide enough time
-             * to remain visible before the gallery ends.
+             * Three viewport heights provide
+             * enough scroll distance for two
+             * smooth slide transitions while
+             * keeping the final slide visible
+             * before the gallery releases.
              */
             height:
-                350vh;
+                300vh;
 
         }
 
 
-        /* ==================================================
-           STICKY VIEWPORT
-           The viewport stays naturally in place.
-           No GSAP pin / unpin.
-        ================================================== */
-
         .gallery-viewport {
 
             position:
-                sticky;
-
-            top:
-                0;
+                relative;
 
             width:
                 100%;
@@ -1270,11 +1264,6 @@
         }
 
 
-        /* ==================================================
-           GALLERY PANEL
-           ALWAYS HORIZONTALLY CENTERED
-        ================================================== */
-
         .gallery-panel {
 
             position:
@@ -1287,10 +1276,7 @@
                 50%;
 
             width:
-                min(
-                    88vw,
-                    1400px
-                );
+                min(88vw, 1400px);
 
             height:
                 82vh;
@@ -1311,14 +1297,15 @@
                 #111111;
 
             /*
-             * GSAP controls xPercent/yPercent.
-             * xPercent keeps this centered at every
-             * viewport size / browser zoom level.
+             * Horizontal centering lives in CSS.
+             * GSAP animates only the custom
+             * --gallery-y variable, so zooming
+             * cannot move the panel sideways.
              */
             transform:
                 translate3d(
                     -50%,
-                    0,
+                    var(--gallery-y, 0),
                     0
                 );
 
@@ -1376,11 +1363,7 @@
                 center;
 
             transform:
-                translate3d(
-                    0,
-                    0,
-                    0
-                );
+                translate3d(0, 0, 0);
 
             will-change:
                 auto;
@@ -1399,12 +1382,7 @@
 
             box-shadow:
                 0 -20px 60px
-                rgba(
-                    0,
-                    0,
-                    0,
-                    0.30
-                );
+                rgba(0, 0, 0, 0.30);
 
         }
 
@@ -4499,7 +4477,7 @@
 
             /* ==================================================
                DESKTOP GALLERY
-               CONTINUOUS / NO SNAP SLIDER
+               SMOOTH PINNED SLIDER
             ================================================== */
 
             let desktopGallery =
@@ -4527,8 +4505,7 @@
                     )
 
                 ].filter(
-                    image =>
-                        image
+                    image => image
                 );
 
 
@@ -4563,20 +4540,13 @@
                                     image.addEventListener(
                                         "load",
                                         resolve,
-                                        {
-                                            once:
-                                                true
-                                        }
+                                        { once: true }
                                     );
-
 
                                     image.addEventListener(
                                         "error",
                                         resolve,
-                                        {
-                                            once:
-                                                true
-                                        }
+                                        { once: true }
                                     );
 
                                 }
@@ -4641,18 +4611,15 @@
                         "gallery-stage"
                     );
 
-
-                const panel1 =
-                    document.querySelector(
-                        ".gallery-panel.panel-1"
+                const viewport =
+                    document.getElementById(
+                        "gallery-viewport"
                     );
-
 
                 const panel2 =
                     document.querySelector(
                         ".gallery-panel.panel-2"
                     );
-
 
                 const panel3 =
                     document.querySelector(
@@ -4662,7 +4629,7 @@
 
                 if (
                     !stage ||
-                    !panel1 ||
+                    !viewport ||
                     !panel2 ||
                     !panel3
                 ) {
@@ -4675,245 +4642,133 @@
                 /*
                  * IMPORTANT:
                  *
-                 * Do not use a GSAP timeline here.
+                 * The X position is controlled ONLY by CSS:
                  *
-                 * The slide positions are calculated
-                 * directly from ScrollTrigger progress.
+                 *     left: 50%;
+                 *     translateX(-50%);
                  *
-                 * This prevents the animation from lagging
-                 * behind the scroll and then catching up at
-                 * the beginning/end of the gallery.
+                 * GSAP only changes --gallery-y.
+                 * This prevents zoom from fighting the animation.
                  */
-
-
-                gsap.set(
-                    panel1,
-                    {
-
-                        xPercent:
-                            -50,
-
-                        yPercent:
-                            0,
-
-                        force3D:
-                            true
-
-                    }
-                );
-
 
                 gsap.set(
                     panel2,
                     {
-
-                        xPercent:
-                            -50,
-
-                        yPercent:
-                            110,
-
-                        force3D:
-                            true
-
+                        "--gallery-y": "100%"
                     }
                 );
-
 
                 gsap.set(
                     panel3,
                     {
-
-                        xPercent:
-                            -50,
-
-                        yPercent:
-                            110,
-
-                        force3D:
-                            true
-
+                        "--gallery-y": "100%"
                     }
                 );
 
 
-                const trigger =
-                    ScrollTrigger.create({
+                const timeline =
+                    gsap.timeline({
 
-                        id:
-                            "auren-gallery",
+                        defaults: {
+                            ease: "none"
+                        },
 
-                        trigger:
-                            stage,
+                        scrollTrigger: {
 
-                        start:
-                            "top top",
+                            id:
+                                "auren-gallery",
 
-                        end:
-                            "bottom bottom",
+                            trigger:
+                                stage,
 
-                        scrub:
-                            false,
+                            start:
+                                "top top",
 
-                        invalidateOnRefresh:
-                            true,
+                            end:
+                                "bottom bottom",
 
-                        fastScrollEnd:
-                            false,
+                            scrub:
+                                1.35,
 
-                        preventOverlaps:
-                            false,
+                            pin:
+                                viewport,
 
-                        onUpdate:
-                            self => {
+                            pinSpacing:
+                                true,
 
-                                /*
-                                 * Entire gallery progress:
-                                 *
-                                 * 0.00 = first panel
-                                 * 1.00 = last panel
-                                 *
-                                 * We intentionally keep the
-                                 * first and last parts gentle.
-                                 */
+                            anticipatePin:
+                                1,
 
-                                const progress =
-                                    self.progress;
+                            invalidateOnRefresh:
+                                true,
 
+                            fastScrollEnd:
+                                false,
 
-                                /* ==================================
-                                   PANEL 2
-                                ================================== */
+                            preventOverlaps:
+                                false
 
-                                const panel2Progress =
-                                    gsap.utils.clamp(
-                                        0,
-                                        1,
-                                        (
-                                            progress -
-                                            0.08
-                                        ) /
-                                        0.37
-                                    );
-
-
-                                const panel2Y =
-                                    110 *
-                                    (
-                                        1 -
-                                        panel2Progress
-                                    );
-
-
-                                /* ==================================
-                                   PANEL 3
-                                ================================== */
-
-                                const panel3Progress =
-                                    gsap.utils.clamp(
-                                        0,
-                                        1,
-                                        (
-                                            progress -
-                                            0.49
-                                        ) /
-                                        0.34
-                                    );
-
-
-                                const panel3Y =
-                                    110 *
-                                    (
-                                        1 -
-                                        panel3Progress
-                                    );
-
-
-                                /*
-                                 * Direct positioning follows the
-                                 * actual scroll position exactly.
-                                 *
-                                 * No scrub lag means no snap when
-                                 * the sticky section begins or ends.
-                                 */
-
-                                gsap.set(
-                                    panel2,
-                                    {
-
-                                        yPercent:
-                                            panel2Y,
-
-                                        xPercent:
-                                            -50,
-
-                                        force3D:
-                                            true
-
-                                    }
-                                );
-
-
-                                gsap.set(
-                                    panel3,
-                                    {
-
-                                        yPercent:
-                                            panel3Y,
-
-                                        xPercent:
-                                            -50,
-
-                                        force3D:
-                                            true
-
-                                    }
-                                );
-
-                            }
+                        }
 
                     });
 
 
                 /*
-                 * Set the initial state immediately.
+                 * First panel remains completely static.
+                 * Therefore the gallery enters with the first
+                 * image already visible and does not animate
+                 * into place.
                  */
 
-                gsap.set(
+
+                /* ==================================================
+                   SLIDE 1 -> SLIDE 2
+                ================================================== */
+
+                timeline.to(
                     panel2,
                     {
 
-                        xPercent:
-                            -50,
+                        "--gallery-y":
+                            "0%",
 
-                        yPercent:
-                            110,
+                        duration:
+                            1,
 
-                        force3D:
-                            true
+                        ease:
+                            "none"
 
                     }
                 );
 
 
-                gsap.set(
+                /* ==================================================
+                   SLIDE 2 -> SLIDE 3
+                ================================================== */
+
+                timeline.to(
                     panel3,
                     {
 
-                        xPercent:
-                            -50,
+                        "--gallery-y":
+                            "0%",
 
-                        yPercent:
-                            110,
+                        duration:
+                            1,
 
-                        force3D:
-                            true
+                        ease:
+                            "none"
 
                     }
                 );
 
 
-                return trigger;
+                /*
+                 * Final frame stays visible while the pinned
+                 * section finishes naturally.
+                 */
+
+                return timeline;
 
             }
 
@@ -4965,13 +4820,14 @@
                     initializeGallery();
 
                 }
+
             );
 
 
             /* ==================================================
                RESIZE / BROWSER ZOOM
                ONLY REFRESH
-               NEVER REBUILD
+               DO NOT REBUILD THE TIMELINE
             ================================================== */
 
             let galleryResizeTimer;
@@ -4999,7 +4855,7 @@
                                 }
 
                             },
-                            200
+                            250
                         );
 
                 }
@@ -5027,7 +4883,7 @@
                             }
 
                         },
-                        250
+                        300
                     );
 
                 }
