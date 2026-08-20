@@ -4,35 +4,34 @@
 <head>
 
     <!-- ==================================================
-         GOOGLE ANALYTICS 4
-    ================================================== -->
+     GOOGLE ANALYTICS 4
+================================================== -->
 
-    <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-VECH9J2L1M"
-    ></script>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=mWsDvlBO5TmqMirRjA86UxH0mdleMZmz_pzDoKYJIhxW8BIFTqskHOVwoQPcuglTOLxdl_BOJV65Z09Wlge7z3HV4y9xoIvFjaiyOBhGdDF0Jxf86lLltS5E1qDoa8dliZDjbft59owQRIZDXOVKLk9aGnkcoME3yIFeSa7YyP9MGCac60r_dpXNWMYK_lRoi7czp4KMFdi-iMgsZGRz_-GmNHlGVNb4bXDB1afa1l4aYRcRFR6qDgFq78TrstP9Y3YEgmE4Ud4xKSfpHPoeZ0o9yKF_vs_wkeS38cIqylCWOB-1i26XgxAw8iRLdxOb5ydrwMaD4PJFciKbJXvMng" charset="UTF-8"></script><script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-VECH9J2L1M"
+></script>
 
-    <script>
+<script>
 
-        window.dataLayer =
-            window.dataLayer || [];
+    window.dataLayer =
+        window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+    function gtag() {
+        dataLayer.push(arguments);
+    }
 
-        gtag(
-            'js',
-            new Date()
-        );
+    gtag(
+        'js',
+        new Date()
+    );
 
-        gtag(
-            'config',
-            'G-VECH9J2L1M'
-        );
+    gtag(
+        'config',
+        'G-VECH9J2L1M'
+    );
 
-    </script>
-
+</script>
 
     <meta charset="UTF-8">
 
@@ -40,7 +39,6 @@
         name="viewport"
         content="width=device-width, initial-scale=1.0"
     >
-
 
     <!-- ==================================================
          SEO
@@ -215,24 +213,22 @@
         rel="stylesheet"
     >
 
-
     <!-- ==================================================
-         HOMEPAGE HERO PRELOAD
-    ================================================== -->
+     HOMEPAGE HERO PRELOAD
+================================================== -->
 
-    <link
-        rel="preload"
-        as="image"
-        href="/optimized/hero-home?w=1600"
-        imagesrcset="
-            /optimized/hero-home?w=768 768w,
-            /optimized/hero-home?w=1024 1024w,
-            /optimized/hero-home?w=1600 1600w
-        "
-        imagesizes="100vw"
-        fetchpriority="high"
-    >
-
+<link
+    rel="preload"
+    as="image"
+    href="/optimized/hero-home?w=1600"
+    imagesrcset="
+        /optimized/hero-home?w=768 768w,
+        /optimized/hero-home?w=1024 1024w,
+        /optimized/hero-home?w=1600 1600w
+    "
+    imagesizes="100vw"
+    fetchpriority="high"
+>
 
     <style>
 
@@ -1204,7 +1200,7 @@
 
         /* ==================================================
            GALLERY
-           DESKTOP - SMOOTH STICKY SLIDE
+           DESKTOP - SMOOTH PINNED SLIDER
         ================================================== */
 
         .gallery-section {
@@ -1232,24 +1228,20 @@
             width:
                 100%;
 
+            /*
+             * Extra scroll room gives the final panel
+             * enough time to settle before the pin ends.
+             */
             height:
-                300vh;
+                340vh;
 
         }
 
 
-        /* ==================================================
-           STICKY VIEWPORT
-           NO GSAP PIN / NO SNAP
-        ================================================== */
-
         .gallery-viewport {
 
             position:
-                sticky;
-
-            top:
-                0;
+                relative;
 
             width:
                 100%;
@@ -1273,12 +1265,11 @@
             backface-visibility:
                 hidden;
 
+            -webkit-backface-visibility:
+                hidden;
+
         }
 
-
-        /* ==================================================
-           GALLERY PANEL
-        ================================================== */
 
         .gallery-panel {
 
@@ -1315,6 +1306,10 @@
             background:
                 #111111;
 
+            /*
+             * True horizontal centering.
+             * This remains centered when browser zoom changes.
+             */
             transform:
                 translate3d(
                     -50%,
@@ -1408,7 +1403,6 @@
 
         }
 
-
         /* ==================================================
            TABLET
         ================================================== */
@@ -1453,7 +1447,7 @@
             .gallery-panel {
 
                 left:
-                    50%;
+                    5%;
 
                 width:
                     90%;
@@ -2444,12 +2438,6 @@
 
             .gallery-viewport {
 
-                position:
-                    relative;
-
-                top:
-                    auto;
-
                 width:
                     100%;
 
@@ -3004,25 +2992,25 @@
             >
 
                 <img
-                    class="hero-bg"
-                    id="home-hero-image"
+    class="hero-bg"
+    id="home-hero-image"
 
-                    src="/optimized/hero-home?w=1600"
+    src="/optimized/hero-home?w=1600"
 
-                    srcset="
-                        /optimized/hero-home?w=768 768w,
-                        /optimized/hero-home?w=1024 1024w,
-                        /optimized/hero-home?w=1600 1600w
-                    "
+    srcset="
+        /optimized/hero-home?w=768 768w,
+        /optimized/hero-home?w=1024 1024w,
+        /optimized/hero-home?w=1600 1600w
+    "
 
-                    sizes="100vw"
+    sizes="100vw"
 
-                    alt="Auren Originals creative agency visual storytelling and photography"
+    alt="Auren Originals creative agency visual storytelling and photography"
 
-                    fetchpriority="high"
+    fetchpriority="high"
 
-                    decoding="async"
-                >
+    decoding="async"
+>
 
             </div>
 
@@ -3636,6 +3624,8 @@
            HOMEPAGE ASSETS
         ================================================== */
 
+        
+
         loadRootAsset(
             'transition-image.jpg',
             'transition-image'
@@ -3935,7 +3925,7 @@
 
 
         /* ==================================================
-           DESKTOP ANIMATIONS
+           DESKTOP ANIMATION
         ================================================== */
 
         async function initializeDesktopAnimations() {
@@ -3993,54 +3983,39 @@
 
                 {
 
-                    width:
-                        220,
+                    width: 220,
 
-                    height:
-                        130,
+                    height: 130,
 
-                    top:
-                        "50%",
+                    top: "50%",
 
-                    left:
-                        "50%",
+                    left: "50%",
 
-                    xPercent:
-                        -50,
+                    xPercent: -50,
 
-                    yPercent:
-                        -50,
+                    yPercent: -50,
 
-                    borderRadius:
-                        18
+                    borderRadius: 18
 
                 },
 
                 {
 
-                    width:
-                        "100vw",
+                    width: "100vw",
 
-                    height:
-                        "100vh",
+                    height: "100vh",
 
-                    top:
-                        "50%",
+                    top: "50%",
 
-                    left:
-                        "50%",
+                    left: "50%",
 
-                    xPercent:
-                        -50,
+                    xPercent: -50,
 
-                    yPercent:
-                        -50,
+                    yPercent: -50,
 
-                    borderRadius:
-                        0,
+                    borderRadius: 0,
 
-                    duration:
-                        2,
+                    duration: 2,
 
                     ease:
                         "expo.inOut"
@@ -4056,24 +4031,19 @@
 
                 {
 
-                    scale:
-                        1.12,
+                    scale: 1.12,
 
-                    opacity:
-                        0.85
+                    opacity: 0.85
 
                 },
 
                 {
 
-                    scale:
-                        1,
+                    scale: 1,
 
-                    opacity:
-                        1,
+                    opacity: 1,
 
-                    duration:
-                        2,
+                    duration: 2,
 
                     ease:
                         "power2.out"
@@ -4091,11 +4061,9 @@
 
                 {
 
-                    opacity:
-                        1,
+                    opacity: 1,
 
-                    duration:
-                        0.35
+                    duration: 0.35
 
                 },
 
@@ -4110,14 +4078,11 @@
 
                 {
 
-                    x:
-                        -45,
+                    x: -45,
 
-                    opacity:
-                        0,
+                    opacity: 0,
 
-                    duration:
-                        0.9
+                    duration: 0.9
 
                 },
 
@@ -4132,14 +4097,11 @@
 
                 {
 
-                    x:
-                        -30,
+                    x: -30,
 
-                    opacity:
-                        0,
+                    opacity: 0,
 
-                    duration:
-                        0.8
+                    duration: 0.8
 
                 },
 
@@ -4154,17 +4116,13 @@
 
                 {
 
-                    x:
-                        -20,
+                    x: -20,
 
-                    opacity:
-                        0,
+                    opacity: 0,
 
-                    duration:
-                        0.7,
+                    duration: 0.7,
 
-                    stagger:
-                        0.12
+                    stagger: 0.12
 
                 },
 
@@ -4183,11 +4141,9 @@
 
                 {
 
-                    yPercent:
-                        5,
+                    yPercent: 5,
 
-                    ease:
-                        "none",
+                    ease: "none",
 
                     scrollTrigger: {
 
@@ -4239,14 +4195,11 @@
                     ".about-section h2",
                     {
 
-                        y:
-                            50,
+                        y: 50,
 
-                        opacity:
-                            0,
+                        opacity: 0,
 
-                        duration:
-                            1.05
+                        duration: 1.05
 
                     }
                 )
@@ -4255,14 +4208,11 @@
                     ".about-section p",
                     {
 
-                        y:
-                            28,
+                        y: 28,
 
-                        opacity:
-                            0,
+                        opacity: 0,
 
-                        duration:
-                            0.9
+                        duration: 0.9
 
                     },
 
@@ -4274,14 +4224,11 @@
                     ".about-section .btn-text",
                     {
 
-                        y:
-                            18,
+                        y: 18,
 
-                        opacity:
-                            0,
+                        opacity: 0,
 
-                        duration:
-                            0.7
+                        duration: 0.7
 
                     },
 
@@ -4319,14 +4266,11 @@
                     ".services-section .section-label",
                     {
 
-                        y:
-                            20,
+                        y: 20,
 
-                        opacity:
-                            0,
+                        opacity: 0,
 
-                        duration:
-                            0.65
+                        duration: 0.65
 
                     }
                 )
@@ -4335,14 +4279,11 @@
                     ".services-section h2",
                     {
 
-                        y:
-                            35,
+                        y: 35,
 
-                        opacity:
-                            0,
+                        opacity: 0,
 
-                        duration:
-                            0.95
+                        duration: 0.95
 
                     },
 
@@ -4354,17 +4295,13 @@
                     ".service-card",
                     {
 
-                        y:
-                            28,
+                        y: 28,
 
-                        opacity:
-                            0,
+                        opacity: 0,
 
-                        duration:
-                            0.75,
+                        duration: 0.75,
 
-                        stagger:
-                            0.12
+                        stagger: 0.12
 
                     },
 
@@ -4402,14 +4339,11 @@
                     ".why-header .section-label",
                     {
 
-                        y:
-                            18,
+                        y: 18,
 
-                        opacity:
-                            0,
+                        opacity: 0,
 
-                        duration:
-                            0.6
+                        duration: 0.6
 
                     }
                 )
@@ -4418,14 +4352,11 @@
                     ".why-header h2",
                     {
 
-                        y:
-                            35,
+                        y: 35,
 
-                        opacity:
-                            0,
+                        opacity: 0,
 
-                        duration:
-                            0.9
+                        duration: 0.9
 
                     },
 
@@ -4437,17 +4368,13 @@
                     ".why-card",
                     {
 
-                        y:
-                            25,
+                        y: 25,
 
-                        opacity:
-                            0,
+                        opacity: 0,
 
-                        duration:
-                            0.75,
+                        duration: 0.75,
 
-                        stagger:
-                            0.12
+                        stagger: 0.12
 
                     },
 
@@ -4466,18 +4393,15 @@
 
                 {
 
-                    opacity:
-                        0
+                    opacity: 0
 
                 },
 
                 {
 
-                    opacity:
-                        1,
+                    opacity: 1,
 
-                    duration:
-                        1.2,
+                    duration: 1.2,
 
                     scrollTrigger: {
 
@@ -4523,14 +4447,11 @@
                     ".cta-section h2",
                     {
 
-                        y:
-                            40,
+                        y: 40,
 
-                        opacity:
-                            0,
+                        opacity: 0,
 
-                        duration:
-                            1.05
+                        duration: 1.05
 
                     }
                 )
@@ -4539,14 +4460,11 @@
                     ".cta-section p",
                     {
 
-                        y:
-                            22,
+                        y: 22,
 
-                        opacity:
-                            0,
+                        opacity: 0,
 
-                        duration:
-                            0.85
+                        duration: 0.85
 
                     },
 
@@ -4558,17 +4476,13 @@
                     ".cta-buttons a",
                     {
 
-                        y:
-                            18,
+                        y: 18,
 
-                        opacity:
-                            0,
+                        opacity: 0,
 
-                        duration:
-                            0.7,
+                        duration: 0.7,
 
-                        stagger:
-                            0.12
+                        stagger: 0.12
 
                     },
 
@@ -4579,8 +4493,8 @@
 
             /* ==================================================
                DESKTOP GALLERY
-               SMOOTH STICKY SLIDER
-               NO PIN / NO SNAP
+               SMOOTH PINNED SLIDER
+               CENTERED + NO HARD ENTRY/EXIT SNAP
             ================================================== */
 
             let desktopGallery =
@@ -4588,96 +4502,10 @@
 
 
             /* ==================================================
-               WAIT FOR GALLERY IMAGES
+               SET INITIAL POSITIONS
             ================================================== */
 
-            function waitForGalleryImages() {
-
-                const images = [
-
-                    document.getElementById(
-                        "gallery-image-1"
-                    ),
-
-                    document.getElementById(
-                        "gallery-image-2"
-                    ),
-
-                    document.getElementById(
-                        "gallery-image-3"
-                    )
-
-                ]
-                .filter(
-                    image =>
-                        image
-                );
-
-
-                if (
-                    images.length === 0
-                ) {
-
-                    return Promise.resolve();
-
-                }
-
-
-                return Promise.all(
-
-                    images.map(
-
-                        image => {
-
-                            if (
-                                image.complete &&
-                                image.naturalWidth > 0
-                            ) {
-
-                                return Promise.resolve();
-
-                            }
-
-
-                            return new Promise(
-                                resolve => {
-
-                                    image.addEventListener(
-                                        "load",
-                                        resolve,
-                                        {
-                                            once:
-                                                true
-                                        }
-                                    );
-
-
-                                    image.addEventListener(
-                                        "error",
-                                        resolve,
-                                        {
-                                            once:
-                                                true
-                                        }
-                                    );
-
-                                }
-                            );
-
-                        }
-
-                    )
-
-                );
-
-            }
-
-
-            /* ==================================================
-               SET INITIAL GALLERY POSITIONS
-            ================================================== */
-
-            function setInitialGalleryPositions() {
+            function setGalleryInitialPositions() {
 
                 const panel1 =
                     document.querySelector(
@@ -4709,9 +4537,7 @@
 
 
                 gsap.set(
-
                     panel1,
-
                     {
 
                         xPercent:
@@ -4724,47 +4550,40 @@
                             true
 
                     }
-
                 );
 
 
                 gsap.set(
-
                     panel2,
-
                     {
 
                         xPercent:
                             -50,
 
                         yPercent:
-                            110,
+                            100,
 
                         force3D:
                             true
 
                     }
-
                 );
 
 
                 gsap.set(
-
                     panel3,
-
                     {
 
                         xPercent:
                             -50,
 
                         yPercent:
-                            110,
+                            100,
 
                         force3D:
                             true
 
                     }
-
                 );
 
 
@@ -4774,7 +4593,7 @@
 
 
             /* ==================================================
-               REMOVE OLD GALLERY TRIGGER
+               REMOVE EXISTING GALLERY TRIGGERS
             ================================================== */
 
             function removeGalleryTriggers() {
@@ -4784,19 +4603,10 @@
                     .forEach(
                         trigger => {
 
-                            const vars =
-                                trigger.vars ||
-                                {};
-
-
-                            const triggerElement =
-                                vars.trigger;
-
-
                             if (
-                                triggerElement &&
-                                triggerElement.id ===
-                                "gallery-stage"
+                                trigger.vars &&
+                                trigger.vars.id ===
+                                "auren-gallery"
                             ) {
 
                                 trigger.kill();
@@ -4810,7 +4620,7 @@
 
 
             /* ==================================================
-               CREATE SMOOTH GALLERY
+               CREATE GALLERY
             ================================================== */
 
             function setupDesktopGallery() {
@@ -4818,6 +4628,12 @@
                 const stage =
                     document.getElementById(
                         "gallery-stage"
+                    );
+
+
+                const viewport =
+                    document.getElementById(
+                        "gallery-viewport"
                     );
 
 
@@ -4841,6 +4657,7 @@
 
                 if (
                     !stage ||
+                    !viewport ||
                     !panel1 ||
                     !panel2 ||
                     !panel3
@@ -4851,20 +4668,8 @@
                 }
 
 
-                setInitialGalleryPositions();
+                setGalleryInitialPositions();
 
-
-                /*
-                 * The gallery viewport uses CSS sticky.
-                 *
-                 * GSAP only controls slide movement.
-                 *
-                 * No GSAP pin means:
-                 *
-                 * 1. No pin entry jump.
-                 * 2. No pin exit jump.
-                 * 3. No snapping at gallery boundaries.
-                 */
 
                 const timeline =
                     gsap.timeline({
@@ -4891,7 +4696,16 @@
                                 "bottom bottom",
 
                             scrub:
-                                2.2,
+                                2.6,
+
+                            pin:
+                                viewport,
+
+                            pinSpacing:
+                                true,
+
+                            anticipatePin:
+                                2,
 
                             invalidateOnRefresh:
                                 true,
@@ -4907,41 +4721,28 @@
                     });
 
 
-                /* ==================================================
-                   PANEL 2
-                ================================================== */
-
+                /*
+                 * Small beginning section.
+                 * The first panel remains stable while the
+                 * pin settles instead of visually snapping.
+                 */
                 timeline.to(
-
-                    panel2,
-
+                    {},
                     {
 
-                        yPercent:
-                            0,
-
                         duration:
-                            1,
-
-                        ease:
-                            "none",
-
-                        force3D:
-                            true
+                            0.30
 
                     }
-
                 );
 
 
                 /* ==================================================
-                   PANEL 3
+                   PANEL 1 -> PANEL 2
                 ================================================== */
 
                 timeline.to(
-
-                    panel3,
-
+                    panel2,
                     {
 
                         yPercent:
@@ -4957,7 +4758,61 @@
                             true
 
                     }
+                );
 
+
+                /*
+                 * Very short natural pause between panels.
+                 * This avoids the two cards touching at speed.
+                 */
+                timeline.to(
+                    {},
+                    {
+
+                        duration:
+                            0.10
+
+                    }
+                );
+
+
+                /* ==================================================
+                   PANEL 2 -> PANEL 3
+                ================================================== */
+
+                timeline.to(
+                    panel3,
+                    {
+
+                        yPercent:
+                            0,
+
+                        duration:
+                            1,
+
+                        ease:
+                            "none",
+
+                        force3D:
+                            true
+
+                    }
+                );
+
+
+                /*
+                 * Final settling section.
+                 * The third panel stays fully visible before the
+                 * pin releases, which prevents the last-frame snap.
+                 */
+                timeline.to(
+                    {},
+                    {
+
+                        duration:
+                            0.45
+
+                    }
                 );
 
 
@@ -4970,29 +4825,13 @@
                INITIALIZE GALLERY
             ================================================== */
 
-            async function initializeGallery() {
+            function initializeGallery() {
 
                 if (
                     !isDesktop
                 ) {
 
                     return;
-
-                }
-
-
-                try {
-
-                    await waitForGalleryImages();
-
-                }
-
-                catch (error) {
-
-                    console.error(
-                        "Gallery image loading error:",
-                        error
-                    );
 
                 }
 
@@ -5028,25 +4867,123 @@
 
 
             /* ==================================================
-               START GALLERY AFTER PAGE LOAD
+               WAIT FOR GALLERY IMAGES
+            ================================================== */
+
+            function initializeGalleryAfterImages() {
+
+                const images = [
+
+                    document.getElementById(
+                        "gallery-image-1"
+                    ),
+
+                    document.getElementById(
+                        "gallery-image-2"
+                    ),
+
+                    document.getElementById(
+                        "gallery-image-3"
+                    )
+
+                ]
+                .filter(
+                    image => image
+                );
+
+
+                if (
+                    images.length === 0
+                ) {
+
+                    initializeGallery();
+
+                    return;
+
+                }
+
+
+                let remaining =
+                    images.length;
+
+
+                const done = () => {
+
+                    remaining -= 1;
+
+
+                    if (
+                        remaining <= 0
+                    ) {
+
+                        initializeGallery();
+
+                    }
+
+                };
+
+
+                images.forEach(
+                    image => {
+
+                        if (
+                            image.complete &&
+                            image.naturalWidth > 0
+                        ) {
+
+                            done();
+
+                            return;
+
+                        }
+
+
+                        image.addEventListener(
+                            "load",
+                            done,
+                            {
+                                once:
+                                    true
+                            }
+                        );
+
+
+                        image.addEventListener(
+                            "error",
+                            done,
+                            {
+                                once:
+                                    true
+                            }
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* ==================================================
+               INITIAL LOAD
             ================================================== */
 
             window.addEventListener(
                 "load",
                 () => {
 
-                    initializeGallery();
+                    initializeGalleryAfterImages();
 
                 }
             );
 
 
             /* ==================================================
-               REFRESH ONLY ON RESIZE
-               DO NOT REBUILD TIMELINE
+               RESIZE
+               REFRESH ONLY
+               DO NOT REBUILD THE TIMELINE
             ================================================== */
 
-            let galleryRefreshTimer;
+            let galleryResizeTimer;
 
 
             window.addEventListener(
@@ -5054,11 +4991,11 @@
                 () => {
 
                     clearTimeout(
-                        galleryRefreshTimer
+                        galleryResizeTimer
                     );
 
 
-                    galleryRefreshTimer =
+                    galleryResizeTimer =
                         setTimeout(
                             () => {
 
@@ -5104,7 +5041,6 @@
                 }
             );
 
-
             /* ==================================================
                FOOTER ANIMATION
             ================================================== */
@@ -5115,24 +5051,19 @@
 
                 {
 
-                    y:
-                        30,
+                    y: 30,
 
-                    opacity:
-                        0
+                    opacity: 0
 
                 },
 
                 {
 
-                    y:
-                        0,
+                    y: 0,
 
-                    opacity:
-                        1,
+                    opacity: 1,
 
-                    duration:
-                        1,
+                    duration: 1,
 
                     scrollTrigger: {
 
