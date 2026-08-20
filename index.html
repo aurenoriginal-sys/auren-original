@@ -1200,7 +1200,7 @@
 
         /* ==================================================
            GALLERY
-           DESKTOP — UNCHANGED
+           DESKTOP — SMOOTH STACKED SLIDE
         ================================================== */
 
         .gallery-section {
@@ -1251,6 +1251,12 @@
             background:
                 #000000;
 
+            transform:
+                translateZ(0);
+
+            backface-visibility:
+                hidden;
+
         }
 
 
@@ -1292,6 +1298,16 @@
             will-change:
                 transform;
 
+            backface-visibility:
+                hidden;
+
+            transform:
+                translate3d(
+                    0,
+                    0,
+                    0
+                );
+
         }
 
 
@@ -1301,18 +1317,27 @@
                 1;
 
             transform:
-                translateY(0);
+                translate3d(
+                    0,
+                    0,
+                    0
+                );
 
         }
 
 
-        .gallery-panel.panel-2 {
+        .gallery-panel.panel-2,
+        .gallery-panel.panel-3 {
 
             z-index:
                 2;
 
             transform:
-                translateY(100vh);
+                translate3d(
+                    0,
+                    100vh,
+                    0
+                );
 
         }
 
@@ -1321,9 +1346,6 @@
 
             z-index:
                 3;
-
-            transform:
-                translateY(100vh);
 
         }
 
@@ -1346,10 +1368,17 @@
                 center;
 
             transform:
-                none;
+                translate3d(
+                    0,
+                    0,
+                    0
+                );
 
             will-change:
                 transform;
+
+            backface-visibility:
+                hidden;
 
         }
 
@@ -1365,6 +1394,25 @@
                     0,
                     0.30
                 );
+
+        }
+
+
+        /* ==================================================
+           TABLET
+        ================================================== */
+
+        @media (max-width: 1024px) {
+
+            .gallery-panel {
+
+                left:
+                    5%;
+
+                width:
+                    90%;
+
+            }
 
         }
 
@@ -4459,12 +4507,8 @@
 
             /* ==================================================
                DESKTOP GALLERY
-               OLD FRAME + NEW SLIDE ANIMATION
+               SMOOTH SCROLL-SCRUBBED STACKED SLIDES
             ================================================== */
-
-            let desktopGallery =
-                null;
-
 
             function setupDesktopGallery() {
 
@@ -4506,50 +4550,63 @@
                     !panel3
                 ) {
 
-                    return null;
+                    return;
 
                 }
 
 
-                gsap.set(
+                /* ==================================================
+                   INITIAL STATES
 
+                   Use viewport-relative positioning so browser
+                   zoom/resize does not leave stale pixel values.
+                ================================================== */
+
+                gsap.set(
                     panel1,
-
                     {
-                        y: 0
+                        y: 0,
+                        force3D: true
                     }
-
                 );
 
 
                 gsap.set(
-
                     panel2,
-
                     {
-                        y:
-                            window.innerHeight
+                        y: "100vh",
+                        force3D: true
                     }
-
                 );
 
 
                 gsap.set(
-
                     panel3,
-
                     {
-                        y:
-                            window.innerHeight
+                        y: "100vh",
+                        force3D: true
                     }
-
                 );
 
+
+                /* ==================================================
+                   GALLERY TIMELINE
+                ================================================== */
 
                 const timeline =
                     gsap.timeline({
 
+                        defaults: {
+
+                            ease:
+                                "power1.out"
+
+                        },
+
                         scrollTrigger: {
+
+                            id:
+                                "auren-gallery",
 
                             trigger:
                                 stage,
@@ -4561,21 +4618,34 @@
                                 "bottom bottom",
 
                             scrub:
-                                1,
+                                1.6,
 
                             pin:
                                 viewport,
+
+                            pinSpacing:
+                                true,
 
                             anticipatePin:
                                 1,
 
                             invalidateOnRefresh:
-                                true
+                                true,
+
+                            fastScrollEnd:
+                                false,
+
+                            refreshPriority:
+                                1
 
                         }
 
                     });
 
+
+                /* ==================================================
+                   PANEL 2
+                ================================================== */
 
                 timeline.to(
 
@@ -4585,14 +4655,20 @@
 
                         y: 0,
 
-                        duration: 1,
+                        duration: 1.15,
 
-                        ease: "none"
+                        ease:
+                            "power2.out",
+
+                        force3D:
+                            true
 
                     }
 
                 );
 
+
+                /* Small natural hold before panel 3 begins */
 
                 timeline.to(
 
@@ -4600,12 +4676,17 @@
 
                     {
 
-                        duration: 0.22
+                        duration:
+                            0.12
 
                     }
 
                 );
 
+
+                /* ==================================================
+                   PANEL 3
+                ================================================== */
 
                 timeline.to(
 
@@ -4615,22 +4696,13 @@
 
                         y: 0,
 
-                        duration: 1,
+                        duration: 1.15,
 
-                        ease: "none"
+                        ease:
+                            "power2.out",
 
-                    }
-
-                );
-
-
-                timeline.to(
-
-                    {},
-
-                    {
-
-                        duration: 0.30
+                        force3D:
+                            true
 
                     }
 
@@ -4642,56 +4714,142 @@
             }
 
 
-            function removeGalleryTriggers() {
-
-                ScrollTrigger
-                    .getAll()
-                    .forEach(
-                        trigger => {
-
-                            const triggerElement =
-                                trigger.vars &&
-                                trigger.vars.trigger;
-
-
-                            if (
-                                triggerElement &&
-                                triggerElement.id ===
-                                "gallery-stage"
-                            ) {
-
-                                trigger.kill();
-
-                            }
-
-                        }
-                    );
-
-            }
-
+            /* ==================================================
+               INITIALIZE GALLERY ONCE
+            ================================================== */
 
             function initializeGallery() {
 
-                removeGalleryTriggers();
+                const oldTrigger =
+                    ScrollTrigger.getById(
+                        "auren-gallery"
+                    );
 
 
                 if (
-                    desktopGallery
+                    oldTrigger
                 ) {
 
-                    desktopGallery.kill();
-
-                    desktopGallery =
-                        null;
+                    oldTrigger.kill();
 
                 }
 
 
-                desktopGallery =
-                    setupDesktopGallery();
+                setupDesktopGallery();
 
 
                 ScrollTrigger.refresh();
+
+            }
+
+
+            /*
+             * Wait until all gallery image requests that are already
+             * present on the page have had a chance to settle before
+             * creating the ScrollTrigger.
+             *
+             * This prevents the first scroll from feeling jerky when
+             * image decoding happens at the same time as pinning.
+             */
+
+            function waitForGalleryImages() {
+
+                const images =
+                    Array.from(
+                        document.querySelectorAll(
+                            ".gallery-panel img"
+                        )
+                    );
+
+
+                if (
+                    images.length === 0
+                ) {
+
+                    initializeGallery();
+
+                    return;
+
+                }
+
+
+                let remaining =
+                    images.length;
+
+
+                const done =
+                    () => {
+
+                        remaining -= 1;
+
+
+                        if (
+                            remaining <= 0
+                        ) {
+
+                            initializeGallery();
+
+                        }
+
+                    };
+
+
+                images.forEach(
+                    image => {
+
+                        if (
+                            image.complete
+                        ) {
+
+                            done();
+
+                            return;
+
+                        }
+
+
+                        image.addEventListener(
+                            "load",
+                            done,
+                            {
+                                once:
+                                    true
+                            }
+                        );
+
+
+                        image.addEventListener(
+                            "error",
+                            done,
+                            {
+                                once:
+                                    true
+                            }
+                        );
+
+                    }
+                );
+
+
+                /*
+                 * Safety fallback so one slow image can never block
+                 * the gallery initialization forever.
+                 */
+
+                setTimeout(
+                    () => {
+
+                        if (
+                            remaining > 0
+                        ) {
+
+                            initializeGallery();
+
+                        }
+
+                    },
+                    2500
+                );
 
             }
 
@@ -4700,36 +4858,29 @@
                 "load",
                 () => {
 
-                    initializeGallery();
+                    waitForGalleryImages();
 
+                },
+                {
+                    once:
+                        true
                 }
             );
 
 
-            let galleryResizeTimer;
+            /*
+             * IMPORTANT:
+             *
+             * There is intentionally NO resize handler that kills and
+             * rebuilds the gallery on every resize/zoom event.
+             *
+             * Rebuilding ScrollTrigger during browser zoom was causing
+             * the gallery position to reset and feel unsmooth.
+             *
+             * invalidateOnRefresh:true lets ScrollTrigger recalculate
+             * when the browser itself refreshes the measurements.
+             */
 
-
-            window.addEventListener(
-                "resize",
-                () => {
-
-                    clearTimeout(
-                        galleryResizeTimer
-                    );
-
-
-                    galleryResizeTimer =
-                        setTimeout(
-                            () => {
-
-                                initializeGallery();
-
-                            },
-                            250
-                        );
-
-                }
-            );
 
 
             /* ==================================================
