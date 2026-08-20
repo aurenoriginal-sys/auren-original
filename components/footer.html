@@ -2,53 +2,51 @@
 
 /* ==================================================
    AUREN FOOTER
-   SAME DYNAMIC LOGO SYSTEM AS NAVBAR
+   FLUID LAYOUT - MATCH NAVBAR BEHAVIOUR
 ================================================== */
 
 .footer {
 
     width: 100%;
 
-    background:
-        #1f1f1f;
+    background: #1f1f1f;
 
     border-top:
         1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.06
-        );
+        rgba(255, 255, 255, 0.06);
 
     padding:
         58px 5% 22px;
+
+    box-sizing: border-box;
+
+    overflow-x: hidden;
 
 }
 
 
 /* ==================================================
    FOOTER INNER
+   FLUID LIKE NAVBAR
 ================================================== */
 
 .footer-inner {
 
     width: 100%;
 
-    max-width:
-        1320px;
+    margin: 0;
 
-    margin:
-        0 auto;
+    display: grid;
 
-    display:
-        flex;
+    grid-template-columns:
+        24%
+        minmax(0, 1fr);
 
-    justify-content:
-        space-between;
+    column-gap: 4%;
 
-    align-items:
-        flex-start;
+    align-items: start;
+
+    box-sizing: border-box;
 
 }
 
@@ -59,33 +57,35 @@
 
 .footer-brand {
 
-    flex:
-        0 0 auto;
+    width: 100%;
+
+    min-width: 0;
 
 }
 
 
 .footer-logo {
 
-    display:
-        inline-block;
+    display: block;
+
+    width: fit-content;
+
+    max-width: 100%;
 
 }
 
 
 .footer-logo img {
 
-    display:
-        block;
+    display: block;
 
-    width:
-        auto;
+    width: auto;
 
-    height:
-        200px;
+    max-width: 100%;
 
-    object-fit:
-        contain;
+    height: 200px;
+
+    object-fit: contain;
 
 }
 
@@ -96,48 +96,58 @@
 
 .footer-links {
 
-    display:
-        flex;
+    width: 100%;
 
-    align-items:
-        flex-start;
+    min-width: 0;
 
-    justify-content:
-        flex-end;
+    display: grid;
 
-    gap:
-        80px;
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    column-gap: 5%;
+
+    row-gap: 20px;
+
+    align-items: start;
 
 }
 
+
+/* ==================================================
+   FOOTER COLUMN
+================================================== */
 
 .footer-column {
 
-    width:
-        145px;
+    width: 100%;
 
-    display:
-        flex;
+    min-width: 0;
 
-    flex-direction:
-        column;
+    display: flex;
 
-    gap:
-        10px;
+    flex-direction: column;
+
+    gap: 10px;
 
 }
 
+
+/* ==================================================
+   COLUMN HEADING
+================================================== */
 
 .footer-column h4 {
 
     margin:
         0 0 8px;
 
-    padding:
-        0;
+    padding: 0;
 
-    color:
-        #ffffff;
+    color: #ffffff;
 
     font-family:
         var(--font-body);
@@ -160,16 +170,19 @@
 }
 
 
+/* ==================================================
+   COLUMN LINKS
+================================================== */
+
 .footer-column a {
 
-    display:
-        block;
+    display: block;
 
-    width:
-        fit-content;
+    width: 100%;
 
-    color:
-        #818181;
+    max-width: 100%;
+
+    color: #818181;
 
     font-family:
         var(--font-body);
@@ -183,37 +196,35 @@
     line-height:
         1.4;
 
-    text-decoration:
-        none;
+    text-decoration: none;
 
     transition:
         color 0.25s ease;
+
+    white-space: normal;
+
+    overflow-wrap: break-word;
 
 }
 
 
 .footer-column a:hover {
 
-    color:
-        #ffffff;
+    color: #ffffff;
 
 }
 
 
 /* ==================================================
-   COPYRIGHT
+   FOOTER BOTTOM
 ================================================== */
 
 .footer-bottom {
 
-    width:
-        100%;
-
-    max-width:
-        1320px;
+    width: 100%;
 
     margin:
-        45px auto 0;
+        45px 0 0;
 
     padding-top:
         17px;
@@ -227,16 +238,16 @@
             0.08
         );
 
+    box-sizing: border-box;
+
 }
 
 
 .footer-bottom p {
 
-    margin:
-        0;
+    margin: 0;
 
-    color:
-        #727272;
+    color: #727272;
 
     font-family:
         var(--font-body);
@@ -262,7 +273,19 @@
     .footer {
 
         padding:
-            65px 5% 25px;
+            55px 5% 22px;
+
+    }
+
+
+    .footer-inner {
+
+        grid-template-columns:
+            22%
+            minmax(0, 1fr);
+
+        column-gap:
+            4%;
 
     }
 
@@ -270,23 +293,53 @@
     .footer-logo img {
 
         height:
-            105px;
+            130px;
 
     }
 
 
     .footer-links {
 
-        gap:
-            50px;
+        column-gap:
+            4%;
 
     }
 
 
-    .footer-column {
+    .footer-column h4 {
 
-        width:
-            135px;
+        font-size:
+            0.65rem;
+
+        letter-spacing:
+            1.25px;
+
+    }
+
+
+    .footer-column a {
+
+        font-size:
+            0.70rem;
+
+    }
+
+
+    .footer-bottom {
+
+        margin-top:
+            38px;
+
+        padding-top:
+            15px;
+
+    }
+
+
+    .footer-bottom p {
+
+        font-size:
+            0.62rem;
 
     }
 
@@ -295,43 +348,37 @@
 
 /* ==================================================
    MOBILE
+   SAME FLUID PRINCIPLE
 ================================================== */
 
 @media (max-width: 767px) {
 
     .footer {
 
-        width:
-            100%;
+        width: 100%;
 
         padding:
             55px 5% 20px;
 
-        background:
-            #1f1f1f;
+        box-sizing: border-box;
 
     }
 
 
     .footer-inner {
 
-        width:
-            100%;
+        width: 100%;
 
-        display:
-            flex;
+        display: grid;
 
-        flex-direction:
-            row;
+        grid-template-columns:
+            24%
+            minmax(0, 1fr);
 
-        align-items:
-            flex-start;
+        column-gap:
+            4%;
 
-        justify-content:
-            space-between;
-
-        gap:
-            12px;
+        align-items: start;
 
     }
 
@@ -342,86 +389,65 @@
 
     .footer-brand {
 
-        width:
-            24%;
+        width: 100%;
 
-        flex:
-            0 0 24%;
+        min-width: 0;
 
     }
 
 
     .footer-logo {
 
-        display:
-            block;
-
-        width:
-            100%;
+        width: 100%;
 
     }
 
 
     .footer-logo img {
 
-        width:
-            100%;
+        width: 100%;
 
-        max-width:
-            92px;
+        max-width: 92px;
 
-        height:
-            auto;
+        height: auto;
 
-        object-fit:
-            contain;
+        object-fit: contain;
 
     }
 
 
     /* ------------------------------------------
-       COLUMNS
+       LINKS
     ------------------------------------------ */
 
     .footer-links {
 
-        width:
-            72%;
+        width: 100%;
 
-        display:
-            grid;
+        display: grid;
 
         grid-template-columns:
             repeat(
                 3,
-                minmax(
-                    0,
-                    1fr
-                )
+                minmax(0, 1fr)
             );
 
-        gap:
+        column-gap:
+            8px;
+
+        row-gap:
             10px;
 
-        align-items:
-            start;
-
-        justify-content:
-            stretch;
+        min-width: 0;
 
     }
 
 
     .footer-column {
 
-        width:
-            100%;
+        width: 100%;
 
-        display:
-            flex;
-
-        flex-direction:
-            column;
+        min-width: 0;
 
         gap:
             7px;
@@ -448,8 +474,9 @@
 
     .footer-column a {
 
-        width:
-            100%;
+        width: 100%;
+
+        max-width: 100%;
 
         color:
             #7d7d7d;
@@ -461,7 +488,10 @@
             1.45;
 
         white-space:
-            nowrap;
+            normal;
+
+        overflow-wrap:
+            break-word;
 
     }
 
@@ -472,11 +502,10 @@
 
     .footer-bottom {
 
-        width:
-            100%;
+        width: 100%;
 
         margin:
-            40px auto 0;
+            40px 0 0;
 
         padding-top:
             14px;
@@ -516,19 +545,12 @@
 
     .footer-inner {
 
-        gap:
-            8px;
+        grid-template-columns:
+            23%
+            minmax(0, 1fr);
 
-    }
-
-
-    .footer-brand {
-
-        width:
-            23%;
-
-        flex-basis:
-            23%;
+        column-gap:
+            4%;
 
     }
 
@@ -543,11 +565,17 @@
 
     .footer-links {
 
-        width:
-            74%;
+        grid-template-columns:
+            repeat(
+                3,
+                minmax(
+                    0,
+                    1fr
+                )
+            );
 
-        gap:
-            7px;
+        column-gap:
+            6px;
 
     }
 
@@ -614,13 +642,14 @@
     }
 
 
-    .footer-brand {
+    .footer-inner {
 
-        width:
-            22%;
+        grid-template-columns:
+            22%
+            minmax(0, 1fr);
 
-        flex-basis:
-            22%;
+        column-gap:
+            4%;
 
     }
 
@@ -635,10 +664,7 @@
 
     .footer-links {
 
-        width:
-            75%;
-
-        gap:
+        column-gap:
             5px;
 
     }
@@ -706,19 +732,9 @@
                 aria-label="Auren Originals Home"
             >
 
-                <!--
-                    Initial logo source.
-
-                    The JavaScript below immediately
-                    replaces this with the current
-                    Cloudinary logo returned by:
-
-                    /api/site-logo
-                -->
-
                 <img
                     id="site-logo-footer"
-                    src="https://res.cloudinary.com/uye4ufpk/image/upload/v1787215613/logo.png"
+                    src=""
                     alt="Auren Originals"
                     loading="lazy"
                 >
@@ -729,7 +745,7 @@
 
 
         <!-- ==================================================
-             LINKS
+             FOOTER LINKS
         ================================================== -->
 
         <div class="footer-links">
@@ -746,30 +762,22 @@
                 </h4>
 
 
-                <a
-                    href="service.html"
-                >
+                <a href="service.html">
                     Photography
                 </a>
 
 
-                <a
-                    href="service.html"
-                >
+                <a href="service.html">
                     Branding
                 </a>
 
 
-                <a
-                    href="service.html"
-                >
+                <a href="service.html">
                     Creative Direction
                 </a>
 
 
-                <a
-                    href="service.html"
-                >
+                <a href="service.html">
                     Digital Marketing
                 </a>
 
@@ -787,30 +795,22 @@
                 </h4>
 
 
-                <a
-                    href="about.html"
-                >
+                <a href="about.html">
                     About
                 </a>
 
 
-                <a
-                    href="about.html"
-                >
+                <a href="about.html">
                     Team
                 </a>
 
 
-                <a
-                    href="contact.html"
-                >
+                <a href="contact.html">
                     Careers
                 </a>
 
 
-                <a
-                    href="portfolio.html"
-                >
+                <a href="portfolio.html">
                     Blog
                 </a>
 
@@ -838,6 +838,7 @@
 
             </div>
 
+
         </div>
 
     </div>
@@ -861,8 +862,8 @@
 
 
 <!-- ==================================================
-     FOOTER LOGO LOADER
-     SAME SYSTEM AS NAVBAR
+     DYNAMIC LOGO
+     SAME API AS NAVBAR
 ================================================== -->
 
 <script>
@@ -872,9 +873,7 @@ fetch('/api/site-logo')
     .then(
         response => {
 
-            if (
-                !response.ok
-            ) {
+            if (!response.ok) {
 
                 throw new Error(
                     `Logo API returned ${response.status}`
@@ -902,10 +901,6 @@ fetch('/api/site-logo')
                 data.secure_url
             ) {
 
-                /*
-                 * Use the same current Cloudinary
-                 * URL returned by the server.
-                 */
                 logo.src =
                     data.secure_url;
 
