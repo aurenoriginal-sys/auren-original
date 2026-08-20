@@ -7,7 +7,7 @@
      GOOGLE ANALYTICS 4
 ================================================== -->
 
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=mWsDvlBO5TmqMirRjA86UxH0mdleMZmz_pzDoKYJIhxW8BIFTqskHOVwoQPcuglTOLxdl_BOJV65Z09Wlge7z3HV4y9xoIvFjaiyOBhGdDF0Jxf86lLltS5E1qDoa8dliZDjbft59owQRIZDXOVKLk9aGnkcoME3yIFeSa7YyP9MGCac60r_dpXNWMYK_lRoi7czp4KMFdi-iMgsZGRz_-GmNHlGVNb4bXDB1afa1l4aYRcRFR6qDgFq78TrstP9Y3YEgmE4Ud4xKSfpHPoeZ0o9yKF_vs_wkeS38cIqylCWOB-1i26XgxAw8iRLdxOb5ydrwMaD4PJFciKbJXvMng" charset="UTF-8"></script><script
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Z0emf9XdP9HmRg79H9pzMvcRFaZ3PgUG-Elvru2aXnznhq8pFEARjibdO5I8j8zIXwEoF1KWtHpDJLHDJaojKpwyLJ4dfnk3Tio1h11oWyVZG2nQgAXq5MqICtrKrblAHZtkAPFocUIfCBs1Mdo3yEkA4JhGhDAwNDJTtgOiiRz5k-Uu7st3Vj9EJwboEHYrPhW1BlohcJbYRuBToO3d-2Q1hSxJxmf_Ojv5k2O2FwVn6us8KLBrPz7Gf3B4OVOqTdgs5NKphcIstZ5hRb87t9iQmN3e7zyn9A7GYfY1q-bJeW0yXZkv-PFBLwStLb_YQkN9rCYC-HLINc-yuO5Lmw" charset="UTF-8"></script><script
     async
     src="https://www.googletagmanager.com/gtag/js?id=G-VECH9J2L1M"
 ></script>
@@ -1200,7 +1200,7 @@
 
         /* ==================================================
            GALLERY
-           DESKTOP - SMOOTH PINNED SLIDER
+           DESKTOP - CENTERED + SMOOTH STICKY SLIDER
         ================================================== */
 
         .gallery-section {
@@ -1228,20 +1228,24 @@
             width:
                 100%;
 
-            /*
-             * Extra scroll room gives the final panel
-             * enough time to settle before the pin ends.
-             */
             height:
-                340vh;
+                300vh;
 
         }
 
 
+        /* ==================================================
+           STICKY VIEWPORT
+           NO GSAP PIN / NO PIN-OUT SNAP
+        ================================================== */
+
         .gallery-viewport {
 
             position:
-                relative;
+                sticky;
+
+            top:
+                0;
 
             width:
                 100%;
@@ -1255,21 +1259,16 @@
             background:
                 #000000;
 
-            transform:
-                translate3d(
-                    0,
-                    0,
-                    0
-                );
-
-            backface-visibility:
-                hidden;
-
-            -webkit-backface-visibility:
-                hidden;
+            isolation:
+                isolate;
 
         }
 
+
+        /* ==================================================
+           GALLERY PANEL
+           TRUE CENTER WITHOUT TRANSFORM CONFLICT
+        ================================================== */
 
         .gallery-panel {
 
@@ -1280,13 +1279,10 @@
                 9vh;
 
             left:
-                50%;
+                max(6vw, calc(50% - 700px));
 
             width:
-                88%;
-
-            max-width:
-                1400px;
+                min(88vw, 1400px);
 
             height:
                 82vh;
@@ -1306,13 +1302,9 @@
             background:
                 #111111;
 
-            /*
-             * True horizontal centering.
-             * This remains centered when browser zoom changes.
-             */
             transform:
                 translate3d(
-                    -50%,
+                    0,
                     0,
                     0
                 );
@@ -1378,7 +1370,7 @@
                 );
 
             will-change:
-                transform;
+                auto;
 
             backface-visibility:
                 hidden;
@@ -1402,6 +1394,7 @@
                 );
 
         }
+
 
         /* ==================================================
            TABLET
@@ -4493,8 +4486,8 @@
 
             /* ==================================================
                DESKTOP GALLERY
-               SMOOTH PINNED SLIDER
-               CENTERED + NO HARD ENTRY/EXIT SNAP
+               SMOOTH STICKY SLIDER
+               NO PIN / NO SNAP
             ================================================== */
 
             let desktopGallery =
@@ -4502,7 +4495,90 @@
 
 
             /* ==================================================
-               SET INITIAL POSITIONS
+               WAIT FOR GALLERY IMAGES
+            ================================================== */
+
+            function waitForGalleryImages() {
+
+                const images = [
+
+                    document.getElementById(
+                        "gallery-image-1"
+                    ),
+
+                    document.getElementById(
+                        "gallery-image-2"
+                    ),
+
+                    document.getElementById(
+                        "gallery-image-3"
+                    )
+
+                ].filter(
+                    image => image
+                );
+
+
+                if (
+                    images.length === 0
+                ) {
+
+                    return Promise.resolve();
+
+                }
+
+
+                return Promise.all(
+
+                    images.map(
+
+                        image => {
+
+                            if (
+                                image.complete &&
+                                image.naturalWidth > 0
+                            ) {
+
+                                return Promise.resolve();
+
+                            }
+
+
+                            return new Promise(
+                                resolve => {
+
+                                    image.addEventListener(
+                                        "load",
+                                        resolve,
+                                        {
+                                            once:
+                                                true
+                                        }
+                                    );
+
+                                    image.addEventListener(
+                                        "error",
+                                        resolve,
+                                        {
+                                            once:
+                                                true
+                                        }
+                                    );
+
+                                }
+                            );
+
+                        }
+
+                    )
+
+                );
+
+            }
+
+
+            /* ==================================================
+               INITIAL GALLERY POSITIONS
             ================================================== */
 
             function setGalleryInitialPositions() {
@@ -4512,12 +4588,10 @@
                         ".gallery-panel.panel-1"
                     );
 
-
                 const panel2 =
                     document.querySelector(
                         ".gallery-panel.panel-2"
                     );
-
 
                 const panel3 =
                     document.querySelector(
@@ -4536,19 +4610,22 @@
                 }
 
 
+                /*
+                 * IMPORTANT:
+                 *
+                 * We do NOT animate xPercent/x here.
+                 * Horizontal centering is handled entirely
+                 * by CSS using left + width.
+                 *
+                 * GSAP only controls vertical Y movement.
+                 */
+
                 gsap.set(
                     panel1,
                     {
-
-                        xPercent:
-                            -50,
-
-                        yPercent:
-                            0,
-
-                        force3D:
-                            true
-
+                        x: 0,
+                        y: 0,
+                        force3D: true
                     }
                 );
 
@@ -4556,16 +4633,9 @@
                 gsap.set(
                     panel2,
                     {
-
-                        xPercent:
-                            -50,
-
-                        yPercent:
-                            100,
-
-                        force3D:
-                            true
-
+                        x: 0,
+                        y: "100vh",
+                        force3D: true
                     }
                 );
 
@@ -4573,16 +4643,9 @@
                 gsap.set(
                     panel3,
                     {
-
-                        xPercent:
-                            -50,
-
-                        yPercent:
-                            100,
-
-                        force3D:
-                            true
-
+                        x: 0,
+                        y: "100vh",
+                        force3D: true
                     }
                 );
 
@@ -4593,7 +4656,7 @@
 
 
             /* ==================================================
-               REMOVE EXISTING GALLERY TRIGGERS
+               REMOVE OLD GALLERY TRIGGERS
             ================================================== */
 
             function removeGalleryTriggers() {
@@ -4620,7 +4683,7 @@
 
 
             /* ==================================================
-               CREATE GALLERY
+               CREATE SMOOTH GALLERY
             ================================================== */
 
             function setupDesktopGallery() {
@@ -4631,23 +4694,15 @@
                     );
 
 
-                const viewport =
-                    document.getElementById(
-                        "gallery-viewport"
-                    );
-
-
                 const panel1 =
                     document.querySelector(
                         ".gallery-panel.panel-1"
                     );
 
-
                 const panel2 =
                     document.querySelector(
                         ".gallery-panel.panel-2"
                     );
-
 
                 const panel3 =
                     document.querySelector(
@@ -4657,7 +4712,6 @@
 
                 if (
                     !stage ||
-                    !viewport ||
                     !panel1 ||
                     !panel2 ||
                     !panel3
@@ -4670,6 +4724,17 @@
 
                 setGalleryInitialPositions();
 
+
+                /*
+                 * CSS position: sticky keeps the viewport in place.
+                 *
+                 * There is intentionally NO:
+                 *
+                 *     pin: viewport
+                 *
+                 * because pin/unpin is what was causing the
+                 * hard jump at the beginning and end.
+                 */
 
                 const timeline =
                     gsap.timeline({
@@ -4696,16 +4761,7 @@
                                 "bottom bottom",
 
                             scrub:
-                                2.6,
-
-                            pin:
-                                viewport,
-
-                            pinSpacing:
-                                true,
-
-                            anticipatePin:
-                                2,
+                                1.35,
 
                             invalidateOnRefresh:
                                 true,
@@ -4721,31 +4777,17 @@
                     });
 
 
-                /*
-                 * Small beginning section.
-                 * The first panel remains stable while the
-                 * pin settles instead of visually snapping.
-                 */
-                timeline.to(
-                    {},
-                    {
-
-                        duration:
-                            0.30
-
-                    }
-                );
-
-
                 /* ==================================================
-                   PANEL 1 -> PANEL 2
+                   SLIDE 1 -> SLIDE 2
                 ================================================== */
 
                 timeline.to(
+
                     panel2,
+
                     {
 
-                        yPercent:
+                        y:
                             0,
 
                         duration:
@@ -4758,33 +4800,21 @@
                             true
 
                     }
-                );
 
-
-                /*
-                 * Very short natural pause between panels.
-                 * This avoids the two cards touching at speed.
-                 */
-                timeline.to(
-                    {},
-                    {
-
-                        duration:
-                            0.10
-
-                    }
                 );
 
 
                 /* ==================================================
-                   PANEL 2 -> PANEL 3
+                   SLIDE 2 -> SLIDE 3
                 ================================================== */
 
                 timeline.to(
+
                     panel3,
+
                     {
 
-                        yPercent:
+                        y:
                             0,
 
                         duration:
@@ -4797,23 +4827,17 @@
                             true
 
                     }
+
                 );
 
 
                 /*
-                 * Final settling section.
-                 * The third panel stays fully visible before the
-                 * pin releases, which prevents the last-frame snap.
+                 * IMPORTANT:
+                 * There is no empty pause at the beginning/end.
+                 * Slide 3 simply remains visible for the remainder
+                 * of the sticky scroll range before the section
+                 * naturally releases.
                  */
-                timeline.to(
-                    {},
-                    {
-
-                        duration:
-                            0.45
-
-                    }
-                );
 
 
                 return timeline;
@@ -4825,7 +4849,7 @@
                INITIALIZE GALLERY
             ================================================== */
 
-            function initializeGallery() {
+            async function initializeGallery() {
 
                 if (
                     !isDesktop
@@ -4834,6 +4858,9 @@
                     return;
 
                 }
+
+
+                await waitForGalleryImages();
 
 
                 removeGalleryTriggers();
@@ -4867,120 +4894,23 @@
 
 
             /* ==================================================
-               WAIT FOR GALLERY IMAGES
-            ================================================== */
-
-            function initializeGalleryAfterImages() {
-
-                const images = [
-
-                    document.getElementById(
-                        "gallery-image-1"
-                    ),
-
-                    document.getElementById(
-                        "gallery-image-2"
-                    ),
-
-                    document.getElementById(
-                        "gallery-image-3"
-                    )
-
-                ]
-                .filter(
-                    image => image
-                );
-
-
-                if (
-                    images.length === 0
-                ) {
-
-                    initializeGallery();
-
-                    return;
-
-                }
-
-
-                let remaining =
-                    images.length;
-
-
-                const done = () => {
-
-                    remaining -= 1;
-
-
-                    if (
-                        remaining <= 0
-                    ) {
-
-                        initializeGallery();
-
-                    }
-
-                };
-
-
-                images.forEach(
-                    image => {
-
-                        if (
-                            image.complete &&
-                            image.naturalWidth > 0
-                        ) {
-
-                            done();
-
-                            return;
-
-                        }
-
-
-                        image.addEventListener(
-                            "load",
-                            done,
-                            {
-                                once:
-                                    true
-                            }
-                        );
-
-
-                        image.addEventListener(
-                            "error",
-                            done,
-                            {
-                                once:
-                                    true
-                            }
-                        );
-
-                    }
-                );
-
-            }
-
-
-            /* ==================================================
-               INITIAL LOAD
+               START AFTER EVERYTHING IS LOADED
             ================================================== */
 
             window.addEventListener(
                 "load",
                 () => {
 
-                    initializeGalleryAfterImages();
+                    initializeGallery();
 
                 }
             );
 
 
             /* ==================================================
-               RESIZE
-               REFRESH ONLY
-               DO NOT REBUILD THE TIMELINE
+               RESIZE / ZOOM
+               ONLY REFRESH
+               NEVER REBUILD THE TIMELINE
             ================================================== */
 
             let galleryResizeTimer;
@@ -5040,6 +4970,7 @@
 
                 }
             );
+
 
             /* ==================================================
                FOOTER ANIMATION
