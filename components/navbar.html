@@ -50,7 +50,7 @@
 
     width: auto;
 
-    height: 60px;
+    height: 100px;
 
 }
 
@@ -734,3 +734,45 @@
      LOGO LOADER ONLY
 ========================================================= -->
 
+<script>
+
+fetch('/api/site-logo')
+
+    .then(
+        response => response.json()
+    )
+
+    .then(
+        data => {
+
+            const logo =
+                document.getElementById(
+                    'site-logo-navbar'
+                );
+
+            if (
+                logo &&
+                data &&
+                data.secure_url
+            ) {
+
+                logo.src =
+                    data.secure_url;
+
+            }
+
+        }
+    )
+
+    .catch(
+        error => {
+
+            console.error(
+                'Navbar logo loading error:',
+                error
+            );
+
+        }
+    );
+
+</script>
