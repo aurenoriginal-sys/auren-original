@@ -526,7 +526,7 @@
 
         <img
             id="site-logo-navbar"
-            src="https://res.cloudinary.com/uye4ufpk/image/upload/v1786976571/logo.png"
+            src="https://res.cloudinary.com/uye4ufpk/image/upload/v1787213007/logo.png"
             alt="Auren Logo"
         >
 
@@ -734,45 +734,3 @@
      LOGO LOADER ONLY
 ========================================================= -->
 
-<script>
-
-fetch('/api/site-logo')
-
-    .then(
-        response => response.json()
-    )
-
-    .then(
-        data => {
-
-            const logo =
-                document.getElementById(
-                    'site-logo-navbar'
-                );
-
-            if (
-                logo &&
-                data &&
-                data.secure_url
-            ) {
-
-                logo.src =
-                    data.secure_url;
-
-            }
-
-        }
-    )
-
-    .catch(
-        error => {
-
-            console.error(
-                'Navbar logo loading error:',
-                error
-            );
-
-        }
-    );
-
-</script>
