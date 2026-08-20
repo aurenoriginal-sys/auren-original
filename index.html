@@ -7,7 +7,7 @@
      GOOGLE ANALYTICS 4
 ================================================== -->
 
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=o6Krfux4N9b2p_dazNIZydpDWzzWongwPmHzT0Ia7A0Av-_hnMI8KDIwp59v4LONRFT9nnJyqxT3x7DW4wFC_G5lnaWZDqvzkCR5OelWoMYSpaBoxB_X6vE6bEjQxFIjSfiKFvTY6eRKTzV1ig-Xp5wvTybKdA7YT2Djy1l2npl01S3KPnppcnfMq18D1YBDaQ3gNQ1BSVKv2e8OiAZsLOcGYt7b8FiYjdGc5GTQH8uEG06h3teDa4LidrpN2kYHdXZRCuMF2xdLE5JRLSN10wLclSTykV9UVFpTK1r-XIrlSeFPXtIDalxTCgGZ2rGIvbrU1Ya4GO7vBWBDsyFVew" charset="UTF-8"></script><script
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=TtAEGdwlPE5OiDrv_A3bzRCX6OrOwb7AIQgWZhC9K5UYWfEJLXWDWU8LnD_pgLivDWsODkKr1yz21lUyWChe7uqcnEwg5e_AI94jcITcxeOy4bPWQwLPjERm_aN5zwszEEUuM2FYjHyA0BzsKrEEvNEYzpyou0qq5GHvhzMZaLyV2yPwT9A57440EuhFRexrrAxsO9VIiBpAmcm8XWaCu_yAdhPjgmmvCCthUcAcrE-ENAyy3BHFu8LBmtTh9QSrVFad_xtBxWXFkWuuh2zuADg6IZ4Ub3e4GJRjGkccvoS2L-eBalHG3IbXKvuWVkfz8uAG8IalClKiU0GBSV1WaQ" charset="UTF-8"></script><script
     async
     src="https://www.googletagmanager.com/gtag/js?id=G-VECH9J2L1M"
 ></script>
@@ -410,7 +410,7 @@
                 100%;
 
             margin:
-                0 auto;
+                0;
 
             background:
                 #000000;
@@ -751,7 +751,7 @@
                 980px;
 
             margin:
-                0 auto;
+                0;
 
             padding:
                 140px 5%
@@ -843,7 +843,7 @@
                 1800px;
 
             margin:
-                0 auto;
+                0;
 
         }
 
@@ -1200,7 +1200,7 @@
 
         /* ==================================================
            GALLERY
-           DESKTOP - SMOOTH STICKY SLIDER
+           DESKTOP — SMOOTH STACKED SLIDE
         ================================================== */
 
         .gallery-section {
@@ -1215,21 +1215,10 @@
                 #000000;
 
             padding:
-                0;
+                40px 0 90px;
 
         }
 
-
-        /*
-         * 300vh gives the sticky viewport 200vh of actual
-         * scrolling after it reaches the top:
-         *
-         *   first 100vh  = slide 1 -> slide 2
-         *   second 100vh = slide 2 -> slide 3
-         *
-         * There is no GSAP pin/unpin, so the gallery cannot
-         * snap when entering or leaving this section.
-         */
 
         .gallery-stage {
 
@@ -1248,10 +1237,7 @@
         .gallery-viewport {
 
             position:
-                sticky;
-
-            top:
-                0;
+                relative;
 
             width:
                 100%;
@@ -1265,8 +1251,11 @@
             background:
                 #000000;
 
-            isolation:
-                isolate;
+            transform:
+                translateZ(0);
+
+            backface-visibility:
+                hidden;
 
         }
 
@@ -1283,7 +1272,10 @@
                 50%;
 
             width:
-                min(88vw, 1400px);
+                88%;
+
+            max-width:
+                1400px;
 
             height:
                 82vh;
@@ -1292,7 +1284,7 @@
                 560px;
 
             margin:
-                0;
+                0 auto;
 
             overflow:
                 hidden;
@@ -1303,24 +1295,18 @@
             background:
                 #111111;
 
-            transform:
-                translate3d(
-                    -50%,
-                    0,
-                    0
-                );
-
             will-change:
                 transform;
 
             backface-visibility:
                 hidden;
 
-            -webkit-backface-visibility:
-                hidden;
-
-            contain:
-                paint;
+            transform:
+                translate3d(
+                    -50%,
+                    0,
+                    0
+                );
 
         }
 
@@ -1330,13 +1316,28 @@
             z-index:
                 1;
 
+            transform:
+                translate3d(
+                    -50%,
+                    0,
+                    0
+                );
+
         }
 
 
-        .gallery-panel.panel-2 {
+        .gallery-panel.panel-2,
+        .gallery-panel.panel-3 {
 
             z-index:
                 2;
+
+            transform:
+                translate3d(
+                    -50%,
+                    100vh,
+                    0
+                );
 
         }
 
@@ -1379,9 +1380,6 @@
             backface-visibility:
                 hidden;
 
-            -webkit-backface-visibility:
-                hidden;
-
         }
 
 
@@ -1396,6 +1394,25 @@
                     0,
                     0.30
                 );
+
+        }
+
+
+        /* ==================================================
+           TABLET
+        ================================================== */
+
+        @media (max-width: 1024px) {
+
+            .gallery-panel {
+
+                left:
+                    50%;
+
+                width:
+                    90%;
+
+            }
 
         }
 
@@ -1444,7 +1461,7 @@
             .gallery-panel {
 
                 left:
-                    5%;
+                    50%;
 
                 width:
                     90%;
@@ -4489,462 +4506,507 @@
 
 
             /* ==================================================
-               DESKTOP GALLERY
-               SMOOTH STICKY SLIDER
-               NO GSAP PIN / NO PIN-EXIT SNAP
-            ================================================== */
+   DESKTOP GALLERY
+   SNAP-FREE SCROLL
+   ONLY CHANGE: SMOOTHNESS / SNAP BEHAVIOUR
+================================================== */
 
-            let desktopGallery = null;
+function setupDesktopGallery() {
 
-
-            /* ==================================================
-               WAIT FOR GALLERY IMAGES
-            ================================================== */
-
-            function waitForGalleryImages() {
-
-                const images = [
-
-                    document.getElementById(
-                        "gallery-image-1"
-                    ),
-
-                    document.getElementById(
-                        "gallery-image-2"
-                    ),
-
-                    document.getElementById(
-                        "gallery-image-3"
-                    )
-
-                ].filter(
-                    image => image
-                );
+    const stage =
+        document.getElementById(
+            "gallery-stage"
+        );
 
 
-                if (
-                    images.length === 0
-                ) {
-
-                    return Promise.resolve();
-
-                }
+    const viewport =
+        document.getElementById(
+            "gallery-viewport"
+        );
 
 
-                return Promise.all(
-
-                    images.map(
-
-                        image => {
-
-                            if (
-                                image.complete &&
-                                image.naturalWidth > 0
-                            ) {
-
-                                return Promise.resolve();
-
-                            }
+    const panel1 =
+        document.querySelector(
+            ".gallery-panel.panel-1"
+        );
 
 
-                            return new Promise(
-                                resolve => {
-
-                                    image.addEventListener(
-                                        "load",
-                                        resolve,
-                                        { once: true }
-                                    );
-
-                                    image.addEventListener(
-                                        "error",
-                                        resolve,
-                                        { once: true }
-                                    );
-
-                                }
-                            );
-
-                        }
-
-                    )
-
-                );
-
-            }
+    const panel2 =
+        document.querySelector(
+            ".gallery-panel.panel-2"
+        );
 
 
-            /* ==================================================
-               SET GALLERY POSITIONS
-            ================================================== */
-
-            function setGalleryInitialPositions() {
-
-                const panel1 =
-                    document.querySelector(
-                        ".gallery-panel.panel-1"
-                    );
-
-                const panel2 =
-                    document.querySelector(
-                        ".gallery-panel.panel-2"
-                    );
-
-                const panel3 =
-                    document.querySelector(
-                        ".gallery-panel.panel-3"
-                    );
+    const panel3 =
+        document.querySelector(
+            ".gallery-panel.panel-3"
+        );
 
 
-                if (
-                    !panel1 ||
-                    !panel2 ||
-                    !panel3
-                ) {
+    if (
+        !stage ||
+        !viewport ||
+        !panel1 ||
+        !panel2 ||
+        !panel3
+    ) {
 
-                    return false;
+        return;
 
-                }
+    }
 
+
+    /* ==================================================
+       INITIAL POSITIONS
+    ================================================== */
+
+    gsap.set(
+        panel1,
+        {
+            xPercent: 0,
+            y: 0,
+            force3D: true
+        }
+    );
+
+
+    gsap.set(
+        panel2,
+        {
+            xPercent: 0,
+            y: "100vh",
+            force3D: true
+        }
+    );
+
+
+    gsap.set(
+        panel3,
+        {
+            xPercent: 0,
+            y: "100vh",
+            force3D: true
+        }
+    );
+
+
+    /* ==================================================
+   GALLERY TIMELINE
+   TRUE SMOOTH / EASED SCROLL MOVEMENT
+================================================== */
+
+
+/* -----------------------------------------------
+   SMOOTH PROGRESS STATE
+----------------------------------------------- */
+
+const galleryState = {
+
+    progress: 0
+
+};
+
+
+/* -----------------------------------------------
+   SMOOTH SCROLL FOLLOWER
+----------------------------------------------- */
+
+const smoothGalleryProgress =
+    gsap.quickTo(
+
+        galleryState,
+
+        "progress",
+
+        {
+
+            duration:
+                0.65,
+
+            ease:
+                "power3.out"
+
+        }
+
+    );
+
+
+/* -----------------------------------------------
+   SCROLLTRIGGER
+----------------------------------------------- */
+
+const galleryTrigger =
+    ScrollTrigger.create({
+
+        id:
+            "auren-gallery",
+
+        trigger:
+            stage,
+
+        start:
+            "top top",
+
+        end:
+            "bottom bottom",
+
+        pin:
+            viewport,
+
+        pinSpacing:
+            true,
+
+        anticipatePin:
+            1,
+
+        invalidateOnRefresh:
+            true,
+
+        fastScrollEnd:
+            false,
+
+        onUpdate:
+            self => {
 
                 /*
-                 * Keep horizontal centering in CSS.
-                 * GSAP controls ONLY vertical movement.
+                 * Do NOT move the panels directly
+                 * from self.progress.
                  *
-                 * 112% of the panel height places the next
-                 * panel completely below the viewport while
-                 * still avoiding any x-axis transform conflict.
+                 * First smooth the progress.
                  */
 
-                gsap.set(
-                    panel1,
-                    {
-                        xPercent: -50,
-                        yPercent: 0,
-                        force3D: true
-                    }
-                );
-
-                gsap.set(
-                    panel2,
-                    {
-                        xPercent: -50,
-                        yPercent: 112,
-                        force3D: true
-                    }
-                );
-
-                gsap.set(
-                    panel3,
-                    {
-                        xPercent: -50,
-                        yPercent: 112,
-                        force3D: true
-                    }
-                );
-
-                return true;
-
-            }
-
-
-            /* ==================================================
-               REMOVE OLD GALLERY TRIGGER
-            ================================================== */
-
-            function removeGalleryTrigger() {
-
-                if (
-                    desktopGallery
-                ) {
-
-                    desktopGallery.kill();
-
-                    desktopGallery = null;
-
-                }
-
-
-                ScrollTrigger
-                    .getAll()
-                    .forEach(
-                        trigger => {
-
-                            if (
-                                trigger.vars &&
-                                trigger.vars.id ===
-                                "auren-gallery"
-                            ) {
-
-                                trigger.kill();
-
-                            }
-
-                        }
-                    );
-
-            }
-
-
-            /* ==================================================
-               CREATE GALLERY
-            ================================================== */
-
-            function setupDesktopGallery() {
-
-                const stage =
-                    document.getElementById(
-                        "gallery-stage"
-                    );
-
-                const panel2 =
-                    document.querySelector(
-                        ".gallery-panel.panel-2"
-                    );
-
-                const panel3 =
-                    document.querySelector(
-                        ".gallery-panel.panel-3"
-                    );
-
-
-                if (
-                    !stage ||
-                    !panel2 ||
-                    !panel3
-                ) {
-
-                    return null;
-
-                }
-
-
-                if (
-                    !setGalleryInitialPositions()
-                ) {
-
-                    return null;
-
-                }
-
-
-                /*
-                 * The viewport is CSS sticky.
-                 *
-                 * This is deliberate:
-                 *
-                 * - No GSAP pin entry jump.
-                 * - No GSAP pin exit jump.
-                 * - The first slide is already visible.
-                 * - The final slide remains visible until the
-                 *   sticky section naturally finishes.
-                 */
-
-                const timeline =
-                    gsap.timeline({
-
-                        defaults: {
-                            ease:
-                                "none"
-                        },
-
-                        scrollTrigger: {
-
-                            id:
-                                "auren-gallery",
-
-                            trigger:
-                                stage,
-
-                            start:
-                                "top top",
-
-                            end:
-                                "bottom bottom",
-
-                            scrub:
-                                1.4,
-
-                            invalidateOnRefresh:
-                                true,
-
-                            fastScrollEnd:
-                                false,
-
-                            preventOverlaps:
-                                false
-
-                        }
-
-                    });
-
-
-                /*
-                 * First 50% of the gallery's scroll range:
-                 * panel 2 rises over panel 1.
-                 */
-
-                timeline.to(
-                    panel2,
-                    {
-                        yPercent:
-                            0,
-
-                        duration:
-                            1,
-
-                        ease:
-                            "none",
-
-                        force3D:
-                            true
-                    }
-                );
-
-
-                /*
-                 * Second 50%:
-                 * panel 3 rises over panel 2.
-                 */
-
-                timeline.to(
-                    panel3,
-                    {
-                        yPercent:
-                            0,
-
-                        duration:
-                            1,
-
-                        ease:
-                            "none",
-
-                        force3D:
-                            true
-                    }
-                );
-
-
-                return timeline;
-
-            }
-
-
-            /* ==================================================
-               INITIALIZE GALLERY
-            ================================================== */
-
-            async function initializeGallery() {
-
-                if (
-                    !isDesktop
-                ) {
-
-                    return;
-
-                }
-
-
-                await waitForGalleryImages();
-
-
-                removeGalleryTrigger();
-
-
-                desktopGallery =
-                    setupDesktopGallery();
-
-
-                requestAnimationFrame(
-                    () => {
-
-                        ScrollTrigger.refresh();
-
-                    }
+                smoothGalleryProgress(
+                    self.progress
                 );
 
             }
 
+    });
 
-            /* ==================================================
-               START AFTER PAGE LOAD
-            ================================================== */
 
-            window.addEventListener(
+/* -----------------------------------------------
+   EASING FUNCTIONS
+----------------------------------------------- */
+
+const easeInOut =
+    gsap.parseEase(
+        "power2.inOut"
+    );
+
+
+/* -----------------------------------------------
+   RENDER GALLERY
+----------------------------------------------- */
+
+const renderGallery =
+    () => {
+
+        const progress =
+            galleryState.progress;
+
+
+        /* ==================================================
+           PANEL 1
+           ALWAYS STATIONARY
+        ================================================== */
+
+        gsap.set(
+
+            panel1,
+
+            {
+
+                xPercent:
+                    0,
+
+                y:
+                    0,
+
+                force3D:
+                    true
+
+            }
+
+        );
+
+
+        /* ==================================================
+           PANEL 2
+           PROGRESS: 0 -> 0.5
+        ================================================== */
+
+        let panel2Progress =
+            gsap.utils.clamp(
+
+                0,
+
+                1,
+
+                progress / 0.5
+
+            );
+
+
+        panel2Progress =
+            easeInOut(
+                panel2Progress
+            );
+
+
+        const panel2Y =
+            100 -
+            (
+                panel2Progress *
+                100
+            );
+
+
+        gsap.set(
+
+            panel2,
+
+            {
+
+                xPercent:
+                    0,
+
+                y:
+                    `${panel2Y}vh`,
+
+                force3D:
+                    true
+
+            }
+
+        );
+
+
+        /* ==================================================
+           PANEL 3
+           PROGRESS: 0.5 -> 1
+        ================================================== */
+
+        let panel3Progress =
+            gsap.utils.clamp(
+
+                0,
+
+                1,
+
+                (
+                    progress -
+                    0.5
+                ) / 0.5
+
+            );
+
+
+        panel3Progress =
+            easeInOut(
+                panel3Progress
+            );
+
+
+        const panel3Y =
+            100 -
+            (
+                panel3Progress *
+                100
+            );
+
+
+        gsap.set(
+
+            panel3,
+
+            {
+
+                xPercent:
+                    0,
+
+                y:
+                    `${panel3Y}vh`,
+
+                force3D:
+                    true
+
+            }
+
+        );
+
+    };
+
+
+/* -----------------------------------------------
+   UPDATE EVERY FRAME
+----------------------------------------------- */
+
+gsap.ticker.add(
+    renderGallery
+);
+
+
+    return timeline;
+
+}
+
+
+/* ==================================================
+   INITIALIZE GALLERY ONCE
+================================================== */
+
+function initializeGallery() {
+
+    const oldTrigger =
+        ScrollTrigger.getById(
+            "auren-gallery"
+        );
+
+
+    if (
+        oldTrigger
+    ) {
+
+        oldTrigger.kill();
+
+    }
+
+
+    setupDesktopGallery();
+
+
+    ScrollTrigger.refresh();
+
+}
+
+
+/* ==================================================
+   WAIT FOR GALLERY IMAGES
+================================================== */
+
+function waitForGalleryImages() {
+
+    const images =
+        Array.from(
+            document.querySelectorAll(
+                ".gallery-panel img"
+            )
+        );
+
+
+    if (
+        images.length === 0
+    ) {
+
+        initializeGallery();
+
+        return;
+
+    }
+
+
+    let remaining =
+        images.length;
+
+
+    let initialized =
+        false;
+
+
+    const finish = () => {
+
+        remaining -= 1;
+
+
+        if (
+            remaining <= 0 &&
+            !initialized
+        ) {
+
+            initialized =
+                true;
+
+            initializeGallery();
+
+        }
+
+    };
+
+
+    images.forEach(
+        image => {
+
+            if (
+                image.complete
+            ) {
+
+                finish();
+
+                return;
+
+            }
+
+
+            image.addEventListener(
                 "load",
-                () => {
-
-                    initializeGallery();
-
+                finish,
+                {
+                    once:
+                        true
                 }
-
             );
 
 
-            /* ==================================================
-               RESIZE / BROWSER ZOOM
-               ONLY REFRESH - DO NOT REBUILD
-            ================================================== */
-
-            let galleryRefreshTimer = null;
-
-
-            window.addEventListener(
-                "resize",
-                () => {
-
-                    clearTimeout(
-                        galleryRefreshTimer
-                    );
-
-
-                    galleryRefreshTimer =
-                        setTimeout(
-                            () => {
-
-                                if (
-                                    desktopGallery
-                                ) {
-
-                                    ScrollTrigger.refresh();
-
-                                }
-
-                            },
-                            250
-                        );
-
+            image.addEventListener(
+                "error",
+                finish,
+                {
+                    once:
+                        true
                 }
-
             );
 
+        }
+    );
 
-            /* ==================================================
-               ORIENTATION CHANGE
-            ================================================== */
 
-            window.addEventListener(
-                "orientationchange",
-                () => {
+    /*
+     * Safety fallback.
+     */
+    setTimeout(
+        () => {
 
-                    setTimeout(
-                        () => {
+            if (
+                !initialized
+            ) {
 
-                            if (
-                                desktopGallery
-                            ) {
+                initialized =
+                    true;
 
-                                ScrollTrigger.refresh();
+                initializeGallery();
 
-                            }
+            }
 
-                        },
-                        300
-                    );
+        },
+        2500
+    );
 
-                }
+}
 
-            );
+
+window.addEventListener(
+    "load",
+    () => {
+
+        waitForGalleryImages();
+
+    },
+    {
+        once:
+            true
+    }
+);
+
 
 
             /* ==================================================
