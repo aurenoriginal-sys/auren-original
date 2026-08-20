@@ -4,34 +4,35 @@
 <head>
 
     <!-- ==================================================
-     GOOGLE ANALYTICS 4
-================================================== -->
+         GOOGLE ANALYTICS 4
+    ================================================== -->
 
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=TtAEGdwlPE5OiDrv_A3bzRCX6OrOwb7AIQgWZhC9K5UYWfEJLXWDWU8LnD_pgLivDWsODkKr1yz21lUyWChe7uqcnEwg5e_AI94jcITcxeOy4bPWQwLPjERm_aN5zwszEEUuM2FYjHyA0BzsKrEEvNEYzpyou0qq5GHvhzMZaLyV2yPwT9A57440EuhFRexrrAxsO9VIiBpAmcm8XWaCu_yAdhPjgmmvCCthUcAcrE-ENAyy3BHFu8LBmtTh9QSrVFad_xtBxWXFkWuuh2zuADg6IZ4Ub3e4GJRjGkccvoS2L-eBalHG3IbXKvuWVkfz8uAG8IalClKiU0GBSV1WaQ" charset="UTF-8"></script><script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-VECH9J2L1M"
-></script>
+    <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-VECH9J2L1M"
+    ></script>
 
-<script>
+    <script>
 
-    window.dataLayer =
-        window.dataLayer || [];
+        window.dataLayer =
+            window.dataLayer || [];
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
+        function gtag() {
+            dataLayer.push(arguments);
+        }
 
-    gtag(
-        'js',
-        new Date()
-    );
+        gtag(
+            'js',
+            new Date()
+        );
 
-    gtag(
-        'config',
-        'G-VECH9J2L1M'
-    );
+        gtag(
+            'config',
+            'G-VECH9J2L1M'
+        );
 
-</script>
+    </script>
+
 
     <meta charset="UTF-8">
 
@@ -39,6 +40,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1.0"
     >
+
 
     <!-- ==================================================
          SEO
@@ -213,22 +215,24 @@
         rel="stylesheet"
     >
 
-    <!-- ==================================================
-     HOMEPAGE HERO PRELOAD
-================================================== -->
 
-<link
-    rel="preload"
-    as="image"
-    href="/optimized/hero-home?w=1600"
-    imagesrcset="
-        /optimized/hero-home?w=768 768w,
-        /optimized/hero-home?w=1024 1024w,
-        /optimized/hero-home?w=1600 1600w
-    "
-    imagesizes="100vw"
-    fetchpriority="high"
->
+    <!-- ==================================================
+         HOMEPAGE HERO PRELOAD
+    ================================================== -->
+
+    <link
+        rel="preload"
+        as="image"
+        href="/optimized/hero-home?w=1600"
+        imagesrcset="
+            /optimized/hero-home?w=768 768w,
+            /optimized/hero-home?w=1024 1024w,
+            /optimized/hero-home?w=1600 1600w
+        "
+        imagesizes="100vw"
+        fetchpriority="high"
+    >
+
 
     <style>
 
@@ -410,7 +414,7 @@
                 100%;
 
             margin:
-                0;
+                0 auto;
 
             background:
                 #000000;
@@ -751,7 +755,7 @@
                 980px;
 
             margin:
-                0;
+                0 auto;
 
             padding:
                 140px 5%
@@ -843,7 +847,7 @@
                 1800px;
 
             margin:
-                0;
+                0 auto;
 
         }
 
@@ -1200,7 +1204,7 @@
 
         /* ==================================================
            GALLERY
-           DESKTOP — SMOOTH STACKED SLIDE
+           DESKTOP - SMOOTH STICKY SLIDE
         ================================================== */
 
         .gallery-section {
@@ -1234,10 +1238,18 @@
         }
 
 
+        /* ==================================================
+           STICKY VIEWPORT
+           NO GSAP PIN / NO SNAP
+        ================================================== */
+
         .gallery-viewport {
 
             position:
-                relative;
+                sticky;
+
+            top:
+                0;
 
             width:
                 100%;
@@ -1252,13 +1264,21 @@
                 #000000;
 
             transform:
-                translateZ(0);
+                translate3d(
+                    0,
+                    0,
+                    0
+                );
 
             backface-visibility:
                 hidden;
 
         }
 
+
+        /* ==================================================
+           GALLERY PANEL
+        ================================================== */
 
         .gallery-panel {
 
@@ -1284,7 +1304,7 @@
                 560px;
 
             margin:
-                0 auto;
+                0;
 
             overflow:
                 hidden;
@@ -1295,18 +1315,21 @@
             background:
                 #111111;
 
-            will-change:
-                transform;
-
-            backface-visibility:
-                hidden;
-
             transform:
                 translate3d(
                     -50%,
                     0,
                     0
                 );
+
+            will-change:
+                transform;
+
+            backface-visibility:
+                hidden;
+
+            -webkit-backface-visibility:
+                hidden;
 
         }
 
@@ -1316,28 +1339,13 @@
             z-index:
                 1;
 
-            transform:
-                translate3d(
-                    -50%,
-                    0,
-                    0
-                );
-
         }
 
 
-        .gallery-panel.panel-2,
-        .gallery-panel.panel-3 {
+        .gallery-panel.panel-2 {
 
             z-index:
                 2;
-
-            transform:
-                translate3d(
-                    -50%,
-                    100vh,
-                    0
-                );
 
         }
 
@@ -1380,6 +1388,9 @@
             backface-visibility:
                 hidden;
 
+            -webkit-backface-visibility:
+                hidden;
+
         }
 
 
@@ -1394,25 +1405,6 @@
                     0,
                     0.30
                 );
-
-        }
-
-
-        /* ==================================================
-           TABLET
-        ================================================== */
-
-        @media (max-width: 1024px) {
-
-            .gallery-panel {
-
-                left:
-                    50%;
-
-                width:
-                    90%;
-
-            }
 
         }
 
@@ -2452,6 +2444,12 @@
 
             .gallery-viewport {
 
+                position:
+                    relative;
+
+                top:
+                    auto;
+
                 width:
                     100%;
 
@@ -3006,25 +3004,25 @@
             >
 
                 <img
-    class="hero-bg"
-    id="home-hero-image"
+                    class="hero-bg"
+                    id="home-hero-image"
 
-    src="/optimized/hero-home?w=1600"
+                    src="/optimized/hero-home?w=1600"
 
-    srcset="
-        /optimized/hero-home?w=768 768w,
-        /optimized/hero-home?w=1024 1024w,
-        /optimized/hero-home?w=1600 1600w
-    "
+                    srcset="
+                        /optimized/hero-home?w=768 768w,
+                        /optimized/hero-home?w=1024 1024w,
+                        /optimized/hero-home?w=1600 1600w
+                    "
 
-    sizes="100vw"
+                    sizes="100vw"
 
-    alt="Auren Originals creative agency visual storytelling and photography"
+                    alt="Auren Originals creative agency visual storytelling and photography"
 
-    fetchpriority="high"
+                    fetchpriority="high"
 
-    decoding="async"
->
+                    decoding="async"
+                >
 
             </div>
 
@@ -3638,8 +3636,6 @@
            HOMEPAGE ASSETS
         ================================================== */
 
-        
-
         loadRootAsset(
             'transition-image.jpg',
             'transition-image'
@@ -3939,7 +3935,7 @@
 
 
         /* ==================================================
-           DESKTOP ANIMATION
+           DESKTOP ANIMATIONS
         ================================================== */
 
         async function initializeDesktopAnimations() {
@@ -3997,39 +3993,54 @@
 
                 {
 
-                    width: 220,
+                    width:
+                        220,
 
-                    height: 130,
+                    height:
+                        130,
 
-                    top: "50%",
+                    top:
+                        "50%",
 
-                    left: "50%",
+                    left:
+                        "50%",
 
-                    xPercent: -50,
+                    xPercent:
+                        -50,
 
-                    yPercent: -50,
+                    yPercent:
+                        -50,
 
-                    borderRadius: 18
+                    borderRadius:
+                        18
 
                 },
 
                 {
 
-                    width: "100vw",
+                    width:
+                        "100vw",
 
-                    height: "100vh",
+                    height:
+                        "100vh",
 
-                    top: "50%",
+                    top:
+                        "50%",
 
-                    left: "50%",
+                    left:
+                        "50%",
 
-                    xPercent: -50,
+                    xPercent:
+                        -50,
 
-                    yPercent: -50,
+                    yPercent:
+                        -50,
 
-                    borderRadius: 0,
+                    borderRadius:
+                        0,
 
-                    duration: 2,
+                    duration:
+                        2,
 
                     ease:
                         "expo.inOut"
@@ -4045,19 +4056,24 @@
 
                 {
 
-                    scale: 1.12,
+                    scale:
+                        1.12,
 
-                    opacity: 0.85
+                    opacity:
+                        0.85
 
                 },
 
                 {
 
-                    scale: 1,
+                    scale:
+                        1,
 
-                    opacity: 1,
+                    opacity:
+                        1,
 
-                    duration: 2,
+                    duration:
+                        2,
 
                     ease:
                         "power2.out"
@@ -4075,9 +4091,11 @@
 
                 {
 
-                    opacity: 1,
+                    opacity:
+                        1,
 
-                    duration: 0.35
+                    duration:
+                        0.35
 
                 },
 
@@ -4092,11 +4110,14 @@
 
                 {
 
-                    x: -45,
+                    x:
+                        -45,
 
-                    opacity: 0,
+                    opacity:
+                        0,
 
-                    duration: 0.9
+                    duration:
+                        0.9
 
                 },
 
@@ -4111,11 +4132,14 @@
 
                 {
 
-                    x: -30,
+                    x:
+                        -30,
 
-                    opacity: 0,
+                    opacity:
+                        0,
 
-                    duration: 0.8
+                    duration:
+                        0.8
 
                 },
 
@@ -4130,13 +4154,17 @@
 
                 {
 
-                    x: -20,
+                    x:
+                        -20,
 
-                    opacity: 0,
+                    opacity:
+                        0,
 
-                    duration: 0.7,
+                    duration:
+                        0.7,
 
-                    stagger: 0.12
+                    stagger:
+                        0.12
 
                 },
 
@@ -4155,9 +4183,11 @@
 
                 {
 
-                    yPercent: 5,
+                    yPercent:
+                        5,
 
-                    ease: "none",
+                    ease:
+                        "none",
 
                     scrollTrigger: {
 
@@ -4209,11 +4239,14 @@
                     ".about-section h2",
                     {
 
-                        y: 50,
+                        y:
+                            50,
 
-                        opacity: 0,
+                        opacity:
+                            0,
 
-                        duration: 1.05
+                        duration:
+                            1.05
 
                     }
                 )
@@ -4222,11 +4255,14 @@
                     ".about-section p",
                     {
 
-                        y: 28,
+                        y:
+                            28,
 
-                        opacity: 0,
+                        opacity:
+                            0,
 
-                        duration: 0.9
+                        duration:
+                            0.9
 
                     },
 
@@ -4238,11 +4274,14 @@
                     ".about-section .btn-text",
                     {
 
-                        y: 18,
+                        y:
+                            18,
 
-                        opacity: 0,
+                        opacity:
+                            0,
 
-                        duration: 0.7
+                        duration:
+                            0.7
 
                     },
 
@@ -4280,11 +4319,14 @@
                     ".services-section .section-label",
                     {
 
-                        y: 20,
+                        y:
+                            20,
 
-                        opacity: 0,
+                        opacity:
+                            0,
 
-                        duration: 0.65
+                        duration:
+                            0.65
 
                     }
                 )
@@ -4293,11 +4335,14 @@
                     ".services-section h2",
                     {
 
-                        y: 35,
+                        y:
+                            35,
 
-                        opacity: 0,
+                        opacity:
+                            0,
 
-                        duration: 0.95
+                        duration:
+                            0.95
 
                     },
 
@@ -4309,13 +4354,17 @@
                     ".service-card",
                     {
 
-                        y: 28,
+                        y:
+                            28,
 
-                        opacity: 0,
+                        opacity:
+                            0,
 
-                        duration: 0.75,
+                        duration:
+                            0.75,
 
-                        stagger: 0.12
+                        stagger:
+                            0.12
 
                     },
 
@@ -4353,11 +4402,14 @@
                     ".why-header .section-label",
                     {
 
-                        y: 18,
+                        y:
+                            18,
 
-                        opacity: 0,
+                        opacity:
+                            0,
 
-                        duration: 0.6
+                        duration:
+                            0.6
 
                     }
                 )
@@ -4366,11 +4418,14 @@
                     ".why-header h2",
                     {
 
-                        y: 35,
+                        y:
+                            35,
 
-                        opacity: 0,
+                        opacity:
+                            0,
 
-                        duration: 0.9
+                        duration:
+                            0.9
 
                     },
 
@@ -4382,13 +4437,17 @@
                     ".why-card",
                     {
 
-                        y: 25,
+                        y:
+                            25,
 
-                        opacity: 0,
+                        opacity:
+                            0,
 
-                        duration: 0.75,
+                        duration:
+                            0.75,
 
-                        stagger: 0.12
+                        stagger:
+                            0.12
 
                     },
 
@@ -4407,15 +4466,18 @@
 
                 {
 
-                    opacity: 0
+                    opacity:
+                        0
 
                 },
 
                 {
 
-                    opacity: 1,
+                    opacity:
+                        1,
 
-                    duration: 1.2,
+                    duration:
+                        1.2,
 
                     scrollTrigger: {
 
@@ -4461,11 +4523,14 @@
                     ".cta-section h2",
                     {
 
-                        y: 40,
+                        y:
+                            40,
 
-                        opacity: 0,
+                        opacity:
+                            0,
 
-                        duration: 1.05
+                        duration:
+                            1.05
 
                     }
                 )
@@ -4474,11 +4539,14 @@
                     ".cta-section p",
                     {
 
-                        y: 22,
+                        y:
+                            22,
 
-                        opacity: 0,
+                        opacity:
+                            0,
 
-                        duration: 0.85
+                        duration:
+                            0.85
 
                     },
 
@@ -4490,13 +4558,17 @@
                     ".cta-buttons a",
                     {
 
-                        y: 18,
+                        y:
+                            18,
 
-                        opacity: 0,
+                        opacity:
+                            0,
 
-                        duration: 0.7,
+                        duration:
+                            0.7,
 
-                        stagger: 0.12
+                        stagger:
+                            0.12
 
                     },
 
@@ -4507,7 +4579,238 @@
 
             /* ==================================================
                DESKTOP GALLERY
-               SMOOTH SCROLL-SCRUBBED STACKED SLIDES
+               SMOOTH STICKY SLIDER
+               NO PIN / NO SNAP
+            ================================================== */
+
+            let desktopGallery =
+                null;
+
+
+            /* ==================================================
+               WAIT FOR GALLERY IMAGES
+            ================================================== */
+
+            function waitForGalleryImages() {
+
+                const images = [
+
+                    document.getElementById(
+                        "gallery-image-1"
+                    ),
+
+                    document.getElementById(
+                        "gallery-image-2"
+                    ),
+
+                    document.getElementById(
+                        "gallery-image-3"
+                    )
+
+                ]
+                .filter(
+                    image =>
+                        image
+                );
+
+
+                if (
+                    images.length === 0
+                ) {
+
+                    return Promise.resolve();
+
+                }
+
+
+                return Promise.all(
+
+                    images.map(
+
+                        image => {
+
+                            if (
+                                image.complete &&
+                                image.naturalWidth > 0
+                            ) {
+
+                                return Promise.resolve();
+
+                            }
+
+
+                            return new Promise(
+                                resolve => {
+
+                                    image.addEventListener(
+                                        "load",
+                                        resolve,
+                                        {
+                                            once:
+                                                true
+                                        }
+                                    );
+
+
+                                    image.addEventListener(
+                                        "error",
+                                        resolve,
+                                        {
+                                            once:
+                                                true
+                                        }
+                                    );
+
+                                }
+                            );
+
+                        }
+
+                    )
+
+                );
+
+            }
+
+
+            /* ==================================================
+               SET INITIAL GALLERY POSITIONS
+            ================================================== */
+
+            function setInitialGalleryPositions() {
+
+                const panel1 =
+                    document.querySelector(
+                        ".gallery-panel.panel-1"
+                    );
+
+
+                const panel2 =
+                    document.querySelector(
+                        ".gallery-panel.panel-2"
+                    );
+
+
+                const panel3 =
+                    document.querySelector(
+                        ".gallery-panel.panel-3"
+                    );
+
+
+                if (
+                    !panel1 ||
+                    !panel2 ||
+                    !panel3
+                ) {
+
+                    return false;
+
+                }
+
+
+                gsap.set(
+
+                    panel1,
+
+                    {
+
+                        xPercent:
+                            -50,
+
+                        yPercent:
+                            0,
+
+                        force3D:
+                            true
+
+                    }
+
+                );
+
+
+                gsap.set(
+
+                    panel2,
+
+                    {
+
+                        xPercent:
+                            -50,
+
+                        yPercent:
+                            110,
+
+                        force3D:
+                            true
+
+                    }
+
+                );
+
+
+                gsap.set(
+
+                    panel3,
+
+                    {
+
+                        xPercent:
+                            -50,
+
+                        yPercent:
+                            110,
+
+                        force3D:
+                            true
+
+                    }
+
+                );
+
+
+                return true;
+
+            }
+
+
+            /* ==================================================
+               REMOVE OLD GALLERY TRIGGER
+            ================================================== */
+
+            function removeGalleryTriggers() {
+
+                ScrollTrigger
+                    .getAll()
+                    .forEach(
+                        trigger => {
+
+                            const vars =
+                                trigger.vars ||
+                                {};
+
+
+                            const triggerElement =
+                                vars.trigger;
+
+
+                            if (
+                                triggerElement &&
+                                triggerElement.id ===
+                                "gallery-stage"
+                            ) {
+
+                                trigger.kill();
+
+                            }
+
+                        }
+                    );
+
+            }
+
+
+            /* ==================================================
+               CREATE SMOOTH GALLERY
             ================================================== */
 
             function setupDesktopGallery() {
@@ -4515,12 +4818,6 @@
                 const stage =
                     document.getElementById(
                         "gallery-stage"
-                    );
-
-
-                const viewport =
-                    document.getElementById(
-                        "gallery-viewport"
                     );
 
 
@@ -4544,57 +4841,30 @@
 
                 if (
                     !stage ||
-                    !viewport ||
                     !panel1 ||
                     !panel2 ||
                     !panel3
                 ) {
 
-                    return;
+                    return null;
 
                 }
 
 
-                /* ==================================================
-                   INITIAL STATES
-
-                   Use viewport-relative positioning so browser
-                   zoom/resize does not leave stale pixel values.
-                ================================================== */
-
-                gsap.set(
-                    panel1,
-                    {
-                        xPercent: -50,
-                        y: 0,
-                        force3D: true
-                    }
-                );
+                setInitialGalleryPositions();
 
 
-                gsap.set(
-                    panel2,
-                    {
-                        xPercent: -50,
-                        y: "100vh",
-                        force3D: true
-                    }
-                );
-
-
-                gsap.set(
-                    panel3,
-                    {
-                        xPercent: -50,
-                        y: "100vh",
-                        force3D: true
-                    }
-                );
-
-
-                /* ==================================================
-                   GALLERY TIMELINE
-                ================================================== */
+                /*
+                 * The gallery viewport uses CSS sticky.
+                 *
+                 * GSAP only controls slide movement.
+                 *
+                 * No GSAP pin means:
+                 *
+                 * 1. No pin entry jump.
+                 * 2. No pin exit jump.
+                 * 3. No snapping at gallery boundaries.
+                 */
 
                 const timeline =
                     gsap.timeline({
@@ -4602,7 +4872,7 @@
                         defaults: {
 
                             ease:
-                                "power1.out"
+                                "none"
 
                         },
 
@@ -4621,16 +4891,7 @@
                                 "bottom bottom",
 
                             scrub:
-                                1.6,
-
-                            pin:
-                                viewport,
-
-                            pinSpacing:
-                                true,
-
-                            anticipatePin:
-                                1,
+                                2.2,
 
                             invalidateOnRefresh:
                                 true,
@@ -4638,8 +4899,8 @@
                             fastScrollEnd:
                                 false,
 
-                            refreshPriority:
-                                1
+                            preventOverlaps:
+                                false
 
                         }
 
@@ -4656,31 +4917,17 @@
 
                     {
 
-                        y: 0,
+                        yPercent:
+                            0,
 
-                        duration: 1.15,
+                        duration:
+                            1,
 
                         ease:
-                            "power2.out",
+                            "none",
 
                         force3D:
                             true
-
-                    }
-
-                );
-
-
-                /* Small natural hold before panel 3 begins */
-
-                timeline.to(
-
-                    {},
-
-                    {
-
-                        duration:
-                            0.12
 
                     }
 
@@ -4697,12 +4944,14 @@
 
                     {
 
-                        y: 0,
+                        yPercent:
+                            0,
 
-                        duration: 1.15,
+                        duration:
+                            1,
 
                         ease:
-                            "power2.out",
+                            "none",
 
                         force3D:
                             true
@@ -4718,172 +4967,142 @@
 
 
             /* ==================================================
-               INITIALIZE GALLERY ONCE
+               INITIALIZE GALLERY
             ================================================== */
 
-            function initializeGallery() {
-
-                const oldTrigger =
-                    ScrollTrigger.getById(
-                        "auren-gallery"
-                    );
-
+            async function initializeGallery() {
 
                 if (
-                    oldTrigger
+                    !isDesktop
                 ) {
-
-                    oldTrigger.kill();
-
-                }
-
-
-                setupDesktopGallery();
-
-
-                ScrollTrigger.refresh();
-
-            }
-
-
-            /*
-             * Wait until all gallery image requests that are already
-             * present on the page have had a chance to settle before
-             * creating the ScrollTrigger.
-             *
-             * This prevents the first scroll from feeling jerky when
-             * image decoding happens at the same time as pinning.
-             */
-
-            function waitForGalleryImages() {
-
-                const images =
-                    Array.from(
-                        document.querySelectorAll(
-                            ".gallery-panel img"
-                        )
-                    );
-
-
-                if (
-                    images.length === 0
-                ) {
-
-                    initializeGallery();
 
                     return;
 
                 }
 
 
-                let remaining =
-                    images.length;
+                try {
+
+                    await waitForGalleryImages();
+
+                }
+
+                catch (error) {
+
+                    console.error(
+                        "Gallery image loading error:",
+                        error
+                    );
+
+                }
 
 
-                const done =
+                removeGalleryTriggers();
+
+
+                if (
+                    desktopGallery
+                ) {
+
+                    desktopGallery.kill();
+
+                    desktopGallery =
+                        null;
+
+                }
+
+
+                desktopGallery =
+                    setupDesktopGallery();
+
+
+                requestAnimationFrame(
                     () => {
 
-                        remaining -= 1;
-
-
-                        if (
-                            remaining <= 0
-                        ) {
-
-                            initializeGallery();
-
-                        }
-
-                    };
-
-
-                images.forEach(
-                    image => {
-
-                        if (
-                            image.complete
-                        ) {
-
-                            done();
-
-                            return;
-
-                        }
-
-
-                        image.addEventListener(
-                            "load",
-                            done,
-                            {
-                                once:
-                                    true
-                            }
-                        );
-
-
-                        image.addEventListener(
-                            "error",
-                            done,
-                            {
-                                once:
-                                    true
-                            }
-                        );
+                        ScrollTrigger.refresh();
 
                     }
-                );
-
-
-                /*
-                 * Safety fallback so one slow image can never block
-                 * the gallery initialization forever.
-                 */
-
-                setTimeout(
-                    () => {
-
-                        if (
-                            remaining > 0
-                        ) {
-
-                            initializeGallery();
-
-                        }
-
-                    },
-                    2500
                 );
 
             }
 
 
+            /* ==================================================
+               START GALLERY AFTER PAGE LOAD
+            ================================================== */
+
             window.addEventListener(
                 "load",
                 () => {
 
-                    waitForGalleryImages();
+                    initializeGallery();
 
-                },
-                {
-                    once:
-                        true
                 }
             );
 
 
-            /*
-             * IMPORTANT:
-             *
-             * There is intentionally NO resize handler that kills and
-             * rebuilds the gallery on every resize/zoom event.
-             *
-             * Rebuilding ScrollTrigger during browser zoom was causing
-             * the gallery position to reset and feel unsmooth.
-             *
-             * invalidateOnRefresh:true lets ScrollTrigger recalculate
-             * when the browser itself refreshes the measurements.
-             */
+            /* ==================================================
+               REFRESH ONLY ON RESIZE
+               DO NOT REBUILD TIMELINE
+            ================================================== */
 
+            let galleryRefreshTimer;
+
+
+            window.addEventListener(
+                "resize",
+                () => {
+
+                    clearTimeout(
+                        galleryRefreshTimer
+                    );
+
+
+                    galleryRefreshTimer =
+                        setTimeout(
+                            () => {
+
+                                if (
+                                    desktopGallery
+                                ) {
+
+                                    ScrollTrigger.refresh();
+
+                                }
+
+                            },
+                            250
+                        );
+
+                }
+            );
+
+
+            /* ==================================================
+               ORIENTATION CHANGE
+            ================================================== */
+
+            window.addEventListener(
+                "orientationchange",
+                () => {
+
+                    setTimeout(
+                        () => {
+
+                            if (
+                                desktopGallery
+                            ) {
+
+                                ScrollTrigger.refresh();
+
+                            }
+
+                        },
+                        300
+                    );
+
+                }
+            );
 
 
             /* ==================================================
@@ -4896,19 +5115,24 @@
 
                 {
 
-                    y: 30,
+                    y:
+                        30,
 
-                    opacity: 0
+                    opacity:
+                        0
 
                 },
 
                 {
 
-                    y: 0,
+                    y:
+                        0,
 
-                    opacity: 1,
+                    opacity:
+                        1,
 
-                    duration: 1,
+                    duration:
+                        1,
 
                     scrollTrigger: {
 
