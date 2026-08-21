@@ -1692,11 +1692,77 @@ app.get(
                         .toLowerCase();
 
 
-                    const optimizedUrl =
-                        buildOptimizedCloudinaryUrl(
-                            resource,
-                            768
-                        );
+                   /* ==================================================
+   RESPONSIVE HOMEPAGE IMAGE WIDTH
+================================================== */
+
+let requestedWidth =
+    Number(
+        req.query.w
+    );
+
+
+if (
+    !Number.isFinite(
+        requestedWidth
+    )
+) {
+
+    requestedWidth =
+        768;
+
+}
+
+
+/* ==================================================
+   ALLOWED WIDTHS
+================================================== */
+
+const allowedWidths = [
+
+    480,
+    768,
+    1024,
+    1280,
+    1400
+
+];
+
+
+const width =
+    allowedWidths.reduce(
+
+        (
+            closest,
+            current
+        ) => {
+
+            return Math.abs(
+                current -
+                requestedWidth
+            )
+            <
+            Math.abs(
+                closest -
+                requestedWidth
+            )
+
+                ? current
+
+                : closest;
+
+        },
+
+        allowedWidths[0]
+
+    );
+
+
+const optimizedUrl =
+    buildOptimizedCloudinaryUrl(
+        resource,
+        width
+    );
 
 
                     response[

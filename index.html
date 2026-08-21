@@ -3726,7 +3726,7 @@ loadSharedSiteLogo();
 
 
 
-        //* ==================================================
+        /* ==================================================
    HOMEPAGE ASSETS
    OPTIMIZED IMAGE DELIVERY
 ================================================== */
@@ -3735,10 +3735,22 @@ async function loadHomepageAssets() {
 
     try {
 
-        const response =
-            await fetch(
-                '/api/homepage-assets'
-            );
+       const isDesktop =
+    window.matchMedia(
+        '(min-width: 768px)'
+    ).matches;
+
+
+const imageWidth =
+    isDesktop
+        ? 1400
+        : 768;
+
+
+const response =
+    await fetch(
+        `/api/homepage-assets?w=${imageWidth}`
+    );
 
 
         if (!response.ok) {
