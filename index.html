@@ -73,6 +73,7 @@
         href="https://aurenoriginal.in/"
     >
 
+    
 
     <!-- ==================================================
          OPEN GRAPH
@@ -213,7 +214,18 @@
         rel="stylesheet"
     >
 
-    
+    <link
+    rel="preload"
+    as="image"
+    href="https://res.cloudinary.com/uye4ufpk/image/upload/c_limit,w_1600/q_auto/f_auto/v1786970226/hero-image"
+    imagesrcset="
+        https://res.cloudinary.com/uye4ufpk/image/upload/c_limit,w_768/q_auto/f_auto/v1786970226/hero-image 768w,
+        https://res.cloudinary.com/uye4ufpk/image/upload/c_limit,w_1024/q_auto/f_auto/v1786970226/hero-image 1024w,
+        https://res.cloudinary.com/uye4ufpk/image/upload/c_limit,w_1600/q_auto/f_auto/v1786970226/hero-image 1600w
+    "
+    imagesizes="100vw"
+    fetchpriority="high"
+>
 
     <style>
 
@@ -1254,7 +1266,7 @@
                 9vh;
 
             left:
-                50%;
+               0%;
 
             width:
                 88%;
@@ -1303,7 +1315,7 @@
 
             transform:
                 translate3d(
-                    -50%,
+                    0%,
                     0,
                     0
                 );
@@ -1319,7 +1331,7 @@
 
             transform:
                 translate3d(
-                    -50%,
+                    0%,
                     100vh,
                     0
                 );
@@ -2993,11 +3005,21 @@
                 <img
     class="hero-bg"
     id="home-hero-image"
-    src=""
-    srcset=""
+
+    src="https://res.cloudinary.com/uye4ufpk/image/upload/c_limit,w_1024/q_auto/f_auto/v1786970226/hero-image"
+
+    srcset="
+        https://res.cloudinary.com/uye4ufpk/image/upload/c_limit,w_768/q_auto/f_auto/v1786970226/hero-image 768w,
+        https://res.cloudinary.com/uye4ufpk/image/upload/c_limit,w_1024/q_auto/f_auto/v1786970226/hero-image 1024w,
+        https://res.cloudinary.com/uye4ufpk/image/upload/c_limit,w_1600/q_auto/f_auto/v1786970226/hero-image 1600w
+    "
+
     sizes="100vw"
+
     alt="Auren Originals creative agency visual storytelling and photography"
+
     fetchpriority="high"
+
     decoding="async"
 >
 
@@ -3643,67 +3665,7 @@ async function loadSharedSiteLogo() {
 
 loadSharedSiteLogo();
 
-/* ==================================================
-   HOMEPAGE HERO
-================================================== */
 
-async function loadHomepageHero() {
-
-    try {
-
-        const response =
-            await fetch(
-                '/optimized/hero-home?w=1600'
-            );
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                `Hero request failed: HTTP ${response.status}`
-            );
-
-        }
-
-
-        const data =
-            await response.json();
-
-
-        const hero =
-            document.getElementById(
-                'home-hero-image'
-            );
-
-
-        if (
-            hero &&
-            data &&
-            data.secure_url
-        ) {
-
-            hero.src =
-                data.secure_url;
-
-        }
-
-    }
-
-    catch (
-        error
-    ) {
-
-        console.error(
-            'Homepage hero loading error:',
-            error
-        );
-
-    }
-
-}
-
-
-loadHomepageHero();
 
         /* ==================================================
    HOMEPAGE ROOT ASSETS
