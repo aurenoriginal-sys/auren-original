@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const compression = require('compression');
 const path = require('path');
 const cloudinary = require('cloudinary').v2;
 
@@ -130,6 +131,16 @@ app.use(
     cors()
 );
 
+/* ==================================================
+   RESPONSE COMPRESSION
+================================================== */
+
+app.use(
+    compression({
+        threshold:
+            1024
+    })
+);
 
 /* ==================================================
    STATIC WEBSITE FILES
