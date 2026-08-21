@@ -3535,84 +3535,138 @@ async function loadComponent(
    LOAD NAVBAR
 ================================================== */
 
-loadComponent(
-    'components/navbar.html',
-    'navbar-container'
-)
-.then(
-    async success => {
-
-        if (!success) {
-
-            return;
-
-        }
+const navbarLoaded =
+    loadComponent(
+        'components/navbar.html',
+        'navbar-container'
+    );
 
 
-        try {
+/* ==================================================
+   LOAD FOOTER
+================================================== */
 
-            const response =
-                await fetch(
-                    '/api/site-logo'
-                );
-
-
-            if (
-                !response.ok
-            ) {
-
-                throw new Error(
-                    `Logo API returned HTTP ${response.status}`
-                );
-
-            }
+const footerLoaded =
+    loadComponent(
+        'components/footer.html',
+        'footer-container'
+    );
 
 
-            const data =
-                await response.json();
+/* ==================================================
+   LOAD SITE LOGO ONCE
+   APPLY TO NAVBAR + FOOTER
+================================================== */
+
+async function loadSharedSiteLogo() {
+
+    try {
+
+        /*
+         * Wait until both components exist
+         * in the DOM.
+         */
+
+        await Promise.all([
+            navbarLoaded,
+            footerLoaded
+        ]);
 
 
-            const logo =
-                document.getElementById(
-                    'site-logo-navbar'
-                );
+        const response =
+            await fetch(
+                '/api/site-logo'
+            );
 
 
-            if (
-                logo &&
-                data &&
-                data.secure_url
-            ) {
+        if (!response.ok) {
 
-                logo.src =
-                    data.secure_url;
-
-            }
-
-        }
-
-        catch (error) {
-
-            console.error(
-                'Navbar logo loading error:',
-                error
+            throw new Error(
+                `Site logo API returned HTTP ${response.status}`
             );
 
         }
 
-    }
-);
+
+        const data =
+            await response.json();
+
+
+        if (
+            !data ||
+            !data.secure_url
+        ) {
+
+            throw new Error(
+                'Site logo URL was not returned.'
+            );
+
+        }
 
 
         /* ==================================================
-   LOAD FOOTER
+           NAVBAR LOGO
+        ================================================== */
+
+        const navbarLogo =
+            document.getElementById(
+                'site-logo-navbar'
+            );
+
+
+        if (
+            navbarLogo
+        ) {
+
+            navbarLogo.src =
+                data.secure_url;
+
+        }
+
+
+        /* ==================================================
+           FOOTER LOGO
+        ================================================== */
+
+        const footerLogo =
+            document.getElementById(
+                'site-logo-footer'
+            );
+
+
+        if (
+            footerLogo
+        ) {
+
+            footerLogo.src =
+                data.secure_url;
+
+        }
+
+
+        console.log(
+            'Shared site logo loaded once.'
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            'Shared site logo loading error:',
+            error
+        );
+
+    }
+
+}
+
+
+/* ==================================================
+   START SHARED LOGO LOAD
 ================================================== */
 
-loadComponent(
-    'components/footer.html',
-    'footer-container'
-);
-
+loadSharedSiteLogo();
 
         /* ==================================================
    HOMEPAGE ROOT ASSETS
