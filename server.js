@@ -497,6 +497,7 @@ function validateCloudinaryConfig() {
 
 /* ==================================================
    GET ASSETS FROM ASSET FOLDER
+   WITH SERVER-SIDE CACHE
 ================================================== */
 
 async function getAssetsFromFolder(
@@ -514,63 +515,201 @@ async function getAssetsFromFolder(
     }
 
 
-    const resources = [];
+    /* ==================================================
+       CHECK CACHE
+    ================================================== */
 
-    let nextCursor =
-        undefined;
-
-
-    do {
-
-        const options = {
-
-            max_results:
-                500
-
-        };
+    const cached =
+        assetFolderCache.get(
+            assetFolder
+        );
 
 
-        if (
-            nextCursor
-        ) {
-
-            options.next_cursor =
-                nextCursor;
-
-        }
+    const now =
+        Date.now();
 
 
-        const result =
-            await cloudinary.api.resources_by_asset_folder(
-                assetFolder,
-                options
-            );
+    if (
+        cached &&
+        now - cached.timestamp <
+        ASSET_CACHE_TTL
+    ) {
 
-
-        if (
-            Array.isArray(
-                result.resources
-            )
-        ) {
-
-            resources.push(
-                ...result.resources
-            );
-
-        }
-
-
-        nextCursor =
-            result.next_cursor;
+        return cached.resources;
 
     }
 
-    while (
-        nextCursor
+    /* ==================================================
+   CLOUDINARY ASSET CACHE
+================================================== */
+
+const ASSET_CACHE_TTL =
+    5 * 60 * 1000; // 5 minutes
+
+
+const assetFolderCache =
+    new Map();
+
+
+const assetFolderPending =
+    new Map();
+
+
+/* ==================================================
+   CLEAR ASSET CACHE
+================================================== */
+
+function clearAssetCache() {
+
+    assetFolderCache.clear();
+
+    console.log(
+        'Cloudinary asset cache cleared.'
+    );
+
+}
+
+    /* ==================================================
+       PREVENT DUPLICATE CLOUDINARY REQUESTS
+       IF MULTIPLE REQUESTS ARRIVE AT THE
+       SAME TIME.
+    ================================================== */
+
+    const existingRequest =
+        assetFolderPending.get(
+            assetFolder
+        );
+
+
+    if (
+        existingRequest
+    ) {
+
+        return existingRequest;
+
+    }
+
+    
+
+    /* ==================================================
+       CREATE ONE CLOUDINARY REQUEST
+    ================================================== */
+
+    const request =
+        (async () => {
+
+            const resources = [];
+
+            let nextCursor =
+                undefined;
+
+
+            try {
+
+                do {
+
+                    const options = {
+
+                        max_results:
+                            500
+
+                    };
+
+
+                    if (
+                        nextCursor
+                    ) {
+
+                        options.next_cursor =
+                            nextCursor;
+
+                    }
+
+
+                    const result =
+                        await cloudinary.api.resources_by_asset_folder(
+                            assetFolder,
+                            options
+                        );
+
+
+                    if (
+                        Array.isArray(
+                            result.resources
+                        )
+                    ) {
+
+                        resources.push(
+                            ...result.resources
+                        );
+
+                    }
+
+
+                    nextCursor =
+                        result.next_cursor;
+
+                }
+
+                while (
+                    nextCursor
+                );
+
+
+                /* ==========================================
+                   STORE IN CACHE
+                ========================================== */
+
+                assetFolderCache.set(
+
+                    assetFolder,
+
+                    {
+
+                        resources:
+                            resources,
+
+                        timestamp:
+                            Date.now()
+
+                    }
+
+                );
+
+
+                console.log(
+                    `Cloudinary cache refreshed: ${assetFolder} (${resources.length} assets)`
+                );
+
+
+                return resources;
+
+            }
+
+            finally {
+
+                /*
+                 * Remove the pending request after
+                 * completion so the next refresh can
+                 * happen normally.
+                 */
+
+                assetFolderPending.delete(
+                    assetFolder
+                );
+
+            }
+
+        })();
+
+
+    assetFolderPending.set(
+        assetFolder,
+        request
     );
 
 
-    return resources;
+    return request;
 
 }
 
