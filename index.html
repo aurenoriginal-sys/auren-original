@@ -12,24 +12,91 @@
     src="https://www.googletagmanager.com/gtag/js?id=G-VECH9J2L1M"
 ></script>
 
+<!-- ==================================================
+     GOOGLE ANALYTICS 4
+     DEFERRED AFTER INITIAL PAGE LOAD
+================================================== -->
+
 <script>
 
     window.dataLayer =
         window.dataLayer || [];
 
+
     function gtag() {
-        dataLayer.push(arguments);
+
+        dataLayer.push(
+            arguments
+        );
+
     }
+
 
     gtag(
         'js',
         new Date()
     );
 
+
     gtag(
         'config',
         'G-VECH9J2L1M'
     );
+
+
+    function loadGoogleAnalytics() {
+
+        const script =
+            document.createElement(
+                'script'
+            );
+
+
+        script.async = true;
+
+        script.src =
+            'https://www.googletagmanager.com/gtag/js?id=G-VECH9J2L1M';
+
+
+        document.head.appendChild(
+            script
+        );
+
+    }
+
+
+    /*
+     * Let the browser finish the initial
+     * page rendering first.
+     */
+
+    if (
+        'requestIdleCallback'
+        in window
+    ) {
+
+        window.requestIdleCallback(
+            loadGoogleAnalytics,
+            {
+                timeout:
+                    3000
+            }
+        );
+
+    }
+
+    else {
+
+        window.addEventListener(
+            'load',
+            loadGoogleAnalytics,
+            {
+                once:
+                    true
+            }
+        );
+
+    }
 
 </script>
 
@@ -1300,7 +1367,7 @@
 
             transform:
                 translate3d(
-                    -50%,
+                    0%,
                     0,
                     0
                 );
