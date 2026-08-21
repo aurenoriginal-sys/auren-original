@@ -3743,7 +3743,7 @@ async function loadHomepageAssets() {
 
 const imageWidth =
     isDesktop
-        ? 1400
+        ? 1024
         : 768;
 
 
@@ -4108,7 +4108,7 @@ loadComponent(
         }
 
 
-    /* ==================================================
+   /* ==================================================
    LOAD DESKTOP ANIMATIONS ONLY ON DESKTOP
 ================================================== */
 
@@ -4128,8 +4128,24 @@ if (
         '/js/desktop-animations.js';
 
 
-    desktopAnimationScript.defer =
-        true;
+    desktopAnimationScript.onload =
+        () => {
+
+            console.log(
+                'Desktop animations loaded.'
+            );
+
+        };
+
+
+    desktopAnimationScript.onerror =
+        () => {
+
+            console.error(
+                'Desktop animations failed to load.'
+            );
+
+        };
 
 
     document
