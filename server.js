@@ -1562,6 +1562,198 @@ app.get(
     }
 );
 
+/* ==================================================
+   HOMEPAGE ASSETS
+   DEVICE-FRIENDLY IMAGE DELIVERY
+================================================== */
+
+app.get(
+    '/api/homepage-assets',
+    async (req, res) => {
+
+        try {
+
+            const resources =
+                await getAssetsFromFolder(
+                    CLOUDINARY_ROOT_FOLDER
+                );
+
+
+            const requiredFiles = [
+
+                ROOT_ASSETS.transitionImage,
+
+                ROOT_ASSETS.gallery1,
+
+                ROOT_ASSETS.gallery2,
+
+                ROOT_ASSETS.gallery3
+
+            ];
+
+
+            const homepageResources =
+                resources.filter(
+                    resource => {
+
+                        const fileName =
+                            getResourceFileName(
+                                resource
+                            )
+                            .toLowerCase();
+
+
+                        const publicId =
+                            String(
+                                resource.public_id ||
+                                ''
+                            )
+                            .split('/')
+                            .pop()
+                            .toLowerCase();
+
+
+                        return requiredFiles.some(
+                            file => {
+
+                                const requested =
+                                    file
+                                        .toLowerCase();
+
+
+                                const requestedBase =
+                                    requested
+                                        .replace(
+                                            /\.[^.]+$/,
+                                            ''
+                                        );
+
+
+                                const resourceBase =
+                                    fileName
+                                        .replace(
+                                            /\.[^.]+$/,
+                                            ''
+                                        );
+
+
+                                const publicIdBase =
+                                    publicId
+                                        .replace(
+                                            /\.[^.]+$/,
+                                            ''
+                                        );
+
+
+                                return (
+
+                                    fileName ===
+                                    requested
+
+                                    ||
+
+                                    resourceBase ===
+                                    requestedBase
+
+                                    ||
+
+                                    publicIdBase ===
+                                    requestedBase
+
+                                );
+
+                            }
+                        );
+
+                    }
+                );
+
+
+            /*
+             * Homepage images are displayed much
+             * smaller than 1400px.
+             *
+             * 768px gives enough resolution for
+             * mobile/tablet while greatly reducing
+             * transfer size.
+             */
+
+            const response =
+                {};
+
+
+            homepageResources.forEach(
+                resource => {
+
+                    const fileName =
+                        getResourceFileName(
+                            resource
+                        )
+                        .toLowerCase();
+
+
+                    const optimizedUrl =
+                        buildOptimizedCloudinaryUrl(
+                            resource,
+                            768
+                        );
+
+
+                    response[
+                        fileName
+                    ] = {
+
+                        url:
+                            optimizedUrl,
+
+                        secure_url:
+                            optimizedUrl,
+
+                        public_id:
+                            resource.public_id,
+
+                        version:
+                            resource.version
+
+                    };
+
+                }
+            );
+
+
+            res.set(
+                'Cache-Control',
+                'public, max-age=300'
+            );
+
+
+            return res.json(
+                response
+            );
+
+        }
+
+        catch (error) {
+
+            console.error(
+                'Homepage assets error:',
+                error
+            );
+
+
+            return res
+                .status(500)
+                .json({
+
+                    error:
+                        'Unable to load homepage assets.'
+
+                });
+
+        }
+
+    }
+);
 
 /* ==================================================
    SITE LOGO
