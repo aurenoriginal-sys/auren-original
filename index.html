@@ -3464,113 +3464,91 @@
 
 
         /* ==================================================
-           LOAD NAVBAR
-        ================================================== */
+   COMPONENT LOADER
+================================================== */
 
-        fetch(
-            'components/navbar.html'
-        )
+async function loadComponent(
+    url,
+    elementId
+) {
 
-        .then(
-            response => {
+    try {
 
-                if (!response.ok) {
-
-                    throw new Error(
-                        'Navbar could not be loaded'
-                    );
-
-                }
-
-                return response.text();
-
-            }
-        )
-
-        .then(
-            data => {
-
-                const navbar =
-                    document.getElementById(
-                        'navbar-container'
-                    );
+        const response =
+            await fetch(
+                url
+            );
 
 
-                if (navbar) {
+        if (!response.ok) {
 
-                    navbar.innerHTML =
-                        data;
+            throw new Error(
+                `${url} returned HTTP ${response.status}`
+            );
 
-                }
+        }
 
-            }
-        )
 
-        .catch(
-            error => {
+        const html =
+            await response.text();
 
-                console.error(
-                    'Navbar loading error:',
-                    error
-                );
 
-            }
+        const container =
+            document.getElementById(
+                elementId
+            );
+
+
+        if (!container) {
+
+            throw new Error(
+                `Container not found: #${elementId}`
+            );
+
+        }
+
+
+        container.innerHTML =
+            html;
+
+
+        return true;
+
+    }
+
+    catch (error) {
+
+        console.error(
+            `Component loading error (${url}):`,
+            error
         );
+
+
+        return false;
+
+    }
+
+}
+
+
+/* ==================================================
+   LOAD NAVBAR
+================================================== */
+
+loadComponent(
+    'components/navbar.html',
+    'navbar-container'
+);
 
 
         /* ==================================================
-           LOAD FOOTER
-        ================================================== */
+   LOAD FOOTER
+================================================== */
 
-        fetch(
-            'components/footer.html'
-        )
-
-        .then(
-            response => {
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        'Footer could not be loaded'
-                    );
-
-                }
-
-                return response.text();
-
-            }
-        )
-
-        .then(
-            data => {
-
-                const footer =
-                    document.getElementById(
-                        'footer-container'
-                    );
-
-
-                if (footer) {
-
-                    footer.innerHTML =
-                        data;
-
-                }
-
-            }
-        )
-
-        .catch(
-            error => {
-
-                console.error(
-                    'Footer loading error:',
-                    error
-                );
-
-            }
-        );
+loadComponent(
+    'components/footer.html',
+    'footer-container'
+);
 
 
         /* ==================================================
@@ -3819,114 +3797,47 @@ loadHomepageAssets();
 
 
         /* ==================================================
-           ACTION BUTTONS
-        ================================================== */
+   LOAD ACTION BUTTONS
+================================================== */
 
-        fetch(
-            './components/action-buttons.html'
-        )
+loadComponent(
+    'components/action-buttons.html',
+    'hero-action-buttons'
+)
+.then(
+    success => {
 
-        .then(
-            response => {
+        if (!success) {
 
-                if (!response.ok) {
+            return;
 
-                    throw new Error(
-                        `Action buttons failed: ${response.status}`
-                    );
-
-                }
-
-                return response.text();
-
-            }
-        )
-
-        .then(
-            html => {
-
-                const heroContainer =
-                    document.getElementById(
-                        'hero-action-buttons'
-                    );
+        }
 
 
-                if (
-                    heroContainer
-                ) {
-
-                    heroContainer.innerHTML =
-                        html;
-
-                }
+        const heroButtons =
+            document.getElementById(
+                'hero-action-buttons'
+            );
 
 
-                const ctaContainer =
-                    document.getElementById(
-                        'cta-action-buttons'
-                    );
+        const ctaButtons =
+            document.getElementById(
+                'cta-action-buttons'
+            );
 
 
-                if (
-                    ctaContainer
-                ) {
+        if (
+            heroButtons &&
+            ctaButtons
+        ) {
 
-                    ctaContainer.innerHTML =
-                        html;
+            ctaButtons.innerHTML =
+                heroButtons.innerHTML;
 
+        }
 
-                    const portfolioButton =
-                        ctaContainer.querySelector(
-                            '[data-action="portfolio"]'
-                        );
-
-
-                    const contactButton =
-                        ctaContainer.querySelector(
-                            '[data-action="contact"]'
-                        );
-
-
-                    ctaContainer.innerHTML =
-                        '';
-
-
-                    if (
-                        contactButton
-                    ) {
-
-                        ctaContainer.appendChild(
-                            contactButton
-                        );
-
-                    }
-
-
-                    if (
-                        portfolioButton
-                    ) {
-
-                        ctaContainer.appendChild(
-                            portfolioButton
-                        );
-
-                    }
-
-                }
-
-            }
-        )
-
-        .catch(
-            error => {
-
-                console.error(
-                    'Action buttons loading error:',
-                    error
-                );
-
-            }
-        );
+    }
+);
 
 
         /* ==================================================
