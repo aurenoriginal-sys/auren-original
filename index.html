@@ -3008,21 +3008,11 @@
                 <img
     class="hero-bg"
     id="home-hero-image"
-
-    src="/optimized/hero-home?w=1600"
-
-    srcset="
-        /optimized/hero-home?w=768 768w,
-        /optimized/hero-home?w=1024 1024w,
-        /optimized/hero-home?w=1600 1600w
-    "
-
+    src=""
+    srcset=""
     sizes="100vw"
-
     alt="Auren Originals creative agency visual storytelling and photography"
-
     fetchpriority="high"
-
     decoding="async"
 >
 
@@ -3667,6 +3657,68 @@ async function loadSharedSiteLogo() {
 ================================================== */
 
 loadSharedSiteLogo();
+
+/* ==================================================
+   HOMEPAGE HERO
+================================================== */
+
+async function loadHomepageHero() {
+
+    try {
+
+        const response =
+            await fetch(
+                '/optimized/hero-home?w=1600'
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                `Hero request failed: HTTP ${response.status}`
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        const hero =
+            document.getElementById(
+                'home-hero-image'
+            );
+
+
+        if (
+            hero &&
+            data &&
+            data.secure_url
+        ) {
+
+            hero.src =
+                data.secure_url;
+
+        }
+
+    }
+
+    catch (
+        error
+    ) {
+
+        console.error(
+            'Homepage hero loading error:',
+            error
+        );
+
+    }
+
+}
+
+
+loadHomepageHero();
 
         /* ==================================================
    HOMEPAGE ROOT ASSETS

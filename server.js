@@ -1207,16 +1207,23 @@ app.get(
 
 
             const allowedWidths = [
+
                 480,
+
                 768,
+
                 1024,
+
                 1280,
+
                 1600
+
             ];
 
 
             const width =
                 allowedWidths.reduce(
+
                     (
                         closest,
                         current
@@ -1231,17 +1238,23 @@ app.get(
                             closest -
                             requestedWidth
                         )
+
                             ? current
+
                             : closest;
 
                     },
+
                     allowedWidths[0]
+
                 );
 
 
             const optimizedUrl =
                 cloudinary.url(
+
                     hero.public_id,
+
                     {
 
                         secure:
@@ -1256,21 +1269,27 @@ app.get(
                         transformation: [
 
                             {
+
                                 width:
                                     width,
 
                                 crop:
                                     'limit'
+
                             },
 
                             {
+
                                 quality:
                                     'auto'
+
                             },
 
                             {
+
                                 fetch_format:
                                     'auto'
+
                             }
 
                         ]
@@ -1280,32 +1299,66 @@ app.get(
                 );
 
 
+            /*
+             * IMPORTANT:
+             *
+             * We are returning the optimized
+             * Cloudinary URL as JSON instead of
+             * redirecting the browser with 302.
+             */
+
             res.set(
+
                 'Cache-Control',
+
                 'public, max-age=300'
+
             );
 
 
-            return res.redirect(
-                302,
-                optimizedUrl
-            );
+            return res.json({
+
+                url:
+                    optimizedUrl,
+
+                secure_url:
+                    optimizedUrl,
+
+                width:
+                    width,
+
+                version:
+                    hero.version
+
+            });
 
         }
 
-        catch (error) {
+        catch (
+            error
+        ) {
 
             console.error(
+
                 'Optimized hero error:',
+
                 error
+
             );
 
 
             return res
-                .status(500)
-                .send(
-                    'Unable to load homepage hero.'
-                );
+
+                .status(
+                    500
+                )
+
+                .json({
+
+                    error:
+                        'Unable to load homepage hero.'
+
+                });
 
         }
 
