@@ -1501,6 +1501,7 @@ app.get(
 
 /* ==================================================
    SITE LOGO
+   OPTIMIZED FOR NAVBAR / FOOTER
 ================================================== */
 
 app.get(
@@ -1515,9 +1516,7 @@ app.get(
                 );
 
 
-            if (
-                !logo
-            ) {
+            if (!logo) {
 
                 return res
                     .status(404)
@@ -1531,23 +1530,87 @@ app.get(
             }
 
 
-            console.log(
-                'Site logo found:',
-                logo.secure_url
+            const optimizedLogoUrl =
+                cloudinary.url(
+                    logo.public_id,
+                    {
+
+                        secure:
+                            true,
+
+                        resource_type:
+                            'image',
+
+                        version:
+                            logo.version,
+
+                        transformation: [
+
+                            {
+                                width:
+                                    320,
+
+                                height:
+                                    160,
+
+                                crop:
+                                    'limit'
+                            },
+
+                            {
+                                quality:
+                                    'auto'
+                            },
+
+                            {
+                                fetch_format:
+                                    'auto'
+                            }
+
+                        ]
+
+                    }
+                );
+
+
+            /*
+             * Versioned Cloudinary URL means
+             * the browser can cache this safely.
+             */
+
+            res.set(
+                'Cache-Control',
+                'public, max-age=3600, immutable'
             );
 
 
-            console.log(
-                'Site logo version:',
-                logo.version
-            );
+            return res.json({
 
+                url:
+                    optimizedLogoUrl,
 
-            return res.json(
-                formatRootAsset(
-                    logo
-                )
-            );
+                secure_url:
+                    optimizedLogoUrl,
+
+                original_url:
+                    logo.secure_url,
+
+                public_id:
+                    logo.public_id,
+
+                display_name:
+                    logo.display_name,
+
+                format:
+                    logo.format,
+
+                resource_type:
+                    logo.resource_type,
+
+                version:
+                    logo.version
+
+            });
 
         }
 
@@ -1572,7 +1635,6 @@ app.get(
 
     }
 );
-
 
 /* ==================================================
    GENERIC HERO API HELPER
@@ -2451,6 +2513,65 @@ app.get(
     }
 );
 
+/* ==================================================
+   SITE LOGO
+================================================== */
+
+app.get(
+    '/api/site-logo',
+    async (req, res) => {
+
+        try {
+
+            const logo =
+                await getRootAsset(
+                    ROOT_ASSETS.logo
+                );
+
+
+            if (!logo) {
+
+                return res
+                    .status(404)
+                    .json({
+
+                        error:
+                            'Logo not found in Cloudinary.'
+
+                    });
+
+            }
+
+
+            return res.json(
+                formatRootAsset(
+                    logo
+                )
+            );
+
+        }
+
+        catch (error) {
+
+            console.error(
+                'Site logo error:',
+                error
+            );
+
+
+            return res
+                .status(500)
+                .json({
+
+                    error:
+                        'Unable to load site logo.'
+
+                });
+
+        }
+
+    }
+);
 
 /* ==================================================
    CUSTOM 404
