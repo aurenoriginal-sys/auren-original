@@ -185,6 +185,38 @@ const VIDEO_MAX_WIDTH =
 
 
 /* ==================================================
+   CLOUDINARY ASSET CACHE
+   PERFORMANCE OPTIMIZATION
+================================================== */
+
+const ASSET_CACHE_TTL =
+    5 * 60 * 1000; // 5 minutes
+
+
+const assetFolderCache =
+    new Map();
+
+
+const assetFolderPending =
+    new Map();
+
+
+/* ==================================================
+   CLEAR CLOUDINARY ASSET CACHE
+================================================== */
+
+function clearAssetCache() {
+
+    assetFolderCache.clear();
+
+    console.log(
+        'Cloudinary asset cache cleared.'
+    );
+
+}
+
+
+/* ==================================================
    GALLERY CONFIGURATION
 ================================================== */
 
@@ -539,40 +571,10 @@ async function getAssetsFromFolder(
 
     }
 
-    /* ==================================================
-   CLOUDINARY ASSET CACHE
-================================================== */
-
-const ASSET_CACHE_TTL =
-    5 * 60 * 1000; // 5 minutes
-
-
-const assetFolderCache =
-    new Map();
-
-
-const assetFolderPending =
-    new Map();
-
-
-/* ==================================================
-   CLEAR ASSET CACHE
-================================================== */
-
-function clearAssetCache() {
-
-    assetFolderCache.clear();
-
-    console.log(
-        'Cloudinary asset cache cleared.'
-    );
-
-}
 
     /* ==================================================
        PREVENT DUPLICATE CLOUDINARY REQUESTS
-       IF MULTIPLE REQUESTS ARRIVE AT THE
-       SAME TIME.
+       WHEN MULTIPLE REQUESTS ARRIVE AT ONCE
     ================================================== */
 
     const existingRequest =
@@ -589,10 +591,9 @@ function clearAssetCache() {
 
     }
 
-    
 
     /* ==================================================
-       CREATE ONE CLOUDINARY REQUEST
+       FETCH FROM CLOUDINARY
     ================================================== */
 
     const request =
@@ -657,7 +658,7 @@ function clearAssetCache() {
 
 
                 /* ==========================================
-                   STORE IN CACHE
+                   STORE RESULT IN CACHE
                 ========================================== */
 
                 assetFolderCache.set(
@@ -687,12 +688,6 @@ function clearAssetCache() {
             }
 
             finally {
-
-                /*
-                 * Remove the pending request after
-                 * completion so the next refresh can
-                 * happen normally.
-                 */
 
                 assetFolderPending.delete(
                     assetFolder
@@ -761,16 +756,6 @@ function buildOptimizedCloudinaryUrl(
                 resource_type:
                     'image',
 
-                /*
-                 * IMPORTANT:
-                 * Include the current Cloudinary
-                 * asset version.
-                 *
-                 * When the same asset is replaced
-                 * in Cloudinary, the version changes.
-                 * That creates a new delivery URL
-                 * and avoids stale CDN/browser copies.
-                 */
                 version:
                     resource.version,
 
@@ -801,58 +786,6 @@ function buildOptimizedCloudinaryUrl(
 
     }
 
-    /* ==================================================
-   CACHE STATUS
-   TEMPORARY PERFORMANCE DIAGNOSTIC
-================================================== */
-
-app.get(
-    '/api/cache-status',
-    (req, res) => {
-
-        const cache = [];
-
-        for (
-            const [
-                folder,
-                value
-            ]
-            of assetFolderCache.entries()
-        ) {
-
-            cache.push({
-
-                folder:
-                    folder,
-
-                assets:
-                    value.resources.length,
-
-                ageSeconds:
-                    Math.round(
-                        (
-                            Date.now() -
-                            value.timestamp
-                        ) / 1000
-                    )
-
-            });
-
-        }
-
-
-        return res.json({
-
-            ttlSeconds:
-                ASSET_CACHE_TTL / 1000,
-
-            folders:
-                cache
-
-        });
-
-    }
-);
 
     /* ==========================================
        VIDEO
@@ -873,10 +806,6 @@ app.get(
                 resource_type:
                     'video',
 
-                /*
-                 * Include current asset version
-                 * for the same cache-busting behavior.
-                 */
                 version:
                     resource.version,
 
@@ -1022,10 +951,6 @@ function formatMedia(
                     height:
                         resource.height,
 
-                    /*
-                     * Expose the current Cloudinary
-                     * version to the frontend.
-                     */
                     version:
                         resource.version
 
@@ -1281,10 +1206,6 @@ app.get(
             }
 
 
-            /*
-             * Keep requested sizes sensible.
-             */
-
             const allowedWidths = [
                 480,
                 768,
@@ -1329,10 +1250,6 @@ app.get(
                         resource_type:
                             'image',
 
-                        /*
-                         * IMPORTANT:
-                         * Use the current Cloudinary version.
-                         */
                         version:
                             hero.version,
 
@@ -1362,15 +1279,6 @@ app.get(
 
                 );
 
-
-            /*
-             * Browser can discover this image
-             * directly through the optimized URL.
-             *
-             * Keep a short cache because the URL
-             * itself changes whenever Cloudinary
-             * asset version changes.
-             */
 
             res.set(
                 'Cache-Control',
@@ -1467,9 +1375,6 @@ function formatRootAsset(
         height:
             resource.height,
 
-        /*
-         * Current Cloudinary version.
-         */
         version:
             resource.version
 
@@ -2494,27 +2399,61 @@ ${message}
 
 
 /* ==================================================
-   CUSTOM 404
+   CACHE STATUS
+   TEMPORARY PERFORMANCE DIAGNOSTIC
 ================================================== */
 
-app.use(
+app.get(
+    '/api/cache-status',
     (req, res) => {
 
-        res
-            .status(404)
-            .sendFile(
-                path.join(
-                    __dirname,
-                    '404.html'
-                )
-            );
+        const cache = [];
+
+
+        for (
+            const [
+                folder,
+                value
+            ] of assetFolderCache.entries()
+        ) {
+
+            cache.push({
+
+                folder:
+                    folder,
+
+                assets:
+                    value.resources.length,
+
+                ageSeconds:
+                    Math.round(
+                        (
+                            Date.now() -
+                            value.timestamp
+                        ) / 1000
+                    )
+
+            });
+
+        }
+
+
+        return res.json({
+
+            ttlSeconds:
+                ASSET_CACHE_TTL / 1000,
+
+            folders:
+                cache
+
+        });
 
     }
 );
 
 
 /* ==================================================
-   CUSTOM 404 PAGE
+   CUSTOM 404
 ================================================== */
 
 app.use(
