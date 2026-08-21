@@ -801,6 +801,58 @@ function buildOptimizedCloudinaryUrl(
 
     }
 
+    /* ==================================================
+   CACHE STATUS
+   TEMPORARY PERFORMANCE DIAGNOSTIC
+================================================== */
+
+app.get(
+    '/api/cache-status',
+    (req, res) => {
+
+        const cache = [];
+
+        for (
+            const [
+                folder,
+                value
+            ]
+            of assetFolderCache.entries()
+        ) {
+
+            cache.push({
+
+                folder:
+                    folder,
+
+                assets:
+                    value.resources.length,
+
+                ageSeconds:
+                    Math.round(
+                        (
+                            Date.now() -
+                            value.timestamp
+                        ) / 1000
+                    )
+
+            });
+
+        }
+
+
+        return res.json({
+
+            ttlSeconds:
+                ASSET_CACHE_TTL / 1000,
+
+            folders:
+                cache
+
+        });
+
+    }
+);
 
     /* ==========================================
        VIDEO
