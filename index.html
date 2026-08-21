@@ -3574,94 +3574,248 @@
 
 
         /* ==================================================
-           CLOUDINARY ROOT ASSET LOADER
-        ================================================== */
+   HOMEPAGE ROOT ASSETS
+   SINGLE API REQUEST
+================================================== */
 
-        async function loadRootAsset(
-            filename,
-            elementId
+async function loadHomepageAssets() {
+
+    try {
+
+        const response =
+            await fetch(
+                '/api/root-assets'
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                `Root assets request failed: HTTP ${response.status}`
+            );
+
+        }
+
+
+        const resources =
+            await response.json();
+
+
+        if (
+            !Array.isArray(
+                resources
+            )
         ) {
 
-            try {
-
-                const response =
-                    await fetch(
-                        `/api/root-asset/${encodeURIComponent(filename)}`
-                    );
-
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        `Failed to load ${filename}: HTTP ${response.status}`
-                    );
-
-                }
-
-
-                const data =
-                    await response.json();
-
-
-                const image =
-                    document.getElementById(
-                        elementId
-                    );
-
-
-                if (
-                    image &&
-                    data &&
-                    data.secure_url
-                ) {
-
-                    image.src =
-                        data.secure_url;
-
-                }
-
-            }
-
-            catch (error) {
-
-                console.error(
-                    `Root asset loading error (${filename}):`,
-                    error
-                );
-
-            }
+            throw new Error(
+                'Invalid root assets response.'
+            );
 
         }
 
 
         /* ==================================================
-           HOMEPAGE ASSETS
+           CREATE FAST LOOKUP MAP
         ================================================== */
 
-        
+        const assetMap =
+            new Map();
 
-        loadRootAsset(
+
+        resources.forEach(
+            resource => {
+
+                if (
+                    !resource
+                ) {
+
+                    return;
+
+                }
+
+
+                const names = [
+
+                    resource.display_name,
+
+                    resource.public_id
+                        ? resource.public_id
+                            .split('/')
+                            .pop()
+                        : null
+
+                ];
+
+
+                names.forEach(
+                    name => {
+
+                        if (
+                            !name
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        const normalized =
+                            String(
+                                name
+                            )
+                            .trim()
+                            .toLowerCase();
+
+
+                        assetMap.set(
+                            normalized,
+                            resource
+                        );
+
+
+                        /*
+                         * Also support filename without
+                         * extension.
+                         */
+
+                        const baseName =
+                            normalized
+                                .replace(
+                                    /\.[^.]+$/,
+                                    ''
+                                );
+
+
+                        assetMap.set(
+                            baseName,
+                            resource
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* ==================================================
+           SET IMAGE SRC
+        ================================================== */
+
+        function applyAsset(
+            filename,
+            elementId
+        ) {
+
+            const normalized =
+                filename
+                    .trim()
+                    .toLowerCase();
+
+
+            const baseName =
+                normalized
+                    .replace(
+                        /\.[^.]+$/,
+                        ''
+                    );
+
+
+            const resource =
+                assetMap.get(
+                    normalized
+                ) ||
+                assetMap.get(
+                    baseName
+                );
+
+
+            if (
+                !resource ||
+                !resource.secure_url
+            ) {
+
+                console.warn(
+                    `Homepage asset not found: ${filename}`
+                );
+
+                return;
+
+            }
+
+
+            const element =
+                document.getElementById(
+                    elementId
+                );
+
+
+            if (
+                !element
+            ) {
+
+                return;
+
+            }
+
+
+            element.src =
+                resource.secure_url;
+
+        }
+
+
+        /* ==================================================
+           HOMEPAGE IMAGES
+        ================================================== */
+
+        applyAsset(
             'transition-image.jpg',
             'transition-image'
         );
 
 
-        loadRootAsset(
+        applyAsset(
             'gallery-1.jpg',
             'gallery-image-1'
         );
 
 
-        loadRootAsset(
+        applyAsset(
             'gallery-2.jpg',
             'gallery-image-2'
         );
 
 
-        loadRootAsset(
+        applyAsset(
             'gallery-3.jpg',
             'gallery-image-3'
         );
+
+
+        console.log(
+            'Homepage assets loaded from single asset request.'
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            'Homepage asset loading error:',
+            error
+        );
+
+    }
+
+}
+
+
+/* ==================================================
+   LOAD HOMEPAGE ASSETS
+================================================== */
+
+loadHomepageAssets();
 
 
         /* ==================================================
