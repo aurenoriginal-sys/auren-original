@@ -1394,11 +1394,39 @@ function formatRootAsset(
     }
 
 
-    const optimizedUrl =
-        buildOptimizedCloudinaryUrl(
-            resource,
-            IMAGE_MAX_WIDTH
+    let optimizedUrl =
+    buildOptimizedCloudinaryUrl(
+        resource,
+        width
+    );
+
+
+/* ==================================================
+   TEST: COMPRESS GALLERY-2 ONLY
+================================================== */
+
+const resourceName =
+    getResourceFileName(
+        resource
+    )
+    .toLowerCase()
+    .replace(
+        /\.[^.]+$/,
+        ''
+    );
+
+
+if (
+    resourceName === 'gallery-2'
+) {
+
+    optimizedUrl =
+        optimizedUrl.replace(
+            '/q_auto/',
+            '/q_auto:eco/'
         );
+
+}
 
 
     const originalUrl =
