@@ -3538,6 +3538,69 @@ async function loadComponent(
 loadComponent(
     'components/navbar.html',
     'navbar-container'
+)
+.then(
+    async success => {
+
+        if (!success) {
+
+            return;
+
+        }
+
+
+        try {
+
+            const response =
+                await fetch(
+                    '/api/site-logo'
+                );
+
+
+            if (
+                !response.ok
+            ) {
+
+                throw new Error(
+                    `Logo API returned HTTP ${response.status}`
+                );
+
+            }
+
+
+            const data =
+                await response.json();
+
+
+            const logo =
+                document.getElementById(
+                    'site-logo-navbar'
+                );
+
+
+            if (
+                logo &&
+                data &&
+                data.secure_url
+            ) {
+
+                logo.src =
+                    data.secure_url;
+
+            }
+
+        }
+
+        catch (error) {
+
+            console.error(
+                'Navbar logo loading error:',
+                error
+            );
+
+        }
+
+    }
 );
 
 
