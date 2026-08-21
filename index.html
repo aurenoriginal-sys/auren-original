@@ -3726,9 +3726,9 @@ loadSharedSiteLogo();
 
 
 
-        /* ==================================================
-   HOMEPAGE ROOT ASSETS
-   SINGLE API REQUEST
+        //* ==================================================
+   HOMEPAGE ASSETS
+   OPTIMIZED IMAGE DELIVERY
 ================================================== */
 
 async function loadHomepageAssets() {
@@ -3737,159 +3737,57 @@ async function loadHomepageAssets() {
 
         const response =
             await fetch(
-                '/api/root-assets'
+                '/api/homepage-assets'
             );
 
 
         if (!response.ok) {
 
             throw new Error(
-                `Root assets request failed: HTTP ${response.status}`
+                `Homepage assets request failed: HTTP ${response.status}`
             );
 
         }
 
 
-        const resources =
+        const assets =
             await response.json();
 
 
         if (
-            !Array.isArray(
-                resources
-            )
+            !assets ||
+            typeof assets !== 'object'
         ) {
 
             throw new Error(
-                'Invalid root assets response.'
+                'Invalid homepage assets response.'
             );
 
         }
 
 
         /* ==================================================
-           CREATE FAST LOOKUP MAP
-        ================================================== */
-
-        const assetMap =
-            new Map();
-
-
-        resources.forEach(
-            resource => {
-
-                if (
-                    !resource
-                ) {
-
-                    return;
-
-                }
-
-
-                const names = [
-
-                    resource.display_name,
-
-                    resource.public_id
-                        ? resource.public_id
-                            .split('/')
-                            .pop()
-                        : null
-
-                ];
-
-
-                names.forEach(
-                    name => {
-
-                        if (
-                            !name
-                        ) {
-
-                            return;
-
-                        }
-
-
-                        const normalized =
-                            String(
-                                name
-                            )
-                            .trim()
-                            .toLowerCase();
-
-
-                        assetMap.set(
-                            normalized,
-                            resource
-                        );
-
-
-                        /*
-                         * Also support filename without
-                         * extension.
-                         */
-
-                        const baseName =
-                            normalized
-                                .replace(
-                                    /\.[^.]+$/,
-                                    ''
-                                );
-
-
-                        assetMap.set(
-                            baseName,
-                            resource
-                        );
-
-                    }
-                );
-
-            }
-        );
-
-
-        /* ==================================================
-           SET IMAGE SRC
+           APPLY OPTIMIZED ASSET
         ================================================== */
 
         function applyAsset(
-            filename,
+            assetName,
             elementId
         ) {
 
-            const normalized =
-                filename
-                    .trim()
-                    .toLowerCase();
-
-
-            const baseName =
-                normalized
-                    .replace(
-                        /\.[^.]+$/,
-                        ''
-                    );
-
-
-            const resource =
-                assetMap.get(
-                    normalized
-                ) ||
-                assetMap.get(
-                    baseName
-                );
+            const asset =
+                assets[
+                    assetName
+                ];
 
 
             if (
-                !resource ||
-                !resource.secure_url
+                !asset ||
+                !asset.secure_url
             ) {
 
                 console.warn(
-                    `Homepage asset not found: ${filename}`
+                    `Homepage asset not found: ${assetName}`
                 );
 
                 return;
@@ -3907,52 +3805,70 @@ async function loadHomepageAssets() {
                 !element
             ) {
 
+                console.warn(
+                    `Element not found: #${elementId}`
+                );
+
                 return;
 
             }
 
 
             element.src =
-                resource.secure_url;
+                asset.secure_url;
 
         }
 
 
         /* ==================================================
-           HOMEPAGE IMAGES
+           TRANSITION IMAGE
         ================================================== */
 
         applyAsset(
-            'transition-image.jpg',
+            'transition-image',
             'transition-image'
         );
 
 
+        /* ==================================================
+           GALLERY IMAGE 1
+        ================================================== */
+
         applyAsset(
-            'gallery-1.jpg',
+            'gallery-1',
             'gallery-image-1'
         );
 
 
+        /* ==================================================
+           GALLERY IMAGE 2
+        ================================================== */
+
         applyAsset(
-            'gallery-2.jpg',
+            'gallery-2',
             'gallery-image-2'
         );
 
 
+        /* ==================================================
+           GALLERY IMAGE 3
+        ================================================== */
+
         applyAsset(
-            'gallery-3.jpg',
+            'gallery-3',
             'gallery-image-3'
         );
 
 
         console.log(
-            'Homepage assets loaded from single asset request.'
+            'Optimized homepage assets loaded.'
         );
 
     }
 
-    catch (error) {
+    catch (
+        error
+    ) {
 
         console.error(
             'Homepage asset loading error:',
@@ -3969,6 +3885,8 @@ async function loadHomepageAssets() {
 ================================================== */
 
 loadHomepageAssets();
+
+
 
 
         /* ==================================================
