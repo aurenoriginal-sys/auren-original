@@ -131,16 +131,18 @@ app.use(
     cors()
 );
 
+
 /* ==================================================
    RESPONSE COMPRESSION
 ================================================== */
 
 app.use(
     compression({
-        threshold:
-            1024
+        threshold: 0,
+        filter: () => true
     })
 );
+
 
 /* ==================================================
    STATIC WEBSITE FILES
@@ -197,11 +199,10 @@ const VIDEO_MAX_WIDTH =
 
 /* ==================================================
    CLOUDINARY ASSET CACHE
-   PERFORMANCE OPTIMIZATION
 ================================================== */
 
 const ASSET_CACHE_TTL =
-    5 * 60 * 1000; // 5 minutes
+    5 * 60 * 1000;
 
 
 const assetFolderCache =
@@ -321,154 +322,116 @@ const ROOT_ASSETS = {
     logo:
         'logo.png',
 
-
     heroBranding:
         'hero-branding.jpg',
-
 
     heroCommercial:
         'hero-commercial.jpg',
 
-
     heroCorporate:
         'hero-corporate.jpg',
-
 
     heroFashion:
         'hero-fashion.jpg',
 
-
     heroHome:
         'hero-image.jpg',
-
 
     heroPreWedding:
         'hero-pre-wedding.jpg',
 
-
     heroSports:
         'hero-sports.jpg',
-
 
     heroWedding:
         'hero-wedding.jpg',
 
-
     aboutGallery1:
         'about-gallery-1.jpg',
-
 
     aboutGallery2:
         'about-gallery-2.jpg',
 
-
     aboutGallery3:
         'about-gallery-3.jpg',
-
 
     aboutGallery4:
         'about-gallery-4.jpg',
 
-
     aboutGallery5:
         'about-gallery-5.jpg',
-
 
     branding1:
         'branding1-image.jpg',
 
-
     commercial1:
         'commercial1-image.JPG',
-
 
     corporate1:
         'corporate1-image.jpg',
 
-
     fashion1:
         'fashion1-image.jpg',
-
 
     founder:
         'founder.jpg',
 
-
     gallery1:
         'gallery-1.jpg',
-
 
     gallery2:
         'gallery-2.jpg',
 
-
     gallery3:
         'gallery-3.jpg',
-
 
     industryArchitecture:
         'industry-architecture.jpg',
 
-
     industryCommercial:
         'industry-commercial.jpg',
-
 
     industryCorporate:
         'industry-corporate.jpg',
 
-
     industryEcommerce:
         'industry-ecommerce.jpg',
-
 
     industryFashion:
         'industry-fashion.jpg',
 
-
     industryHospitality:
         'industry-hospitality.jpg',
-
 
     industrySports:
         'industry-sports.jpg',
 
-
     industryWeddings:
         'industry-weddings.jpg',
-
 
     serviceBranding:
         'service-branding.jpg',
 
-
     serviceCreativeDirection:
         'service-creative-direction.jpg',
-
 
     serviceDigitalMarketing:
         'service-digital-marketing.jpg',
 
-
     servicePhotography:
         'service-photography.jpg',
-
 
     sports1:
         'sports1-image.jpg',
 
-
     transitionCta:
         'transition-cta.jpg',
-
 
     transitionImage:
         'transition-image.jpg',
 
-
     wedding1:
         'wedding1-image.jpg',
-
 
     wedding2:
         'wedding2-image.jpg'
@@ -540,7 +503,6 @@ function validateCloudinaryConfig() {
 
 /* ==================================================
    GET ASSETS FROM ASSET FOLDER
-   WITH SERVER-SIDE CACHE
 ================================================== */
 
 async function getAssetsFromFolder(
@@ -585,7 +547,6 @@ async function getAssetsFromFolder(
 
     /* ==================================================
        PREVENT DUPLICATE CLOUDINARY REQUESTS
-       WHEN MULTIPLE REQUESTS ARRIVE AT ONCE
     ================================================== */
 
     const existingRequest =
@@ -668,10 +629,6 @@ async function getAssetsFromFolder(
                 );
 
 
-                /* ==========================================
-                   STORE RESULT IN CACHE
-                ========================================== */
-
                 assetFolderCache.set(
 
                     assetFolder,
@@ -722,12 +679,13 @@ async function getAssetsFromFolder(
 
 /* ==================================================
    OPTIMIZED CLOUDINARY URL
-   VERSION-AWARE
+   SUPPORTS CUSTOM QUALITY
 ================================================== */
 
 function buildOptimizedCloudinaryUrl(
     resource,
-    maxWidth
+    maxWidth,
+    qualityMode = 'auto'
 ) {
 
     if (
@@ -748,9 +706,9 @@ function buildOptimizedCloudinaryUrl(
     }
 
 
-    /* ==========================================
+    /* ==================================================
        IMAGE
-    ========================================== */
+    ================================================== */
 
     if (
         resource.resource_type ===
@@ -758,7 +716,9 @@ function buildOptimizedCloudinaryUrl(
     ) {
 
         return cloudinary.url(
+
             resource.public_id,
+
             {
 
                 secure:
@@ -773,34 +733,41 @@ function buildOptimizedCloudinaryUrl(
                 transformation: [
 
                     {
+
                         width:
                             maxWidth,
 
                         crop:
                             'limit'
+
                     },
 
                     {
+
                         quality:
-                            'auto'
+                            qualityMode
+
                     },
 
                     {
+
                         fetch_format:
                             'auto'
+
                     }
 
                 ]
 
             }
+
         );
 
     }
 
 
-    /* ==========================================
+    /* ==================================================
        VIDEO
-    ========================================== */
+    ================================================== */
 
     if (
         resource.resource_type ===
@@ -808,7 +775,9 @@ function buildOptimizedCloudinaryUrl(
     ) {
 
         return cloudinary.url(
+
             resource.public_id,
+
             {
 
                 secure:
@@ -823,21 +792,27 @@ function buildOptimizedCloudinaryUrl(
                 transformation: [
 
                     {
+
                         width:
                             maxWidth,
 
                         crop:
                             'limit'
+
                     },
 
                     {
+
                         quality:
-                            'auto'
+                            qualityMode
+
                     },
 
                     {
+
                         fetch_format:
                             'auto'
+
                     }
 
                 ]
@@ -881,7 +856,9 @@ function buildOriginalCloudinaryUrl(
 
 
     return cloudinary.url(
+
         resource.public_id,
+
         {
 
             secure:
@@ -915,12 +892,16 @@ function formatMedia(
 
                 const optimizedUrl =
                     buildOptimizedCloudinaryUrl(
+
                         resource,
 
                         resource.resource_type ===
                         'video'
+
                             ? VIDEO_MAX_WIDTH
+
                             : GALLERY_IMAGE_MAX_WIDTH
+
                     );
 
 
@@ -972,6 +953,7 @@ function formatMedia(
         )
 
         .sort(
+
             (
                 first,
                 second
@@ -983,12 +965,15 @@ function formatMedia(
                     ''
                 )
                 .localeCompare(
+
                     String(
                         second.display_name ||
                         second.public_id ||
                         ''
                     ),
+
                     undefined,
+
                     {
 
                         numeric:
@@ -1056,12 +1041,15 @@ function getResourceFileName(
     ) {
 
         if (
+
             format &&
+
             !publicId
                 .toLowerCase()
                 .endsWith(
                     `.${format.toLowerCase()}`
                 )
+
         ) {
 
             return `${publicId}.${format}`;
@@ -1220,13 +1208,9 @@ app.get(
             const allowedWidths = [
 
                 480,
-
                 768,
-
                 1024,
-
                 1280,
-
                 1600
 
             ];
@@ -1310,14 +1294,6 @@ app.get(
                 );
 
 
-            /*
-             * IMPORTANT:
-             *
-             * We are returning the optimized
-             * Cloudinary URL as JSON instead of
-             * redirecting the browser with 302.
-             */
-
             res.set(
 
                 'Cache-Control',
@@ -1394,39 +1370,24 @@ function formatRootAsset(
     }
 
 
-    let optimizedUrl =
-    buildOptimizedCloudinaryUrl(
-        resource,
-        width
-    );
+    const maxWidth =
+
+        resource.resource_type ===
+        'video'
+
+            ? VIDEO_MAX_WIDTH
+
+            : IMAGE_MAX_WIDTH;
 
 
-/* ==================================================
-   TEST: COMPRESS GALLERY-2 ONLY
-================================================== */
+    const optimizedUrl =
+        buildOptimizedCloudinaryUrl(
 
-const resourceName =
-    getResourceFileName(
-        resource
-    )
-    .toLowerCase()
-    .replace(
-        /\.[^.]+$/,
-        ''
-    );
+            resource,
 
+            maxWidth
 
-if (
-    resourceName === 'gallery-2'
-) {
-
-    optimizedUrl =
-        optimizedUrl.replace(
-            '/q_auto/',
-            '/q_auto:eco/'
         );
-
-}
 
 
     const originalUrl =
@@ -1499,7 +1460,9 @@ app.get(
 
         }
 
-        catch (error) {
+        catch (
+            error
+        ) {
 
             console.error(
                 'Root assets error:',
@@ -1568,7 +1531,9 @@ app.get(
 
         }
 
-        catch (error) {
+        catch (
+            error
+        ) {
 
             console.error(
                 'Root asset lookup error:',
@@ -1590,9 +1555,10 @@ app.get(
     }
 );
 
+
 /* ==================================================
    HOMEPAGE ASSETS
-   DEVICE-FRIENDLY IMAGE DELIVERY
+   RESPONSIVE IMAGE DELIVERY
 ================================================== */
 
 app.get(
@@ -1691,23 +1657,81 @@ app.get(
                                 );
 
                             }
+
                         );
 
                     }
+
                 );
 
 
-            /*
-             * Homepage images are displayed much
-             * smaller than 1400px.
-             *
-             * 768px gives enough resolution for
-             * mobile/tablet while greatly reducing
-             * transfer size.
-             */
+            /* ==================================================
+               RESPONSIVE HOMEPAGE IMAGE WIDTH
+            ================================================== */
 
-            const response =
-                {};
+            let requestedWidth =
+                Number(
+                    req.query.w
+                );
+
+
+            if (
+                !Number.isFinite(
+                    requestedWidth
+                )
+            ) {
+
+                requestedWidth =
+                    768;
+
+            }
+
+
+            const allowedWidths = [
+
+                480,
+                768,
+                1024,
+                1280,
+                1400
+
+            ];
+
+
+            const width =
+                allowedWidths.reduce(
+
+                    (
+                        closest,
+                        current
+                    ) => {
+
+                        return Math.abs(
+                            current -
+                            requestedWidth
+                        )
+                        <
+                        Math.abs(
+                            closest -
+                            requestedWidth
+                        )
+
+                            ? current
+
+                            : closest;
+
+                    },
+
+                    allowedWidths[0]
+
+                );
+
+
+            /* ==================================================
+               BUILD HOMEPAGE RESPONSE
+            ================================================== */
+
+            const response = {};
 
 
             homepageResources.forEach(
@@ -1720,77 +1744,33 @@ app.get(
                         .toLowerCase();
 
 
-                   /* ==================================================
-   RESPONSIVE HOMEPAGE IMAGE WIDTH
-================================================== */
-
-let requestedWidth =
-    Number(
-        req.query.w
-    );
+                    const resourceName =
+                        fileName
+                            .replace(
+                                /\.[^.]+$/,
+                                ''
+                            );
 
 
-if (
-    !Number.isFinite(
-        requestedWidth
-    )
-) {
+                    const qualityMode =
+                        resourceName ===
+                        'gallery-2'
 
-    requestedWidth =
-        768;
+                            ? 'auto:eco'
 
-}
+                            : 'auto';
 
 
-/* ==================================================
-   ALLOWED WIDTHS
-================================================== */
+                    const optimizedUrl =
+                        buildOptimizedCloudinaryUrl(
 
-const allowedWidths = [
+                            resource,
 
-    480,
-    768,
-    1024,
-    1280,
-    1400
+                            width,
 
-];
+                            qualityMode
 
-
-const width =
-    allowedWidths.reduce(
-
-        (
-            closest,
-            current
-        ) => {
-
-            return Math.abs(
-                current -
-                requestedWidth
-            )
-            <
-            Math.abs(
-                closest -
-                requestedWidth
-            )
-
-                ? current
-
-                : closest;
-
-        },
-
-        allowedWidths[0]
-
-    );
-
-
-const optimizedUrl =
-    buildOptimizedCloudinaryUrl(
-        resource,
-        width
-    );
+                        );
 
 
                     response[
@@ -1812,6 +1792,7 @@ const optimizedUrl =
                     };
 
                 }
+
             );
 
 
@@ -1827,7 +1808,9 @@ const optimizedUrl =
 
         }
 
-        catch (error) {
+        catch (
+            error
+        ) {
 
             console.error(
                 'Homepage assets error:',
@@ -1849,6 +1832,7 @@ const optimizedUrl =
     }
 );
 
+
 /* ==================================================
    SITE LOGO
    OPTIMIZED FOR NAVBAR / FOOTER
@@ -1866,7 +1850,9 @@ app.get(
                 );
 
 
-            if (!logo) {
+            if (
+                !logo
+            ) {
 
                 return res
                     .status(404)
@@ -1882,7 +1868,9 @@ app.get(
 
             const optimizedLogoUrl =
                 cloudinary.url(
+
                     logo.public_id,
+
                     {
 
                         secure:
@@ -1897,6 +1885,7 @@ app.get(
                         transformation: [
 
                             {
+
                                 width:
                                     320,
 
@@ -1905,28 +1894,29 @@ app.get(
 
                                 crop:
                                     'limit'
+
                             },
 
                             {
+
                                 quality:
                                     'auto'
+
                             },
 
                             {
+
                                 fetch_format:
                                     'auto'
+
                             }
 
                         ]
 
                     }
+
                 );
 
-
-            /*
-             * Versioned Cloudinary URL means
-             * the browser can cache this safely.
-             */
 
             res.set(
                 'Cache-Control',
@@ -1964,7 +1954,9 @@ app.get(
 
         }
 
-        catch (error) {
+        catch (
+            error
+        ) {
 
             console.error(
                 'Site logo error:',
@@ -1985,6 +1977,7 @@ app.get(
 
     }
 );
+
 
 /* ==================================================
    GENERIC HERO API HELPER
@@ -2040,7 +2033,9 @@ async function sendHeroAsset(
 
     }
 
-    catch (error) {
+    catch (
+        error
+    ) {
 
         console.error(
             `Hero error (${filename}):`,
@@ -2211,7 +2206,9 @@ async function getGalleryPhotos(
 
     }
 
-    catch (error) {
+    catch (
+        error
+    ) {
 
         console.error(
             `${config.name} photos error:`,
@@ -2290,7 +2287,9 @@ async function getGalleryVideos(
 
     }
 
-    catch (error) {
+    catch (
+        error
+    ) {
 
         console.error(
             `${config.name} videos error:`,
@@ -2322,10 +2321,6 @@ Object.keys(
 .forEach(
     galleryKey => {
 
-        /* ==========================================
-           PHOTOS
-        ========================================== */
-
         app.get(
             `/api/${galleryKey}-photos`,
             (req, res) => {
@@ -2340,10 +2335,6 @@ Object.keys(
         );
 
 
-        /* ==========================================
-           VIDEOS
-        ========================================== */
-
         app.get(
             `/api/${galleryKey}-videos`,
             (req, res) => {
@@ -2357,10 +2348,6 @@ Object.keys(
             }
         );
 
-
-        /* ==========================================
-           HERO
-        ========================================== */
 
         app.get(
             `/api/${galleryKey}-hero`,
@@ -2497,10 +2484,6 @@ app.post(
             } = req.body;
 
 
-            /* ==========================================
-               VALIDATION
-            ========================================== */
-
             if (
 
                 !name ||
@@ -2534,10 +2517,6 @@ app.post(
             }
 
 
-            /* ==========================================
-               RESEND API KEY
-            ========================================== */
-
             const apiKey =
                 process.env.RESEND_API_KEY;
 
@@ -2565,10 +2544,6 @@ app.post(
 
             }
 
-
-            /* ==========================================
-               EMAIL TEXT
-            ========================================== */
 
             const emailText = `
 
@@ -2600,10 +2575,6 @@ ${message}
 
 `;
 
-
-            /* ==========================================
-               EMAIL HTML
-            ========================================== */
 
             const emailHtml = `
 
@@ -2676,10 +2647,6 @@ ${message}
             `;
 
 
-            /* ==========================================
-               SEND THROUGH RESEND
-            ========================================== */
-
             const response =
                 await fetch(
                     'https://api.resend.com/emails',
@@ -2731,10 +2698,6 @@ ${message}
                 await response.json();
 
 
-            /* ==========================================
-               RESEND ERROR
-            ========================================== */
-
             if (
                 !response.ok
             ) {
@@ -2760,10 +2723,6 @@ ${message}
             }
 
 
-            /* ==========================================
-               SUCCESS
-            ========================================== */
-
             console.log(
                 'Contact email sent:',
                 result.id
@@ -2784,7 +2743,9 @@ ${message}
 
         }
 
-        catch (error) {
+        catch (
+            error
+        ) {
 
             console.error(
                 'Contact form error:',
@@ -2812,7 +2773,6 @@ ${message}
 
 /* ==================================================
    CACHE STATUS
-   TEMPORARY PERFORMANCE DIAGNOSTIC
 ================================================== */
 
 app.get(
@@ -2863,65 +2823,6 @@ app.get(
     }
 );
 
-/* ==================================================
-   SITE LOGO
-================================================== */
-
-app.get(
-    '/api/site-logo',
-    async (req, res) => {
-
-        try {
-
-            const logo =
-                await getRootAsset(
-                    ROOT_ASSETS.logo
-                );
-
-
-            if (!logo) {
-
-                return res
-                    .status(404)
-                    .json({
-
-                        error:
-                            'Logo not found in Cloudinary.'
-
-                    });
-
-            }
-
-
-            return res.json(
-                formatRootAsset(
-                    logo
-                )
-            );
-
-        }
-
-        catch (error) {
-
-            console.error(
-                'Site logo error:',
-                error
-            );
-
-
-            return res
-                .status(500)
-                .json({
-
-                    error:
-                        'Unable to load site logo.'
-
-                });
-
-        }
-
-    }
-);
 
 /* ==================================================
    CUSTOM 404

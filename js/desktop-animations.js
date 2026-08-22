@@ -5,32 +5,6 @@
 
 
 /* ==================================================
-   DEVICE CHECK
-================================================== */
-
-const isDesktop =
-    window.matchMedia(
-        '(min-width: 768px)'
-    ).matches;
-
-
-if (
-    !isDesktop
-) {
-
-    /*
-     * This file should only be loaded
-     * on desktop.
-     */
-
-    console.log(
-        'Desktop animations skipped.'
-    );
-
-}
-
-
-/* ==================================================
    DESKTOP ANIMATION LIBRARY LOADER
 ================================================== */
 
@@ -41,17 +15,6 @@ function loadDesktopAnimationLibraries() {
             resolve,
             reject
         ) => {
-
-            if (
-                !isDesktop
-            ) {
-
-                resolve();
-
-                return;
-
-            }
-
 
             const gsapScript =
                 document.createElement(
@@ -134,15 +97,6 @@ function loadDesktopAnimationLibraries() {
 ================================================== */
 
 async function initializeDesktopAnimations() {
-
-    if (
-        !isDesktop
-    ) {
-
-        return;
-
-    }
-
 
     try {
 
@@ -958,46 +912,45 @@ async function initializeDesktopAnimations() {
            SCROLLTRIGGER
         ================================================== */
 
-        const galleryTrigger =
-            ScrollTrigger.create({
+        ScrollTrigger.create({
 
-                id:
-                    'auren-gallery',
+            id:
+                'auren-gallery',
 
-                trigger:
-                    stage,
+            trigger:
+                stage,
 
-                start:
-                    'top top',
+            start:
+                'top top',
 
-                end:
-                    'bottom bottom',
+            end:
+                'bottom bottom',
 
-                pin:
-                    viewport,
+            pin:
+                viewport,
 
-                pinSpacing:
-                    true,
+            pinSpacing:
+                true,
 
-                anticipatePin:
-                    1,
+            anticipatePin:
+                1,
 
-                invalidateOnRefresh:
-                    true,
+            invalidateOnRefresh:
+                true,
 
-                fastScrollEnd:
-                    false,
+            fastScrollEnd:
+                false,
 
-                onUpdate:
-                    self => {
+            onUpdate:
+                self => {
 
-                        smoothGalleryProgress(
-                            self.progress
-                        );
+                    smoothGalleryProgress(
+                        self.progress
+                    );
 
-                    }
+                }
 
-            });
+        });
 
 
         /* ==================================================
@@ -1329,27 +1282,39 @@ async function initializeDesktopAnimations() {
 
 
     /* ==================================================
-       INITIALIZE ON PAGE LOAD
+       INITIALIZE GALLERY
+       WORKS WHETHER PAGE IS ALREADY LOADED OR NOT
     ================================================== */
 
-    window.addEventListener(
+    if (
+        document.readyState ===
+        'complete'
+    ) {
 
-        'load',
+        waitForGalleryImages();
 
-        () => {
+    }
 
-            waitForGalleryImages();
+    else {
 
-        },
+        window.addEventListener(
 
-        {
+            'load',
 
-            once:
-                true
+            () => {
 
-        }
+                waitForGalleryImages();
 
-    );
+            },
+
+            {
+                once:
+                    true
+            }
+
+        );
+
+    }
 
 
     /* ==================================================
