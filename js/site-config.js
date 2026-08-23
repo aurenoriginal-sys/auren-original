@@ -47,7 +47,8 @@ async function loadSiteConfig() {
                 config => {
 
                     if (
-                        !config ||
+                        !config
+                        ||
                         typeof config !== 'object'
                     ) {
 
@@ -123,7 +124,10 @@ function renderDesktopNavigation(
 
 
     if (
-        !navLinks ||
+        !navLinks
+        ||
+        !config
+        ||
         !Array.isArray(
             config.navigation
         )
@@ -179,7 +183,10 @@ function renderMobileNavigation(
 
 
     if (
-        !mobileLinks ||
+        !mobileLinks
+        ||
+        !config
+        ||
         !Array.isArray(
             config.navigation
         )
@@ -228,17 +235,19 @@ function renderContactActions(
     config
 ) {
 
-    const contactAction =
-        config.actions;
-
-
     if (
-        !contactAction
+        !config
+        ||
+        !config.actions
     ) {
 
         return;
 
     }
+
+
+    const contactAction =
+        config.actions;
 
 
     const desktopButton =
@@ -291,15 +300,19 @@ function renderFooter(
     config
 ) {
 
-    const footerColumns =
+    const footerLinks =
         document.querySelector(
             '.footer-links'
         );
 
 
     if (
-        !footerColumns ||
-        !config.footer ||
+        !footerLinks
+        ||
+        !config
+        ||
+        !config.footer
+        ||
         !Array.isArray(
             config.footer.columns
         )
@@ -310,7 +323,7 @@ function renderFooter(
     }
 
 
-    footerColumns.innerHTML =
+    footerLinks.innerHTML =
         '';
 
 
@@ -389,7 +402,7 @@ function renderFooter(
             }
 
 
-            footerColumns.appendChild(
+            footerLinks.appendChild(
                 columnElement
             );
 
@@ -404,7 +417,8 @@ function renderFooter(
 
 
     if (
-        copyright &&
+        copyright
+        &&
         config.footer.copyright
     ) {
 
@@ -417,7 +431,102 @@ function renderFooter(
 
 
 /* ==================================================
-   LOAD + APPLY CONFIGURATION
+   LOAD SHARED SITE LOGO
+   SINGLE REQUEST
+================================================== */
+
+async function loadSharedSiteLogo() {
+
+    try {
+
+        const response =
+            await fetch(
+                '/api/site-logo',
+                {
+                    cache:
+                        'no-store'
+                }
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                `Site logo API returned HTTP ${response.status}`
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            !data
+            ||
+            !data.secure_url
+        ) {
+
+            throw new Error(
+                'Site logo URL was not returned.'
+            );
+
+        }
+
+
+        const navbarLogo =
+            document.getElementById(
+                'site-logo-navbar'
+            );
+
+
+        if (
+            navbarLogo
+        ) {
+
+            navbarLogo.src =
+                data.secure_url;
+
+        }
+
+
+        const footerLogo =
+            document.getElementById(
+                'site-logo-footer'
+            );
+
+
+        if (
+            footerLogo
+        ) {
+
+            footerLogo.src =
+                data.secure_url;
+
+        }
+
+
+        console.log(
+            'Shared site logo loaded once.'
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            'Shared site logo loading error:',
+            error
+        );
+
+    }
+
+}
+
+
+/* ==================================================
+   INITIALIZE SITE CONFIGURATION
 ================================================== */
 
 async function initializeSiteConfiguration() {
@@ -427,6 +536,12 @@ async function initializeSiteConfiguration() {
         const config =
             await loadSiteConfig();
 
+
+        /*
+         * Render only after the
+         * navbar/footer components
+         * have already been inserted.
+         */
 
         renderDesktopNavigation(
             config
@@ -446,6 +561,9 @@ async function initializeSiteConfiguration() {
         renderFooter(
             config
         );
+
+
+        await loadSharedSiteLogo();
 
 
         document.dispatchEvent(
@@ -481,11 +599,12 @@ async function initializeSiteConfiguration() {
    PUBLIC API
 ================================================== */
 
-window.AurenSite =
-    {
-        load:
-            loadSiteConfig,
+window.AurenSite = {
 
-        initialize:
-            initializeSiteConfiguration
-    };
+    load:
+        loadSiteConfig,
+
+    initialize:
+        initializeSiteConfiguration
+
+};

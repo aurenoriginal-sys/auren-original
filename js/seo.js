@@ -311,8 +311,17 @@ async function loadSeo() {
             await response.json();
 
 
-        const pageKey =
-            'home';
+        const pageMap = {
+    '/': 'home',
+    '/index.html': 'home',
+    '/about.html': 'about'
+};
+
+const currentPath =
+    window.location.pathname.toLowerCase();
+
+const pageKey =
+    pageMap[currentPath] || 'home';
 
 
         applySeo(

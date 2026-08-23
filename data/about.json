@@ -1,0 +1,139 @@
+{
+    "hero": {
+        "label": "About Auren Originals",
+        "titleBefore": "More Than A Creative Agency",
+        "titleHighlight": ".",
+        "description": "We are a team driven by curiosity, creativity and craftsmanship — creating work that people remember."
+    },
+
+    "whoWeAre": {
+        "label": "About",
+        "title": "Who We Are.",
+        "description": "Auren Originals is a creative agency and production house bringing together business and people.",
+        "paragraphs": [
+            "We tell meaningful stories through photography, creative direction, branding, marketing and digital content.",
+            "We create — not just as a profession, but as an extension of how we see the world."
+        ]
+    },
+
+    "purpose": {
+        "label": "Purpose",
+        "title": "Why We Exist.",
+        "items": [
+            {
+                "quote": "\"We believe every brand has a story worth telling.\"",
+                "description": "Creating narratives that educate, inspire and connect."
+            },
+            {
+                "quote": "\"Great visuals create lasting impressions.\"",
+                "description": "Engineering meaning through compelling visual direction."
+            },
+            {
+                "quote": "\"We create with intention, not trends.\"",
+                "description": "Designing strategies that stand the test of time."
+            }
+        ]
+    },
+
+    "philosophy": {
+        "label": "Philosophy",
+        "title": "Our Philosophy.",
+        "items": [
+            {
+                "title": "Purpose Before Pixels",
+                "description": "Every project begins with understanding, not execution. We discover the underlying purpose first."
+            },
+            {
+                "title": "Craft Over Convenience",
+                "description": "Attention to detail is never optional. We obsess over precision in every frame."
+            },
+            {
+                "title": "People First",
+                "description": "Strong relationships create stronger work. We collaborate deeply and listen attentively."
+            },
+            {
+                "title": "Always Evolving",
+                "description": "We continuously learn, adapt and improve, keeping our visual language fresh and refined."
+            }
+        ]
+    },
+
+    "founders": {
+        "label": "Founders",
+        "title": "The People Behind Auren.",
+        "items": [
+            {
+                "number": "01",
+                "name": "Harish",
+                "role": "Founder & Creative Director",
+                "description": "Curiosity drives our craft. We build brands for a modern era with substance and intent.",
+                "image": "founder.jpg",
+                "alt": "Harish - Founder and Creative Director"
+            },
+            {
+                "number": "02",
+                "name": "Sai Dhanush",
+                "role": "Co-Founder",
+                "description": "Bringing thoughtful creative direction, collaboration and a strong eye for meaningful work.",
+                "image": "founder-2.jpg",
+                "alt": "Sai Dhanush - Co-Founder"
+            },
+            {
+                "number": "03",
+                "name": "Vijay",
+                "role": "Co-Founder",
+                "description": "Shaping ideas into meaningful experiences through a refined creative perspective.",
+                "image": "founder-3.jpg",
+                "alt": "Vijay - Co-Founder"
+            }
+        ]
+    },
+
+    "values": {
+        "label": "Values",
+        "title": "What We Stand For.",
+        "items": [
+            {
+                "name": "Quality",
+                "href": "#"
+            },
+            {
+                "name": "Honesty",
+                "href": "#"
+            },
+            {
+                "name": "Creativity",
+                "href": "#"
+            },
+            {
+                "name": "Consistency",
+                "href": "#"
+            },
+            {
+                "name": "Long-term Relationships",
+                "href": "#"
+            }
+        ]
+    },
+
+    "statement": {
+        "textBefore": "We're building more than a creative agency.",
+        "textAfter": "We're building a brand that creates work",
+        "highlight": "with purpose and lasting impact."
+    },
+
+    "gallery": {
+        "items": [
+            "about-gallery-1.jpg",
+            "about-gallery-2.jpg",
+            "about-gallery-3.jpg",
+            "about-gallery-4.jpg",
+            "about-gallery-5.jpg"
+        ]
+    },
+
+    "cta": {
+        "title": "Let's Create",
+        "highlight": "What Matters."
+    }
+}

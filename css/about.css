@@ -1,0 +1,2186 @@
+/* ==================================================
+   AUREN ORIGINALS
+   ABOUT PAGE
+================================================== */
+
+
+/* ==================================================
+   PAGE CONTAINER
+================================================== */
+
+.about-container {
+
+    width:
+        min(
+            90vw,
+            1180px
+        );
+
+    margin:
+        0 auto;
+
+}
+
+
+/* ==================================================
+   PAGE COMPONENT CONTAINERS
+================================================== */
+
+#navbar-container {
+
+    position:
+        relative;
+
+    z-index:
+        10000;
+
+    width:
+        100%;
+
+    height:
+        54px;
+
+}
+
+
+#footer-container {
+
+    width:
+        100%;
+
+}
+
+
+#scroll-to-top-container {
+
+    position:
+        relative;
+
+    z-index:
+        99999;
+
+}
+
+
+/* ==================================================
+   SECTION LABEL
+================================================== */
+
+.section-label {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    margin-bottom:
+        16px;
+
+    color:
+        var(--highlight);
+
+    font-size:
+        0.62rem;
+
+    font-weight:
+        500;
+
+    letter-spacing:
+        1.7px;
+
+    line-height:
+        1;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+.section-label::before {
+
+    content:
+        "";
+
+    width:
+        6px;
+
+    height:
+        6px;
+
+    flex:
+        0 0 6px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--highlight);
+
+}
+
+
+/* ==================================================
+   REVEAL
+================================================== */
+
+.reveal {
+
+    opacity:
+        0;
+
+    transform:
+        translateY(
+            25px
+        );
+
+}
+
+
+/* ==================================================
+   HERO
+================================================== */
+
+.about-hero {
+
+    min-height:
+        680px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    padding:
+        150px 0
+        100px;
+
+    background:
+        #000000;
+
+}
+
+
+.about-hero .hero-content {
+
+    width:
+        100%;
+
+    max-width:
+        850px;
+
+}
+
+
+.about-hero .hero-title {
+
+    max-width:
+        850px;
+
+    font-size:
+        clamp(
+            4rem,
+            6vw,
+            6.3rem
+        );
+
+    line-height:
+        0.96;
+
+    letter-spacing:
+        -0.035em;
+
+}
+
+
+.about-hero .hero-title .highlight {
+
+    color:
+        var(--highlight);
+
+}
+
+
+.about-hero .hero-copy {
+
+    max-width:
+        650px;
+
+    margin-top:
+        28px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        0.85rem;
+
+    line-height:
+        1.7;
+
+}
+
+
+/* ==================================================
+   WHO WE ARE
+================================================== */
+
+.who-section {
+
+    padding:
+        100px 0
+        125px;
+
+}
+
+
+.who-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        0.8fr 1.2fr;
+
+    gap:
+        90px;
+
+    align-items:
+        start;
+
+}
+
+
+.who-heading {
+
+    font-size:
+        clamp(
+            2.7rem,
+            4vw,
+            4.4rem
+        );
+
+    line-height:
+        1;
+
+    letter-spacing:
+        -0.03em;
+
+}
+
+
+.who-copy {
+
+    padding-top:
+        30px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        0.78rem;
+
+    line-height:
+        1.75;
+
+}
+
+
+.who-copy strong {
+
+    color:
+        var(--white);
+
+    font-weight:
+        400;
+
+}
+
+
+/* ==================================================
+   PURPOSE
+================================================== */
+
+.purpose-section {
+
+    padding:
+        0 0
+        150px;
+
+}
+
+
+.purpose-header {
+
+    margin-bottom:
+        45px;
+
+}
+
+
+.purpose-title {
+
+    font-size:
+        clamp(
+            2.7rem,
+            4vw,
+            4.4rem
+        );
+
+    line-height:
+        1.03;
+
+    letter-spacing:
+        -0.03em;
+
+}
+
+
+.purpose-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        16px;
+
+}
+
+
+.purpose-card {
+
+    min-height:
+        170px;
+
+    padding:
+        28px;
+
+    background:
+        var(--bg-soft);
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.09
+        );
+
+    border-radius:
+        8px;
+
+    transition:
+        transform
+        0.35s ease,
+
+        border-color
+        0.35s ease;
+
+}
+
+
+.purpose-card:hover {
+
+    transform:
+        translateY(
+            -4px
+        );
+
+    border-color:
+        rgba(
+            253,
+            175,
+            69,
+            0.30
+        );
+
+}
+
+
+.purpose-quote {
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        1.08rem;
+
+    line-height:
+        1.28;
+
+}
+
+
+.purpose-description {
+
+    margin-top:
+        17px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        0.65rem;
+
+    line-height:
+        1.65;
+
+}
+
+
+/* ==================================================
+   PHILOSOPHY
+================================================== */
+
+.philosophy-section {
+
+    padding:
+        0 0
+        150px;
+
+}
+
+
+.philosophy-title {
+
+    margin-bottom:
+        48px;
+
+    font-size:
+        clamp(
+            2.7rem,
+            4vw,
+            4.4rem
+        );
+
+    line-height:
+        1.03;
+
+}
+
+
+.philosophy-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            1fr
+        );
+
+    border-top:
+        1px solid
+        var(--gold-line);
+
+}
+
+
+.philosophy-card {
+
+    min-height:
+        155px;
+
+    padding:
+        28px 35px;
+
+    border-right:
+        1px solid
+        var(--gold-line);
+
+    border-bottom:
+        1px solid
+        var(--gold-line);
+
+}
+
+
+.philosophy-card:nth-child(2n) {
+
+    border-right:
+        none;
+
+}
+
+
+.philosophy-name {
+
+    font-size:
+        1.05rem;
+
+}
+
+
+.philosophy-copy {
+
+    max-width:
+        450px;
+
+    margin-top:
+        12px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        0.67rem;
+
+    line-height:
+        1.7;
+
+}
+
+
+/* ==================================================
+   FOUNDERS
+================================================== */
+
+.founder-section {
+
+    padding:
+        0 0
+        150px;
+
+}
+
+
+.founder-heading {
+
+    margin-bottom:
+        48px;
+
+}
+
+
+.founder-heading h2 {
+
+    font-size:
+        clamp(
+            2.7rem,
+            4vw,
+            4.4rem
+        );
+
+    line-height:
+        1.02;
+
+    letter-spacing:
+        -0.03em;
+
+}
+
+
+.founder-grid {
+
+    width:
+        100%;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        22px;
+
+    align-items:
+        start;
+
+}
+
+
+.founder-card {
+
+    width:
+        100%;
+
+    min-width:
+        0;
+
+}
+
+
+/* ==================================================
+   FOUNDER IMAGE
+================================================== */
+
+.founder-image {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    aspect-ratio:
+        4 / 5;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        12px;
+
+    background:
+        #151515;
+
+}
+
+
+.founder-image img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    object-position:
+        center;
+
+    transition:
+        transform
+        0.8s
+        cubic-bezier(
+            0.16,
+            1,
+            0.3,
+            1
+        ),
+
+        filter
+        0.45s ease;
+
+}
+
+
+.founder-card:hover
+.founder-image img {
+
+    transform:
+        scale(
+            1.035
+        );
+
+    filter:
+        brightness(
+            0.90
+        );
+
+}
+
+
+/* ==================================================
+   FOUNDER DETAILS
+================================================== */
+
+.founder-info {
+
+    padding:
+        18px 4px
+        0;
+
+}
+
+
+.founder-number {
+
+    display:
+        block;
+
+    margin-bottom:
+        8px;
+
+    color:
+        var(--highlight);
+
+    font-size:
+        0.55rem;
+
+    font-weight:
+        500;
+
+    letter-spacing:
+        1.4px;
+
+}
+
+
+.founder-name {
+
+    margin:
+        0;
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        1.40rem;
+
+    line-height:
+        1.05;
+
+}
+
+
+.founder-role {
+
+    margin-top:
+        6px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        0.58rem;
+
+    font-weight:
+        500;
+
+    letter-spacing:
+        1.15px;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+.founder-copy {
+
+    max-width:
+        360px;
+
+    margin-top:
+        12px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        0.64rem;
+
+    line-height:
+        1.65;
+
+}
+
+
+/* ==================================================
+   VALUES
+================================================== */
+
+.values-section {
+
+    padding:
+        0 0
+        145px;
+
+}
+
+
+.values-title {
+
+    margin-bottom:
+        45px;
+
+    font-size:
+        clamp(
+            2.7rem,
+            4vw,
+            4.4rem
+        );
+
+    line-height:
+        1.03;
+
+}
+
+
+.values-list {
+
+    border-top:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.11
+        );
+
+}
+
+
+.value-row {
+
+    min-height:
+        90px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    padding:
+        0 8px;
+
+    border-bottom:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.11
+        );
+
+    transition:
+        padding
+        0.35s ease;
+
+}
+
+
+.value-row:hover {
+
+    padding-left:
+        15px;
+
+    padding-right:
+        15px;
+
+}
+
+
+.value-name {
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        clamp(
+            1.4rem,
+            2.2vw,
+            2rem
+        );
+
+}
+
+
+.value-arrow {
+
+    width:
+        34px;
+
+    height:
+        34px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.25
+        );
+
+    border-radius:
+        50%;
+
+    font-size:
+        0.75rem;
+
+}
+
+
+/* ==================================================
+   STATEMENT
+================================================== */
+
+.statement-section {
+
+    padding:
+        110px 0
+        120px;
+
+    text-align:
+        center;
+
+}
+
+
+.statement-text {
+
+    max-width:
+        950px;
+
+    margin:
+        0 auto;
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        clamp(
+            1.4rem,
+            3vw,
+            3.1rem
+        );
+
+    line-height:
+        1.2;
+
+    letter-spacing:
+        -0.025em;
+
+}
+
+
+.statement-highlight {
+
+    color:
+        var(--highlight);
+
+    font-style:
+        italic;
+
+}
+
+
+/* ==================================================
+   IMAGE MARQUEE
+================================================== */
+
+.about-gallery-section {
+
+    width:
+        100%;
+
+    overflow:
+        hidden;
+
+    padding:
+        0 0
+        20px;
+
+}
+
+
+.about-gallery-track {
+
+    display:
+        flex;
+
+    width:
+        max-content;
+
+    gap:
+        0;
+
+    margin:
+        0;
+
+    padding:
+        0;
+
+    animation:
+        aboutGalleryScroll
+        38s
+        linear
+        infinite;
+
+    will-change:
+        transform;
+
+    transform:
+        translate3d(
+            0,
+            0,
+            0
+        );
+
+    backface-visibility:
+        hidden;
+
+    -webkit-backface-visibility:
+        hidden;
+
+}
+
+
+.about-gallery-set {
+
+    display:
+        flex;
+
+    flex:
+        0 0 auto;
+
+    gap:
+        14px;
+
+    padding-right:
+        14px;
+
+    box-sizing:
+        border-box;
+
+}
+
+
+.gallery-image {
+
+    flex:
+        0 0
+        clamp(
+            280px,
+            18vw,
+            370px
+        );
+
+    width:
+        clamp(
+            280px,
+            18vw,
+            370px
+        );
+
+    height:
+        520px;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        10px;
+
+    background:
+        #151515;
+
+}
+
+
+.gallery-image img {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    object-position:
+        center;
+
+}
+
+
+@keyframes aboutGalleryScroll {
+
+    from {
+
+        transform:
+            translate3d(
+                0,
+                0,
+                0
+            );
+
+    }
+
+    to {
+
+        transform:
+            translate3d(
+                -33.333333%,
+                0,
+                0
+            );
+
+    }
+
+}
+
+
+/* ==================================================
+   CTA
+================================================== */
+
+.about-cta {
+
+    min-height:
+        560px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        90px 0;
+
+    text-align:
+        center;
+
+}
+
+
+.about-cta-inner {
+
+    width:
+        min(
+            950px,
+            90%
+        );
+
+    margin:
+        0 auto;
+
+}
+
+
+.about-cta h2 {
+
+    font-size:
+        clamp(
+            3.7rem,
+            6vw,
+            6.2rem
+        );
+
+    line-height:
+        0.96;
+
+    letter-spacing:
+        -0.035em;
+
+}
+
+
+.cta-line-highlight {
+
+    display:
+        block;
+
+    margin-top:
+        6px;
+
+    color:
+        var(--highlight);
+
+    font-style:
+        italic;
+
+}
+
+
+.about-cta .action-buttons {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        10px;
+
+    margin-top:
+        45px;
+
+}
+
+
+.about-cta .action-buttons a {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-width:
+        130px;
+
+    height:
+        40px;
+
+    padding:
+        0 20px;
+
+    border-radius:
+        10px;
+
+    font-size:
+        0.74rem;
+
+    font-weight:
+        500;
+
+}
+
+
+.about-cta
+.action-buttons
+[data-action="contact"] {
+
+    background:
+        var(--highlight);
+
+    border:
+        1px solid
+        var(--highlight);
+
+    color:
+        #ffffff;
+
+}
+
+
+.about-cta
+.action-buttons
+[data-action="portfolio"] {
+
+    background:
+        transparent;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.72
+        );
+
+    color:
+        #ffffff;
+
+}
+
+
+.about-cta
+.action-buttons
+a:hover {
+
+    transform:
+        translateY(
+            -2px
+        );
+
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 950px) {
+
+    .who-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap:
+            45px;
+
+    }
+
+
+    .founder-grid {
+
+        gap:
+            14px;
+
+    }
+
+
+    .founder-name {
+
+        font-size:
+            1.20rem;
+
+    }
+
+
+    .founder-copy {
+
+        font-size:
+            0.58rem;
+
+    }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 760px) {
+
+    .about-container {
+
+        width:
+            calc(
+                100% - 30px
+            );
+
+    }
+
+
+    /* ==================================================
+       HERO
+    ================================================== */
+
+    .about-hero {
+
+        min-height:
+            285px;
+
+        padding:
+            55px 0
+            45px;
+
+        align-items:
+            flex-end;
+
+    }
+
+
+    .about-hero .hero-content {
+
+        max-width:
+            300px;
+
+    }
+
+
+    .about-hero .hero-title {
+
+        font-size:
+            1.72rem;
+
+        line-height:
+            0.98;
+
+    }
+
+
+    .about-hero .hero-copy {
+
+        max-width:
+            250px;
+
+        margin-top:
+            11px;
+
+        font-size:
+            0.42rem;
+
+        line-height:
+            1.5;
+
+    }
+
+
+    /* ==================================================
+       WHO
+    ================================================== */
+
+    .who-section {
+
+        padding:
+            62px 0
+            68px;
+
+    }
+
+
+    .section-label {
+
+        gap:
+            6px;
+
+        margin-bottom:
+            12px;
+
+        font-size:
+            0.40rem;
+
+        letter-spacing:
+            1.05px;
+
+    }
+
+
+    .section-label::before {
+
+        width:
+            5px;
+
+        height:
+            5px;
+
+        flex-basis:
+            5px;
+
+    }
+
+
+    .who-grid {
+
+        display:
+            block;
+
+    }
+
+
+    .who-heading {
+
+        font-size:
+            1.82rem;
+
+    }
+
+
+    .who-copy {
+
+        padding-top:
+            24px;
+
+        font-size:
+            0.48rem;
+
+        line-height:
+            1.55;
+
+    }
+
+
+    /* ==================================================
+       PURPOSE
+    ================================================== */
+
+    .purpose-section {
+
+        padding:
+            0 0
+            70px;
+
+    }
+
+
+    .purpose-header {
+
+        margin-bottom:
+            25px;
+
+    }
+
+
+    .purpose-title {
+
+        font-size:
+            1.84rem;
+
+    }
+
+
+    .purpose-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            9px;
+
+    }
+
+
+    .purpose-card {
+
+        min-height:
+            115px;
+
+        padding:
+            18px;
+
+    }
+
+
+    .purpose-quote {
+
+        font-size:
+            0.84rem;
+
+    }
+
+
+    .purpose-description {
+
+        margin-top:
+            11px;
+
+        font-size:
+            0.39rem;
+
+    }
+
+
+    /* ==================================================
+       PHILOSOPHY
+    ================================================== */
+
+    .philosophy-section {
+
+        padding:
+            0 0
+            75px;
+
+    }
+
+
+    .philosophy-title {
+
+        margin-bottom:
+            28px;
+
+        font-size:
+            1.84rem;
+
+    }
+
+
+    .philosophy-grid {
+
+        display:
+            block;
+
+    }
+
+
+    .philosophy-card {
+
+        min-height:
+            98px;
+
+        padding:
+            17px 22px;
+
+        border-right:
+            none;
+
+    }
+
+
+    .philosophy-name {
+
+        font-size:
+            0.72rem;
+
+    }
+
+
+    .philosophy-copy {
+
+        margin-top:
+            7px;
+
+        max-width:
+            250px;
+
+        font-size:
+            0.39rem;
+
+        line-height:
+            1.45;
+
+    }
+
+
+    /* ==================================================
+       FOUNDERS
+    ================================================== */
+
+    .founder-section {
+
+        padding:
+            0 0
+            75px;
+
+    }
+
+
+    .founder-heading {
+
+        margin-bottom:
+            30px;
+
+    }
+
+
+    .founder-heading h2 {
+
+        font-size:
+            1.86rem;
+
+    }
+
+
+    .founder-grid {
+
+        display:
+            grid;
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            40px;
+
+        width:
+            100%;
+
+    }
+
+
+    .founder-card {
+
+        width:
+            100%;
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        align-items:
+            center;
+
+    }
+
+
+    .founder-image {
+
+        width:
+            78%;
+
+        max-width:
+            315px;
+
+        aspect-ratio:
+            4 / 5;
+
+        overflow:
+            hidden;
+
+        border-radius:
+            10px;
+
+        margin:
+            0 auto;
+
+    }
+
+
+    .founder-image img {
+
+        width:
+            100%;
+
+        height:
+            100%;
+
+        object-fit:
+            cover;
+
+        object-position:
+            center;
+
+    }
+
+
+    .founder-info {
+
+        width:
+            78%;
+
+        max-width:
+            315px;
+
+        padding:
+            13px 2px
+            0;
+
+        margin:
+            0 auto;
+
+    }
+
+
+    .founder-number {
+
+        margin-bottom:
+            6px;
+
+        font-size:
+            0.40rem;
+
+    }
+
+
+    .founder-name {
+
+        font-size:
+            1.16rem;
+
+    }
+
+
+    .founder-role {
+
+        margin-top:
+            5px;
+
+        font-size:
+            0.43rem;
+
+    }
+
+
+    .founder-copy {
+
+        max-width:
+            270px;
+
+        margin-top:
+            9px;
+
+        font-size:
+            0.46rem;
+
+        line-height:
+            1.50;
+
+    }
+
+
+    /* ==================================================
+       VALUES
+    ================================================== */
+
+    .values-section {
+
+        padding:
+            0 0
+            75px;
+
+    }
+
+
+    .values-title {
+
+        margin-bottom:
+            25px;
+
+        font-size:
+            1.84rem;
+
+    }
+
+
+    .value-row {
+
+        min-height:
+            65px;
+
+    }
+
+
+    .value-name {
+
+        font-size:
+            0.86rem;
+
+    }
+
+
+    .value-arrow {
+
+        width:
+            25px;
+
+        height:
+            25px;
+
+        font-size:
+            0.55rem;
+
+    }
+
+
+    /* ==================================================
+       STATEMENT
+    ================================================== */
+
+    .statement-section {
+
+        padding:
+            70px 0;
+
+    }
+
+
+    .statement-text {
+
+        font-size:
+            1rem;
+
+        line-height:
+            1.30;
+
+    }
+
+
+    /* ==================================================
+       MOBILE GALLERY
+    ================================================== */
+
+    .about-gallery-section {
+
+        width:
+            100%;
+
+        overflow:
+            hidden;
+
+    }
+
+
+    .about-gallery-track {
+
+        animation-duration:
+            32s;
+
+    }
+
+
+    .about-gallery-set {
+
+        gap:
+            7px;
+
+        padding-right:
+            7px;
+
+    }
+
+
+    .gallery-image {
+
+        flex:
+            0 0
+            56.25vw;
+
+        width:
+            56.25vw;
+
+        height:
+            auto;
+
+        aspect-ratio:
+            9 / 16;
+
+        overflow:
+            hidden;
+
+        border-radius:
+            6px;
+
+    }
+
+
+    .gallery-image img {
+
+        width:
+            100%;
+
+        height:
+            100%;
+
+        object-fit:
+            cover;
+
+        object-position:
+            center;
+
+    }
+
+
+    /* ==================================================
+       CTA
+    ================================================== */
+
+    .about-cta {
+
+        min-height:
+            380px;
+
+        padding:
+            70px 0;
+
+    }
+
+
+    .about-cta h2 {
+
+        font-size:
+            2.45rem;
+
+    }
+
+
+    .about-cta
+    .action-buttons {
+
+        margin-top:
+            30px;
+
+        gap:
+            6px;
+
+    }
+
+
+    .about-cta
+    .action-buttons a {
+
+        min-width:
+            92px;
+
+        height:
+            28px;
+
+        padding:
+            0 10px;
+
+        border-radius:
+            7px;
+
+        font-size:
+            0.43rem;
+
+    }
+
+}
+
+
+/* ==================================================
+   SMALL PHONES
+================================================== */
+
+@media (max-width: 380px) {
+
+    .about-hero {
+
+        min-height:
+            275px;
+
+    }
+
+
+    .about-hero .hero-title {
+
+        font-size:
+            1.58rem;
+
+    }
+
+
+    .who-heading,
+    .purpose-title,
+    .philosophy-title,
+    .values-title {
+
+        font-size:
+            1.70rem;
+
+    }
+
+
+    .founder-grid {
+
+        gap:
+            32px;
+
+    }
+
+
+    .founder-image {
+
+        width:
+            78%;
+
+        max-width:
+            285px;
+
+        aspect-ratio:
+            4 / 5;
+
+    }
+
+
+    .founder-info {
+
+        width:
+            78%;
+
+        max-width:
+            285px;
+
+    }
+
+
+    .founder-name {
+
+        font-size:
+            1.08rem;
+
+    }
+
+
+    .founder-copy {
+
+        max-width:
+            235px;
+
+        font-size:
+            0.42rem;
+
+    }
+
+
+    .gallery-image {
+
+        flex-basis:
+            56.25vw;
+
+        width:
+            56.25vw;
+
+        aspect-ratio:
+            9 / 16;
+
+    }
+
+
+    .about-cta h2 {
+
+        font-size:
+            2.25rem;
+
+    }
+
+}
+
+
+/* ==================================================
+   REDUCED MOTION
+================================================== */
+
+@media (
+    prefers-reduced-motion:
+    reduce
+) {
+
+    html {
+
+        scroll-behavior:
+            auto;
+
+    }
+
+
+    .about-gallery-track {
+
+        animation:
+            none;
+
+    }
+
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        scroll-behavior:
+            auto !important;
+
+    }
+
+}
