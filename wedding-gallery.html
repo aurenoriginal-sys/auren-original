@@ -2557,38 +2557,14 @@ filter: brightness(.50);
         ================================================== */
 
         function getPhotoPath(
-            media
-        ) {
+    media
+) {
 
-            const value =
-                getMediaUrl(
-                    media
-                );
+    return getMediaUrl(
+        media
+    );
 
-
-            if (!value) {
-                return '';
-            }
-
-
-            if (
-                /^https?:\/\//i.test(
-                    value
-                )
-            ) {
-
-                return value;
-            }
-
-
-            return (
-                `${serverOrigin}/images/` +
-                `${mediaFolder}/photos/` +
-                encodeURIComponent(
-                    value
-                )
-            );
-        }
+}
 
 
         /* ==================================================
@@ -2596,39 +2572,14 @@ filter: brightness(.50);
         ================================================== */
 
         function getVideoPath(
-            media
-        ) {
+    media
+) {
 
-            const value =
-                getMediaUrl(
-                    media
-                );
+    return getMediaUrl(
+        media
+    );
 
-
-            if (!value) {
-                return '';
-            }
-
-
-            if (
-                /^https?:\/\//i.test(
-                    value
-                )
-            ) {
-
-                return value;
-            }
-
-
-            return (
-                `${serverOrigin}/images/` +
-                `${mediaFolder}/videos/` +
-                encodeURIComponent(
-                    value
-                )
-            );
-        }
-
+}
 
         /* ==================================================
            LOAD PHOTOS
