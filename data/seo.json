@@ -1,0 +1,27 @@
+{
+    "home": {
+        "title": "Auren Originals | Creative Agency",
+
+        "description": "Auren Originals is a creative agency in Chennai specializing in photography, creative direction, branding, digital marketing and visual storytelling.",
+
+        "keywords": "Auren Originals, creative agency Chennai, photography Chennai, creative direction, branding, digital marketing, commercial photography, wedding photography",
+
+        "canonical": "https://aurenoriginal.in/",
+
+        "og": {
+            "type": "website",
+            "title": "Auren Originals | Creative Agency",
+            "description": "Creative direction, photography, branding and digital experiences crafted with purpose.",
+            "url": "https://aurenoriginal.in/",
+            "siteName": "Auren Originals",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        },
+
+        "twitter": {
+            "card": "summary_large_image",
+            "title": "Auren Originals | Creative Agency",
+            "description": "Creative direction, photography, branding and digital experiences crafted with purpose.",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        }
+    }
+}
