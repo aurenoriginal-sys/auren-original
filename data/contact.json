@@ -1,0 +1,208 @@
+{
+    "hero": {
+        "title": "Let's Create",
+        "highlight": "What Matters.",
+        "description": "Whether you're building a brand, planning a campaign, documenting a milestone, or creating something entirely new—we'd love to hear your story.",
+        "buttonLabel": "Start a project",
+        "buttonHref": "#project-form"
+    },
+
+    "form": {
+        "label": "Collaborate",
+        "title": "Tell us about your project.",
+        "description": "Every great collaboration begins with a conversation. Let us know what you have in mind, and we'll help shape it into something exceptional.",
+
+        "fields": {
+            "name": {
+                "label": "Your Name",
+                "placeholder": "Auren Originals",
+                "type": "text",
+                "autocomplete": "name",
+                "required": true
+            },
+
+            "email": {
+                "label": "Email Address",
+                "placeholder": "e.g. aurenoriginal@gmail.com",
+                "type": "email",
+                "autocomplete": "email",
+                "required": true
+            },
+
+            "phone": {
+                "label": "Phone Number",
+                "placeholder": "e.g. +91 9XXXXXXXXX",
+                "type": "tel",
+                "autocomplete": "tel",
+                "required": true
+            },
+
+            "company": {
+                "label": "Company / Brand (Optional)",
+                "placeholder": "e.g. Auren Originals",
+                "type": "text",
+                "autocomplete": "organization",
+                "required": false
+            },
+
+            "projectType": {
+                "label": "Project Type",
+                "placeholder": "Select project scope...",
+                "required": true,
+                "options": [
+                    "Photography",
+                    "Creative Direction",
+                    "Branding",
+                    "Digital Marketing",
+                    "Commercial",
+                    "Corporate",
+                    "Wedding",
+                    "Other"
+                ]
+            },
+
+            "budget": {
+                "label": "Estimated Budget",
+                "placeholder": "Select budget range...",
+                "required": true,
+                "options": [
+                    "Below ₹25,000",
+                    "₹25,000 - ₹50,000",
+                    "₹50,000 - ₹1,00,000",
+                    "₹1,00,000 - ₹2,50,000",
+                    "₹2,50,000+"
+                ]
+            },
+
+            "timeline": {
+                "label": "Project Timeline",
+                "placeholder": "Select project timeline...",
+                "required": true,
+                "options": [
+                    "Within 1 week",
+                    "1 - 4 weeks",
+                    "1 - 3 months",
+                    "Flexible"
+                ]
+            },
+
+            "message": {
+                "label": "Message",
+                "placeholder": "Tell us about your project...",
+                "required": true
+            }
+        },
+
+        "submitLabel": "Submit"
+    },
+
+    "reach": {
+        "label": "Connect",
+        "title": "Reach Us.",
+        "items": [
+            {
+                "label": "Email",
+                "type": "link",
+                "value": "aurenoriginal@gmail.com",
+                "href": "mailto:aurenoriginal@gmail.com"
+            },
+            {
+                "label": "Instagram",
+                "type": "external",
+                "value": "@auren.originals",
+                "href": "https://instagram.com/auren.originals"
+            },
+            {
+                "label": "WhatsApp",
+                "type": "external",
+                "value": "+91 9094892061",
+                "href": "https://wa.me/919094892061"
+            },
+            {
+                "label": "Location",
+                "type": "text",
+                "value": "Based in Chennai, India – Available Worldwide"
+            },
+            {
+                "label": "Business Hours",
+                "type": "text",
+                "value": "Monday – Saturday, 10:00 AM – 7:00 PM"
+            }
+        ]
+    },
+
+    "faq": {
+        "label": "FAQ",
+        "title": "Frequently asked questions.",
+        "items": [
+            {
+                "question": "How soon do you reply?",
+                "answer": "We typically respond to all project enquiries within 24 to 48 hours with initial thoughts or scheduling links for a consultation."
+            },
+            {
+                "question": "What is your photography style?",
+                "answer": "Our style combines documentary storytelling and artistic direction, focusing on genuine moments, natural light and authentic connections."
+            },
+            {
+                "question": "Do you travel for projects?",
+                "answer": "Yes. We'll travel for projects across India and internationally depending on the scope and requirements."
+            },
+            {
+                "question": "Do you have a backup plan in case of an emergency?",
+                "answer": "Absolutely. We maintain backup cameras, lenses, memory cards and production contingencies when required."
+            },
+            {
+                "question": "Do you offer engagement sessions?",
+                "answer": "Yes. Engagement sessions are a great way to become comfortable in front of the camera before your wedding day."
+            },
+            {
+                "question": "Can you work with brands outside India?",
+                "answer": "Yes. We can collaborate remotely with international brands and travel for production when required."
+            }
+        ]
+    },
+
+    "process": {
+        "title": "What happens next.",
+        "items": [
+            {
+                "number": "01",
+                "name": "Review",
+                "answer": "We review your project details, requirements, references and timeline."
+            },
+            {
+                "number": "02",
+                "name": "Conversation",
+                "answer": "We'll connect with you to understand the vision, goals and creative direction."
+            },
+            {
+                "number": "03",
+                "name": "Understand",
+                "answer": "We define the right creative approach, scope, deliverables and production requirements."
+            },
+            {
+                "number": "04",
+                "name": "Proposal",
+                "answer": "You'll receive a clear proposal covering the creative direction, scope, timeline and investment."
+            },
+            {
+                "number": "05",
+                "name": "Create",
+                "answer": "Once everything is aligned, we begin creating work that matters."
+            }
+        ]
+    },
+
+    "finalCta": {
+        "title": "Let's Create",
+        "highlight": "What Matters.",
+        "description": "Tell us your story. We'll help bring it to life. Partner with us to create visual narratives that redefine your space."
+    },
+
+    "assets": {
+        "background": {
+            "filename": "contact-background.jpg",
+            "alt": "Auren Originals contact background"
+        }
+    }
+}

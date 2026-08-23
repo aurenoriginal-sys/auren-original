@@ -81,5 +81,32 @@
             "description": "Explore photography, creative direction, branding and visual storytelling by Auren Originals.",
             "image": "https://aurenoriginal.in/og-image.jpg"
         }
+    },
+
+
+    "contact": {
+        "title": "Auren Originals | Contact",
+
+        "description": "Get in touch with Auren Originals for photography, creative direction, branding, digital marketing and commercial creative projects in Chennai and worldwide.",
+
+        "keywords": "Auren Originals contact, creative agency Chennai contact, photographer Chennai, branding agency Chennai, commercial photography Chennai, creative studio Chennai",
+
+        "canonical": "https://aurenoriginal.in/contact.html",
+
+        "og": {
+            "type": "website",
+            "title": "Auren Originals | Contact",
+            "description": "Start a project with Auren Originals. Tell us your story and let's create something meaningful.",
+            "url": "https://aurenoriginal.in/contact.html",
+            "siteName": "Auren Originals",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        },
+
+        "twitter": {
+            "card": "summary_large_image",
+            "title": "Auren Originals | Contact",
+            "description": "Start a project with Auren Originals. Tell us your story and let's create something meaningful.",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        }
     }
 }

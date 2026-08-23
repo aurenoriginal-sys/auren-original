@@ -300,7 +300,10 @@ const pageMap = {
         'service',
 
     '/portfolio.html':
-        'portfolio'
+        'portfolio',
+
+    '/contact.html':
+        'contact'
 
 };
 

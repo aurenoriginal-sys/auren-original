@@ -1,0 +1,2321 @@
+/* ==================================================
+   AUREN ORIGINALS
+   CONTACT PAGE
+================================================== */
+
+
+/* ==================================================
+   COMMON CONTAINER
+================================================== */
+
+.contact-container {
+
+    width:
+        min(
+            90vw,
+            1740px
+        );
+
+    margin:
+        0 auto;
+
+}
+
+
+/* ==================================================
+   REVEAL
+================================================== */
+
+.contact-page .reveal {
+
+    opacity:
+        0;
+
+    transform:
+        translateY(
+            28px
+        );
+
+    transition:
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+}
+
+
+.contact-page .reveal.visible {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(
+            0
+        );
+
+}
+
+
+/* ==================================================
+   SECTION LABEL
+================================================== */
+
+.contact-page .section-label {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        9px;
+
+    color:
+        var(--highlight);
+
+    font-size:
+        0.67rem;
+
+    font-weight:
+        500;
+
+    letter-spacing:
+        2px;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+.contact-page .section-label::before {
+
+    content:
+        "";
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    flex:
+        0 0 7px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--highlight);
+
+}
+
+
+/* ==================================================
+   HERO
+================================================== */
+
+.contact-hero {
+
+    min-height:
+        calc(
+            100vh - 86px
+        );
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        250px 0
+        120px;
+
+    text-align:
+        center;
+
+    background:
+        #000000;
+
+}
+
+
+.contact-hero-content {
+
+    width:
+        min(
+            1000px,
+            90%
+        );
+
+    margin:
+        0 auto;
+
+}
+
+
+.contact-hero h1 {
+
+    font-size:
+        clamp(
+            4rem,
+            6.2vw,
+            6.9rem
+        );
+
+    line-height:
+        0.96;
+
+    letter-spacing:
+        -0.04em;
+
+}
+
+
+.contact-hero h1 span {
+
+    display:
+        block;
+
+    margin-top:
+        6px;
+
+    color:
+        var(--highlight);
+
+    font-style:
+        italic;
+
+}
+
+
+.contact-hero-copy {
+
+    max-width:
+        780px;
+
+    margin:
+        48px auto 0;
+
+    color:
+        var(--muted);
+
+    font-size:
+        0.98rem;
+
+    line-height:
+        1.85;
+
+}
+
+
+.hero-start-button {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-width:
+        170px;
+
+    height:
+        56px;
+
+    margin-top:
+        58px;
+
+    padding:
+        0 30px;
+
+    border:
+        1px solid
+        var(--highlight);
+
+    border-radius:
+        14px;
+
+    background:
+        var(--highlight);
+
+    color:
+        #000000;
+
+    font-size:
+        0.87rem;
+
+    font-weight:
+        500;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease;
+
+}
+
+
+.hero-start-button:hover {
+
+    transform:
+        translateY(
+            -3px
+        );
+
+    background:
+        #ffffff;
+
+    border-color:
+        #ffffff;
+
+    color:
+        #111111;
+
+}
+
+
+/* ==================================================
+   FORM SECTION
+================================================== */
+
+.form-section {
+
+    position:
+        relative;
+
+    min-height:
+        100vh;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    overflow:
+        hidden;
+
+    background:
+        #000000;
+
+    margin-top:
+        20px;
+
+}
+
+
+.form-background {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    object-position:
+        center;
+
+    filter:
+        brightness(
+            0.48
+        );
+
+    transform:
+        scale(
+            1.035
+        );
+
+}
+
+
+.form-overlay {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.16),
+            rgba(0, 0, 0, 0.32)
+        );
+
+}
+
+
+.form-layout {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    width:
+        min(
+            1500px,
+            90%
+        );
+
+    min-height:
+        100vh;
+
+    margin:
+        0 auto;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        0.95fr
+        1.05fr;
+
+    gap:
+        100px;
+
+    align-items:
+        center;
+
+    padding:
+        135px 0
+        110px;
+
+}
+
+
+.form-intro {
+
+    max-width:
+        620px;
+
+}
+
+
+.form-intro .section-label {
+
+    margin-bottom:
+        24px;
+
+}
+
+
+.form-intro h2 {
+
+    font-size:
+        clamp(
+            3.1rem,
+            4.7vw,
+            5.5rem
+        );
+
+    line-height:
+        0.98;
+
+    letter-spacing:
+        -0.035em;
+
+}
+
+
+.form-intro-copy {
+
+    max-width:
+        570px;
+
+    margin-top:
+        38px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.7
+        );
+
+    font-size:
+        0.92rem;
+
+    line-height:
+        1.8;
+
+}
+
+
+/* ==================================================
+   FORM PANEL
+================================================== */
+
+.form-panel {
+
+    width:
+        100%;
+
+    max-width:
+        700px;
+
+    margin-left:
+        auto;
+
+}
+
+
+.contact-form {
+
+    width:
+        100%;
+
+}
+
+
+.form-group {
+
+    margin-bottom:
+        24px;
+
+}
+
+
+.form-label {
+
+    display:
+        block;
+
+    margin-bottom:
+        9px;
+
+    color:
+        #ffffff;
+
+    font-size:
+        0.68rem;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        1.25px;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+.form-field,
+.form-select,
+.form-textarea {
+
+    width:
+        100%;
+
+    display:
+        block;
+
+    padding:
+        10px 0;
+
+    border:
+        0;
+
+    border-bottom:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.34
+        );
+
+    border-radius:
+        0;
+
+    outline:
+        none;
+
+    background:
+        transparent;
+
+    color:
+        #ffffff;
+
+    font-size:
+        0.88rem;
+
+    transition:
+        border-color 0.3s ease;
+
+}
+
+
+.form-field::placeholder,
+.form-textarea::placeholder {
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.45
+        );
+
+}
+
+
+.form-field:focus,
+.form-select:focus,
+.form-textarea:focus {
+
+    border-bottom-color:
+        var(--highlight);
+
+}
+
+
+.form-select {
+
+    appearance:
+        none;
+
+    -webkit-appearance:
+        none;
+
+    cursor:
+        pointer;
+
+    background-image:
+
+        linear-gradient(
+            45deg,
+            transparent 50%,
+            #ffffff 50%
+        ),
+
+        linear-gradient(
+            135deg,
+            #ffffff 50%,
+            transparent 50%
+        );
+
+    background-position:
+
+        calc(100% - 7px) 50%,
+        calc(100% - 2px) 50%;
+
+    background-size:
+
+        5px 5px,
+        5px 5px;
+
+    background-repeat:
+        no-repeat;
+
+}
+
+
+.form-select option {
+
+    background:
+        #ffffff;
+
+    color:
+        #111111;
+
+}
+
+
+.form-textarea {
+
+    min-height:
+        82px;
+
+    resize:
+        vertical;
+
+}
+
+
+.form-row {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        28px;
+
+}
+
+
+/* ==================================================
+   SUBMIT
+================================================== */
+
+.submit-button {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-width:
+        145px;
+
+    height:
+        50px;
+
+    margin-top:
+        3px;
+
+    padding:
+        0 28px;
+
+    border:
+        1px solid
+        var(--highlight);
+
+    border-radius:
+        12px;
+
+    background:
+        var(--highlight);
+
+    color:
+        #000000;
+
+    font-size:
+        0.84rem;
+
+    font-weight:
+        500;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.submit-button:hover {
+
+    transform:
+        translateY(
+            -3px
+        );
+
+    background:
+        #000000;
+
+    border-color:
+        #000000;
+
+    box-shadow:
+        0 12px 28px
+        rgba(
+            253,
+            175,
+            69,
+            0.18
+        );
+
+}
+
+
+.submit-button:disabled {
+
+    opacity:
+        0.6;
+
+    cursor:
+        wait;
+
+    transform:
+        none;
+
+}
+
+
+.form-status {
+
+    min-height:
+        20px;
+
+    margin-top:
+        13px;
+
+    color:
+        var(--highlight);
+
+    font-size:
+        0.74rem;
+
+}
+
+
+/* ==================================================
+   REACH US
+================================================== */
+
+.reach-section {
+
+    padding:
+        150px 0
+        155px;
+
+    background:
+        #000000;
+
+    margin-top:
+        18px;
+
+}
+
+
+.reach-header {
+
+    margin-bottom:
+        110px;
+
+}
+
+
+.reach-title {
+
+    margin-top:
+        18px;
+
+    font-size:
+        clamp(
+            2.8rem,
+            4.4vw,
+            4.8rem
+        );
+
+    line-height:
+        1;
+
+}
+
+
+.reach-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    column-gap:
+        95px;
+
+    row-gap:
+        105px;
+
+}
+
+
+.reach-item-label {
+
+    margin-bottom:
+        22px;
+
+    color:
+        #999999;
+
+    font-size:
+        0.67rem;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        2px;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+.reach-value {
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        clamp(
+            1.5rem,
+            2vw,
+            2.2rem
+        );
+
+    line-height:
+        1.18;
+
+}
+
+
+.reach-value.small {
+
+    max-width:
+        520px;
+
+    font-size:
+        clamp(
+            1.3rem,
+            1.8vw,
+            2rem
+        );
+
+    line-height:
+        1.25;
+
+}
+
+
+.reach-link {
+
+    transition:
+        color 0.3s ease;
+
+}
+
+
+.reach-link:hover {
+
+    color:
+        var(--highlight);
+
+}
+
+
+/* ==================================================
+   FAQ
+================================================== */
+
+.faq-section {
+
+    padding:
+        150px 0
+        160px;
+
+    background:
+        #000000;
+
+    margin-top:
+        18px;
+
+}
+
+
+.faq-layout {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        0.7fr
+        1.3fr;
+
+    gap:
+        95px;
+
+    align-items:
+        start;
+
+}
+
+
+.faq-heading {
+
+    position:
+        sticky;
+
+    top:
+        120px;
+
+}
+
+
+.faq-heading .section-label {
+
+    margin-bottom:
+        18px;
+
+}
+
+
+.faq-heading h2 {
+
+    font-size:
+        clamp(
+            2.5rem,
+            3.6vw,
+            4rem
+        );
+
+    line-height:
+        1.02;
+
+}
+
+
+.faq-list {
+
+    border-top:
+        1px solid
+        var(--line);
+
+}
+
+
+.faq-item {
+
+    border-bottom:
+        1px solid
+        var(--line);
+
+    transition:
+        background 0.3s ease;
+
+}
+
+
+.faq-question {
+
+    width:
+        100%;
+
+    min-height:
+        105px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        30px;
+
+    padding:
+        0;
+
+    border:
+        0;
+
+    background:
+        transparent;
+
+    color:
+        #ffffff;
+
+    font-family:
+        var(--font-body);
+
+    font-size:
+        0.98rem;
+
+    font-weight:
+        600;
+
+    text-align:
+        left;
+
+    cursor:
+        pointer;
+
+}
+
+
+.faq-icon {
+
+    flex:
+        0 0 auto;
+
+    width:
+        26px;
+
+    height:
+        26px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    font-size:
+        1.7rem;
+
+    font-weight:
+        300;
+
+    color:
+        #ffffff;
+
+    transition:
+        transform 0.35s ease,
+        color 0.3s ease;
+
+}
+
+
+.faq-answer {
+
+    max-height:
+        0;
+
+    overflow:
+        hidden;
+
+    color:
+        #878787;
+
+    font-size:
+        0.75rem;
+
+    line-height:
+        1.7;
+
+    transition:
+        max-height 0.5s ease,
+        padding 0.5s ease;
+
+}
+
+
+.faq-item.active {
+
+    padding:
+        0 14px;
+
+}
+
+
+.faq-item.active
+.faq-answer {
+
+    max-height:
+        180px;
+
+    padding:
+        0 38px
+        22px
+        0;
+
+}
+
+
+.faq-item.active
+.faq-icon {
+
+    color:
+        var(--highlight);
+
+    transform:
+        rotate(
+            45deg
+        );
+
+}
+
+
+/* ==================================================
+   PROCESS
+================================================== */
+
+.process-section {
+
+    padding:
+        150px 0
+        160px;
+
+    background:
+        #000000;
+
+    margin-top:
+        18px;
+
+}
+
+
+.process-title-wrap {
+
+    margin-bottom:
+        55px;
+
+}
+
+
+.process-title {
+
+    font-size:
+        clamp(
+            2.6rem,
+            3.8vw,
+            4rem
+        );
+
+    line-height:
+        1.05;
+
+}
+
+
+.process-list {
+
+    border-top:
+        1px solid
+        var(--line);
+
+}
+
+
+.process-item {
+
+    border-bottom:
+        1px solid
+        var(--line);
+
+}
+
+
+.process-question {
+
+    width:
+        100%;
+
+    min-height:
+        145px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        110px
+        minmax(
+            0,
+            1fr
+        )
+        55px;
+
+    align-items:
+        center;
+
+    gap:
+        24px;
+
+    padding:
+        0;
+
+    border:
+        0;
+
+    background:
+        transparent;
+
+    color:
+        #ffffff;
+
+    text-align:
+        left;
+
+    cursor:
+        pointer;
+
+}
+
+
+.process-number {
+
+    color:
+        var(--highlight);
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        2.3rem;
+
+    line-height:
+        1;
+
+}
+
+
+.process-name {
+
+    font-family:
+        var(--font-body);
+
+    font-size:
+        1.05rem;
+
+    font-weight:
+        600;
+
+}
+
+
+.process-plus {
+
+    justify-self:
+        end;
+
+    font-size:
+        1.75rem;
+
+    font-weight:
+        300;
+
+    transition:
+        transform 0.35s ease,
+        color 0.3s ease;
+
+}
+
+
+.process-answer {
+
+    max-height:
+        0;
+
+    overflow:
+        hidden;
+
+    padding:
+        0
+        75px
+        0
+        134px;
+
+    color:
+        #858585;
+
+    font-size:
+        0.82rem;
+
+    line-height:
+        1.7;
+
+    transition:
+        max-height 0.55s ease,
+        padding 0.55s ease;
+
+}
+
+
+.process-item.active
+.process-answer {
+
+    max-height:
+        160px;
+
+    padding-bottom:
+        30px;
+
+}
+
+
+.process-item.active
+.process-plus {
+
+    color:
+        var(--highlight);
+
+    transform:
+        rotate(
+            45deg
+        );
+
+}
+
+
+.process-item:hover
+.process-name {
+
+    color:
+        var(--highlight);
+
+}
+
+
+/* ==================================================
+   FINAL CTA
+================================================== */
+
+.final-cta {
+
+    min-height:
+        700px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        140px 0
+        150px;
+
+    background:
+        var(--bg-soft);
+
+    margin-top:
+        18px;
+
+    text-align:
+        center;
+
+}
+
+
+.final-cta-inner {
+
+    width:
+        min(
+            1050px,
+            90%
+        );
+
+    margin:
+        0 auto;
+
+}
+
+
+.final-cta h2 {
+
+    font-size:
+        clamp(
+            4rem,
+            6vw,
+            6.5rem
+        );
+
+    line-height:
+        0.98;
+
+    letter-spacing:
+        -0.04em;
+
+}
+
+
+.final-cta h2 span {
+
+    display:
+        block;
+
+    margin-top:
+        7px;
+
+    color:
+        var(--highlight);
+
+    font-style:
+        italic;
+
+}
+
+
+.final-cta-copy {
+
+    max-width:
+        720px;
+
+    margin:
+        55px auto 0;
+
+    color:
+        #8d8d8d;
+
+    font-size:
+        0.98rem;
+
+    line-height:
+        1.8;
+
+}
+
+
+.final-cta .cta-buttons {
+
+    margin-top:
+        55px;
+
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 1000px) {
+
+    .form-layout {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            65px;
+
+    }
+
+
+    .form-panel {
+
+        margin:
+            0;
+
+    }
+
+
+    .faq-layout {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            55px;
+
+    }
+
+
+    .faq-heading {
+
+        position:
+            static;
+
+    }
+
+
+    .reach-grid {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(
+                    0,
+                    1fr
+                )
+            );
+
+    }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 700px) {
+
+    .contact-container {
+
+        width:
+            88%;
+
+    }
+
+
+    /* HERO */
+
+    .contact-hero {
+
+        min-height:
+            620px;
+
+        padding:
+            95px 0
+            80px;
+
+    }
+
+
+    .contact-hero-content {
+
+        width:
+            88%;
+
+    }
+
+
+    .contact-hero h1 {
+
+        font-size:
+            3.25rem;
+
+        line-height:
+            .96;
+
+    }
+
+
+    .contact-hero-copy {
+
+        max-width:
+            295px;
+
+        margin:
+            28px auto 0;
+
+        font-size:
+            .61rem;
+
+        line-height:
+            1.6;
+
+    }
+
+
+    .hero-start-button {
+
+        min-width:
+            100px;
+
+        height:
+            30px;
+
+        margin-top:
+            28px;
+
+        padding:
+            0 15px;
+
+        border-radius:
+            7px;
+
+        font-size:
+            .45rem;
+
+    }
+
+
+    /* FORM */
+
+    .form-section {
+
+        min-height:
+            auto;
+
+        margin-top:
+            10px;
+
+    }
+
+
+    .form-background {
+
+        object-position:
+            center center;
+
+        filter:
+            brightness(
+                .36
+            );
+
+    }
+
+
+    .form-overlay {
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(0, 0, 0, .12),
+                rgba(0, 0, 0, .66)
+            );
+
+    }
+
+
+    .form-layout {
+
+        width:
+            88%;
+
+        min-height:
+            auto;
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        gap:
+            45px;
+
+        padding:
+            75px 0
+            70px;
+
+        align-items:
+            stretch;
+
+    }
+
+
+    .form-intro {
+
+        max-width:
+            100%;
+
+    }
+
+
+    .form-intro .section-label {
+
+        margin-bottom:
+            13px;
+
+    }
+
+
+    .form-intro h2 {
+
+        max-width:
+            260px;
+
+        font-size:
+            2rem;
+
+        line-height:
+            .98;
+
+    }
+
+
+    .form-intro-copy {
+
+        max-width:
+            285px;
+
+        margin-top:
+            18px;
+
+        font-size:
+            .49rem;
+
+        line-height:
+            1.6;
+
+    }
+
+
+    .form-panel {
+
+        max-width:
+            100%;
+
+        margin:
+            0;
+
+    }
+
+
+    .form-group {
+
+        margin-bottom:
+            18px;
+
+    }
+
+
+    .form-label {
+
+        margin-bottom:
+            7px;
+
+        font-size:
+            .42rem;
+
+        letter-spacing:
+            .9px;
+
+    }
+
+
+    .form-field,
+    .form-select,
+    .form-textarea {
+
+        padding:
+            7px 0;
+
+        font-size:
+            .50rem;
+
+    }
+
+
+    .form-textarea {
+
+        min-height:
+            62px;
+
+    }
+
+
+    .form-row {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            0;
+
+    }
+
+
+    .submit-button {
+
+        min-width:
+            85px;
+
+        height:
+            28px;
+
+        padding:
+            0 14px;
+
+        border-radius:
+            6px;
+
+        font-size:
+            .43rem;
+
+    }
+
+
+    .form-status {
+
+        min-height:
+            15px;
+
+        margin-top:
+            8px;
+
+        font-size:
+            .40rem;
+
+    }
+
+
+    /* REACH */
+
+    .reach-section {
+
+        margin-top:
+            10px;
+
+        padding:
+            72px 0
+            78px;
+
+    }
+
+
+    .reach-header {
+
+        margin-bottom:
+            45px;
+
+    }
+
+
+    .reach-title {
+
+        margin-top:
+            12px;
+
+        font-size:
+            2.15rem;
+
+    }
+
+
+    .reach-grid {
+
+        grid-template-columns:
+            1fr;
+
+        row-gap:
+            38px;
+
+    }
+
+
+    .reach-item-label {
+
+        margin-bottom:
+            10px;
+
+        font-size:
+            .42rem;
+
+        letter-spacing:
+            1.25px;
+
+    }
+
+
+    .reach-value {
+
+        font-size:
+            .92rem;
+
+        line-height:
+            1.25;
+
+    }
+
+
+    .reach-value.small {
+
+        max-width:
+            280px;
+
+        font-size:
+            .82rem;
+
+    }
+
+
+    /* FAQ */
+
+    .faq-section {
+
+        margin-top:
+            10px;
+
+        padding:
+            72px 0
+            78px;
+
+    }
+
+
+    .faq-layout {
+
+        display:
+            block;
+
+    }
+
+
+    .faq-heading {
+
+        position:
+            static;
+
+        margin-bottom:
+            32px;
+
+    }
+
+
+    .faq-heading .section-label {
+
+        margin-bottom:
+            11px;
+
+    }
+
+
+    .faq-heading h2 {
+
+        font-size:
+            2rem;
+
+        line-height:
+            1;
+
+    }
+
+
+    .faq-question {
+
+        min-height:
+            72px;
+
+        gap:
+            15px;
+
+        font-size:
+            .55rem;
+
+        line-height:
+            1.35;
+
+    }
+
+
+    .faq-icon {
+
+        width:
+            19px;
+
+        height:
+            19px;
+
+        font-size:
+            1.1rem;
+
+    }
+
+
+    .faq-answer {
+
+        font-size:
+            .43rem;
+
+        line-height:
+            1.55;
+
+    }
+
+
+    .faq-item.active {
+
+        padding:
+            0 8px;
+
+    }
+
+
+    .faq-item.active
+    .faq-answer {
+
+        max-height:
+            160px;
+
+        padding:
+            0 15px
+            15px
+            0;
+
+    }
+
+
+    /* PROCESS */
+
+    .process-section {
+
+        margin-top:
+            10px;
+
+        padding:
+            72px 0
+            82px;
+
+    }
+
+
+    .process-title-wrap {
+
+        margin-bottom:
+            28px;
+
+    }
+
+
+    .process-title {
+
+        font-size:
+            2rem;
+
+        line-height:
+            1;
+
+    }
+
+
+    .process-question {
+
+        min-height:
+            78px;
+
+        grid-template-columns:
+            35px
+            minmax(
+                0,
+                1fr
+            )
+            25px;
+
+        gap:
+            10px;
+
+    }
+
+
+    .process-number {
+
+        font-size:
+            1.05rem;
+
+    }
+
+
+    .process-name {
+
+        font-size:
+            .55rem;
+
+    }
+
+
+    .process-plus {
+
+        font-size:
+            1.05rem;
+
+    }
+
+
+    .process-answer {
+
+        padding:
+            0 15px
+            0 45px;
+
+        font-size:
+            .43rem;
+
+        line-height:
+            1.55;
+
+    }
+
+
+    .process-item.active
+    .process-answer {
+
+        max-height:
+            130px;
+
+        padding-bottom:
+            15px;
+
+    }
+
+
+    /* FINAL CTA */
+
+    .final-cta {
+
+        min-height:
+            380px;
+
+        margin-top:
+            10px;
+
+        padding:
+            70px 0
+            75px;
+
+    }
+
+
+    .final-cta-inner {
+
+        width:
+            88%;
+
+    }
+
+
+    .final-cta h2 {
+
+        font-size:
+            2.55rem;
+
+        line-height:
+            .96;
+
+    }
+
+
+    .final-cta-copy {
+
+        max-width:
+            265px;
+
+        margin:
+            24px auto 0;
+
+        font-size:
+            .49rem;
+
+        line-height:
+            1.55;
+
+    }
+
+
+    .final-cta .cta-buttons {
+
+        margin-top:
+            30px;
+
+    }
+
+}
+
+
+/* ==================================================
+   SMALL PHONES
+================================================== */
+
+@media (max-width: 380px) {
+
+    .contact-hero {
+
+        min-height:
+            590px;
+
+    }
+
+
+    .contact-hero h1 {
+
+        font-size:
+            2.95rem;
+
+    }
+
+
+    .contact-hero-copy {
+
+        max-width:
+            260px;
+
+        font-size:
+            .57rem;
+
+    }
+
+
+    .form-intro h2 {
+
+        font-size:
+            1.85rem;
+
+    }
+
+
+    .reach-title,
+    .faq-heading h2,
+    .process-title {
+
+        font-size:
+            1.85rem;
+
+    }
+
+
+    .final-cta h2 {
+
+        font-size:
+            2.30rem;
+
+    }
+
+}
+
+
+/* ==================================================
+   REDUCED MOTION
+================================================== */
+
+@media (
+    prefers-reduced-motion:
+    reduce
+) {
+
+    html {
+
+        scroll-behavior:
+            auto;
+
+    }
+
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        scroll-behavior:
+            auto !important;
+
+    }
+
+}
