@@ -1,0 +1,71 @@
+{
+    "branding": {
+        "name": "Branding",
+        "titleSuffix": "Production.",
+        "description": "A curation of brand identities, visual systems, campaigns, and creative stories crafted with purpose.",
+        "heroAlt": "Auren Branding Hero",
+        "photoApi": "/api/branding-photos",
+        "videoApi": "/api/branding-videos",
+        "heroApi": "/api/branding-hero"
+    },
+
+    "commercial": {
+        "name": "Commercial",
+        "titleSuffix": "Production.",
+        "description": "A curation of campaign imagery, product storytelling, advertising visuals, and creative production.",
+        "heroAlt": "Auren Commercial Hero",
+        "photoApi": "/api/commercial-photos",
+        "videoApi": "/api/commercial-videos",
+        "heroApi": "/api/commercial-hero"
+    },
+
+    "corporate": {
+        "name": "Corporate",
+        "titleSuffix": "Production.",
+        "description": "A curation of professional portraits, workplace stories, brand identity, and polished visual communication.",
+        "heroAlt": "Auren Corporate Hero",
+        "photoApi": "/api/corporate-photos",
+        "videoApi": "/api/corporate-videos",
+        "heroApi": "/api/corporate-hero"
+    },
+
+    "fashion": {
+        "name": "Fashion",
+        "titleSuffix": "Production.",
+        "description": "A curation of editorial fashion, expressive styling, striking portraits, and visual stories captured with intention.",
+        "heroAlt": "Auren Fashion Hero",
+        "photoApi": "/api/fashion-photos",
+        "videoApi": "/api/fashion-videos",
+        "heroApi": "/api/fashion-hero"
+    },
+
+    "sports": {
+        "name": "Sports",
+        "titleSuffix": "Production.",
+        "description": "A curation of energy, movement, athletic storytelling, and powerful sporting moments captured with precision.",
+        "heroAlt": "Auren Sports Hero",
+        "photoApi": "/api/sports-photos",
+        "videoApi": "/api/sports-videos",
+        "heroApi": "/api/sports-hero"
+    },
+
+    "wedding": {
+        "name": "Wedding",
+        "titleSuffix": "Production.",
+        "description": "A curation of intimate moments, luxury direction, and timeless styling captured in pristine detail.",
+        "heroAlt": "Auren Wedding Hero",
+        "photoApi": "/api/wedding-photos",
+        "videoApi": "/api/wedding-videos",
+        "heroApi": "/api/wedding-hero"
+    },
+
+    "pre-wedding": {
+        "name": "Pre-Wedding",
+        "titleSuffix": "Production.",
+        "description": "A curation of romantic moments, cinematic imagery, and timeless pre-wedding stories captured in pristine detail.",
+        "heroAlt": "Auren Pre-Wedding Hero",
+        "photoApi": "/api/pre-wedding-photos",
+        "videoApi": "/api/pre-wedding-videos",
+        "heroApi": "/api/pre-wedding-hero"
+    }
+}

@@ -3,36 +3,6 @@
 
 <head>
 
-    <!-- ==================================================
-     GOOGLE ANALYTICS 4
-================================================== -->
-
-<script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-VECH9J2L1M"
-></script>
-
-<script>
-
-    window.dataLayer =
-        window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag(
-        'js',
-        new Date()
-    );
-
-    gtag(
-        'config',
-        'G-VECH9J2L1M'
-    );
-
-</script>
-
     <meta charset="UTF-8">
 
     <meta
@@ -40,100 +10,84 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+
     <!-- ==================================================
-     SEO
-================================================== -->
+         FAVICON
+    ================================================== -->
 
-<title>
-    Auren Originals | Branding & Visual Identity
-</title>
+    <link
+        rel="icon"
+        href="/assets/favicon/favicon.ico"
+        sizes="any"
+    >
 
-<meta
-    name="description"
-    content="Explore the Auren Originals branding gallery featuring visual identities, brand systems, creative direction and distinctive design experiences."
->
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/assets/favicon/favicon-32x32.png"
+    >
 
-<meta
-    name="keywords"
-    content="Auren Originals branding, branding agency Chennai, brand identity Chennai, visual identity, logo design, creative direction, brand strategy, branding portfolio"
->
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/assets/favicon/favicon-16x16.png"
+    >
 
-<meta
-    name="author"
-    content="Auren Originals"
->
-
-<meta
-    name="robots"
-    content="index, follow"
->
-
-<link
-    rel="canonical"
-    href="https://YOUR-DOMAIN.com/branding.html"
->
+    <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="/assets/favicon/favicon-180x180.png"
+    >
 
 
-<!-- ==================================================
-     OPEN GRAPH
-================================================== -->
+    <!-- ==================================================
+         GOOGLE ANALYTICS 4
+    ================================================== -->
 
-<meta
-    property="og:type"
-    content="website"
->
+    <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-VECH9J2L1M"
+    ></script>
 
-<meta
-    property="og:title"
-    content="Auren Originals | Branding & Visual Identity"
->
+    <script>
 
-<meta
-    property="og:description"
-    content="Distinctive brand identities and visual systems created with clarity, purpose and creative direction."
->
-
-<meta
-    property="og:url"
-    content="https://YOUR-DOMAIN.com/branding.html"
->
-
-<meta
-    property="og:site_name"
-    content="Auren Originals"
->
-
-<meta
-    property="og:image"
-    content="https://YOUR-DOMAIN.com/og-image.jpg"
->
+        window.dataLayer =
+            window.dataLayer || [];
 
 
-<!-- ==================================================
-     TWITTER / X
-================================================== -->
+        function gtag() {
 
-<meta
-    name="twitter:card"
-    content="summary_large_image"
->
+            dataLayer.push(
+                arguments
+            );
 
-<meta
-    name="twitter:title"
-    content="Auren Originals | Branding & Visual Identity"
->
+        }
 
-<meta
-    name="twitter:description"
-    content="Distinctive brand identities and visual systems created with clarity, purpose and creative direction."
->
 
-<meta
-    name="twitter:image"
-    content="https://YOUR-DOMAIN.com/og-image.jpg"
->
+        gtag(
+            "js",
+            new Date()
+        );
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        gtag(
+            "config",
+            "G-VECH9J2L1M"
+        );
+
+    </script>
+
+
+    <!-- ==================================================
+         FONTS
+    ================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
 
     <link
         rel="preconnect"
@@ -142,887 +96,65 @@
     >
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;500&display=swap"
         rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;500&display=swap"
     >
 
-    <style>
 
-        :root {
-            --bg-main:#000000;
-            --bg-secondary:#1f1f1f;
-            --text-main:#ffffff;
-            --text-muted:#888888;
-            --highlight:#FDAF45;
-
-            --font-heading:
-                'Playfair Display',
-                serif;
-
-            --font-body:
-                'Inter',
-                sans-serif;
-        }
-
-        * {
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-        }
-
-        html {
-            width:100%;
-            scroll-behavior:smooth;
-            overflow-x:hidden;
-        }
-
-        body {
-            width:100%;
-            min-width:320px;
-            margin:0;
-            padding:0;
-            background:#000000;
-            color:#ffffff;
-            font-family:var(--font-body);
-            overflow-x:hidden;
-        }
-
-        h1,h2,h3 {
-            font-family:var(--font-heading);
-            font-weight:400;
-        }
-
-        img {
-            display:block;
-            max-width:100%;
-        }
-
-        button {
-            font:inherit;
-        }
-
-        a {
-            color:inherit;
-            text-decoration:none;
-        }
-
-        .highlight {
-            color:var(--highlight);
-        }
-
-
-        /* ==================================================
-           COMPONENTS
-        ================================================== */
-
-        #navbar-container {
-            position:relative;
-            z-index:10000;
-            width:100%;
-            height:54px;
-        }
-
-        #footer-container {
-            width:100%;
-            overflow:hidden;
-        }
-
-        #scroll-to-top-container {
-            position:relative;
-            z-index:99999;
-        }
-
-
-        /* ==================================================
-           HERO
-        ================================================== */
-
-        .hero-section {
-            position:relative;
-            width:100%;
-            height:390px;
-            min-height:390px;
-            overflow:hidden;
-
-            display:flex;
-            align-items:center;
-            justify-content:center;
-
-            text-align:center;
-            background:#000000;
-        }
-
-        .hero-image {
-            position:absolute;
-
-            top:6%;
-            left:0;
-
-            width:100%;
-            height:108%;
-
-            object-fit:cover;
-            object-position:center;
-
-            z-index:0;
-filter: brightness(.50);
-            visibility:hidden;
-
-            transform:scale(1.05);
-
-            animation:
-                heroZoom
-                8s
-                ease-out
-                forwards;
-        }
-
-        @keyframes heroZoom {
-
-            from {
-                transform:scale(1.07);
-            }
-
-            to {
-                transform:scale(1);
-            }
-
-        }
-
-        .hero-overlay {
-            position:absolute;
-            inset:0;
-            z-index:1;
-            pointer-events:none;
-
-            background:
-                linear-gradient(
-                    to bottom,
-                    rgba(0,0,0,0) 0%,
-                    rgba(0,0,0,0) 46%,
-                    rgba(0,0,0,.06) 53%,
-                    rgba(0,0,0,.14) 61%,
-                    rgba(0,0,0,.34) 71%,
-                    rgba(0,0,0,.62) 82%,
-                    rgba(0,0,0,.86) 93%,
-                    #000000 100%
-                );
-        }
-
-        .hero-content {
-            position:relative;
-            z-index:2;
-
-            width:100%;
-            max-width:1000px;
-
-            padding:0 5%;
-
-            transform:translateY(25px);
-            opacity:0;
-        }
-
-        .back-link {
-            display:inline-flex;
-
-            align-items:center;
-            justify-content:center;
-
-            margin:0 0 16px;
-
-            color:rgba(255,255,255,.78);
-
-            font-family:var(--font-body);
-            font-size:.74rem;
-            font-weight:500;
-            letter-spacing:1.3px;
-
-            text-transform:uppercase;
-
-            cursor:pointer;
-
-            transition:
-                color .3s ease,
-                opacity .3s ease,
-                transform .3s ease;
-        }
-
-        .back-link:hover {
-            color:var(--highlight);
-            opacity:1;
-            transform:translateX(-3px);
-        }
-
-        .hero-content h1 {
-            margin:0 0 16px;
-
-            font-size:
-                clamp(3.4rem,5vw,5.3rem);
-
-            line-height:1;
-            letter-spacing:-.025em;
-        }
-
-        .hero-content p {
-            max-width:850px;
-
-            margin:0 auto;
-
-            color:rgba(255,255,255,.84);
-
-            font-size:1rem;
-            line-height:1.65;
-        }
-
-
-        /* ==================================================
-           FILTER
-        ================================================== */
-
-        .media-filter-section {
-            width:100%;
-            padding:24px 5% 34px;
-            background:#000000;
-        }
-
-        .media-filter {
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            gap:7px;
-        }
-
-        .media-btn {
-            display:inline-flex;
-
-            align-items:center;
-            justify-content:center;
-
-            min-width:78px;
-            min-height:36px;
-
-            padding:8px 16px;
-
-            border:1px solid rgba(255,255,255,.18);
-            border-radius:9px;
-
-            background:transparent;
-            color:#ffffff;
-
-            font-family:var(--font-body);
-            font-size:.75rem;
-            font-weight:500;
-
-            cursor:pointer;
-
-            transition:
-                background-color .25s ease,
-                border-color .25s ease,
-                color .25s ease;
-        }
-
-        .media-btn:hover {
-            border-color:rgba(253,175,69,.65);
-        }
-
-        .media-btn.active {
-            background:var(--highlight);
-            border-color:var(--highlight);
-            color:#111111;
-        }
-
-
-        /* ==================================================
-           GALLERY
-        ================================================== */
-
-        .gallery-grid-section {
-            width:100%;
-            max-width:1450px;
-
-            margin:0 auto;
-
-            padding:8px 5% 110px;
-        }
-
-        .gallery-grid {
-            width:100%;
-
-            column-count:3;
-            column-gap:18px;
-        }
-
-        .gallery-item {
-            display:inline-block;
-
-            width:100%;
-
-            margin:0 0 18px;
-
-            vertical-align:top;
-
-            break-inside:avoid;
-            page-break-inside:avoid;
-
-            overflow:hidden;
-
-            border-radius:11px;
-
-            background:#111111;
-        }
-
-        .gallery-item img {
-            display:block;
-
-            width:100%;
-            height:auto;
-
-            object-fit:cover;
-
-            transition:
-                transform .7s
-                cubic-bezier(.16,1,.3,1),
-                opacity .35s ease;
-        }
-
-        .gallery-item:hover img {
-            transform:scale(1.035);
-            opacity:.94;
-        }
-
-
-        /* ==================================================
-           VIDEO
-        ================================================== */
-
-        .video-item video {
-            display:block;
-
-            width:100%;
-            height:auto;
-
-            background:#000000;
-
-            object-fit:contain;
-
-            cursor:pointer;
-        }
-
-
-        /* ==================================================
-           EMPTY
-        ================================================== */
-
-        .empty-message {
-            width:100%;
-
-            padding:80px 20px;
-
-            color:var(--text-muted);
-
-            font-size:.85rem;
-            line-height:1.6;
-
-            text-align:center;
-
-            column-span:all;
-        }
-
-
-        /* ==================================================
-           VIDEO ZOOM
-        ================================================== */
-
-        .video-backdrop {
-            position:fixed;
-            inset:0;
-
-            z-index:10000;
-
-            background:rgba(0,0,0,.86);
-
-            cursor:pointer;
-        }
-
-        .video-item.video-zoomed {
-            position:fixed;
-
-            top:50%;
-            left:50%;
-
-            width:auto;
-
-            max-width:84vw;
-            max-height:84vh;
-
-            transform:
-                translate(-50%,-50%)
-                !important;
-
-            z-index:10001;
-
-            margin:0;
-
-            overflow:visible;
-
-            border-radius:10px;
-
-            background:#000000;
-
-            box-shadow:
-                0 30px 100px
-                rgba(0,0,0,.85);
-        }
-
-        .video-item.video-zoomed video {
-            display:block;
-
-            width:auto;
-
-            max-width:84vw;
-            max-height:84vh;
-
-            object-fit:contain;
-
-            transform:none !important;
-
-            opacity:1;
-        }
-
-        .video-close-btn {
-            position:absolute;
-
-            top:-48px;
-            right:0;
-
-            display:flex;
-
-            align-items:center;
-            justify-content:center;
-
-            width:40px;
-            height:40px;
-
-            border:
-                1px solid
-                rgba(255,255,255,.35);
-
-            border-radius:50%;
-
-            background:
-                rgba(0,0,0,.75);
-
-            color:#ffffff;
-
-            font-family:Arial,sans-serif;
-            font-size:24px;
-
-            line-height:1;
-
-            cursor:pointer;
-
-            z-index:10002;
-        }
-
-        .video-close-btn:hover {
-            background:var(--highlight);
-            color:#000000;
-            border-color:var(--highlight);
-        }
-
-
-        /* ==================================================
-           TABLET
-        ================================================== */
-
-        @media(max-width:900px) {
-
-            .gallery-grid {
-                column-count:2;
-            }
-
-        }
-
-
-        /* ==================================================
-           MOBILE
-        ================================================== */
-
-        @media(max-width:767px) {
-
-            #navbar-container {
-                width:100%;
-                height:54px;
-            }
-
-            #navbar-container .navbar {
-                position:fixed;
-
-                top:0;
-                left:0;
-
-                width:100%;
-                max-width:none;
-
-                min-height:54px;
-                height:54px;
-
-                padding:7px 12px;
-
-                border-radius:0;
-
-                background:
-                    rgba(0,0,0,.95);
-
-                border-bottom:
-                    1px solid
-                    rgba(255,255,255,.06);
-
-                backdrop-filter:blur(7px);
-                -webkit-backdrop-filter:blur(7px);
-            }
-
-            #navbar-container
-            .navbar
-            .logo img {
-                height:37px;
-            }
-
-            #navbar-container
-            .mobile-menu-toggle {
-                width:34px;
-                height:34px;
-            }
-
-
-            /* HERO */
-
-            .hero-section {
-                width:100%;
-
-                height:445px;
-                min-height:445px;
-                max-height:445px;
-
-                display:block;
-
-                background:#000000;
-            }
-
-            .hero-image {
-                position:absolute;
-
-                top:0;
-                left:0;
-
-                width:100%;
-                height:100%;
-
-                object-fit:cover;
-
-                object-position:center 58%;
-
-                transform:none;
-                animation:none;
-
-                filter:brightness(.62);
-            }
-
-            .hero-overlay {
-                background:
-                    linear-gradient(
-                        to bottom,
-
-                        rgba(0,0,0,.24) 0%,
-                        rgba(0,0,0,.28) 15%,
-                        rgba(0,0,0,.34) 30%,
-                        rgba(0,0,0,.42) 45%,
-                        rgba(0,0,0,.54) 60%,
-                        rgba(0,0,0,.68) 73%,
-                        rgba(0,0,0,.82) 84%,
-                        rgba(0,0,0,.94) 94%,
-                        #000000 100%
-                    );
-            }
-
-            .hero-content {
-                position:absolute;
-
-                top:52%;
-                left:50%;
-
-                width:100%;
-                max-width:330px;
-
-                padding:0 14px;
-
-                transform:
-                    translate(-50%,-50%);
-
-                text-align:center;
-
-                opacity:1;
-            }
-
-            .back-link {
-                margin:0 0 12px;
-
-                font-size:.40rem;
-
-                letter-spacing:1.05px;
-            }
-
-            .hero-content h1 {
-                margin:0 0 8px;
-
-                font-size:2rem;
-
-                line-height:1;
-            }
-
-            .hero-content p {
-                max-width:270px;
-
-                margin:0 auto;
-
-                font-size:.42rem;
-
-                line-height:1.48;
-            }
-
-
-            /* FILTER */
-
-            .media-filter-section {
-                padding:16px 0 22px;
-            }
-
-            .media-filter {
-                gap:7px;
-            }
-
-            .media-btn {
-                min-width:50px;
-                width:50px;
-
-                min-height:20px;
-                height:20px;
-
-                padding:4px 8px;
-
-                border-radius:6px;
-
-                font-size:.36rem;
-            }
-
-
-            /* GALLERY */
-
-            .gallery-grid-section {
-                width:100%;
-                max-width:none;
-
-                margin:0;
-
-                padding:0 12px 55px;
-            }
-
-            .gallery-grid {
-                width:100%;
-
-                column-count:3;
-
-                column-gap:5px;
-            }
-
-            .gallery-item {
-                width:100%;
-
-                margin:0 0 5px;
-
-                border-radius:5px;
-            }
-
-            .gallery-item img {
-                width:100%;
-                height:auto;
-
-                transform:none;
-                opacity:1;
-            }
-
-            .gallery-item:hover img {
-                transform:none;
-                opacity:1;
-            }
-
-            .video-item.video-zoomed {
-                max-width:88vw;
-                max-height:72vh;
-
-                border-radius:7px;
-            }
-
-            .video-item.video-zoomed video {
-                max-width:88vw;
-                max-height:72vh;
-            }
-
-            .video-close-btn {
-                top:-34px;
-
-                width:29px;
-                height:29px;
-
-                font-size:19px;
-            }
-
-            .empty-message {
-                padding:40px 10px;
-
-                font-size:.54rem;
-            }
-
-        }
-
-
-        /* ==================================================
-           SMALL PHONE
-        ================================================== */
-
-        @media(max-width:480px) {
-
-            .hero-section {
-                height:430px;
-                min-height:430px;
-                max-height:430px;
-            }
-
-            .hero-image {
-                object-position:center 59%;
-                filter:brightness(.60);
-            }
-
-            .hero-content {
-                top:52%;
-            }
-
-            .back-link {
-                margin-bottom:10px;
-                font-size:.38rem;
-            }
-
-            .hero-content h1 {
-                font-size:1.82rem;
-                margin-bottom:7px;
-            }
-
-            .hero-content p {
-                max-width:250px;
-                font-size:.40rem;
-            }
-
-            .media-filter-section {
-                padding:16px 0 20px;
-            }
-
-            .media-btn {
-                min-width:48px;
-                width:48px;
-
-                min-height:20px;
-                height:20px;
-
-                font-size:.34rem;
-            }
-
-            .gallery-grid-section {
-                padding:0 10px 48px;
-            }
-
-            .gallery-grid {
-                column-gap:4px;
-            }
-
-            .gallery-item {
-                margin-bottom:4px;
-                border-radius:4px;
-            }
-
-        }
-
-
-        /* ==================================================
-           VERY SMALL PHONE
-        ================================================== */
-
-        @media(max-width:360px) {
-
-            .hero-section {
-                height:405px;
-                min-height:405px;
-                max-height:405px;
-            }
-
-            .hero-image {
-                object-position:center 60%;
-                filter:brightness(.58);
-            }
-
-            .hero-content {
-                top:53%;
-                max-width:290px;
-            }
-
-            .back-link {
-                font-size:.35rem;
-            }
-
-            .hero-content h1 {
-                font-size:1.65rem;
-            }
-
-            .hero-content p {
-                max-width:225px;
-                font-size:.37rem;
-            }
-
-            .media-btn {
-                min-width:46px;
-                width:46px;
-
-                min-height:19px;
-                height:19px;
-
-                font-size:.32rem;
-            }
-
-            .gallery-grid-section {
-                padding:0 9px 44px;
-            }
-
-            .gallery-grid {
-                column-gap:3px;
-            }
-
-            .gallery-item {
-                margin-bottom:3px;
-                border-radius:3px;
-            }
-
-        }
-
-    </style>
+    <!-- ==================================================
+         SHARED CSS
+    ================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/variables.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/components.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/gallery.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/responsive.css"
+    >
 
 </head>
 
 
-<body>
+<body
+    class="gallery-page"
+    data-gallery="branding"
+>
 
 
-    <div id="scroll-to-top-container"></div>
+    <!-- ==================================================
+         SCROLL TO TOP
+    ================================================== -->
 
-    <div id="navbar-container"></div>
+    <div
+        id="scroll-to-top-container"
+    ></div>
+
+
+    <!-- ==================================================
+         SHARED NAVBAR
+    ================================================== -->
+
+    <div
+        id="navbar-container"
+    ></div>
 
 
     <!-- ==================================================
@@ -1038,9 +170,15 @@ filter: brightness(.50);
             id="branding-hero-image"
         >
 
-        <div class="hero-overlay"></div>
 
-        <div class="hero-content">
+        <div
+            class="hero-overlay"
+        ></div>
+
+
+        <div
+            class="hero-content"
+        >
 
             <a
                 href="portfolio.html"
@@ -1050,17 +188,25 @@ filter: brightness(.50);
                 ← Back to Portfolio
             </a>
 
-            <h1>
+
+            <h1 id="gallery-title">
+
                 Branding
+
                 <span class="highlight">
                     Production.
                 </span>
+
             </h1>
 
-            <p>
-                A curation of brand identities,
-                visual systems, campaigns, and
-                creative stories crafted with purpose.
+
+            <p id="gallery-description">
+
+                A curation of visual identities,
+                brand stories, creative direction,
+                and distinctive design experiences
+                brought to life through imagery.
+
             </p>
 
         </div>
@@ -1069,10 +215,12 @@ filter: brightness(.50);
 
 
     <!-- ==================================================
-         FILTER
+         MEDIA FILTER
     ================================================== -->
 
-    <section class="media-filter-section">
+    <section
+        class="media-filter-section"
+    >
 
         <div class="media-filter">
 
@@ -1083,6 +231,7 @@ filter: brightness(.50);
             >
                 Photos
             </button>
+
 
             <button
                 class="media-btn"
@@ -1101,7 +250,9 @@ filter: brightness(.50);
          GALLERY
     ================================================== -->
 
-    <section class="gallery-grid-section">
+    <section
+        class="gallery-grid-section"
+    >
 
         <div
             class="gallery-grid"
@@ -1111,940 +262,36 @@ filter: brightness(.50);
     </section>
 
 
-    <div id="footer-container"></div>
+    <!-- ==================================================
+         SHARED FOOTER
+    ================================================== -->
 
+    <div
+        id="footer-container"
+    ></div>
+
+
+    <!-- ==================================================
+         GSAP
+    ================================================== -->
 
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
     ></script>
 
 
-    <script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+    ></script>
 
-        /* ==================================================
-           NAVBAR
-        ================================================== */
 
-        fetch(
-            'components/navbar.html',
-            {
-                cache:'no-store'
-            }
-        )
+    <!-- ==================================================
+         SHARED GALLERY JS
+    ================================================== -->
 
-        .then(response => {
-
-            if (!response.ok) {
-                throw new Error(
-                    'Navbar could not be loaded'
-                );
-            }
-
-            return response.text();
-
-        })
-
-        .then(html => {
-
-            const container =
-                document.getElementById(
-                    'navbar-container'
-                );
-
-            container.innerHTML = html;
-
-            const workLink =
-                container.querySelector(
-                    '.nav-links a[data-page="work"]'
-                );
-
-            const mobileWorkLink =
-                container.querySelector(
-                    '.mobile-nav-links a[data-page="work"]'
-                );
-
-            if (workLink)
-                workLink.classList.add('active');
-
-            if (mobileWorkLink)
-                mobileWorkLink.classList.add('active');
-
-        })
-
-        .catch(error => {
-            console.error(
-                'Navbar loading error:',
-                error
-            );
-        });
-
-
-        /* ==================================================
-           FOOTER
-        ================================================== */
-
-        fetch(
-            'components/footer.html',
-            {
-                cache:'no-store'
-            }
-        )
-
-        .then(response => {
-
-            if (!response.ok) {
-                throw new Error(
-                    'Footer could not be loaded'
-                );
-            }
-
-            return response.text();
-
-        })
-
-        .then(html => {
-
-            document
-                .getElementById(
-                    'footer-container'
-                )
-                .innerHTML = html;
-
-        })
-
-        .catch(error => {
-            console.error(
-                'Footer loading error:',
-                error
-            );
-        });
-
-
-        /* ==================================================
-           SCROLL TO TOP
-        ================================================== */
-
-        fetch(
-            'components/scroll-to-top.html',
-            {
-                cache:'no-store'
-            }
-        )
-
-        .then(response => response.text())
-
-        .then(html => {
-
-            const container =
-                document.getElementById(
-                    'scroll-to-top-container'
-                );
-
-            if (!container)
-                return;
-
-            container.innerHTML = html;
-
-            const button =
-                container.querySelector(
-                    '#scroll-to-top'
-                );
-
-            if (!button)
-                return;
-
-            function updateButton() {
-
-                if (window.scrollY > 500)
-                    button.classList.add('show');
-                else
-                    button.classList.remove('show');
-
-            }
-
-            window.addEventListener(
-                'scroll',
-                updateButton,
-                {
-                    passive:true
-                }
-            );
-
-            button.addEventListener(
-                'click',
-                () => {
-
-                    window.scrollTo({
-                        top:0,
-                        behavior:'smooth'
-                    });
-
-                }
-            );
-
-            updateButton();
-
-        })
-
-        .catch(error => {
-            console.error(
-                'Scroll component error:',
-                error
-            );
-        });
-
-
-        /* ==================================================
-           BACK
-        ================================================== */
-
-        document
-            .getElementById(
-                'back-to-portfolio'
-            )
-            .addEventListener(
-                'click',
-                event => {
-
-                    event.preventDefault();
-
-                    if (
-                        window.history.length > 1
-                    ) {
-
-                        window.history.back();
-
-                    }
-                    else {
-
-                        window.location.href =
-                            'portfolio.html';
-
-                    }
-
-                }
-            );
-
-
-        /* ==================================================
-           CONFIGURATION
-        ================================================== */
-
-        const galleryName =
-            'Branding';
-
-        const photoApi =
-            '/api/branding-photos';
-
-        const videoApi =
-            '/api/branding-videos';
-
-        const heroApi =
-            '/api/branding-hero';
-
-        const serverOrigin =
-            window.location.origin;
-
-
-        const galleryContainer =
-            document.getElementById(
-                'dynamic-gallery'
-            );
-
-
-        const mediaButtons =
-            document.querySelectorAll(
-                '.media-btn'
-            );
-
-
-        /* ==================================================
-           HERO
-        ================================================== */
-
-        const heroImage =
-            document.getElementById(
-                'branding-hero-image'
-            );
-
-        if (heroImage) {
-
-            heroImage.style.visibility =
-                'hidden';
-
-            fetch(
-                heroApi,
-                {
-                    cache:'no-store'
-                }
-            )
-
-            .then(response => {
-
-                if (!response.ok)
-                    throw new Error(
-                        `Branding hero HTTP ${response.status}`
-                    );
-
-                return response.json();
-
-            })
-
-            .then(data => {
-
-                const heroUrl =
-                    typeof data === 'string'
-                        ? data
-                        : (
-                            data?.secure_url ||
-                            data?.url ||
-                            ''
-                        );
-
-                if (!heroUrl)
-                    throw new Error(
-                        'Branding hero URL missing'
-                    );
-
-                heroImage.onload = () => {
-                    heroImage.style.visibility =
-                        'visible';
-                };
-
-                heroImage.src =
-                    heroUrl;
-
-            })
-
-            .catch(error => {
-
-                console.error(
-                    'Branding hero error:',
-                    error
-                );
-
-            });
-
-        }
-
-
-        /* ==================================================
-           MEDIA URL
-        ================================================== */
-
-        function getMediaUrl(media) {
-
-            if (
-                typeof media ===
-                'string'
-            ) {
-
-                return media;
-
-            }
-
-            if (
-                media &&
-                typeof media ===
-                'object'
-            ) {
-
-                return (
-                    media.secure_url ||
-                    media.url ||
-                    ''
-                );
-
-            }
-
-            return '';
-
-        }
-
-
-        /* ==================================================
-           VIDEO MIME
-        ================================================== */
-
-        function getVideoMimeType(media) {
-
-            const value =
-                String(
-                    media?.format ||
-                    media?.display_name ||
-                    media?.original_filename ||
-                    media?.public_id ||
-                    media ||
-                    ''
-                );
-
-            const extension =
-                value
-                    .split('.')
-                    .pop()
-                    .toLowerCase();
-
-            const types = {
-                mp4:'video/mp4',
-                webm:'video/webm',
-                ogg:'video/ogg',
-                mov:'video/quicktime'
-            };
-
-            return (
-                types[extension] ||
-                'video/mp4'
-            );
-
-        }
-
-
-        /* ==================================================
-           VIDEO STATE
-        ================================================== */
-
-        let activeVideoItem = null;
-        let activeVideo = null;
-        let videoBackdrop = null;
-
-
-        /* ==================================================
-           CLOSE VIDEO
-        ================================================== */
-
-        function closeZoomedVideo() {
-
-            if (!activeVideoItem)
-                return;
-
-            activeVideoItem
-                .classList
-                .remove(
-                    'video-zoomed'
-                );
-
-            if (activeVideo) {
-
-                activeVideo.pause();
-                activeVideo.controls = false;
-
-            }
-
-            const closeButton =
-                activeVideoItem.querySelector(
-                    '.video-close-btn'
-                );
-
-            if (closeButton)
-                closeButton.remove();
-
-            if (videoBackdrop) {
-                videoBackdrop.remove();
-                videoBackdrop = null;
-            }
-
-            document.body.style.overflow = '';
-
-            activeVideoItem = null;
-            activeVideo = null;
-
-        }
-
-
-        /* ==================================================
-           OPEN VIDEO
-        ================================================== */
-
-        function openZoomedVideo(
-            itemDiv,
-            videoElement
-        ) {
-
-            closeZoomedVideo();
-
-            activeVideoItem =
-                itemDiv;
-
-            activeVideo =
-                videoElement;
-
-            videoBackdrop =
-                document.createElement(
-                    'div'
-                );
-
-            videoBackdrop.className =
-                'video-backdrop';
-
-            document.body.appendChild(
-                videoBackdrop
-            );
-
-            document.body.style.overflow =
-                'hidden';
-
-            itemDiv.classList.add(
-                'video-zoomed'
-            );
-
-            videoElement.controls = true;
-            videoElement.pause();
-
-            const closeButton =
-                document.createElement(
-                    'button'
-                );
-
-            closeButton.className =
-                'video-close-btn';
-
-            closeButton.type =
-                'button';
-
-            closeButton.textContent =
-                '×';
-
-            closeButton.setAttribute(
-                'aria-label',
-                'Close video'
-            );
-
-            itemDiv.appendChild(
-                closeButton
-            );
-
-            closeButton.addEventListener(
-                'click',
-                event => {
-
-                    event.stopPropagation();
-
-                    closeZoomedVideo();
-
-                }
-            );
-
-            videoBackdrop.addEventListener(
-                'click',
-                closeZoomedVideo
-            );
-
-        }
-
-
-        document.addEventListener(
-            'keydown',
-            event => {
-
-                if (
-                    event.key === 'Escape'
-                ) {
-
-                    closeZoomedVideo();
-
-                }
-
-            }
-        );
-
-
-        /* ==================================================
-           LOAD PHOTOS
-        ================================================== */
-
-        function loadPhotos() {
-
-            closeZoomedVideo();
-
-            galleryContainer.innerHTML = '';
-
-            fetch(
-                photoApi,
-                {
-                    method:'GET',
-                    cache:'no-store'
-                }
-            )
-
-            .then(response => {
-
-                if (!response.ok)
-                    throw new Error(
-                        `Branding photo API HTTP ${response.status}`
-                    );
-
-                return response.json();
-
-            })
-
-            .then(photos => {
-
-                if (
-                    !Array.isArray(photos) ||
-                    photos.length === 0
-                ) {
-
-                    galleryContainer.innerHTML = `
-
-                        <p class="empty-message">
-                            No Branding photos
-                            available yet.
-                        </p>
-
-                    `;
-
-                    return;
-
-                }
-
-                photos.forEach(photo => {
-
-                    const imageUrl =
-                        getMediaUrl(photo);
-
-                    if (!imageUrl)
-                        return;
-
-                    const item =
-                        document.createElement(
-                            'div'
-                        );
-
-                    item.className =
-                        'gallery-item';
-
-                    const image =
-                        document.createElement(
-                            'img'
-                        );
-
-                    image.src =
-                        imageUrl;
-
-                    image.alt =
-                        photo.display_name ||
-                        'Branding Gallery';
-
-                    image.loading =
-                        'lazy';
-
-                    image.decoding =
-                        'async';
-
-                    item.appendChild(
-                        image
-                    );
-
-                    galleryContainer.appendChild(
-                        item
-                    );
-
-                });
-
-                runGalleryAnimation();
-
-            })
-
-            .catch(error => {
-
-                console.error(
-                    'Branding photo loading error:',
-                    error
-                );
-
-                galleryContainer.innerHTML = `
-
-                    <p class="empty-message">
-                        Could not load Branding photos.
-                    </p>
-
-                `;
-
-            });
-
-        }
-
-
-        /* ==================================================
-           LOAD VIDEOS
-        ================================================== */
-
-        function loadVideos() {
-
-            closeZoomedVideo();
-
-            galleryContainer.innerHTML = '';
-
-            fetch(
-                videoApi,
-                {
-                    method:'GET',
-                    cache:'no-store'
-                }
-            )
-
-            .then(response => {
-
-                if (!response.ok)
-                    throw new Error(
-                        `Branding video API HTTP ${response.status}`
-                    );
-
-                return response.json();
-
-            })
-
-            .then(videos => {
-
-                if (
-                    !Array.isArray(videos) ||
-                    videos.length === 0
-                ) {
-
-                    galleryContainer.innerHTML = `
-
-                        <p class="empty-message">
-                            No Branding videos
-                            available yet.
-                        </p>
-
-                    `;
-
-                    return;
-
-                }
-
-                videos.forEach(videoFile => {
-
-                    const videoUrl =
-                        getMediaUrl(
-                            videoFile
-                        );
-
-                    if (!videoUrl)
-                        return;
-
-                    const item =
-                        document.createElement(
-                            'div'
-                        );
-
-                    item.className =
-                        'gallery-item video-item';
-
-                    const video =
-                        document.createElement(
-                            'video'
-                        );
-
-                    video.preload =
-                        'metadata';
-
-                    video.playsInline =
-                        true;
-
-                    video.muted =
-                        true;
-
-                    const source =
-                        document.createElement(
-                            'source'
-                        );
-
-                    source.src =
-                        videoUrl;
-
-                    source.type =
-                        getVideoMimeType(
-                            videoFile
-                        );
-
-                    video.appendChild(
-                        source
-                    );
-
-                    item.appendChild(
-                        video
-                    );
-
-                    galleryContainer.appendChild(
-                        item
-                    );
-
-                    video.addEventListener(
-                        'click',
-                        event => {
-
-                            event.stopPropagation();
-
-                            openZoomedVideo(
-                                item,
-                                video
-                            );
-
-                        }
-                    );
-
-                });
-
-                runGalleryAnimation();
-
-            })
-
-            .catch(error => {
-
-                console.error(
-                    'Branding video loading error:',
-                    error
-                );
-
-                galleryContainer.innerHTML = `
-
-                    <p class="empty-message">
-                        Could not load Branding videos.
-                    </p>
-
-                `;
-
-            });
-
-        }
-
-
-        /* ==================================================
-           ANIMATION
-        ================================================== */
-
-        function runGalleryAnimation() {
-
-            if (
-                typeof gsap ===
-                'undefined'
-            ) {
-
-                return;
-
-            }
-
-            gsap.killTweensOf(
-                '.gallery-item'
-            );
-
-            gsap.fromTo(
-
-                '.gallery-item',
-
-                {
-                    y:18,
-                    opacity:0
-                },
-
-                {
-                    y:0,
-                    opacity:1,
-                    duration:.65,
-                    stagger:.04,
-                    ease:'power3.out'
-                }
-
-            );
-
-        }
-
-
-        /* ==================================================
-           BUTTONS
-        ================================================== */
-
-        mediaButtons.forEach(
-            button => {
-
-                button.addEventListener(
-                    'click',
-                    () => {
-
-                        mediaButtons.forEach(
-                            item =>
-                                item.classList
-                                    .remove(
-                                        'active'
-                                    )
-                        );
-
-                        button.classList.add(
-                            'active'
-                        );
-
-                        if (
-                            button.dataset.media
-                            === 'photos'
-                        ) {
-
-                            loadPhotos();
-
-                        }
-                        else {
-
-                            loadVideos();
-
-                        }
-
-                    }
-                );
-
-            }
-        );
-
-
-        /* ==================================================
-           HERO CONTENT
-        ================================================== */
-
-        if (
-            typeof gsap !==
-            'undefined'
-        ) {
-
-            if (
-                window.innerWidth >
-                767
-            ) {
-
-                gsap.to(
-                    '.hero-content',
-                    {
-                        y:0,
-                        opacity:1,
-                        duration:.9,
-                        delay:.12,
-                        ease:'power3.out'
-                    }
-                );
-
-            }
-            else {
-
-                gsap.set(
-                    '.hero-content',
-                    {
-                        x:0,
-                        y:0,
-                        opacity:1
-                    }
-                );
-
-            }
-
-        }
-
-
-        /* ==================================================
-           INITIAL LOAD
-        ================================================== */
-
-        loadPhotos();
-
-    </script>
+    <script
+        src="js/gallery.js"
+    ></script>
 
 </body>
 
