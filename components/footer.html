@@ -13,21 +13,27 @@
 
     border-top:
         1px solid
-        rgba(255, 255, 255, 0.06);
+        rgba(
+            255,
+            255,
+            255,
+            0.06
+        );
 
     padding:
         58px 5% 22px;
 
-    box-sizing: border-box;
+    box-sizing:
+        border-box;
 
-    overflow-x: hidden;
+    overflow-x:
+        hidden;
 
 }
 
 
 /* ==================================================
    FOOTER INNER
-   FLUID LIKE NAVBAR
 ================================================== */
 
 .footer-inner {
@@ -40,13 +46,19 @@
 
     grid-template-columns:
         24%
-        minmax(0, 1fr);
+        minmax(
+            0,
+            1fr
+        );
 
-    column-gap: 4%;
+    column-gap:
+        4%;
 
-    align-items: start;
+    align-items:
+        start;
 
-    box-sizing: border-box;
+    box-sizing:
+        border-box;
 
 }
 
@@ -66,26 +78,34 @@
 
 .footer-logo {
 
-    display: block;
+    display:
+        block;
 
-    width: fit-content;
+    width:
+        fit-content;
 
-    max-width: 100%;
+    max-width:
+        100%;
 
 }
 
 
 .footer-logo img {
 
-    display: block;
+    display:
+        block;
 
-    width: auto;
+    width:
+        auto;
 
-    max-width: 100%;
+    max-width:
+        100%;
 
-    height: 200px;
+    height:
+        200px;
 
-    object-fit: contain;
+    object-fit:
+        contain;
 
 }
 
@@ -96,23 +116,32 @@
 
 .footer-links {
 
-    width: 100%;
+    width:
+        100%;
 
-    min-width: 0;
+    min-width:
+        0;
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         repeat(
             3,
-            minmax(0, 1fr)
+            minmax(
+                0,
+                1fr
+            )
         );
 
-    column-gap: 5%;
+    column-gap:
+        5%;
 
-    row-gap: 20px;
+    row-gap:
+        20px;
 
-    align-items: start;
+    align-items:
+        start;
 
 }
 
@@ -123,15 +152,20 @@
 
 .footer-column {
 
-    width: 100%;
+    width:
+        100%;
 
-    min-width: 0;
+    min-width:
+        0;
 
-    display: flex;
+    display:
+        flex;
 
-    flex-direction: column;
+    flex-direction:
+        column;
 
-    gap: 10px;
+    gap:
+        10px;
 
 }
 
@@ -145,9 +179,11 @@
     margin:
         0 0 8px;
 
-    padding: 0;
+    padding:
+        0;
 
-    color: #ffffff;
+    color:
+        #ffffff;
 
     font-family:
         var(--font-body);
@@ -217,7 +253,8 @@
 
 .footer-column a:hover {
 
-    color: #ffffff;
+    color:
+        #ffffff;
 
 }
 
@@ -228,7 +265,8 @@
 
 .footer-bottom {
 
-    width: 100%;
+    width:
+        100%;
 
     margin:
         45px 0 0;
@@ -245,16 +283,19 @@
             0.08
         );
 
-    box-sizing: border-box;
+    box-sizing:
+        border-box;
 
 }
 
 
 .footer-bottom p {
 
-    margin: 0;
+    margin:
+        0;
 
-    color: #A0A0A0;
+    color:
+        #A0A0A0;
 
     font-family:
         var(--font-body);
@@ -289,7 +330,10 @@
 
         grid-template-columns:
             22%
-            minmax(0, 1fr);
+            minmax(
+                0,
+                1fr
+            );
 
         column-gap:
             4%;
@@ -313,8 +357,7 @@
     }
 
 
-    .footer-column h3
-    {
+    .footer-column h3 {
 
         font-size:
             0.65rem;
@@ -356,88 +399,99 @@
 
 /* ==================================================
    MOBILE
-   SAME FLUID PRINCIPLE
 ================================================== */
 
 @media (max-width: 767px) {
 
     .footer {
 
-        width: 100%;
+        width:
+            100%;
 
         padding:
             55px 5% 20px;
 
-        box-sizing: border-box;
+        box-sizing:
+            border-box;
 
     }
 
 
     .footer-inner {
 
-        width: 100%;
+        width:
+            100%;
 
-        display: grid;
+        display:
+            grid;
 
         grid-template-columns:
             24%
-            minmax(0, 1fr);
+            minmax(
+                0,
+                1fr
+            );
 
         column-gap:
             4%;
 
-        align-items: start;
+        align-items:
+            start;
 
     }
 
 
-    /* ------------------------------------------
-       LOGO
-    ------------------------------------------ */
-
     .footer-brand {
 
-        width: 100%;
+        width:
+            100%;
 
-        min-width: 0;
+        min-width:
+            0;
 
     }
 
 
     .footer-logo {
 
-        width: 100%;
+        width:
+            100%;
 
     }
 
 
     .footer-logo img {
 
-        width: 100%;
+        width:
+            100%;
 
-        max-width: 92px;
+        max-width:
+            92px;
 
-        height: auto;
+        height:
+            auto;
 
-        object-fit: contain;
+        object-fit:
+            contain;
 
     }
 
 
-    /* ------------------------------------------
-       LINKS
-    ------------------------------------------ */
-
     .footer-links {
 
-        width: 100%;
+        width:
+            100%;
 
-        display: grid;
+        display:
+            grid;
 
         grid-template-columns:
             repeat(
                 3,
-                minmax(0, 1fr)
+                minmax(
+                    0,
+                    1fr
+                )
             );
 
         column-gap:
@@ -446,16 +500,19 @@
         row-gap:
             10px;
 
-        min-width: 0;
+        min-width:
+            0;
 
     }
 
 
     .footer-column {
 
-        width: 100%;
+        width:
+            100%;
 
-        min-width: 0;
+        min-width:
+            0;
 
         gap:
             7px;
@@ -463,8 +520,7 @@
     }
 
 
-    .footer-column h3
-{
+    .footer-column h3 {
 
         margin:
             0 0 7px;
@@ -483,9 +539,11 @@
 
     .footer-column a {
 
-        width: 100%;
+        width:
+            100%;
 
-        max-width: 100%;
+        max-width:
+            100%;
 
         color:
             #B5B5B5;
@@ -505,13 +563,10 @@
     }
 
 
-    /* ------------------------------------------
-       COPYRIGHT
-    ------------------------------------------ */
-
     .footer-bottom {
 
-        width: 100%;
+        width:
+            100%;
 
         margin:
             40px 0 0;
@@ -531,7 +586,7 @@
             1.5;
 
         color:
-            #A0A0A0;
+            #707070;
 
     }
 
@@ -556,7 +611,10 @@
 
         grid-template-columns:
             23%
-            minmax(0, 1fr);
+            minmax(
+                0,
+                1fr
+            );
 
         column-gap:
             4%;
@@ -655,7 +713,10 @@
 
         grid-template-columns:
             22%
-            minmax(0, 1fr);
+            minmax(
+                0,
+                1fr
+            );
 
         column-gap:
             4%;
@@ -743,7 +804,7 @@
 
                 <img
                     id="site-logo-footer"
-                    src="https://res.cloudinary.com/uye4ufpk/image/upload/v1787215613/logo.png"
+                    src=""
                     alt="Auren Originals"
                     loading="lazy"
                 >
@@ -760,9 +821,9 @@
         <div class="footer-links">
 
 
-            <!-- ==============================================
+            <!-- ==================================================
                  SERVICES
-            =============================================== -->
+            ================================================== -->
 
             <div class="footer-column">
 
@@ -793,9 +854,9 @@
             </div>
 
 
-            <!-- ==============================================
+            <!-- ==================================================
                  COMPANY
-            =============================================== -->
+            ================================================== -->
 
             <div class="footer-column">
 
@@ -826,9 +887,9 @@
             </div>
 
 
-            <!-- ==============================================
+            <!-- ==================================================
                  CONNECT
-            =============================================== -->
+            ================================================== -->
 
             <div class="footer-column">
 
@@ -868,65 +929,3 @@
 
 
 </footer>
-
-
-<!-- ==================================================
-     DYNAMIC LOGO
-     SAME API AS NAVBAR
-================================================== -->
-
-<script>
-
-fetch('/api/site-logo')
-
-    .then(
-        response => {
-
-            if (!response.ok) {
-
-                throw new Error(
-                    `Logo API returned ${response.status}`
-                );
-
-            }
-
-            return response.json();
-
-        }
-    )
-
-    .then(
-        data => {
-
-            const logo =
-                document.getElementById(
-                    'site-logo-footer'
-                );
-
-
-            if (
-                logo &&
-                data &&
-                data.secure_url
-            ) {
-
-                logo.src =
-                    data.secure_url;
-
-            }
-
-        }
-    )
-
-    .catch(
-        error => {
-
-            console.error(
-                'Footer logo loading error:',
-                error
-            );
-
-        }
-    );
-
-</script>

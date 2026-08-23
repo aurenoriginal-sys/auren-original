@@ -1,0 +1,92 @@
+{
+    "site": {
+        "name": "Auren Originals"
+    },
+
+    "navigation": [
+        {
+            "label": "Work",
+            "href": "portfolio.html",
+            "page": "work"
+        },
+        {
+            "label": "Services",
+            "href": "service.html",
+            "page": "services"
+        },
+        {
+            "label": "About",
+            "href": "about.html",
+            "page": "about"
+        },
+        {
+            "label": "Contact",
+            "href": "contact.html",
+            "page": "contact"
+        }
+    ],
+
+    "actions": {
+        "contactLabel": "Get in Touch",
+        "contactHref": "contact.html"
+    },
+
+    "footer": {
+        "columns": [
+            {
+                "title": "Services",
+                "links": [
+                    {
+                        "label": "Photography",
+                        "href": "service.html"
+                    },
+                    {
+                        "label": "Branding",
+                        "href": "service.html"
+                    },
+                    {
+                        "label": "Creative Direction",
+                        "href": "service.html"
+                    },
+                    {
+                        "label": "Digital Marketing",
+                        "href": "service.html"
+                    }
+                ]
+            },
+            {
+                "title": "Company",
+                "links": [
+                    {
+                        "label": "About",
+                        "href": "about.html"
+                    },
+                    {
+                        "label": "Team",
+                        "href": "about.html"
+                    },
+                    {
+                        "label": "Careers",
+                        "href": "contact.html"
+                    },
+                    {
+                        "label": "Blog",
+                        "href": "portfolio.html"
+                    }
+                ]
+            },
+            {
+                "title": "Connect",
+                "links": [
+                    {
+                        "label": "Instagram",
+                        "href": "https://instagram.com/auren.originals",
+                        "external": true
+                    }
+                ]
+            }
+        ],
+
+        "copyright": "© 2026 Auren Originals. All rights reserved."
+    }
+}

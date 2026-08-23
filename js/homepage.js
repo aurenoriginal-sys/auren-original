@@ -1,6 +1,6 @@
 /* ==================================================
    AUREN ORIGINALS
-   HOMEPAGE JAVASCRIPT
+   HOMEPAGE ORCHESTRATOR
 ================================================== */
 
 
@@ -83,6 +83,107 @@ async function loadComponent(
 
 
 /* ==================================================
+   LOAD SITE CONFIG SCRIPT
+================================================== */
+
+function loadSiteConfigScript() {
+
+    return new Promise(
+        (
+            resolve,
+            reject
+        ) => {
+
+            /* ------------------------------------------
+               Already loaded
+            ------------------------------------------ */
+
+            if (
+                window.AurenSite
+                &&
+                typeof
+                    window.AurenSite.initialize
+                    ===
+                    'function'
+            ) {
+
+                resolve();
+
+                return;
+
+            }
+
+
+            /* ------------------------------------------
+               Load site-config.js
+            ------------------------------------------ */
+
+            const script =
+                document.createElement(
+                    'script'
+                );
+
+
+            script.src =
+                '/js/site-config.js?v=1';
+
+
+            script.async =
+                false;
+
+
+            script.onload =
+                () => {
+
+                    if (
+                        window.AurenSite
+                        &&
+                        typeof
+                            window.AurenSite.initialize
+                            ===
+                            'function'
+                    ) {
+
+                        resolve();
+
+                    }
+
+                    else {
+
+                        reject(
+                            new Error(
+                                'site-config.js loaded, but AurenSite API was not found.'
+                            )
+                        );
+
+                    }
+
+                };
+
+
+            script.onerror =
+                () => {
+
+                    reject(
+                        new Error(
+                            'Failed to load /js/site-config.js'
+                        )
+                    );
+
+                };
+
+
+            document.body.appendChild(
+                script
+            );
+
+        }
+    );
+
+}
+
+
+/* ==================================================
    LOAD NAVBAR
 ================================================== */
 
@@ -105,19 +206,70 @@ const footerLoaded =
 
 
 /* ==================================================
-   LOAD SITE LOGO ONCE
-   APPLY TO NAVBAR + FOOTER
+   INITIALIZE SITE CONFIGURATION
+   AFTER COMPONENTS EXIST
+================================================== */
+
+async function initializeSite() {
+
+    try {
+
+        const [
+            navbarReady,
+            footerReady
+        ] =
+            await Promise.all([
+                navbarLoaded,
+                footerLoaded
+            ]);
+
+
+        if (
+            !navbarReady ||
+            !footerReady
+        ) {
+
+            throw new Error(
+                'Navbar or footer failed to load.'
+            );
+
+        }
+
+
+        await loadSiteConfigScript();
+
+
+        await window.AurenSite.initialize();
+
+
+        await loadSharedSiteLogo();
+
+
+        console.log(
+            'Auren site initialized.'
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            'Site initialization error:',
+            error
+        );
+
+    }
+
+}
+
+
+/* ==================================================
+   LOAD SHARED SITE LOGO ONCE
 ================================================== */
 
 async function loadSharedSiteLogo() {
 
     try {
-
-        await Promise.all([
-            navbarLoaded,
-            footerLoaded
-        ]);
-
 
         const response =
             await fetch(
@@ -139,7 +291,8 @@ async function loadSharedSiteLogo() {
 
 
         if (
-            !data ||
+            !data
+            ||
             !data.secure_url
         ) {
 
@@ -150,9 +303,9 @@ async function loadSharedSiteLogo() {
         }
 
 
-        /* ==================================================
-           NAVBAR LOGO
-        ================================================== */
+        /* ------------------------------------------
+           NAVBAR
+        ------------------------------------------ */
 
         const navbarLogo =
             document.getElementById(
@@ -170,9 +323,9 @@ async function loadSharedSiteLogo() {
         }
 
 
-        /* ==================================================
-           FOOTER LOGO
-        ================================================== */
+        /* ------------------------------------------
+           FOOTER
+        ------------------------------------------ */
 
         const footerLogo =
             document.getElementById(
@@ -209,14 +362,8 @@ async function loadSharedSiteLogo() {
 
 
 /* ==================================================
-   START SHARED LOGO LOAD
-================================================== */
-
-loadSharedSiteLogo();
-
-/* ==================================================
    HOMEPAGE CONTENT
-   Loads editable content from /data/homepage.json
+   Loads editable content from homepage.json
 ================================================== */
 
 async function loadHomepageContent() {
@@ -247,7 +394,8 @@ async function loadHomepageContent() {
 
 
         if (
-            !content ||
+            !content
+            ||
             typeof content !== 'object'
         ) {
 
@@ -269,7 +417,8 @@ async function loadHomepageContent() {
 
 
         if (
-            heroTitle &&
+            heroTitle
+            &&
             content.hero
         ) {
 
@@ -295,7 +444,8 @@ async function loadHomepageContent() {
 
 
         if (
-            heroDescription &&
+            heroDescription
+            &&
             content.hero
         ) {
 
@@ -316,7 +466,8 @@ async function loadHomepageContent() {
 
 
         if (
-            aboutTitle &&
+            aboutTitle
+            &&
             content.about
         ) {
 
@@ -342,7 +493,8 @@ async function loadHomepageContent() {
 
 
         if (
-            aboutDescription &&
+            aboutDescription
+            &&
             content.about
         ) {
 
@@ -359,7 +511,8 @@ async function loadHomepageContent() {
 
 
         if (
-            aboutLink &&
+            aboutLink
+            &&
             content.about
         ) {
 
@@ -380,7 +533,8 @@ async function loadHomepageContent() {
 
 
         if (
-            servicesLabel &&
+            servicesLabel
+            &&
             content.services
         ) {
 
@@ -397,7 +551,8 @@ async function loadHomepageContent() {
 
 
         if (
-            servicesTitle &&
+            servicesTitle
+            &&
             content.services
         ) {
 
@@ -414,8 +569,10 @@ async function loadHomepageContent() {
 
 
         if (
-            servicesGrid &&
-            content.services &&
+            servicesGrid
+            &&
+            content.services
+            &&
             Array.isArray(
                 content.services.items
             )
@@ -458,7 +615,8 @@ async function loadHomepageContent() {
 
 
         if (
-            whyLabel &&
+            whyLabel
+            &&
             content.whyAuren
         ) {
 
@@ -475,7 +633,8 @@ async function loadHomepageContent() {
 
 
         if (
-            whyTitle &&
+            whyTitle
+            &&
             content.whyAuren
         ) {
 
@@ -492,8 +651,10 @@ async function loadHomepageContent() {
 
 
         if (
-            whyGrid &&
-            content.whyAuren &&
+            whyGrid
+            &&
+            content.whyAuren
+            &&
             Array.isArray(
                 content.whyAuren.items
             )
@@ -536,7 +697,8 @@ async function loadHomepageContent() {
 
 
         if (
-            ctaTitle &&
+            ctaTitle
+            &&
             content.cta
         ) {
 
@@ -566,7 +728,8 @@ async function loadHomepageContent() {
 
 
         if (
-            ctaDescription &&
+            ctaDescription
+            &&
             content.cta
         ) {
 
@@ -593,12 +756,6 @@ async function loadHomepageContent() {
 
 }
 
-
-/* ==================================================
-   LOAD HOMEPAGE CONTENT
-================================================== */
-
-loadHomepageContent();
 
 /* ==================================================
    HOMEPAGE ASSETS
@@ -635,7 +792,8 @@ async function loadHomepageAssets() {
 
 
         if (
-            !assets ||
+            !assets
+            ||
             typeof assets !== 'object'
         ) {
 
@@ -662,7 +820,8 @@ async function loadHomepageAssets() {
 
 
             if (
-                !asset ||
+                !asset
+                ||
                 !asset.secure_url
             ) {
 
@@ -746,9 +905,7 @@ async function loadHomepageAssets() {
 
     }
 
-    catch (
-        error
-    ) {
+    catch (error) {
 
         console.error(
             'Homepage asset loading error:',
@@ -761,22 +918,19 @@ async function loadHomepageAssets() {
 
 
 /* ==================================================
-   LOAD HOMEPAGE ASSETS
-================================================== */
-
-loadHomepageAssets();
-
-
-/* ==================================================
    LOAD ACTION BUTTONS
 ================================================== */
 
-loadComponent(
-    'components/action-buttons.html',
-    'hero-action-buttons'
-)
-.then(
-    success => {
+async function loadActionButtons() {
+
+    try {
+
+        const success =
+            await loadComponent(
+                'components/action-buttons.html',
+                'hero-action-buttons'
+            );
+
 
         if (!success) {
 
@@ -798,7 +952,8 @@ loadComponent(
 
 
         if (
-            heroButtons &&
+            heroButtons
+            &&
             ctaButtons
         ) {
 
@@ -808,7 +963,17 @@ loadComponent(
         }
 
     }
-);
+
+    catch (error) {
+
+        console.error(
+            'Action buttons loading error:',
+            error
+        );
+
+    }
+
+}
 
 
 /* ==================================================
@@ -816,7 +981,14 @@ loadComponent(
    No GSAP / ScrollTrigger loaded.
 ================================================== */
 
-if (!isDesktop) {
+function initializeMobileLayout() {
+
+    if (isDesktop) {
+
+        return;
+
+    }
+
 
     const heroMedia =
         document.querySelector(
@@ -836,7 +1008,9 @@ if (!isDesktop) {
         );
 
 
-    if (heroMedia) {
+    if (
+        heroMedia
+    ) {
 
         heroMedia.style.width =
             '100%';
@@ -859,7 +1033,9 @@ if (!isDesktop) {
     }
 
 
-    if (heroBg) {
+    if (
+        heroBg
+    ) {
 
         heroBg.style.transform =
             'none';
@@ -870,7 +1046,9 @@ if (!isDesktop) {
     }
 
 
-    if (heroContent) {
+    if (
+        heroContent
+    ) {
 
         heroContent.style.opacity =
             '1';
@@ -884,9 +1062,16 @@ if (!isDesktop) {
    LOAD DESKTOP ANIMATIONS ONLY ON DESKTOP
 ================================================== */
 
-if (
-    isDesktop
-) {
+function loadDesktopAnimations() {
+
+    if (
+        !isDesktop
+    ) {
+
+        return;
+
+    }
+
 
     const desktopAnimationScript =
         document.createElement(
@@ -925,3 +1110,61 @@ if (
         );
 
 }
+
+
+/* ==================================================
+   INITIALIZE HOMEPAGE
+================================================== */
+
+async function initializeHomepage() {
+
+    /*
+     * These can start immediately because they
+     * don't depend on one another.
+     */
+
+    const contentPromise =
+        loadHomepageContent();
+
+
+    const assetsPromise =
+        loadHomepageAssets();
+
+
+    const actionsPromise =
+        loadActionButtons();
+
+
+    initializeMobileLayout();
+
+
+    /*
+     * Site initialization waits for navbar/footer
+     * and site configuration.
+     */
+
+    await initializeSite();
+
+
+    /*
+     * Wait for homepage-specific resources
+     * before starting desktop animations.
+     */
+
+    await Promise.all([
+        contentPromise,
+        assetsPromise,
+        actionsPromise
+    ]);
+
+
+    loadDesktopAnimations();
+
+}
+
+
+/* ==================================================
+   START HOMEPAGE
+================================================== */
+
+initializeHomepage();
