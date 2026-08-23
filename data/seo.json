@@ -1,13 +1,9 @@
 {
     "home": {
         "title": "Auren Originals | Creative Agency",
-
         "description": "Auren Originals is a creative agency in Chennai specializing in photography, creative direction, branding, digital marketing and visual storytelling.",
-
         "keywords": "Auren Originals, creative agency Chennai, photography Chennai, creative direction, branding, digital marketing, commercial photography, wedding photography",
-
         "canonical": "https://aurenoriginal.in/",
-
         "og": {
             "type": "website",
             "title": "Auren Originals | Creative Agency",
@@ -16,11 +12,73 @@
             "siteName": "Auren Originals",
             "image": "https://aurenoriginal.in/og-image.jpg"
         },
-
         "twitter": {
             "card": "summary_large_image",
             "title": "Auren Originals | Creative Agency",
             "description": "Creative direction, photography, branding and digital experiences crafted with purpose.",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        }
+    },
+
+    "about": {
+        "title": "Auren Originals | About",
+        "description": "Learn about Auren Originals, a Chennai-based creative agency and production house focused on photography, creative direction, branding, digital marketing and meaningful visual storytelling.",
+        "keywords": "Auren Originals about, creative agency Chennai, production house Chennai, photography agency, branding agency, creative direction, visual storytelling",
+        "canonical": "https://aurenoriginal.in/about.html",
+        "og": {
+            "type": "website",
+            "title": "Auren Originals | About",
+            "description": "Discover the people, philosophy and creative purpose behind Auren Originals.",
+            "url": "https://aurenoriginal.in/about.html",
+            "siteName": "Auren Originals",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        },
+        "twitter": {
+            "card": "summary_large_image",
+            "title": "Auren Originals | About",
+            "description": "Discover the people, philosophy and creative purpose behind Auren Originals.",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        }
+    },
+
+    "service": {
+        "title": "Auren Originals | Creative Services",
+        "description": "Explore Auren Originals creative services including photography, creative direction, branding and digital marketing for brands, businesses and meaningful visual stories.",
+        "keywords": "Auren Originals services, creative agency Chennai, photography services Chennai, creative direction, branding services, digital marketing, commercial photography, wedding photography",
+        "canonical": "https://aurenoriginal.in/service.html",
+        "og": {
+            "type": "website",
+            "title": "Auren Originals | Creative Services",
+            "description": "Photography, creative direction, branding and digital marketing crafted with purpose by Auren Originals.",
+            "url": "https://aurenoriginal.in/service.html",
+            "siteName": "Auren Originals",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        },
+        "twitter": {
+            "card": "summary_large_image",
+            "title": "Auren Originals | Creative Services",
+            "description": "Photography, creative direction, branding and digital marketing crafted with purpose by Auren Originals.",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        }
+    },
+
+    "portfolio": {
+        "title": "Auren Originals | Portfolio",
+        "description": "Explore the Auren Originals portfolio featuring photography, creative direction, branding and visual storytelling across weddings, fashion, sports, commercial and corporate projects.",
+        "keywords": "Auren Originals portfolio, photography portfolio Chennai, creative agency portfolio, wedding photography, fashion photography, commercial photography, corporate photography",
+        "canonical": "https://aurenoriginal.in/portfolio.html",
+        "og": {
+            "type": "website",
+            "title": "Auren Originals | Portfolio",
+            "description": "Explore photography, creative direction, branding and visual storytelling by Auren Originals.",
+            "url": "https://aurenoriginal.in/portfolio.html",
+            "siteName": "Auren Originals",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        },
+        "twitter": {
+            "card": "summary_large_image",
+            "title": "Auren Originals | Portfolio",
+            "description": "Explore photography, creative direction, branding and visual storytelling by Auren Originals.",
             "image": "https://aurenoriginal.in/og-image.jpg"
         }
     }

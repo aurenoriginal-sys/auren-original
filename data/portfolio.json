@@ -1,0 +1,95 @@
+{
+    "hero": {
+        "label": ".portfolio",
+        "titleBefore": "Stories We've",
+        "titleMiddle": "Shaped",
+        "titleHighlight": ".",
+        "description": "Explore our work categorized across diverse industries and production styles."
+    },
+
+    "categories": [
+        {
+            "label": "Wedding",
+            "value": "wedding"
+        },
+        {
+            "label": "Fashion",
+            "value": "fashion"
+        },
+        {
+            "label": "Sports",
+            "value": "sports"
+        },
+        {
+            "label": "Corporate",
+            "value": "corporate"
+        },
+        {
+            "label": "Commercial",
+            "value": "commercial"
+        },
+        {
+            "label": "Branding",
+            "value": "branding"
+        }
+    ],
+
+    "projects": [
+        {
+            "title": "Wedding",
+            "category": "wedding",
+            "image": "wedding1-image.jpg",
+            "alt": "Wedding portfolio",
+            "href": "wedding-gallery.html?category-2=wedding"
+        },
+        {
+            "title": "Pre-Wedding",
+            "category": "wedding",
+            "image": "wedding2-image.jpg",
+            "alt": "Pre-Wedding portfolio",
+            "href": "wedding-gallery.html?category-2=pre-wedding"
+        },
+        {
+            "title": "Fashion",
+            "category": "fashion",
+            "categoryLabel": "Fashion Activation",
+            "image": "fashion1-image.jpg",
+            "alt": "Fashion portfolio",
+            "href": "fashion-gallery.html"
+        },
+        {
+            "title": "Apex Athletic Campaign",
+            "category": "sports",
+            "categoryLabel": "Sports & Action Media",
+            "image": "sports1-image.jpg",
+            "alt": "Sports portfolio",
+            "href": "sports-gallery.html"
+        },
+        {
+            "title": "The Luminary Gala",
+            "category": "corporate",
+            "categoryLabel": "Corporate Event & Styling",
+            "image": "corporate1-image.jpg",
+            "alt": "Corporate portfolio",
+            "href": "corporate-gallery.html"
+        },
+        {
+            "title": "Elevate Studio Campaign",
+            "category": "commercial",
+            "categoryLabel": "Commercial Direction",
+            "image": "commercial1-image.JPG",
+            "alt": "Commercial portfolio",
+            "href": "commercial-gallery.html"
+        },
+        {
+            "title": "Auren Identity Suite",
+            "category": "branding",
+            "categoryLabel": "Branding & Design",
+            "image": "branding1-image.jpg",
+            "alt": "Branding portfolio",
+            "href": "branding-gallery.html"
+        }
+    ],
+
+    "defaultCategory": "wedding"
+}
