@@ -1,0 +1,196 @@
+{
+    "hero": {
+        "label": "Our Services",
+        "titleBefore": "What We",
+        "titleMiddle": "Create",
+        "titleHighlight": ".",
+        "description": "We create visuals, brands and campaigns that leave a lasting impression."
+    },
+
+    "philosophy": {
+        "label": "Philosophy",
+        "lineOne": "We don't simply deliver photos or campaigns.",
+        "lineTwo": "We create experiences that connect brands with people."
+    },
+
+    "services": {
+        "label": "Services",
+        "title": "What We Create.",
+        "items": [
+            {
+                "number": "01",
+                "title": "Photography",
+                "description": "Capture stories with purpose across sports, fashion, weddings, commercial, architecture and corporate. Our team masters light, composition, and timing to immortalize raw elegance.",
+                "image": "service-photography.jpg",
+                "alt": "Photography"
+            },
+            {
+                "number": "02",
+                "title": "Creative Direction",
+                "description": "Transform ideas into meaningful visual experiences from concept to execution. We shape the complete aesthetic blueprint to align every design decision with your brand's truth.",
+                "image": "service-creative-direction.jpg",
+                "alt": "Creative Direction"
+            },
+            {
+                "number": "03",
+                "title": "Branding",
+                "description": "Build memorable identities that communicate with clarity and consistency. From wordmarks and logotypes to holistic design systems, we build foundations that refuse to blend in.",
+                "image": "service-branding.jpg",
+                "alt": "Branding"
+            },
+            {
+                "number": "04",
+                "title": "Digital Marketing",
+                "description": "Create strategies and content that help brands grow and reach the right audience. We translate artistic craft into digital relevance, ensuring your stories thrive across all platforms.",
+                "image": "service-digital-marketing.jpg",
+                "alt": "Digital Marketing"
+            }
+        ]
+    },
+
+    "industries": {
+        "label": "Industries",
+        "title": "Industries We Serve.",
+        "items": [
+            {
+                "number": "01",
+                "name": "Sports",
+                "tag": "Performance",
+                "description": "High-energy visual storytelling built around movement, intensity, and performance.",
+                "image": "industry-sports.jpg",
+                "alt": "Sports"
+            },
+            {
+                "number": "02",
+                "name": "Fashion",
+                "tag": "Editorial",
+                "description": "Distinctive fashion imagery shaped through styling, mood, and strong visual direction.",
+                "image": "industry-fashion.jpg",
+                "alt": "Fashion"
+            },
+            {
+                "number": "03",
+                "name": "Corporate",
+                "tag": "Identity",
+                "description": "Professional visual content that gives brands a confident, consistent presence.",
+                "image": "industry-corporate.jpg",
+                "alt": "Corporate"
+            },
+            {
+                "number": "04",
+                "name": "Commercial",
+                "tag": "Campaign",
+                "description": "Purpose-built campaign visuals designed to communicate clearly and drive attention.",
+                "image": "industry-commercial.jpg",
+                "alt": "Commercial"
+            },
+            {
+                "number": "05",
+                "name": "E-commerce",
+                "tag": "Retail",
+                "description": "Clean, considered imagery that helps products feel premium, desirable, and ready to sell.",
+                "image": "industry-ecommerce.jpg",
+                "alt": "E-commerce"
+            },
+            {
+                "number": "06",
+                "name": "Weddings",
+                "tag": "Intimate",
+                "description": "Emotion-led imagery that preserves atmosphere, personality, and meaningful moments.",
+                "image": "industry-weddings.jpg",
+                "alt": "Weddings"
+            },
+            {
+                "number": "07",
+                "name": "Hospitality",
+                "tag": "Lifestyle",
+                "description": "Warm, aspirational visuals that communicate experience, place, and hospitality.",
+                "image": "industry-hospitality.jpg",
+                "alt": "Hospitality"
+            },
+            {
+                "number": "08",
+                "name": "Architecture",
+                "tag": "Space",
+                "description": "Precise visual storytelling that highlights form, material, architecture, and atmosphere.",
+                "image": "industry-architecture.jpg",
+                "alt": "Architecture"
+            }
+        ]
+    },
+
+    "process": {
+        "label": "Process",
+        "title": "How We Work.",
+        "items": [
+            {
+                "number": "01",
+                "name": "Discover",
+                "description": "Understanding your vision, audience and goals before defining the creative direction."
+            },
+            {
+                "number": "02",
+                "name": "Strategy",
+                "description": "Planning the concept, visual language, references and execution."
+            },
+            {
+                "number": "03",
+                "name": "Production",
+                "description": "Photography, creative direction and content creation brought to life."
+            },
+            {
+                "number": "04",
+                "name": "Post Production",
+                "description": "Editing, retouching, color refinement and final visual polish."
+            },
+            {
+                "number": "05",
+                "name": "Delivery",
+                "description": "Premium assets ready for every platform."
+            }
+        ]
+    },
+
+    "whyUs": {
+        "label": "Why Us",
+        "title": "Why Clients Choose Us.",
+        "items": [
+            {
+                "number": "01",
+                "title": "Purpose-driven Creativity",
+                "description": "Every project starts with intention and a clear creative purpose."
+            },
+            {
+                "number": "02",
+                "title": "Attention to Detail",
+                "description": "Every visual decision is treated with care."
+            },
+            {
+                "number": "03",
+                "title": "Consistent Brand Language",
+                "description": "Visuals that feel unified across every touchpoint."
+            },
+            {
+                "number": "04",
+                "title": "Long-term Partnerships",
+                "description": "We build relationships, not one-time projects."
+            }
+        ]
+    },
+
+    "testimonial": {
+        "quote": "Working with Auren Originals felt effortless. Every detail was thoughtfully executed, and the resulting visual world redefined our brand."
+    },
+
+    "transition": {
+        "label": "Let's create something meaningful",
+        "image": "transition-cta.jpg",
+        "alt": "Auren Originals transition"
+    },
+
+    "finalCta": {
+        "title": "Let's Create",
+        "highlight": "What Matters.",
+        "description": "Partner with us to create visual narratives that redefine your space. Tell us about your project."
+    }
+}
