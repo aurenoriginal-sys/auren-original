@@ -30,6 +30,15 @@ function setMetaContent(
     content
 ) {
 
+    if (
+        !content
+    ) {
+
+        return;
+
+    }
+
+
     let meta =
         getMetaTag(
             attribute,
@@ -76,6 +85,15 @@ function setCanonical(
     url
 ) {
 
+    if (
+        !url
+    ) {
+
+        return;
+
+    }
+
+
     let canonical =
         document.querySelector(
             'link[rel="canonical"]'
@@ -92,8 +110,10 @@ function setCanonical(
             );
 
 
-        canonical.rel =
-            'canonical';
+        canonical.setAttribute(
+            'rel',
+            'canonical'
+        );
 
 
         document.head.appendChild(
@@ -140,45 +160,27 @@ function applySeo(
     }
 
 
-    if (
+    setMetaContent(
+        'name',
+        'description',
         seo.description
-    ) {
-
-        setMetaContent(
-            'name',
-            'description',
-            seo.description
-        );
-
-    }
+    );
 
 
-    if (
+    setMetaContent(
+        'name',
+        'keywords',
         seo.keywords
-    ) {
-
-        setMetaContent(
-            'name',
-            'keywords',
-            seo.keywords
-        );
-
-    }
+    );
 
 
     /* ==================================================
        CANONICAL
     ================================================== */
 
-    if (
+    setCanonical(
         seo.canonical
-    ) {
-
-        setCanonical(
-            seo.canonical
-        );
-
-    }
+    );
 
 
     /* ==================================================
@@ -272,7 +274,54 @@ function applySeo(
 
 
     console.log(
-        'SEO configuration loaded.'
+        'SEO configuration loaded.',
+        seo.title
+    );
+
+}
+
+
+/* ==================================================
+   PAGE MAP
+================================================== */
+
+const pageMap = {
+
+    '/':
+        'home',
+
+    '/index.html':
+        'home',
+
+    '/about.html':
+        'about',
+
+    '/service.html':
+        'service',
+
+    '/portfolio.html':
+        'portfolio'
+
+};
+
+
+/* ==================================================
+   GET CURRENT PAGE KEY
+================================================== */
+
+function getCurrentPageKey() {
+
+    const currentPath =
+        window.location.pathname
+            .toLowerCase();
+
+
+    return (
+        pageMap[
+            currentPath
+        ]
+        ||
+        'home'
     );
 
 }
@@ -311,23 +360,45 @@ async function loadSeo() {
             await response.json();
 
 
-        const pageMap = {
-    '/': 'home',
-    '/index.html': 'home',
-    '/about.html': 'about'
-};
+        if (
+            !config
+            ||
+            typeof config !== 'object'
+        ) {
 
-const currentPath =
-    window.location.pathname.toLowerCase();
+            throw new Error(
+                'Invalid SEO configuration.'
+            );
 
-const pageKey =
-    pageMap[currentPath] || 'home';
+        }
+
+
+        const pageKey =
+            getCurrentPageKey();
+
+
+        const pageSeo =
+            config[
+                pageKey
+            ];
+
+
+        if (
+            !pageSeo
+        ) {
+
+            console.warn(
+                `No SEO configuration found for page: ${pageKey}`
+            );
+
+
+            return;
+
+        }
 
 
         applySeo(
-            config[
-                pageKey
-            ]
+            pageSeo
         );
 
     }
