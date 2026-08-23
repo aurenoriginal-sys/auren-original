@@ -1,0 +1,63 @@
+{
+    "hero": {
+        "titleBefore": "Creating What",
+        "titleHighlight": "Matters.",
+        "description": "Photography, Creative Direction, Branding and Digital Marketing for brands that want to stand out."
+    },
+
+    "about": {
+        "titleBefore": "More Than A Creative Agency",
+        "titleHighlight": ".",
+        "description": "We are Auren Originals — a creative studio built on the belief that meaningful work creates lasting impact. We partner with brands that refuse to settle, crafting visual stories that resonate, inspire, and endure.",
+        "linkText": "Learn More →"
+    },
+
+    "services": {
+        "label": "SERVICES",
+        "title": "What We Create.",
+        "items": [
+            {
+                "title": "Photography",
+                "description": "Cinematic imagery that captures the essence of your brand."
+            },
+            {
+                "title": "Creative Direction",
+                "description": "Strategic vision that shapes every creative decision."
+            },
+            {
+                "title": "Branding",
+                "description": "Visual identities built for recognition and lasting resonance."
+            },
+            {
+                "title": "Digital Marketing",
+                "description": "Data-informed campaigns that connect brands with audiences."
+            }
+        ]
+    },
+
+    "whyAuren": {
+        "label": "WHY AUREN",
+        "title": "Why Clients Choose Us.",
+        "items": [
+            {
+                "title": "Purpose Driven",
+                "description": "Every project starts with intention. We create work that serves a deeper purpose beyond aesthetics."
+            },
+            {
+                "title": "Quality Focused",
+                "description": "No shortcuts, no compromises. We believe excellence is a habit, not a destination."
+            },
+            {
+                "title": "Long-Term Partnerships",
+                "description": "We invest in relationships that grow. Our best work comes from trust built over time."
+            }
+        ]
+    },
+
+    "cta": {
+        "titleBefore": "Let's Create",
+        "titleMiddle": "What",
+        "titleHighlight": "Matters.",
+        "description": "Every meaningful project begins with a conversation. Tell us your story and we will bring it to life."
+    }
+}

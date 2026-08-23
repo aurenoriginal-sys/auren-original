@@ -214,6 +214,391 @@ async function loadSharedSiteLogo() {
 
 loadSharedSiteLogo();
 
+/* ==================================================
+   HOMEPAGE CONTENT
+   Loads editable content from /data/homepage.json
+================================================== */
+
+async function loadHomepageContent() {
+
+    try {
+
+        const response =
+            await fetch(
+                '/data/homepage.json',
+                {
+                    cache:
+                        'no-store'
+                }
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                `Homepage content request failed: HTTP ${response.status}`
+            );
+
+        }
+
+
+        const content =
+            await response.json();
+
+
+        if (
+            !content ||
+            typeof content !== 'object'
+        ) {
+
+            throw new Error(
+                'Invalid homepage content response.'
+            );
+
+        }
+
+
+        /* ==================================================
+           HERO
+        ================================================== */
+
+        const heroTitle =
+            document.querySelector(
+                '.hero-content h1'
+            );
+
+
+        if (
+            heroTitle &&
+            content.hero
+        ) {
+
+            heroTitle.innerHTML = `
+
+                ${content.hero.titleBefore}
+
+                <span
+                    class="highlight"
+                >
+                    ${content.hero.titleHighlight}
+                </span>
+
+            `;
+
+        }
+
+
+        const heroDescription =
+            document.querySelector(
+                '.hero-content p'
+            );
+
+
+        if (
+            heroDescription &&
+            content.hero
+        ) {
+
+            heroDescription.textContent =
+                content.hero.description;
+
+        }
+
+
+        /* ==================================================
+           ABOUT
+        ================================================== */
+
+        const aboutTitle =
+            document.querySelector(
+                '.about-section h2'
+            );
+
+
+        if (
+            aboutTitle &&
+            content.about
+        ) {
+
+            aboutTitle.innerHTML = `
+
+                ${content.about.titleBefore}
+
+                <span
+                    class="highlight"
+                >
+                    ${content.about.titleHighlight}
+                </span>
+
+            `;
+
+        }
+
+
+        const aboutDescription =
+            document.querySelector(
+                '.about-section p'
+            );
+
+
+        if (
+            aboutDescription &&
+            content.about
+        ) {
+
+            aboutDescription.textContent =
+                content.about.description;
+
+        }
+
+
+        const aboutLink =
+            document.querySelector(
+                '.about-section .btn-text'
+            );
+
+
+        if (
+            aboutLink &&
+            content.about
+        ) {
+
+            aboutLink.textContent =
+                content.about.linkText;
+
+        }
+
+
+        /* ==================================================
+           SERVICES
+        ================================================== */
+
+        const servicesLabel =
+            document.querySelector(
+                '.services-section .section-label'
+            );
+
+
+        if (
+            servicesLabel &&
+            content.services
+        ) {
+
+            servicesLabel.textContent =
+                content.services.label;
+
+        }
+
+
+        const servicesTitle =
+            document.querySelector(
+                '.services-section h2'
+            );
+
+
+        if (
+            servicesTitle &&
+            content.services
+        ) {
+
+            servicesTitle.textContent =
+                content.services.title;
+
+        }
+
+
+        const servicesGrid =
+            document.querySelector(
+                '.services-grid'
+            );
+
+
+        if (
+            servicesGrid &&
+            content.services &&
+            Array.isArray(
+                content.services.items
+            )
+        ) {
+
+            servicesGrid.innerHTML =
+                content.services.items
+                    .map(
+                        service => `
+
+                            <div
+                                class="service-card"
+                            >
+
+                                <h3>
+                                    ${service.title}
+                                </h3>
+
+                                <p>
+                                    ${service.description}
+                                </p>
+
+                            </div>
+
+                        `
+                    )
+                    .join('');
+
+        }
+
+
+        /* ==================================================
+           WHY AUREN
+        ================================================== */
+
+        const whyLabel =
+            document.querySelector(
+                '.why-header .section-label'
+            );
+
+
+        if (
+            whyLabel &&
+            content.whyAuren
+        ) {
+
+            whyLabel.textContent =
+                content.whyAuren.label;
+
+        }
+
+
+        const whyTitle =
+            document.querySelector(
+                '.why-header h2'
+            );
+
+
+        if (
+            whyTitle &&
+            content.whyAuren
+        ) {
+
+            whyTitle.textContent =
+                content.whyAuren.title;
+
+        }
+
+
+        const whyGrid =
+            document.querySelector(
+                '.why-grid'
+            );
+
+
+        if (
+            whyGrid &&
+            content.whyAuren &&
+            Array.isArray(
+                content.whyAuren.items
+            )
+        ) {
+
+            whyGrid.innerHTML =
+                content.whyAuren.items
+                    .map(
+                        item => `
+
+                            <div
+                                class="why-card"
+                            >
+
+                                <h3>
+                                    ${item.title}
+                                </h3>
+
+                                <p>
+                                    ${item.description}
+                                </p>
+
+                            </div>
+
+                        `
+                    )
+                    .join('');
+
+        }
+
+
+        /* ==================================================
+           CTA
+        ================================================== */
+
+        const ctaTitle =
+            document.querySelector(
+                '.cta-section h2'
+            );
+
+
+        if (
+            ctaTitle &&
+            content.cta
+        ) {
+
+            ctaTitle.innerHTML = `
+
+                ${content.cta.titleBefore}
+
+                <br>
+
+                ${content.cta.titleMiddle}
+
+                <span
+                    class="highlight"
+                >
+                    ${content.cta.titleHighlight}
+                </span>
+
+            `;
+
+        }
+
+
+        const ctaDescription =
+            document.querySelector(
+                '.cta-section p'
+            );
+
+
+        if (
+            ctaDescription &&
+            content.cta
+        ) {
+
+            ctaDescription.textContent =
+                content.cta.description;
+
+        }
+
+
+        console.log(
+            'Homepage content loaded.'
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            'Homepage content loading error:',
+            error
+        );
+
+    }
+
+}
+
+
+/* ==================================================
+   LOAD HOMEPAGE CONTENT
+================================================== */
+
+loadHomepageContent();
 
 /* ==================================================
    HOMEPAGE ASSETS
