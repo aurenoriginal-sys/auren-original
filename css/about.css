@@ -1183,10 +1183,25 @@
     margin:
         0 auto;
 
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
 }
 
 
 .about-cta h2 {
+
+    width:
+        100%;
+
+    margin:
+        0;
 
     font-size:
         clamp(
@@ -1221,10 +1236,17 @@
 }
 
 
-.about-cta .action-buttons {
+/* ==================================================
+   ABOUT CTA BUTTON ALIGNMENT
+================================================== */
+
+.about-cta .cta-buttons {
 
     display:
         flex;
+
+    flex-direction:
+        row;
 
     align-items:
         center;
@@ -1233,93 +1255,39 @@
         center;
 
     gap:
-        10px;
+        14px;
 
-    margin-top:
-        45px;
+    width:
+        100%;
+
+    margin:
+        52px auto 0;
 
 }
 
 
-.about-cta .action-buttons a {
+.about-cta .cta-button {
 
-    display:
-        inline-flex;
+    flex:
+        0 0 auto;
 
-    align-items:
-        center;
-
-    justify-content:
-        center;
+    width:
+        180px;
 
     min-width:
-        130px;
+        180px;
 
     height:
-        40px;
+        48px;
+
+    min-height:
+        48px;
+
+    margin:
+        0;
 
     padding:
         0 20px;
-
-    border-radius:
-        10px;
-
-    font-size:
-        0.74rem;
-
-    font-weight:
-        500;
-
-}
-
-
-.about-cta
-.action-buttons
-[data-action="contact"] {
-
-    background:
-        var(--highlight);
-
-    border:
-        1px solid
-        var(--highlight);
-
-    color:
-        #ffffff;
-
-}
-
-
-.about-cta
-.action-buttons
-[data-action="portfolio"] {
-
-    background:
-        transparent;
-
-    border:
-        1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.72
-        );
-
-    color:
-        #ffffff;
-
-}
-
-
-.about-cta
-.action-buttons
-a:hover {
-
-    transform:
-        translateY(
-            -2px
-        );
 
 }
 
@@ -1996,20 +1964,21 @@ a:hover {
     }
 
 
-    .about-cta
-    .action-buttons {
-
-        margin-top:
-            30px;
+    .about-cta .cta-buttons {
 
         gap:
-            6px;
+            7px;
+
+        margin:
+            30px auto 0;
 
     }
 
 
-    .about-cta
-    .action-buttons a {
+    .about-cta .cta-button {
+
+        width:
+            92px;
 
         min-width:
             92px;
@@ -2017,14 +1986,11 @@ a:hover {
         height:
             28px;
 
+        min-height:
+            28px;
+
         padding:
             0 10px;
-
-        border-radius:
-            7px;
-
-        font-size:
-            0.43rem;
 
     }
 
@@ -2134,6 +2100,37 @@ a:hover {
 
         font-size:
             2.25rem;
+
+    }
+
+
+    .about-cta .cta-buttons {
+
+        margin-top:
+            28px;
+
+        gap:
+            6px;
+
+    }
+
+
+    .about-cta .cta-button {
+
+        width:
+            88px;
+
+        min-width:
+            88px;
+
+        height:
+            27px;
+
+        min-height:
+            27px;
+
+        padding:
+            0 9px;
 
     }
 

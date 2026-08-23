@@ -3,7 +3,6 @@
    COMPONENT / LAYOUT STYLES
 ================================================== */
 
-
 /* ==================================================
    COMPONENT CONTAINERS
 ================================================== */
@@ -48,4 +47,369 @@
     background:
         var(--bg-main);
 
+}
+
+/* ==================================================
+   SHARED ACTION BUTTONS
+================================================== */
+
+.action-button {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        auto;
+
+    min-width:
+        190px;
+
+    height:
+        auto;
+
+    min-height:
+        44px;
+
+    padding:
+        16px 30px;
+
+    box-sizing:
+        border-box;
+
+    border-radius:
+        15px;
+
+    font-family:
+        var(--font-body);
+
+    font-size:
+        1rem;
+
+    font-weight:
+        500;
+
+    line-height:
+        1;
+
+    text-align:
+        center;
+
+    text-decoration:
+        none;
+
+    white-space:
+        nowrap;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+
+}
+
+/* ==================================================
+   SHARED CTA BUTTONS
+================================================== */
+
+.cta-buttons {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        12px;
+
+}
+
+
+.cta-button {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-width:
+        150px;
+
+    height:
+        42px;
+
+    padding:
+        0 22px;
+
+    box-sizing:
+        border-box;
+
+    border-radius:
+        10px;
+
+    font-family:
+        var(--font-body);
+
+    font-size:
+        0.75rem;
+
+    font-weight:
+        500;
+
+    line-height:
+        1;
+
+    text-decoration:
+        none;
+
+    white-space:
+        nowrap;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+
+}
+
+
+/* ==================================================
+   START A PROJECT
+================================================== */
+
+.cta-button-solid {
+
+    background:
+        var(--highlight);
+
+    border:
+        1px solid
+        var(--highlight);
+
+    color:
+        #000000;
+
+}
+
+
+.cta-button-solid:hover {
+
+    background:
+        #ffffff;
+
+    border-color:
+        #ffffff;
+
+    color:
+        #000000;
+
+    transform:
+        translateY(
+            -2px
+        );
+
+}
+
+
+/* ==================================================
+   VIEW PORTFOLIO
+================================================== */
+
+.cta-button-outline {
+
+    background:
+        transparent;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.72
+        );
+
+    color:
+        #ffffff;
+
+}
+
+
+.cta-button-outline:hover {
+
+    background:
+        #ffffff;
+
+    border-color:
+        #ffffff;
+
+    color:
+        #000000;
+
+    transform:
+        translateY(
+            -2px
+        );
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 700px) {
+
+    .cta-buttons {
+
+        gap:
+            7px;
+
+    }
+
+
+    .cta-button {
+
+        min-width:
+            92px;
+
+        width:
+            auto;
+
+        height:
+            28px;
+
+        padding:
+            0 11px;
+
+        border-radius:
+            7px;
+
+        font-size:
+            0.47rem;
+
+    }
+
+}
+
+/* ==================================================
+   VIEW PORTFOLIO
+================================================== */
+
+.action-button-outline {
+
+    background:
+        transparent;
+
+    color:
+        #ffffff;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.85
+        );
+
+}
+
+
+.action-button-outline:hover {
+
+    background:
+        #ffffff;
+
+    color:
+        #000000;
+
+    transform:
+        translateY(
+            -2px
+        );
+
+}
+
+
+/* ==================================================
+   START A PROJECT
+================================================== */
+
+.action-button-solid {
+
+    background:
+        var(--highlight);
+
+    color:
+        #000000;
+
+    border:
+        1px solid
+        var(--highlight);
+
+}
+
+
+.action-button-solid:hover {
+
+    background:
+        #ffffff;
+
+    color:
+        #000000;
+
+    border-color:
+        #ffffff;
+
+    transform:
+        translateY(
+            -2px
+        );
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 700px) {
+
+    .action-button {
+
+        min-width:
+            84px;
+
+        min-height:
+            28px;
+
+        padding:
+            0 11px;
+
+        border-radius:
+            7px;
+
+        font-size:
+            0.48rem;
+
+    }
 }

@@ -972,61 +972,6 @@
     }
 
 
-    .cta-buttons {
-
-        display:
-            flex;
-
-        align-items:
-            center;
-
-        justify-content:
-            center;
-
-        gap:
-            7px;
-
-        width:
-            100%;
-
-        margin:
-            0 auto;
-
-    }
-
-
-    .cta-buttons a {
-
-        min-width:
-            84px;
-
-        width:
-            auto;
-
-        height:
-            28px;
-
-        min-height:
-            28px;
-
-        padding:
-            5px 11px;
-
-        border-radius:
-            7px;
-
-        font-size:
-            0.47rem;
-
-        line-height:
-            1;
-
-        white-space:
-            nowrap;
-
-    }
-
-
     /* ==================================================
        GALLERY
        MOBILE STATIC

@@ -212,14 +212,10 @@ const scrollTopLoaded =
     );
 
 
-/* ==================================================
-   LOAD ACTION BUTTONS
-================================================== */
-
-const actionButtonsLoaded =
+const ctaButtonsLoaded =
     loadComponent(
-        'components/action-buttons.html',
-        'about-action-buttons'
+        'components/cta-buttons.html',
+        'about-cta-buttons'
     );
 
 
@@ -232,42 +228,38 @@ async function initializeSite() {
     try {
 
         const [
-            navbarReady,
-            footerReady,
-            scrollTopReady,
-            actionButtonsReady
-        ] =
-            await Promise.all([
-                navbarLoaded,
-                footerLoaded,
-                scrollTopLoaded,
-                actionButtonsLoaded
-            ]);
+    navbarReady,
+    footerReady,
+    scrollTopReady,
+    ctaButtonsReady
+] =
+    await Promise.all([
+        navbarLoaded,
+        footerLoaded,
+        scrollTopLoaded,
+        ctaButtonsLoaded
+    ]);
 
 
         if (
-            !navbarReady
-            ||
-            !footerReady
-        ) {
+    !navbarReady
+    ||
+    !footerReady
+    ||
+    !ctaButtonsReady
+) {
 
-            throw new Error(
-                'Navbar or footer failed to load.'
-            );
+    throw new Error(
+        'Navbar, footer, or CTA buttons failed to load.'
+    );
 
-        }
+}
 
 
         await loadSiteConfigScript();
 
 
         await window.AurenSite.initialize();
-
-
-        initializeAboutActiveNavigation();
-
-
-        initializeAboutActionButtons();
 
 
         initializeScrollToTop();
@@ -1495,62 +1487,6 @@ function initializeScrollToTop() {
 
 }
 
-
-/* ==================================================
-   ABOUT ACTION BUTTONS
-================================================== */
-
-function initializeAboutActionButtons() {
-
-    const container =
-        document.getElementById(
-            'about-action-buttons'
-        );
-
-
-    if (
-        !container
-    ) {
-
-        return;
-
-    }
-
-
-    const portfolioButton =
-        container.querySelector(
-            '[data-action="portfolio"]'
-        );
-
-
-    const contactButton =
-        container.querySelector(
-            '[data-action="contact"]'
-        );
-
-
-    if (
-        contactButton
-        &&
-        portfolioButton
-    ) {
-
-        container.innerHTML =
-            '';
-
-
-        container.appendChild(
-            contactButton
-        );
-
-
-        container.appendChild(
-            portfolioButton
-        );
-
-    }
-
-}
 
 
 /* ==================================================

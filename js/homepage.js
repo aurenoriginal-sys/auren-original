@@ -27,7 +27,11 @@ async function loadComponent(
 
         const response =
             await fetch(
-                url
+                url,
+                {
+                    cache:
+                        'no-store'
+                }
             );
 
 
@@ -94,10 +98,6 @@ function loadSiteConfigScript() {
             reject
         ) => {
 
-            /* ------------------------------------------
-               Already loaded
-            ------------------------------------------ */
-
             if (
                 window.AurenSite
                 &&
@@ -113,10 +113,6 @@ function loadSiteConfigScript() {
 
             }
 
-
-            /* ------------------------------------------
-               Load site-config.js
-            ------------------------------------------ */
 
             const script =
                 document.createElement(
@@ -206,8 +202,29 @@ const footerLoaded =
 
 
 /* ==================================================
-   INITIALIZE SITE CONFIGURATION
-   AFTER COMPONENTS EXIST
+   LOAD HERO ACTION BUTTONS
+================================================== */
+
+const heroActionButtonsLoaded =
+    loadComponent(
+        'components/action-buttons.html',
+        'hero-action-buttons'
+    );
+
+
+/* ==================================================
+   LOAD CTA BUTTONS
+================================================== */
+
+const ctaButtonsLoaded =
+    loadComponent(
+        'components/cta-buttons.html',
+        'cta-buttons-container'
+    );
+
+
+/* ==================================================
+   INITIALIZE SITE
 ================================================== */
 
 async function initializeSite() {
@@ -216,21 +233,30 @@ async function initializeSite() {
 
         const [
             navbarReady,
-            footerReady
+            footerReady,
+            heroButtonsReady,
+            ctaButtonsReady
         ] =
             await Promise.all([
                 navbarLoaded,
-                footerLoaded
+                footerLoaded,
+                heroActionButtonsLoaded,
+                ctaButtonsLoaded
             ]);
 
 
         if (
-            !navbarReady ||
+            !navbarReady
+            ||
             !footerReady
+            ||
+            !heroButtonsReady
+            ||
+            !ctaButtonsReady
         ) {
 
             throw new Error(
-                'Navbar or footer failed to load.'
+                'One or more shared homepage components failed to load.'
             );
 
         }
@@ -240,9 +266,6 @@ async function initializeSite() {
 
 
         await window.AurenSite.initialize();
-
-
-        await loadSharedSiteLogo();
 
 
         console.log(
@@ -264,106 +287,7 @@ async function initializeSite() {
 
 
 /* ==================================================
-   LOAD SHARED SITE LOGO ONCE
-================================================== */
-
-async function loadSharedSiteLogo() {
-
-    try {
-
-        const response =
-            await fetch(
-                '/api/site-logo'
-            );
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                `Site logo API returned HTTP ${response.status}`
-            );
-
-        }
-
-
-        const data =
-            await response.json();
-
-
-        if (
-            !data
-            ||
-            !data.secure_url
-        ) {
-
-            throw new Error(
-                'Site logo URL was not returned.'
-            );
-
-        }
-
-
-        /* ------------------------------------------
-           NAVBAR
-        ------------------------------------------ */
-
-        const navbarLogo =
-            document.getElementById(
-                'site-logo-navbar'
-            );
-
-
-        if (
-            navbarLogo
-        ) {
-
-            navbarLogo.src =
-                data.secure_url;
-
-        }
-
-
-        /* ------------------------------------------
-           FOOTER
-        ------------------------------------------ */
-
-        const footerLogo =
-            document.getElementById(
-                'site-logo-footer'
-            );
-
-
-        if (
-            footerLogo
-        ) {
-
-            footerLogo.src =
-                data.secure_url;
-
-        }
-
-
-        console.log(
-            'Shared site logo loaded once.'
-        );
-
-    }
-
-    catch (error) {
-
-        console.error(
-            'Shared site logo loading error:',
-            error
-        );
-
-    }
-
-}
-
-
-/* ==================================================
    HOMEPAGE CONTENT
-   Loads editable content from homepage.json
 ================================================== */
 
 async function loadHomepageContent() {
@@ -759,7 +683,6 @@ async function loadHomepageContent() {
 
 /* ==================================================
    HOMEPAGE ASSETS
-   OPTIMIZED IMAGE DELIVERY
 ================================================== */
 
 async function loadHomepageAssets() {
@@ -803,10 +726,6 @@ async function loadHomepageAssets() {
 
         }
 
-
-        /* ==================================================
-           APPLY OPTIMIZED ASSET
-        ================================================== */
 
         function applyAsset(
             assetName,
@@ -859,19 +778,11 @@ async function loadHomepageAssets() {
         }
 
 
-        /* ==================================================
-           TRANSITION IMAGE
-        ================================================== */
-
         applyAsset(
             'transition-image',
             'transition-image'
         );
 
-
-        /* ==================================================
-           GALLERY IMAGE 1
-        ================================================== */
 
         applyAsset(
             'gallery-1',
@@ -879,19 +790,11 @@ async function loadHomepageAssets() {
         );
 
 
-        /* ==================================================
-           GALLERY IMAGE 2
-        ================================================== */
-
         applyAsset(
             'gallery-2',
             'gallery-image-2'
         );
 
-
-        /* ==================================================
-           GALLERY IMAGE 3
-        ================================================== */
 
         applyAsset(
             'gallery-3',
@@ -918,72 +821,14 @@ async function loadHomepageAssets() {
 
 
 /* ==================================================
-   LOAD ACTION BUTTONS
-================================================== */
-
-async function loadActionButtons() {
-
-    try {
-
-        const success =
-            await loadComponent(
-                'components/action-buttons.html',
-                'hero-action-buttons'
-            );
-
-
-        if (!success) {
-
-            return;
-
-        }
-
-
-        const heroButtons =
-            document.getElementById(
-                'hero-action-buttons'
-            );
-
-
-        const ctaButtons =
-            document.getElementById(
-                'cta-action-buttons'
-            );
-
-
-        if (
-            heroButtons
-            &&
-            ctaButtons
-        ) {
-
-            ctaButtons.innerHTML =
-                heroButtons.innerHTML;
-
-        }
-
-    }
-
-    catch (error) {
-
-        console.error(
-            'Action buttons loading error:',
-            error
-        );
-
-    }
-
-}
-
-
-/* ==================================================
    MOBILE PATH
-   No GSAP / ScrollTrigger loaded.
 ================================================== */
 
 function initializeMobileLayout() {
 
-    if (isDesktop) {
+    if (
+        isDesktop
+    ) {
 
         return;
 
@@ -1059,7 +904,7 @@ function initializeMobileLayout() {
 
 
 /* ==================================================
-   LOAD DESKTOP ANIMATIONS ONLY ON DESKTOP
+   DESKTOP ANIMATIONS
 ================================================== */
 
 function loadDesktopAnimations() {
@@ -1073,17 +918,17 @@ function loadDesktopAnimations() {
     }
 
 
-    const desktopAnimationScript =
+    const script =
         document.createElement(
             'script'
         );
 
 
-    desktopAnimationScript.src =
+    script.src =
         '/js/desktop-animations.js?v=2';
 
 
-    desktopAnimationScript.onload =
+    script.onload =
         () => {
 
             console.log(
@@ -1093,7 +938,7 @@ function loadDesktopAnimations() {
         };
 
 
-    desktopAnimationScript.onerror =
+    script.onerror =
         () => {
 
             console.error(
@@ -1106,7 +951,7 @@ function loadDesktopAnimations() {
     document
         .body
         .appendChild(
-            desktopAnimationScript
+            script
         );
 
 }
@@ -1118,11 +963,6 @@ function loadDesktopAnimations() {
 
 async function initializeHomepage() {
 
-    /*
-     * These can start immediately because they
-     * don't depend on one another.
-     */
-
     const contentPromise =
         loadHomepageContent();
 
@@ -1131,30 +971,15 @@ async function initializeHomepage() {
         loadHomepageAssets();
 
 
-    const actionsPromise =
-        loadActionButtons();
-
-
     initializeMobileLayout();
 
-
-    /*
-     * Site initialization waits for navbar/footer
-     * and site configuration.
-     */
 
     await initializeSite();
 
 
-    /*
-     * Wait for homepage-specific resources
-     * before starting desktop animations.
-     */
-
     await Promise.all([
         contentPromise,
-        assetsPromise,
-        actionsPromise
+        assetsPromise
     ]);
 
 
@@ -1164,7 +989,7 @@ async function initializeHomepage() {
 
 
 /* ==================================================
-   START HOMEPAGE
+   START
 ================================================== */
 
 initializeHomepage();

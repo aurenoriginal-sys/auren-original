@@ -38,7 +38,6 @@ async function loadSiteConfig() {
 
                     }
 
-
                     return response.json();
 
                 }
@@ -57,7 +56,6 @@ async function loadSiteConfig() {
                         );
 
                     }
-
 
                     return config;
 
@@ -228,10 +226,72 @@ function renderMobileNavigation(
 
 
 /* ==================================================
-   RENDER CONTACT ACTIONS
+   HEADER CONTACT BUTTON
 ================================================== */
 
 function renderContactActions(
+    config
+) {
+
+    if (
+        !config
+        ||
+        !config.actions
+        ||
+        !config.actions.contactHeader
+    ) {
+
+        return;
+
+    }
+
+
+    const contactAction =
+        config.actions.contactHeader;
+
+
+    document
+        .querySelectorAll(
+            '.btn-get-in-touch'
+        )
+        .forEach(
+            button => {
+
+                button.href =
+                    contactAction.href;
+
+                button.textContent =
+                    contactAction.label;
+
+            }
+        );
+
+
+    document
+        .querySelectorAll(
+            '.mobile-nav-contact'
+        )
+        .forEach(
+            button => {
+
+                button.href =
+                    contactAction.href;
+
+                button.textContent =
+                    contactAction.label;
+
+            }
+        );
+
+}
+
+
+/* ==================================================
+   SHARED ACTION BUTTONS
+   HERO / SMALL ACTIONS
+================================================== */
+
+function renderActionButtons(
     config
 ) {
 
@@ -246,48 +306,58 @@ function renderContactActions(
     }
 
 
-    const contactAction =
-        config.actions;
+    document
+        .querySelectorAll(
+            '[data-action="portfolio"]'
+        )
+        .forEach(
+            button => {
+
+                if (
+                    !config.actions.portfolio
+                ) {
+
+                    return;
+
+                }
 
 
-    const desktopButton =
-        document.querySelector(
-            '.btn-get-in-touch'
+                button.href =
+                    config.actions.portfolio.href;
+
+
+                button.textContent =
+                    config.actions.portfolio.label;
+
+            }
         );
 
 
-    if (
-        desktopButton
-    ) {
+    document
+        .querySelectorAll(
+            '[data-action="contact"]'
+        )
+        .forEach(
+            button => {
 
-        desktopButton.href =
-            contactAction.contactHref;
+                if (
+                    !config.actions.contact
+                ) {
+
+                    return;
+
+                }
 
 
-        desktopButton.textContent =
-            contactAction.contactLabel;
-
-    }
+                button.href =
+                    config.actions.contact.href;
 
 
-    const mobileButton =
-        document.querySelector(
-            '.mobile-nav-contact'
+                button.textContent =
+                    config.actions.contact.label;
+
+            }
         );
-
-
-    if (
-        mobileButton
-    ) {
-
-        mobileButton.href =
-            contactAction.contactHref;
-
-
-        mobileButton.textContent =
-            contactAction.contactLabel;
-
-    }
 
 }
 
@@ -431,8 +501,7 @@ function renderFooter(
 
 
 /* ==================================================
-   LOAD SHARED SITE LOGO
-   SINGLE REQUEST
+   SHARED SITE LOGO
 ================================================== */
 
 async function loadSharedSiteLogo() {
@@ -475,36 +544,32 @@ async function loadSharedSiteLogo() {
         }
 
 
-        const navbarLogo =
-            document.getElementById(
-                'site-logo-navbar'
+        document
+            .querySelectorAll(
+                '#site-logo-navbar'
+            )
+            .forEach(
+                logo => {
+
+                    logo.src =
+                        data.secure_url;
+
+                }
             );
 
 
-        if (
-            navbarLogo
-        ) {
+        document
+            .querySelectorAll(
+                '#site-logo-footer'
+            )
+            .forEach(
+                logo => {
 
-            navbarLogo.src =
-                data.secure_url;
+                    logo.src =
+                        data.secure_url;
 
-        }
-
-
-        const footerLogo =
-            document.getElementById(
-                'site-logo-footer'
+                }
             );
-
-
-        if (
-            footerLogo
-        ) {
-
-            footerLogo.src =
-                data.secure_url;
-
-        }
 
 
         console.log(
@@ -537,12 +602,6 @@ async function initializeSiteConfiguration() {
             await loadSiteConfig();
 
 
-        /*
-         * Render only after the
-         * navbar/footer components
-         * have already been inserted.
-         */
-
         renderDesktopNavigation(
             config
         );
@@ -554,6 +613,11 @@ async function initializeSiteConfiguration() {
 
 
         renderContactActions(
+            config
+        );
+
+
+        renderActionButtons(
             config
         );
 
@@ -581,6 +645,9 @@ async function initializeSiteConfiguration() {
             'Site configuration loaded.'
         );
 
+
+        return config;
+
     }
 
     catch (error) {
@@ -589,6 +656,9 @@ async function initializeSiteConfiguration() {
             'Site configuration loading error:',
             error
         );
+
+
+        return null;
 
     }
 
@@ -605,6 +675,9 @@ window.AurenSite = {
         loadSiteConfig,
 
     initialize:
-        initializeSiteConfiguration
+        initializeSiteConfiguration,
+
+    renderActionButtons:
+        renderActionButtons
 
 };

@@ -27,8 +27,20 @@
     ],
 
     "actions": {
-        "contactLabel": "Get in Touch",
-        "contactHref": "contact.html"
+        "contact": {
+            "label": "Start a Project",
+            "href": "contact.html"
+        },
+
+        "portfolio": {
+            "label": "View Portfolio",
+            "href": "portfolio.html"
+        },
+
+        "contactHeader": {
+            "label": "Get in Touch",
+            "href": "contact.html"
+        }
     },
 
     "footer": {
