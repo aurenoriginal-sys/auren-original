@@ -1186,10 +1186,10 @@ video {
     .gallery-page .gallery-grid {
 
         column-count:
-            3;
+            4;
 
         column-gap:
-            4px;
+            20px;
 
     }
 
@@ -1197,10 +1197,10 @@ video {
     .gallery-page .gallery-item {
 
         margin-bottom:
-            4px;
+            20px;
 
         border-radius:
-            4px;
+            15px;
 
     }
 
