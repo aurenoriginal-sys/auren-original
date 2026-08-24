@@ -335,6 +335,9 @@
     max-width:
         980px;
 
+    min-height:
+        470px;
+
     margin:
         0;
 
@@ -408,6 +411,9 @@
 
     width:
         100%;
+
+    min-height:
+        660px;
 
     padding:
         120px 3.5%
@@ -488,6 +494,9 @@
     gap:
         26px 28px;
 
+    min-height:
+        250px;
+
 }
 
 
@@ -542,9 +551,6 @@
 
     font-size:
         0.82rem;
-
-    line-height:
-        1.55;
 
 }
 

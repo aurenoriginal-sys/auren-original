@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "minify:css": "npx clean-css-cli -o css/global.min.css css/global.css && npx clean-css-cli -o css/components.min.css css/components.css && npx clean-css-cli -o css/responsive.min.css css/responsive.css && npx clean-css-cli -o css/homepage.min.css css/homepage.css && npx clean-css-cli -o css/about.min.css css/about.css && npx clean-css-cli -o css/service.min.css css/service.css && npx clean-css-cli -o css/portfolio.min.css css/portfolio.css && npx clean-css-cli -o css/contact.min.css css/contact.css && npx clean-css-cli -o css/gallery.min.css css/gallery.css"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +17,8 @@
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3"
   }
 }
