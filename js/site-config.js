@@ -24,6 +24,134 @@ let siteReadyTimer =
 
 
 /* ==================================================
+   CREATE LOADER
+================================================== */
+
+function createAurenLoader() {
+
+    if (
+        document.querySelector(
+            '.auren-loader'
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    const loader =
+        document.createElement(
+            'div'
+        );
+
+
+    loader.className =
+        'auren-loader';
+
+
+    loader.setAttribute(
+        'aria-label',
+        'Loading Auren Originals'
+    );
+
+
+    loader.innerHTML = `
+
+        <div
+            class="auren-loader-content"
+        >
+
+            <div
+                class="auren-loader-mark"
+            >
+
+                <img
+                    id="auren-loader-logo"
+                    src=""
+                    alt="Auren Originals"
+                >
+
+            </div>
+
+
+            <div
+                class="auren-loader-name"
+            >
+                AUREN
+            </div>
+
+
+            <div
+                class="auren-loader-subtitle"
+            >
+                Originals
+            </div>
+
+
+            <div
+                class="auren-loader-progress"
+            >
+
+                <div
+                    class="auren-loader-track"
+                >
+
+                    <div
+                        class="auren-loader-bar"
+                    ></div>
+
+                </div>
+
+
+                <div
+                    class="auren-loader-footer"
+                >
+
+                    <span>
+                        Creative Studio
+                    </span>
+
+
+                    <span
+                        class="auren-loader-dots"
+                        aria-hidden="true"
+                    >
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    document.body.appendChild(
+        loader
+    );
+
+}
+
+
+/* ==================================================
+   START LOADER
+================================================== */
+
+function initializeLoader() {
+
+    createAurenLoader();
+
+}
+
+
+/* ==================================================
    MARK SITE READY
 ================================================== */
 
@@ -56,20 +184,27 @@ function markSiteReady() {
     }
 
 
-    document.documentElement.classList.add(
-        'auren-ready'
-    );
+    window.setTimeout(
+        () => {
+
+            document.documentElement.classList.add(
+                'auren-ready'
+            );
 
 
-    document.dispatchEvent(
-        new CustomEvent(
-            'auren:site-ready'
-        )
-    );
+            document.dispatchEvent(
+                new CustomEvent(
+                    'auren:site-ready'
+                )
+            );
 
 
-    console.log(
-        'Auren site ready.'
+            console.log(
+                'Auren site ready.'
+            );
+
+        },
+        250
     );
 
 }
@@ -78,12 +213,6 @@ function markSiteReady() {
 /* ==================================================
    LOADER SAFETY FALLBACK
 ================================================== */
-
-/*
- * If a configuration/API request gets stuck,
- * never leave the client on the loading screen
- * indefinitely.
- */
 
 siteReadyTimer =
     window.setTimeout(
@@ -105,6 +234,13 @@ siteReadyTimer =
         },
         5000
     );
+
+
+/* ==================================================
+   START LOADER IMMEDIATELY
+================================================== */
+
+initializeLoader();
 
 
 /* ==================================================
@@ -363,6 +499,7 @@ function renderContactActions(
                 button.href =
                     contactAction.href;
 
+
                 button.textContent =
                     contactAction.label;
 
@@ -379,6 +516,7 @@ function renderContactActions(
 
                 button.href =
                     contactAction.href;
+
 
                 button.textContent =
                     contactAction.label;
@@ -677,6 +815,22 @@ async function loadSharedSiteLogo() {
             );
 
 
+        const loaderLogo =
+            document.getElementById(
+                'auren-loader-logo'
+            );
+
+
+        if (
+            loaderLogo
+        ) {
+
+            loaderLogo.src =
+                data.secure_url;
+
+        }
+
+
         console.log(
             'Shared site logo loaded once.'
         );
@@ -751,15 +905,9 @@ async function initializeSiteConfiguration() {
         );
 
 
-        /*
-         * Give the browser a small window to paint
-         * the completed shared shell before removing
-         * the loading screen.
-         */
-
         window.setTimeout(
             markSiteReady,
-            350
+            500
         );
 
 
@@ -774,11 +922,6 @@ async function initializeSiteConfiguration() {
             error
         );
 
-
-        /*
-         * Never trap the user behind the loader if
-         * configuration fails.
-         */
 
         markSiteReady();
 

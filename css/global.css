@@ -136,31 +136,8 @@ a {
 
 
 /* ==================================================
-   AUREN PAGE LOADER
+   AUREN CINEMATIC LOADER
 ================================================== */
-
-/*
- * The loader exists entirely through CSS.
- *
- * Until site-config.js marks the document as ready,
- * a full-screen black layer covers the page.
- *
- * This prevents clients from seeing:
- *
- * - empty sections
- * - images appearing one by one
- * - navbar assembling
- * - footer assembling
- * - JSON content appearing late
- *
- * The actual page remains underneath and continues
- * loading normally.
- */
-
-
-/* --------------------------------------------------
-   LOADING BACKDROP
--------------------------------------------------- */
 
 html:not(.auren-ready) body::before {
 
@@ -174,7 +151,7 @@ html:not(.auren-ready) body::before {
         0;
 
     z-index:
-        2147483646;
+        2147483640;
 
     background:
         #000000;
@@ -185,17 +162,56 @@ html:not(.auren-ready) body::before {
 }
 
 
-/* --------------------------------------------------
-   LOADING BRAND
--------------------------------------------------- */
+/* ==================================================
+   LOADER WRAPPER
+================================================== */
 
-html:not(.auren-ready) body::after {
-
-    content:
-        "AUREN ORIGINALS";
+.auren-loader {
 
     position:
         fixed;
+
+    inset:
+        0;
+
+    z-index:
+        2147483647;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        #000000;
+
+    overflow:
+        hidden;
+
+    opacity:
+        1;
+
+    visibility:
+        visible;
+
+}
+
+
+/* ==================================================
+   AMBIENT GLOW
+================================================== */
+
+.auren-loader::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
 
     top:
         50%;
@@ -203,11 +219,11 @@ html:not(.auren-ready) body::after {
     left:
         50%;
 
-    z-index:
-        2147483647;
-
     width:
-        max-content;
+        420px;
+
+    height:
+        420px;
 
     transform:
         translate(
@@ -215,12 +231,169 @@ html:not(.auren-ready) body::after {
             -50%
         );
 
-    padding:
-        0 0 14px;
+    border-radius:
+        50%;
 
-    border-bottom:
-        1px solid
-        var(--highlight);
+    background:
+        radial-gradient(
+            circle,
+
+            rgba(
+                253,
+                175,
+                69,
+                .08
+            ) 0%,
+
+            rgba(
+                253,
+                175,
+                69,
+                .035
+            ) 35%,
+
+            transparent 70%
+        );
+
+    filter:
+        blur(
+            10px
+        );
+
+    animation:
+        aurenLoaderGlow
+        3s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* ==================================================
+   LOADER CONTENT
+================================================== */
+
+.auren-loader-content {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    width:
+        min(
+            420px,
+            78vw
+        );
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    text-align:
+        center;
+
+}
+
+
+/* ==================================================
+   REAL AUREN LOGO
+================================================== */
+
+.auren-loader-mark {
+
+    position:
+        relative;
+
+    width:
+        92px;
+
+    height:
+        92px;
+
+    margin-bottom:
+        22px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    animation:
+        aurenLogoReveal
+        1.4s
+        cubic-bezier(
+            .22,
+            .61,
+            .36,
+            1
+        )
+        both;
+
+}
+
+
+.auren-loader-mark img {
+
+    display:
+        block;
+
+    width:
+        92px;
+
+    height:
+        92px;
+
+    max-width:
+        none;
+
+    object-fit:
+        contain;
+
+    object-position:
+        center;
+
+    opacity:
+        0;
+
+    transform:
+        scale(
+            .82
+        );
+
+    animation:
+        aurenLogoImageReveal
+        1.1s
+        .08s
+        cubic-bezier(
+            .22,
+            .61,
+            .36,
+            1
+        )
+        forwards;
+
+}
+
+
+/* ==================================================
+   BRAND NAME
+================================================== */
+
+.auren-loader-name {
 
     color:
         #ffffff;
@@ -229,47 +402,450 @@ html:not(.auren-ready) body::after {
         var(--font-body);
 
     font-size:
-        0.68rem;
+        .78rem;
 
     font-weight:
         500;
 
     letter-spacing:
-        4px;
+        7px;
 
     line-height:
         1;
 
-    text-align:
-        center;
+    text-indent:
+        7px;
 
-    white-space:
-        nowrap;
+}
+
+
+/* ==================================================
+   BRAND SUBTITLE
+================================================== */
+
+.auren-loader-subtitle {
+
+    margin-top:
+        11px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            .42
+        );
+
+    font-family:
+        var(--font-body);
+
+    font-size:
+        .47rem;
+
+    font-weight:
+        400;
+
+    letter-spacing:
+        3.2px;
+
+    line-height:
+        1;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+/* ==================================================
+   PROGRESS AREA
+================================================== */
+
+.auren-loader-progress {
+
+    width:
+        min(
+            300px,
+            64vw
+        );
+
+    margin-top:
+        36px;
+
+}
+
+
+/* ==================================================
+   PROGRESS TRACK
+================================================== */
+
+.auren-loader-track {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    height:
+        1px;
+
+    overflow:
+        hidden;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .12
+        );
+
+}
+
+
+/* ==================================================
+   PROGRESS BAR
+================================================== */
+
+.auren-loader-bar {
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        0;
+
+    width:
+        0%;
+
+    height:
+        100%;
+
+    background:
+        linear-gradient(
+            90deg,
+
+            transparent,
+
+            var(--highlight),
+
+            #ffffff,
+
+            var(--highlight)
+        );
+
+    box-shadow:
+        0 0 12px
+        rgba(
+            253,
+            175,
+            69,
+            .48
+        );
 
     animation:
-        aurenLoaderPulse
-        1.8s
+        aurenLoaderProgress
+        1.65s
+        cubic-bezier(
+            .22,
+            .61,
+            .36,
+            1
+        )
+        forwards;
+
+}
+
+
+/* ==================================================
+   LOADER FOOTER
+================================================== */
+
+.auren-loader-footer {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    width:
+        100%;
+
+    margin-top:
+        12px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            .28
+        );
+
+    font-family:
+        var(--font-body);
+
+    font-size:
+        .40rem;
+
+    letter-spacing:
+        1.8px;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+/* ==================================================
+   LOADER DOTS
+================================================== */
+
+.auren-loader-dots {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        4px;
+
+}
+
+
+.auren-loader-dots span {
+
+    width:
+        3px;
+
+    height:
+        3px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--highlight);
+
+    opacity:
+        .25;
+
+    animation:
+        aurenLoaderDots
+        1.2s
         ease-in-out
         infinite;
 
 }
 
 
-/* --------------------------------------------------
-   LOADER ANIMATION
--------------------------------------------------- */
+.auren-loader-dots span:nth-child(2) {
 
-@keyframes aurenLoaderPulse {
+    animation-delay:
+        .15s;
 
-    0% {
+}
+
+
+.auren-loader-dots span:nth-child(3) {
+
+    animation-delay:
+        .30s;
+
+}
+
+
+/* ==================================================
+   LOGO REVEAL
+================================================== */
+
+@keyframes aurenLogoReveal {
+
+    from {
 
         opacity:
-            .45;
+            0;
+
+        transform:
+            translateY(
+                10px
+            );
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(
+                0
+            );
+
+    }
+
+}
+
+
+@keyframes aurenLogoImageReveal {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            scale(
+                .82
+            );
+
+        filter:
+            brightness(
+                .65
+            );
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            scale(
+                1
+            );
+
+        filter:
+            brightness(
+                1
+            );
+
+    }
+
+}
+
+
+/* ==================================================
+   LOADER GLOW
+================================================== */
+
+@keyframes aurenLoaderGlow {
+
+    0% {
 
         transform:
             translate(
                 -50%,
                 -50%
+            )
+            scale(
+                .88
+            );
+
+        opacity:
+            .45;
+
+    }
+
+    50% {
+
+        transform:
+            translate(
+                -50%,
+                -50%
+            )
+            scale(
+                1.08
+            );
+
+        opacity:
+            .8;
+
+    }
+
+    100% {
+
+        transform:
+            translate(
+                -50%,
+                -50%
+            )
+            scale(
+                .88
+            );
+
+        opacity:
+            .45;
+
+    }
+
+}
+
+
+/* ==================================================
+   LOADER PROGRESS
+================================================== */
+
+@keyframes aurenLoaderProgress {
+
+    0% {
+
+        width:
+            0%;
+
+    }
+
+    55% {
+
+        width:
+            72%;
+
+    }
+
+    82% {
+
+        width:
+            89%;
+
+    }
+
+    100% {
+
+        width:
+            100%;
+
+    }
+
+}
+
+
+/* ==================================================
+   LOADER DOTS
+================================================== */
+
+@keyframes aurenLoaderDots {
+
+    0%,
+    100% {
+
+        opacity:
+            .22;
+
+        transform:
+            translateY(
+                0
             );
 
     }
@@ -280,22 +856,8 @@ html:not(.auren-ready) body::after {
             1;
 
         transform:
-            translate(
-                -50%,
-                -54%
-            );
-
-    }
-
-    100% {
-
-        opacity:
-            .45;
-
-        transform:
-            translate(
-                -50%,
-                -50%
+            translateY(
+                -2px
             );
 
     }
@@ -304,14 +866,33 @@ html:not(.auren-ready) body::after {
 
 
 /* ==================================================
-   PAGE READY TRANSITION
+   READY STATE
 ================================================== */
+
+html.auren-ready .auren-loader {
+
+    animation:
+        aurenLoaderExit
+        .65s
+        cubic-bezier(
+            .76,
+            0,
+            .24,
+            1
+        )
+        forwards;
+
+    pointer-events:
+        none;
+
+}
+
 
 html.auren-ready body::before {
 
     animation:
-        aurenLoaderFadeOut
-        .45s
+        aurenLoaderCoverExit
+        .65s
         ease
         forwards;
 
@@ -321,30 +902,58 @@ html.auren-ready body::before {
 }
 
 
-html.auren-ready body::after {
+/* ==================================================
+   LOADER EXIT
+================================================== */
 
-    animation:
-        aurenLoaderBrandFadeOut
-        .35s
-        ease
-        forwards;
+@keyframes aurenLoaderExit {
 
-    pointer-events:
-        none;
-
-}
-
-
-@keyframes aurenLoaderFadeOut {
-
-    from {
+    0% {
 
         opacity:
             1;
 
+        visibility:
+            visible;
+
+        transform:
+            scale(
+                1
+            );
+
     }
 
-    to {
+    100% {
+
+        opacity:
+            0;
+
+        visibility:
+            hidden;
+
+        transform:
+            scale(
+                1.015
+            );
+
+    }
+
+}
+
+
+@keyframes aurenLoaderCoverExit {
+
+    0% {
+
+        opacity:
+            1;
+
+        visibility:
+            visible;
+
+    }
+
+    100% {
 
         opacity:
             0;
@@ -357,22 +966,97 @@ html.auren-ready body::after {
 }
 
 
-@keyframes aurenLoaderBrandFadeOut {
+/* ==================================================
+   MOBILE LOADER
+================================================== */
 
-    from {
+@media (max-width: 700px) {
 
-        opacity:
-            1;
+    .auren-loader-mark {
+
+        width:
+            76px;
+
+        height:
+            76px;
+
+        margin-bottom:
+            18px;
 
     }
 
-    to {
 
-        opacity:
-            0;
+    .auren-loader-mark img {
 
-        visibility:
-            hidden;
+        width:
+            76px;
+
+        height:
+            76px;
+
+    }
+
+
+    .auren-loader-name {
+
+        font-size:
+            .64rem;
+
+        letter-spacing:
+            5px;
+
+        text-indent:
+            5px;
+
+    }
+
+
+    .auren-loader-subtitle {
+
+        margin-top:
+            9px;
+
+        font-size:
+            .40rem;
+
+        letter-spacing:
+            2.5px;
+
+    }
+
+
+    .auren-loader-progress {
+
+        width:
+            min(
+                250px,
+                68vw
+            );
+
+        margin-top:
+            30px;
+
+    }
+
+
+    .auren-loader-footer {
+
+        font-size:
+            .35rem;
+
+        letter-spacing:
+            1.4px;
+
+    }
+
+
+    .auren-loader::before {
+
+        width:
+            300px;
+
+        height:
+            300px;
 
     }
 
