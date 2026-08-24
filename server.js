@@ -2823,6 +2823,23 @@ app.get(
     }
 );
 
+/* ==================================================
+   FAVICON
+================================================== */
+
+app.get(
+    '/favicon.ico',
+    (
+        req,
+        res
+    ) => {
+
+        res.redirect(
+            'https://res.cloudinary.com/uye4ufpk/image/upload/c_fill,w_64,h_64,q_auto,f_png/v1787215613/logo.png'
+        );
+
+    }
+);
 
 /* ==================================================
    CUSTOM 404

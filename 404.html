@@ -5,147 +5,370 @@
 
     <meta charset="UTF-8">
 
+
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
     >
 
+    <link
+    rel="icon"
+    href="/assets/favicon/favicon.ico"
+    sizes="any"
+>
+
+<link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/assets/favicon/favicon-32x32.png"
+>
+
+<link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/assets/favicon/favicon-16x16.png"
+>
+
+<link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/assets/favicon/favicon-180x180.png"
+>
+
     <title>
         Page Not Found | Auren Originals
     </title>
+
 
     <meta
         name="robots"
         content="noindex, nofollow"
     >
 
+
     <style>
 
         :root {
-            --bg: #000000;
-            --text: #ffffff;
-            --muted: #888888;
-            --highlight: #FDAF45;
+
+            --bg:
+                #000000;
+
+            --text:
+                #ffffff;
+
+            --muted:
+                #888888;
+
+            --highlight:
+                #FDAF45;
+
         }
 
+
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+
+            margin:
+                0;
+
+            padding:
+                0;
+
+            box-sizing:
+                border-box;
+
         }
+
 
         html,
         body {
-            width: 100%;
-            min-height: 100%;
+
+            width:
+                100%;
+
+            min-height:
+                100%;
+
         }
+
 
         body {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-            background: var(--bg);
-            color: var(--text);
-            font-family: Arial, sans-serif;
-            text-align: center;
+
+            min-height:
+                100vh;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            padding:
+                24px;
+
+            background:
+                var(--bg);
+
+            color:
+                var(--text);
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            text-align:
+                center;
+
         }
+
 
         .error-page {
-            width: 100%;
-            max-width: 700px;
+
+            width:
+                100%;
+
+            max-width:
+                700px;
+
         }
+
 
         .logo {
-            width: 82px;
-            height: auto;
-            margin: 0 auto 50px;
+
+            display:
+                block;
+
+            width:
+                110px;
+
+            height:
+                auto;
+
+            margin:
+                0 auto 50px;
+
+            object-fit:
+                contain;
+
         }
+
 
         .label {
-            margin-bottom: 16px;
-            color: var(--highlight);
-            font-size: 0.7rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
+
+            margin-bottom:
+                16px;
+
+            color:
+                var(--highlight);
+
+            font-size:
+                0.7rem;
+
+            letter-spacing:
+                3px;
+
+            text-transform:
+                uppercase;
+
         }
+
 
         .error-code {
-            margin-bottom: 10px;
-            font-family: Georgia, serif;
-            font-size: clamp(5rem, 15vw, 10rem);
-            font-weight: 400;
-            line-height: 0.9;
+
+            margin-bottom:
+                10px;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size:
+                clamp(
+                    5rem,
+                    15vw,
+                    10rem
+                );
+
+            font-weight:
+                400;
+
+            line-height:
+                0.9;
+
         }
+
 
         h1 {
-            margin-bottom: 18px;
-            font-family: Georgia, serif;
-            font-size: clamp(2rem, 6vw, 3.5rem);
-            font-weight: 400;
+
+            margin-bottom:
+                18px;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size:
+                clamp(
+                    2rem,
+                    6vw,
+                    3.5rem
+                );
+
+            font-weight:
+                400;
+
         }
+
 
         p {
-            max-width: 500px;
-            margin: 0 auto 32px;
-            color: var(--muted);
-            font-size: 0.95rem;
-            line-height: 1.7;
+
+            max-width:
+                500px;
+
+            margin:
+                0 auto 32px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                0.95rem;
+
+            line-height:
+                1.7;
+
         }
+
 
         .actions {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                10px;
+
+            flex-wrap:
+                wrap;
+
         }
+
 
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 130px;
-            padding: 12px 20px;
-            border-radius: 9px;
-            font-size: 0.85rem;
-            text-decoration: none;
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            min-width:
+                130px;
+
+            padding:
+                12px 20px;
+
+            border-radius:
+                9px;
+
+            font-size:
+                0.85rem;
+
+            text-decoration:
+                none;
+
         }
+
 
         .btn-primary {
-            background: var(--highlight);
-            color: #ffffff;
+
+            background:
+                var(--highlight);
+
+            color:
+                #000000;
+
         }
 
+
         .btn-secondary {
-            border: 1px solid rgba(255,255,255,0.25);
-            color: #ffffff;
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.25
+                );
+
+            color:
+                #ffffff;
+
         }
+
 
         @media (max-width: 600px) {
 
             .logo {
-                width: 66px;
-                margin-bottom: 36px;
+
+                width:
+                    78px;
+
+                margin-bottom:
+                    36px;
+
             }
+
 
             .error-code {
-                font-size: 6rem;
+
+                font-size:
+                    6rem;
+
             }
+
 
             h1 {
-                font-size: 2rem;
+
+                font-size:
+                    2rem;
+
             }
+
 
             p {
-                font-size: 0.78rem;
+
+                font-size:
+                    0.78rem;
+
             }
 
+
             .btn {
-                min-width: 110px;
-                padding: 10px 16px;
-                font-size: 0.72rem;
+
+                min-width:
+                    110px;
+
+                padding:
+                    10px 16px;
+
+                font-size:
+                    0.72rem;
+
             }
 
         }
@@ -154,35 +377,52 @@
 
 </head>
 
+
 <body>
 
-    <main class="error-page">
+    <main
+        class="error-page"
+    >
 
         <img
+            id="error-logo"
             class="logo"
-            src="https://aurenoriginal.in/logo.png"
+            src=""
             alt="Auren Originals"
         >
 
-        <div class="label">
-            AUREN ORIGINALS
+
+        <div
+            class="label"
+        >
+            Auren Originals
         </div>
 
-        <div class="error-code">
+
+        <div
+            class="error-code"
+        >
             404
         </div>
+
 
         <h1>
             This Page Went Somewhere.
         </h1>
 
+
         <p>
+
             The page you're looking for doesn't exist,
             may have moved, or the link may be incorrect.
             Let's get you back to something meaningful.
+
         </p>
 
-        <div class="actions">
+
+        <div
+            class="actions"
+        >
 
             <a
                 href="/"
@@ -190,6 +430,7 @@
             >
                 Back Home
             </a>
+
 
             <a
                 href="/portfolio.html"
@@ -201,6 +442,95 @@
         </div>
 
     </main>
+
+
+    <script>
+
+        /* ==================================================
+           LOAD AUREN LOGO
+        ================================================== */
+
+        async function loadErrorPageLogo() {
+
+            const logo =
+                document.getElementById(
+                    'error-logo'
+                );
+
+
+            if (!logo) {
+
+                return;
+
+            }
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        '/api/root-asset/logo.png',
+                        {
+                            cache:
+                                'no-store'
+                        }
+                    );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        `Logo request failed: HTTP ${response.status}`
+                    );
+
+                }
+
+
+                const data =
+                    await response.json();
+
+
+                if (
+                    !data
+                    ||
+                    !data.secure_url
+                ) {
+
+                    throw new Error(
+                        'Logo URL was not returned.'
+                    );
+
+                }
+
+
+                logo.src =
+                    data.secure_url;
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    '404 page logo loading error:',
+                    error
+                );
+
+                /*
+                 * Fallback to the local favicon asset
+                 * so the page still has a visible brand mark.
+                 */
+
+                logo.src =
+                    '/assets/favicon/favicon-512x512.png';
+
+            }
+
+        }
+
+
+        loadErrorPageLogo();
+
+    </script>
 
 </body>
 
