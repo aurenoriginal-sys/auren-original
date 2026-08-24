@@ -1,9 +1,17 @@
 {
     "home": {
         "title": "Auren Originals | Creative Agency",
+
         "description": "Auren Originals is a creative agency in Chennai specializing in photography, creative direction, branding, digital marketing and visual storytelling.",
+
         "keywords": "Auren Originals, creative agency Chennai, photography Chennai, creative direction, branding, digital marketing, commercial photography, wedding photography",
+
+        "author": "Auren Originals",
+
+        "robots": "index, follow",
+
         "canonical": "https://aurenoriginal.in/",
+
         "og": {
             "type": "website",
             "title": "Auren Originals | Creative Agency",
@@ -12,6 +20,7 @@
             "siteName": "Auren Originals",
             "image": "https://aurenoriginal.in/og-image.jpg"
         },
+
         "twitter": {
             "card": "summary_large_image",
             "title": "Auren Originals | Creative Agency",
@@ -20,11 +29,20 @@
         }
     },
 
+
     "about": {
         "title": "Auren Originals | About",
+
         "description": "Learn about Auren Originals, a Chennai-based creative agency and production house focused on photography, creative direction, branding, digital marketing and meaningful visual storytelling.",
+
         "keywords": "Auren Originals about, creative agency Chennai, production house Chennai, photography agency, branding agency, creative direction, visual storytelling",
+
+        "author": "Auren Originals",
+
+        "robots": "index, follow",
+
         "canonical": "https://aurenoriginal.in/about.html",
+
         "og": {
             "type": "website",
             "title": "Auren Originals | About",
@@ -33,6 +51,7 @@
             "siteName": "Auren Originals",
             "image": "https://aurenoriginal.in/og-image.jpg"
         },
+
         "twitter": {
             "card": "summary_large_image",
             "title": "Auren Originals | About",
@@ -41,11 +60,20 @@
         }
     },
 
+
     "service": {
         "title": "Auren Originals | Creative Services",
+
         "description": "Explore Auren Originals creative services including photography, creative direction, branding and digital marketing for brands, businesses and meaningful visual stories.",
+
         "keywords": "Auren Originals services, creative agency Chennai, photography services Chennai, creative direction, branding services, digital marketing, commercial photography, wedding photography",
+
+        "author": "Auren Originals",
+
+        "robots": "index, follow",
+
         "canonical": "https://aurenoriginal.in/service.html",
+
         "og": {
             "type": "website",
             "title": "Auren Originals | Creative Services",
@@ -54,6 +82,7 @@
             "siteName": "Auren Originals",
             "image": "https://aurenoriginal.in/og-image.jpg"
         },
+
         "twitter": {
             "card": "summary_large_image",
             "title": "Auren Originals | Creative Services",
@@ -62,11 +91,20 @@
         }
     },
 
+
     "portfolio": {
         "title": "Auren Originals | Portfolio",
+
         "description": "Explore the Auren Originals portfolio featuring photography, creative direction, branding and visual storytelling across weddings, fashion, sports, commercial and corporate projects.",
+
         "keywords": "Auren Originals portfolio, photography portfolio Chennai, creative agency portfolio, wedding photography, fashion photography, commercial photography, corporate photography",
+
+        "author": "Auren Originals",
+
+        "robots": "index, follow",
+
         "canonical": "https://aurenoriginal.in/portfolio.html",
+
         "og": {
             "type": "website",
             "title": "Auren Originals | Portfolio",
@@ -75,6 +113,7 @@
             "siteName": "Auren Originals",
             "image": "https://aurenoriginal.in/og-image.jpg"
         },
+
         "twitter": {
             "card": "summary_large_image",
             "title": "Auren Originals | Portfolio",
@@ -91,6 +130,10 @@
 
         "keywords": "Auren Originals contact, creative agency Chennai contact, photographer Chennai, branding agency Chennai, commercial photography Chennai, creative studio Chennai",
 
+        "author": "Auren Originals",
+
+        "robots": "index, follow",
+
         "canonical": "https://aurenoriginal.in/contact.html",
 
         "og": {
@@ -106,6 +149,223 @@
             "card": "summary_large_image",
             "title": "Auren Originals | Contact",
             "description": "Start a project with Auren Originals. Tell us your story and let's create something meaningful.",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        }
+    },
+
+
+    "brandingGallery": {
+        "title": "Auren Originals | Branding & Visual Identity",
+
+        "description": "Explore the Auren Originals branding gallery featuring visual identities, brand systems, creative direction and distinctive design experiences.",
+
+        "keywords": "Auren Originals branding, branding agency Chennai, brand identity Chennai, visual identity, logo design, creative direction, brand strategy, branding portfolio",
+
+        "author": "Auren Originals",
+
+        "robots": "index, follow",
+
+        "canonical": "https://aurenoriginal.in/branding-gallery.html",
+
+        "og": {
+            "type": "website",
+            "title": "Auren Originals | Branding & Visual Identity",
+            "description": "Distinctive brand identities and visual systems created with clarity, purpose and creative direction.",
+            "url": "https://aurenoriginal.in/branding-gallery.html",
+            "siteName": "Auren Originals",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        },
+
+        "twitter": {
+            "card": "summary_large_image",
+            "title": "Auren Originals | Branding & Visual Identity",
+            "description": "Distinctive brand identities and visual systems created with clarity, purpose and creative direction.",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        }
+    },
+
+
+    "commercialGallery": {
+        "title": "Auren Originals | Commercial Photography",
+
+        "description": "Explore the Auren Originals commercial photography gallery featuring campaign imagery, product storytelling, advertising visuals and creative production.",
+
+        "keywords": "Auren Originals commercial photography, commercial photographer Chennai, commercial photography Chennai, advertising photography, product photography, campaign photography, commercial portfolio",
+
+        "author": "Auren Originals",
+
+        "robots": "index, follow",
+
+        "canonical": "https://aurenoriginal.in/commercial-gallery.html",
+
+        "og": {
+            "type": "website",
+            "title": "Auren Originals | Commercial Photography",
+            "description": "Campaign and commercial photography created to communicate brands, products and ideas with impact.",
+            "url": "https://aurenoriginal.in/commercial-gallery.html",
+            "siteName": "Auren Originals",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        },
+
+        "twitter": {
+            "card": "summary_large_image",
+            "title": "Auren Originals | Commercial Photography",
+            "description": "Campaign and commercial photography created to communicate brands, products and ideas with impact.",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        }
+    },
+
+
+    "corporateGallery": {
+        "title": "Auren Originals | Corporate Photography",
+
+        "description": "Explore the Auren Originals corporate photography gallery featuring professional portraits, workplace stories, brand identity and polished visual communication.",
+
+        "keywords": "Auren Originals corporate photography, corporate photographer Chennai, corporate photography Chennai, business photography, office photography, professional headshots, corporate portfolio",
+
+        "author": "Auren Originals",
+
+        "robots": "index, follow",
+
+        "canonical": "https://aurenoriginal.in/corporate-gallery.html",
+
+        "og": {
+            "type": "website",
+            "title": "Auren Originals | Corporate Photography",
+            "description": "Professional corporate imagery built around people, workplaces, brands and strong visual identity.",
+            "url": "https://aurenoriginal.in/corporate-gallery.html",
+            "siteName": "Auren Originals",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        },
+
+        "twitter": {
+            "card": "summary_large_image",
+            "title": "Auren Originals | Corporate Photography",
+            "description": "Professional corporate imagery built around people, workplaces, brands and strong visual identity.",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        }
+    },
+
+
+    "fashionGallery": {
+        "title": "Auren Originals | Fashion Photography",
+
+        "description": "Explore the Auren Originals fashion photography gallery featuring editorial imagery, creative direction, styling and distinctive visual storytelling.",
+
+        "keywords": "Auren Originals fashion photography, fashion photographer Chennai, fashion photography Chennai, editorial photography, fashion portfolio, creative fashion photography",
+
+        "author": "Auren Originals",
+
+        "robots": "index, follow",
+
+        "canonical": "https://aurenoriginal.in/fashion-gallery.html",
+
+        "og": {
+            "type": "website",
+            "title": "Auren Originals | Fashion Photography",
+            "description": "Editorial fashion imagery shaped through creative direction, styling and distinctive visual storytelling.",
+            "url": "https://aurenoriginal.in/fashion-gallery.html",
+            "siteName": "Auren Originals",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        },
+
+        "twitter": {
+            "card": "summary_large_image",
+            "title": "Auren Originals | Fashion Photography",
+            "description": "Editorial fashion imagery shaped through creative direction, styling and distinctive visual storytelling.",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        }
+    },
+
+
+    "sportsGallery": {
+        "title": "Auren Originals | Sports Photography",
+
+        "description": "Explore the Auren Originals sports photography gallery featuring high-energy action, movement, performance and dynamic visual storytelling.",
+
+        "keywords": "Auren Originals sports photography, sports photographer Chennai, sports photography Chennai, action photography, sports photography portfolio, athletic photography",
+
+        "author": "Auren Originals",
+
+        "robots": "index, follow",
+
+        "canonical": "https://aurenoriginal.in/sports-gallery.html",
+
+        "og": {
+            "type": "website",
+            "title": "Auren Originals | Sports Photography",
+            "description": "High-energy sports imagery capturing movement, intensity, performance and unforgettable moments.",
+            "url": "https://aurenoriginal.in/sports-gallery.html",
+            "siteName": "Auren Originals",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        },
+
+        "twitter": {
+            "card": "summary_large_image",
+            "title": "Auren Originals | Sports Photography",
+            "description": "High-energy sports imagery capturing movement, intensity, performance and unforgettable moments.",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        }
+    },
+
+
+    "weddingGallery": {
+        "title": "Auren Originals | Wedding Photography",
+
+        "description": "Explore the Auren Originals wedding photography gallery, capturing genuine emotions, intimate moments and timeless wedding stories through refined visual storytelling.",
+
+        "keywords": "Auren Originals wedding photography, wedding photographer Chennai, wedding photography Chennai, wedding photography portfolio, Indian wedding photography, candid wedding photography",
+
+        "author": "Auren Originals",
+
+        "robots": "index, follow",
+
+        "canonical": "https://aurenoriginal.in/wedding-gallery.html?category-2=wedding",
+
+        "og": {
+            "type": "website",
+            "title": "Auren Originals | Wedding Photography",
+            "description": "Timeless wedding stories captured through genuine emotion, intimate moments and thoughtful visual storytelling.",
+            "url": "https://aurenoriginal.in/wedding-gallery.html?category-2=wedding",
+            "siteName": "Auren Originals",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        },
+
+        "twitter": {
+            "card": "summary_large_image",
+            "title": "Auren Originals | Wedding Photography",
+            "description": "Timeless wedding stories captured through genuine emotion, intimate moments and thoughtful visual storytelling.",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        }
+    },
+
+
+    "preWeddingGallery": {
+        "title": "Auren Originals | Pre-Wedding Photography",
+
+        "description": "Explore the Auren Originals pre-wedding photography gallery featuring romantic moments, cinematic imagery and timeless visual storytelling.",
+
+        "keywords": "Auren Originals pre-wedding photography, pre-wedding photographer Chennai, pre-wedding photography Chennai, couple photography, pre-wedding portfolio, cinematic pre-wedding photography",
+
+        "author": "Auren Originals",
+
+        "robots": "index, follow",
+
+        "canonical": "https://aurenoriginal.in/wedding-gallery.html?category-2=pre-wedding",
+
+        "og": {
+            "type": "website",
+            "title": "Auren Originals | Pre-Wedding Photography",
+            "description": "Romantic pre-wedding stories captured through cinematic imagery, genuine moments and refined visual storytelling.",
+            "url": "https://aurenoriginal.in/wedding-gallery.html?category-2=pre-wedding",
+            "siteName": "Auren Originals",
+            "image": "https://aurenoriginal.in/og-image.jpg"
+        },
+
+        "twitter": {
+            "card": "summary_large_image",
+            "title": "Auren Originals | Pre-Wedding Photography",
+            "description": "Romantic pre-wedding stories captured through cinematic imagery, genuine moments and refined visual storytelling.",
             "image": "https://aurenoriginal.in/og-image.jpg"
         }
     }

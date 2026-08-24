@@ -175,6 +175,28 @@ function applySeo(
 
 
     /* ==================================================
+       AUTHOR
+    ================================================== */
+
+    setMetaContent(
+        'name',
+        'author',
+        seo.author
+    );
+
+
+    /* ==================================================
+       ROBOTS
+    ================================================== */
+
+    setMetaContent(
+        'name',
+        'robots',
+        seo.robots
+    );
+
+
+    /* ==================================================
        CANONICAL
     ================================================== */
 
@@ -282,6 +304,111 @@ function applySeo(
 
 
 /* ==================================================
+   GET GALLERY SEO KEY
+================================================== */
+
+function getGallerySeoKey() {
+
+    const path =
+        window.location.pathname
+            .toLowerCase();
+
+
+    if (
+        path.endsWith(
+            '/branding-gallery.html'
+        )
+    ) {
+
+        return 'brandingGallery';
+
+    }
+
+
+    if (
+        path.endsWith(
+            '/commercial-gallery.html'
+        )
+    ) {
+
+        return 'commercialGallery';
+
+    }
+
+
+    if (
+        path.endsWith(
+            '/corporate-gallery.html'
+        )
+    ) {
+
+        return 'corporateGallery';
+
+    }
+
+
+    if (
+        path.endsWith(
+            '/fashion-gallery.html'
+        )
+    ) {
+
+        return 'fashionGallery';
+
+    }
+
+
+    if (
+        path.endsWith(
+            '/sports-gallery.html'
+        )
+    ) {
+
+        return 'sportsGallery';
+
+    }
+
+
+    if (
+        path.endsWith(
+            '/wedding-gallery.html'
+        )
+    ) {
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const category =
+            params.get(
+                'category-2'
+            );
+
+
+        if (
+            category
+                ===
+            'pre-wedding'
+        ) {
+
+            return 'preWeddingGallery';
+
+        }
+
+
+        return 'weddingGallery';
+
+    }
+
+
+    return null;
+
+}
+
+
+/* ==================================================
    PAGE MAP
 ================================================== */
 
@@ -309,10 +436,23 @@ const pageMap = {
 
 
 /* ==================================================
-   GET CURRENT PAGE KEY
+   GET CURRENT PAGE SEO KEY
 ================================================== */
 
 function getCurrentPageKey() {
+
+    const galleryKey =
+        getGallerySeoKey();
+
+
+    if (
+        galleryKey
+    ) {
+
+        return galleryKey;
+
+    }
+
 
     const currentPath =
         window.location.pathname
@@ -331,7 +471,7 @@ function getCurrentPageKey() {
 
 
 /* ==================================================
-   LOAD PAGE SEO
+   LOAD SEO
 ================================================== */
 
 async function loadSeo() {
@@ -419,7 +559,7 @@ async function loadSeo() {
 
 
 /* ==================================================
-   START SEO
+   START
 ================================================== */
 
 loadSeo();
