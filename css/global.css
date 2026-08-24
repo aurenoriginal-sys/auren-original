@@ -22,6 +22,10 @@
 }
 
 
+/* ==================================================
+   HTML
+================================================== */
+
 html {
 
     width:
@@ -35,6 +39,10 @@ html {
 
 }
 
+
+/* ==================================================
+   BODY
+================================================== */
 
 body {
 
@@ -68,6 +76,10 @@ body {
 }
 
 
+/* ==================================================
+   HEADINGS
+================================================== */
+
 h1,
 h2,
 h3 {
@@ -81,6 +93,10 @@ h3 {
 }
 
 
+/* ==================================================
+   IMAGES
+================================================== */
+
 img {
 
     display:
@@ -91,6 +107,10 @@ img {
 
 }
 
+
+/* ==================================================
+   LINKS
+================================================== */
 
 a {
 
@@ -103,9 +123,295 @@ a {
 }
 
 
+/* ==================================================
+   HIGHLIGHT
+================================================== */
+
 .highlight {
 
     color:
         var(--highlight);
+
+}
+
+
+/* ==================================================
+   AUREN PAGE LOADER
+================================================== */
+
+/*
+ * The loader exists entirely through CSS.
+ *
+ * Until site-config.js marks the document as ready,
+ * a full-screen black layer covers the page.
+ *
+ * This prevents clients from seeing:
+ *
+ * - empty sections
+ * - images appearing one by one
+ * - navbar assembling
+ * - footer assembling
+ * - JSON content appearing late
+ *
+ * The actual page remains underneath and continues
+ * loading normally.
+ */
+
+
+/* --------------------------------------------------
+   LOADING BACKDROP
+-------------------------------------------------- */
+
+html:not(.auren-ready) body::before {
+
+    content:
+        "";
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        2147483646;
+
+    background:
+        #000000;
+
+    pointer-events:
+        auto;
+
+}
+
+
+/* --------------------------------------------------
+   LOADING BRAND
+-------------------------------------------------- */
+
+html:not(.auren-ready) body::after {
+
+    content:
+        "AUREN ORIGINALS";
+
+    position:
+        fixed;
+
+    top:
+        50%;
+
+    left:
+        50%;
+
+    z-index:
+        2147483647;
+
+    width:
+        max-content;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    padding:
+        0 0 14px;
+
+    border-bottom:
+        1px solid
+        var(--highlight);
+
+    color:
+        #ffffff;
+
+    font-family:
+        var(--font-body);
+
+    font-size:
+        0.68rem;
+
+    font-weight:
+        500;
+
+    letter-spacing:
+        4px;
+
+    line-height:
+        1;
+
+    text-align:
+        center;
+
+    white-space:
+        nowrap;
+
+    animation:
+        aurenLoaderPulse
+        1.8s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* --------------------------------------------------
+   LOADER ANIMATION
+-------------------------------------------------- */
+
+@keyframes aurenLoaderPulse {
+
+    0% {
+
+        opacity:
+            .45;
+
+        transform:
+            translate(
+                -50%,
+                -50%
+            );
+
+    }
+
+    50% {
+
+        opacity:
+            1;
+
+        transform:
+            translate(
+                -50%,
+                -54%
+            );
+
+    }
+
+    100% {
+
+        opacity:
+            .45;
+
+        transform:
+            translate(
+                -50%,
+                -50%
+            );
+
+    }
+
+}
+
+
+/* ==================================================
+   PAGE READY TRANSITION
+================================================== */
+
+html.auren-ready body::before {
+
+    animation:
+        aurenLoaderFadeOut
+        .45s
+        ease
+        forwards;
+
+    pointer-events:
+        none;
+
+}
+
+
+html.auren-ready body::after {
+
+    animation:
+        aurenLoaderBrandFadeOut
+        .35s
+        ease
+        forwards;
+
+    pointer-events:
+        none;
+
+}
+
+
+@keyframes aurenLoaderFadeOut {
+
+    from {
+
+        opacity:
+            1;
+
+    }
+
+    to {
+
+        opacity:
+            0;
+
+        visibility:
+            hidden;
+
+    }
+
+}
+
+
+@keyframes aurenLoaderBrandFadeOut {
+
+    from {
+
+        opacity:
+            1;
+
+    }
+
+    to {
+
+        opacity:
+            0;
+
+        visibility:
+            hidden;
+
+    }
+
+}
+
+
+/* ==================================================
+   REDUCED MOTION
+================================================== */
+
+@media (
+    prefers-reduced-motion:
+    reduce
+) {
+
+    html {
+
+        scroll-behavior:
+            auto;
+
+    }
+
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            .01ms !important;
+
+        scroll-behavior:
+            auto !important;
+
+    }
 
 }

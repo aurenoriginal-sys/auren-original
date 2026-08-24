@@ -8,7 +8,103 @@
    CONFIGURATION STATE
 ================================================== */
 
-let siteConfigPromise = null;
+let siteConfigPromise =
+    null;
+
+
+/* ==================================================
+   LOADER STATE
+================================================== */
+
+let siteReady =
+    false;
+
+let siteReadyTimer =
+    null;
+
+
+/* ==================================================
+   MARK SITE READY
+================================================== */
+
+function markSiteReady() {
+
+    if (
+        siteReady
+    ) {
+
+        return;
+
+    }
+
+
+    siteReady =
+        true;
+
+
+    if (
+        siteReadyTimer
+    ) {
+
+        clearTimeout(
+            siteReadyTimer
+        );
+
+        siteReadyTimer =
+            null;
+
+    }
+
+
+    document.documentElement.classList.add(
+        'auren-ready'
+    );
+
+
+    document.dispatchEvent(
+        new CustomEvent(
+            'auren:site-ready'
+        )
+    );
+
+
+    console.log(
+        'Auren site ready.'
+    );
+
+}
+
+
+/* ==================================================
+   LOADER SAFETY FALLBACK
+================================================== */
+
+/*
+ * If a configuration/API request gets stuck,
+ * never leave the client on the loading screen
+ * indefinitely.
+ */
+
+siteReadyTimer =
+    window.setTimeout(
+        () => {
+
+            if (
+                !siteReady
+            ) {
+
+                console.warn(
+                    'Auren loader safety timeout reached.'
+                );
+
+
+                markSiteReady();
+
+            }
+
+        },
+        5000
+    );
 
 
 /* ==================================================
@@ -17,7 +113,9 @@ let siteConfigPromise = null;
 
 async function loadSiteConfig() {
 
-    if (!siteConfigPromise) {
+    if (
+        !siteConfigPromise
+    ) {
 
         siteConfigPromise =
             fetch(
@@ -30,13 +128,16 @@ async function loadSiteConfig() {
             .then(
                 response => {
 
-                    if (!response.ok) {
+                    if (
+                        !response.ok
+                    ) {
 
                         throw new Error(
                             `Site configuration request failed: HTTP ${response.status}`
                         );
 
                     }
+
 
                     return response.json();
 
@@ -48,7 +149,8 @@ async function loadSiteConfig() {
                     if (
                         !config
                         ||
-                        typeof config !== 'object'
+                        typeof config !==
+                            'object'
                     ) {
 
                         throw new Error(
@@ -56,6 +158,7 @@ async function loadSiteConfig() {
                         );
 
                     }
+
 
                     return config;
 
@@ -518,7 +621,9 @@ async function loadSharedSiteLogo() {
             );
 
 
-        if (!response.ok) {
+        if (
+            !response.ok
+        ) {
 
             throw new Error(
                 `Site logo API returned HTTP ${response.status}`
@@ -646,6 +751,18 @@ async function initializeSiteConfiguration() {
         );
 
 
+        /*
+         * Give the browser a small window to paint
+         * the completed shared shell before removing
+         * the loading screen.
+         */
+
+        window.setTimeout(
+            markSiteReady,
+            350
+        );
+
+
         return config;
 
     }
@@ -656,6 +773,14 @@ async function initializeSiteConfiguration() {
             'Site configuration loading error:',
             error
         );
+
+
+        /*
+         * Never trap the user behind the loader if
+         * configuration fails.
+         */
+
+        markSiteReady();
 
 
         return null;
@@ -678,6 +803,9 @@ window.AurenSite = {
         initializeSiteConfiguration,
 
     renderActionButtons:
-        renderActionButtons
+        renderActionButtons,
+
+    ready:
+        markSiteReady
 
 };
