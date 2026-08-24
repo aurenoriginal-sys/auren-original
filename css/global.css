@@ -306,7 +306,7 @@ html:not(.auren-ready) body::before {
 
 
 /* ==================================================
-   REAL AUREN LOGO
+   LOGO CONTAINER
 ================================================== */
 
 .auren-loader-mark {
@@ -346,6 +346,10 @@ html:not(.auren-ready) body::before {
 }
 
 
+/* ==================================================
+   LOADED LOGO
+================================================== */
+
 .auren-loader-mark img {
 
     display:
@@ -377,7 +381,6 @@ html:not(.auren-ready) body::before {
     animation:
         aurenLogoImageReveal
         1.1s
-        .08s
         cubic-bezier(
             .22,
             .61,
@@ -666,7 +669,7 @@ html:not(.auren-ready) body::before {
 
 
 /* ==================================================
-   LOGO REVEAL
+   LOGO ANIMATIONS
 ================================================== */
 
 @keyframes aurenLogoReveal {

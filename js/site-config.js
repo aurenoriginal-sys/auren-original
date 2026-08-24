@@ -64,15 +64,8 @@ function createAurenLoader() {
 
             <div
                 class="auren-loader-mark"
-            >
-
-                <img
-                    id="auren-loader-logo"
-                    src=""
-                    alt="Auren Originals"
-                >
-
-            </div>
+                id="auren-loader-mark"
+            ></div>
 
 
             <div
@@ -147,6 +140,75 @@ function createAurenLoader() {
 function initializeLoader() {
 
     createAurenLoader();
+
+}
+
+
+/* ==================================================
+   INSERT LOADER LOGO SAFELY
+================================================== */
+
+function insertLoaderLogo(
+    logoUrl
+) {
+
+    const loaderMark =
+        document.getElementById(
+            'auren-loader-mark'
+        );
+
+
+    if (
+        !loaderMark
+        ||
+        !logoUrl
+    ) {
+
+        return;
+
+    }
+
+
+    /*
+     * Create the image completely outside the DOM.
+     * This prevents any broken-image placeholder
+     * from being displayed.
+     */
+
+    const logoImage =
+        new Image();
+
+
+    logoImage.decoding =
+        'async';
+
+
+    logoImage.alt =
+        'Auren Originals';
+
+
+    logoImage.onload =
+        () => {
+
+            loaderMark.appendChild(
+                logoImage
+            );
+
+        };
+
+
+    logoImage.onerror =
+        () => {
+
+            console.warn(
+                'Auren loader logo could not be loaded.'
+            );
+
+        };
+
+
+    logoImage.src =
+        logoUrl;
 
 }
 
@@ -529,7 +591,6 @@ function renderContactActions(
 
 /* ==================================================
    SHARED ACTION BUTTONS
-   HERO / SMALL ACTIONS
 ================================================== */
 
 function renderActionButtons(
@@ -787,6 +848,10 @@ async function loadSharedSiteLogo() {
         }
 
 
+        /*
+         * Navbar logo
+         */
+
         document
             .querySelectorAll(
                 '#site-logo-navbar'
@@ -800,6 +865,10 @@ async function loadSharedSiteLogo() {
                 }
             );
 
+
+        /*
+         * Footer logo
+         */
 
         document
             .querySelectorAll(
@@ -815,20 +884,13 @@ async function loadSharedSiteLogo() {
             );
 
 
-        const loaderLogo =
-            document.getElementById(
-                'auren-loader-logo'
-            );
+        /*
+         * Loader logo
+         */
 
-
-        if (
-            loaderLogo
-        ) {
-
-            loaderLogo.src =
-                data.secure_url;
-
-        }
+        insertLoaderLogo(
+            data.secure_url
+        );
 
 
         console.log(
