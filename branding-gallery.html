@@ -5,21 +5,19 @@
 
     <meta charset="UTF-8">
 
+
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
     >
 
 
-    <!-- ==================================================
-         FAVICON
-    ================================================== -->
-
     <link
         rel="icon"
         href="/assets/favicon/favicon.ico"
         sizes="any"
     >
+
 
     <link
         rel="icon"
@@ -28,12 +26,14 @@
         href="/assets/favicon/favicon-32x32.png"
     >
 
+
     <link
         rel="icon"
         type="image/png"
         sizes="16x16"
         href="/assets/favicon/favicon-16x16.png"
     >
+
 
     <link
         rel="apple-touch-icon"
@@ -42,14 +42,11 @@
     >
 
 
-    <!-- ==================================================
-         GOOGLE ANALYTICS 4
-    ================================================== -->
-
     <script
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-VECH9J2L1M"
     ></script>
+
 
     <script>
 
@@ -67,27 +64,24 @@
 
 
         gtag(
-            "js",
+            'js',
             new Date()
         );
 
 
         gtag(
-            "config",
-            "G-VECH9J2L1M"
+            'config',
+            'G-VECH9J2L1M'
         );
 
     </script>
 
 
-    <!-- ==================================================
-         FONTS
-    ================================================== -->
-
     <link
         rel="preconnect"
         href="https://fonts.googleapis.com"
     >
+
 
     <link
         rel="preconnect"
@@ -95,35 +89,48 @@
         crossorigin
     >
 
+
     <link
-        rel="stylesheet"
+        rel="preload"
+        as="style"
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;500&display=swap"
+        onload="this.onload=null;this.rel='stylesheet'"
     >
 
 
-    <!-- ==================================================
-         SHARED CSS
-    ================================================== -->
+    <noscript>
+
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;500&display=swap"
+        >
+
+    </noscript>
+
 
     <link
         rel="stylesheet"
         href="css/variables.css"
     >
 
+
     <link
         rel="stylesheet"
         href="css/global.css"
     >
+
 
     <link
         rel="stylesheet"
         href="css/components.css"
     >
 
+
     <link
         rel="stylesheet"
         href="css/gallery.css"
     >
+
 
     <link
         rel="stylesheet"
@@ -139,18 +146,10 @@
 >
 
 
-    <!-- ==================================================
-         SCROLL TO TOP
-    ================================================== -->
-
     <div
         id="scroll-to-top-container"
     ></div>
 
-
-    <!-- ==================================================
-         SHARED NAVBAR
-    ================================================== -->
 
     <div
         id="navbar-container"
@@ -161,13 +160,15 @@
          HERO
     ================================================== -->
 
-    <header class="hero-section">
+    <header
+        class="hero-section"
+    >
 
         <img
+            id="gallery-hero-image"
+            class="hero-image"
             src=""
             alt="Auren Branding Hero"
-            class="hero-image"
-            id="branding-hero-image"
         >
 
 
@@ -182,32 +183,21 @@
 
             <a
                 href="portfolio.html"
-                class="back-link"
                 id="back-to-portfolio"
+                class="back-link"
             >
                 ← Back to Portfolio
             </a>
 
 
-            <h1 id="gallery-title">
-
-                Branding
-
-                <span class="highlight">
-                    Production.
-                </span>
-
-            </h1>
+            <h1
+                id="gallery-title"
+            ></h1>
 
 
-            <p id="gallery-description">
-
-                A curation of visual identities,
-                brand stories, creative direction,
-                and distinctive design experiences
-                brought to life through imagery.
-
-            </p>
+            <p
+                id="gallery-description"
+            ></p>
 
         </div>
 
@@ -222,21 +212,23 @@
         class="media-filter-section"
     >
 
-        <div class="media-filter">
+        <div
+            class="media-filter"
+        >
 
             <button
+                type="button"
                 class="media-btn active"
                 data-media="photos"
-                type="button"
             >
                 Photos
             </button>
 
 
             <button
+                type="button"
                 class="media-btn"
                 data-media="videos"
-                type="button"
             >
                 Videos
             </button>
@@ -255,25 +247,17 @@
     >
 
         <div
-            class="gallery-grid"
             id="dynamic-gallery"
+            class="gallery-grid"
         ></div>
 
     </section>
 
 
-    <!-- ==================================================
-         SHARED FOOTER
-    ================================================== -->
-
     <div
         id="footer-container"
     ></div>
 
-
-    <!-- ==================================================
-         GSAP
-    ================================================== -->
 
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
@@ -281,17 +265,14 @@
 
 
     <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+        src="/js/gallery.js?v=6"
     ></script>
 
-
-    <!-- ==================================================
-         SHARED GALLERY JS
-    ================================================== -->
 
     <script
-        src="js/gallery.js"
+        src="/js/seo.js?v=6"
     ></script>
+
 
 </body>
 

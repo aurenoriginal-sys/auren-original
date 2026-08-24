@@ -5,6 +5,14 @@
 
 
 /* ==================================================
+   PORTFOLIO RETURN STATE
+================================================== */
+
+const PORTFOLIO_RETURN_STATE_KEY =
+    'aurenPortfolioReturnState';
+
+
+/* ==================================================
    COMPONENT LOADER
 ================================================== */
 
@@ -397,7 +405,8 @@ async function loadPortfolioContent() {
 
 
         window.portfolioDefaultCategory =
-            data.defaultCategory ||
+            data.defaultCategory
+            ||
             'wedding';
 
 
@@ -706,11 +715,226 @@ function getCategoryFromURL() {
 
 
 /* ==================================================
+   CHECK RETURN STATE
+================================================== */
+
+function hasPortfolioReturnState() {
+
+    return Boolean(
+        sessionStorage.getItem(
+            PORTFOLIO_RETURN_STATE_KEY
+        )
+    );
+
+}
+
+
+/* ==================================================
+   SAVE PORTFOLIO RETURN STATE
+================================================== */
+
+function savePortfolioReturnState() {
+
+    try {
+
+        const category =
+            getCategoryFromURL()
+            ||
+            document
+                .querySelector(
+                    '.category-btn.active'
+                )
+                ?.dataset.category
+            ||
+            window.portfolioDefaultCategory
+            ||
+            'wedding';
+
+
+        const state = {
+
+            scrollY:
+                window.scrollY,
+
+            category:
+                category
+
+        };
+
+
+        sessionStorage.setItem(
+            PORTFOLIO_RETURN_STATE_KEY,
+            JSON.stringify(
+                state
+            )
+        );
+
+    }
+
+    catch (error) {
+
+        console.warn(
+            'Could not save Portfolio return state:',
+            error
+        );
+
+    }
+
+}
+
+
+/* ==================================================
+   RESTORE PORTFOLIO RETURN STATE
+================================================== */
+
+function restorePortfolioReturnState() {
+
+    try {
+
+        const saved =
+            sessionStorage.getItem(
+                PORTFOLIO_RETURN_STATE_KEY
+            );
+
+
+        if (
+            !saved
+        ) {
+
+            return false;
+
+        }
+
+
+        const state =
+            JSON.parse(
+                saved
+            );
+
+
+        sessionStorage.removeItem(
+            PORTFOLIO_RETURN_STATE_KEY
+        );
+
+
+        const category =
+            state.category
+            ||
+            window.portfolioDefaultCategory
+            ||
+            'wedding';
+
+
+        /*
+         * Restore filtering WITHOUT animation.
+         */
+
+        filterProjects(
+            category,
+            false
+        );
+
+
+        const scrollY =
+            Number(
+                state.scrollY
+            );
+
+
+        if (
+            Number.isFinite(
+                scrollY
+            )
+        ) {
+
+            requestAnimationFrame(
+                () => {
+
+                    requestAnimationFrame(
+                        () => {
+
+                            window.scrollTo(
+                                {
+                                    top:
+                                        scrollY,
+
+                                    left:
+                                        0,
+
+                                    behavior:
+                                        'auto'
+
+                                }
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+        }
+
+
+        return true;
+
+    }
+
+    catch (error) {
+
+        console.warn(
+            'Could not restore Portfolio return state:',
+            error
+        );
+
+
+        sessionStorage.removeItem(
+            PORTFOLIO_RETURN_STATE_KEY
+        );
+
+
+        return false;
+
+    }
+
+}
+
+
+/* ==================================================
+   PROJECT NAVIGATION
+================================================== */
+
+function initializeProjectNavigation() {
+
+    document
+        .querySelectorAll(
+            '.project-card'
+        )
+        .forEach(
+            card => {
+
+                card.addEventListener(
+                    'click',
+                    () => {
+
+                        savePortfolioReturnState();
+
+                    }
+                );
+
+            }
+        );
+
+}
+
+
+/* ==================================================
    FILTER PROJECTS
 ================================================== */
 
 function filterProjects(
-    category
+    category,
+    animate = true
 ) {
 
     const categoryButtons =
@@ -773,6 +997,43 @@ function filterProjects(
 
         }
     );
+
+
+    /*
+     * Returning from a gallery:
+     * do not replay the project-card animation.
+     */
+
+    if (
+        !animate
+    ) {
+
+        visibleCards.forEach(
+            card => {
+
+                card.style.opacity =
+                    '1';
+
+                card.style.transform =
+                    'none';
+
+            }
+        );
+
+
+        if (
+            typeof ScrollTrigger !==
+            'undefined'
+        ) {
+
+            ScrollTrigger.refresh();
+
+        }
+
+
+        return;
+
+    }
 
 
     if (
@@ -875,7 +1136,8 @@ function initializeCategoryButtons() {
 
 
                         filterProjects(
-                            category
+                            category,
+                            true
                         );
 
                     }
@@ -902,7 +1164,8 @@ function initializeHistoryNavigation() {
                 ||
                 window.portfolioDefaultCategory
                 ||
-                'wedding'
+                'wedding',
+                true
             );
 
         }
@@ -1225,11 +1488,26 @@ async function initializePortfolioPage() {
     initializeProjectHover();
 
 
+    initializeProjectNavigation();
+
+
+    const restoringReturnState =
+        hasPortfolioReturnState();
+
+
     const reducedMotion =
         initializeReducedMotion();
 
 
+    /*
+     * IMPORTANT:
+     * Do not replay Portfolio animations when
+     * returning from a gallery.
+     */
+
     if (
+        !restoringReturnState
+        &&
         !reducedMotion
     ) {
 
@@ -1241,13 +1519,26 @@ async function initializePortfolioPage() {
     }
 
 
-    filterProjects(
-        getCategoryFromURL()
-        ||
-        window.portfolioDefaultCategory
-        ||
-        'wedding'
-    );
+    if (
+        restoringReturnState
+    ) {
+
+        restorePortfolioReturnState();
+
+    }
+
+    else {
+
+        filterProjects(
+            getCategoryFromURL()
+            ||
+            window.portfolioDefaultCategory
+            ||
+            'wedding',
+            true
+        );
+
+    }
 
 
     console.log(

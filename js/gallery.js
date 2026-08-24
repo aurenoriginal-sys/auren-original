@@ -8,9 +8,16 @@
    VIDEO STATE
 ================================================== */
 
-let activeVideoItem = null;
-let activeVideo = null;
-let videoBackdrop = null;
+let activeVideoItem =
+    null;
+
+
+let activeVideo =
+    null;
+
+
+let videoBackdrop =
+    null;
 
 
 /* ==================================================
@@ -34,7 +41,9 @@ async function loadComponent(
             );
 
 
-        if (!response.ok) {
+        if (
+            !response.ok
+        ) {
 
             throw new Error(
                 `${url} returned HTTP ${response.status}`
@@ -53,7 +62,9 @@ async function loadComponent(
             );
 
 
-        if (!container) {
+        if (
+            !container
+        ) {
 
             throw new Error(
                 `Container not found: #${elementId}`
@@ -70,7 +81,9 @@ async function loadComponent(
 
     }
 
-    catch (error) {
+    catch (
+        error
+    ) {
 
         console.error(
             `Gallery component loading error (${url}):`,
@@ -120,7 +133,7 @@ function loadSiteConfigScript() {
 
 
             script.src =
-                '/js/site-config.js?v=4';
+                '/js/site-config.js?v=5';
 
 
             script.async =
@@ -192,11 +205,6 @@ function getGalleryKey() {
         bodyGallery
     ) {
 
-        /*
-         * Wedding gallery can still be overridden
-         * by ?category-2=pre-wedding.
-         */
-
         if (
             bodyGallery ===
             'wedding'
@@ -225,7 +233,8 @@ function getGalleryKey() {
 
 
     const pathname =
-        window.location.pathname.toLowerCase();
+        window.location.pathname
+            .toLowerCase();
 
 
     if (
@@ -327,7 +336,9 @@ async function loadGalleryConfig() {
         );
 
 
-    if (!response.ok) {
+    if (
+        !response.ok
+    ) {
 
         throw new Error(
             `Gallery configuration request failed: HTTP ${response.status}`
@@ -343,7 +354,8 @@ async function loadGalleryConfig() {
     if (
         !config
         ||
-        typeof config !== 'object'
+        typeof config !==
+        'object'
     ) {
 
         throw new Error(
@@ -548,6 +560,7 @@ function closeZoomedVideo() {
     activeVideoItem =
         null;
 
+
     activeVideo =
         null;
 
@@ -674,7 +687,7 @@ document.addEventListener(
 
 
 /* ==================================================
-   RENDER HERO TEXT
+   RENDER HERO
 ================================================== */
 
 function renderHero(
@@ -737,6 +750,15 @@ function renderHero(
             ||
             `${gallery.name} Hero`;
 
+        /*
+         * Do not hide the image here.
+         * The browser will render the image
+         * once the src is assigned.
+         */
+
+        heroImage.style.visibility =
+            'visible';
+
     }
 
 }
@@ -760,6 +782,11 @@ async function loadHero(
         !image
     ) {
 
+        console.error(
+            'Gallery hero image element not found.'
+        );
+
+
         return;
 
     }
@@ -771,6 +798,9 @@ async function loadHero(
             await fetch(
                 gallery.heroApi,
                 {
+                    method:
+                        'GET',
+
                     cache:
                         'no-store'
                 }
@@ -782,7 +812,7 @@ async function loadHero(
         ) {
 
             throw new Error(
-                `Hero API HTTP ${response.status}`
+                `${gallery.name} hero API returned HTTP ${response.status}`
             );
 
         }
@@ -803,37 +833,48 @@ async function loadHero(
         ) {
 
             throw new Error(
-                'Hero URL is empty.'
+                `${gallery.name} hero URL was not returned.`
             );
 
         }
 
 
-        image.onload =
-            () => {
-
-                image.style.visibility =
-                    'visible';
-
-            };
-
-
-        image.onerror =
-            () => {
-
-                console.error(
-                    `${gallery.name} hero image failed to render.`
-                );
-
-            };
-
+        /*
+         * Set the source directly.
+         * No hidden-state/onload dependency.
+         */
 
         image.src =
             heroUrl;
 
+
+        image.style.visibility =
+            'visible';
+
+
+        console.log(
+            `${gallery.name} hero loaded.`
+        );
+
     }
 
-    catch (error) {
+    catch (
+        error
+    ) {
+
+        /*
+         * Keep the page usable even if the hero
+         * asset cannot be retrieved.
+         */
+
+        image.removeAttribute(
+            'src'
+        );
+
+
+        image.style.visibility =
+            'hidden';
+
 
         console.error(
             `${gallery.name} hero loading error:`,
@@ -1026,7 +1067,9 @@ async function loadPhotos(
 
     }
 
-    catch (error) {
+    catch (
+        error
+    ) {
 
         console.error(
             `${gallery.name} photo loading error:`,
@@ -1084,11 +1127,6 @@ async function loadVideos(
                 }
             );
 
-
-        /*
-         * No videos have been uploaded yet.
-         * Treat a non-OK response as an empty gallery.
-         */
 
         if (
             !response.ok
@@ -1227,12 +1265,9 @@ async function loadVideos(
 
     }
 
-    catch (error) {
-
-        /*
-         * A gallery without uploaded videos should
-         * remain functional and simply show an empty state.
-         */
+    catch (
+        error
+    ) {
 
         showEmptyMessage(
             `No ${gallery.name} videos available yet.`
@@ -1546,10 +1581,6 @@ function initializeHeroAnimation() {
     }
 
 
-    /*
-     * Accessibility / reduced-motion path.
-     */
-
     if (
         window.matchMedia(
             '(prefers-reduced-motion: reduce)'
@@ -1636,7 +1667,7 @@ function initializeHeroAnimation() {
 
 
 /* ==================================================
-   INITIALIZE SHARED COMPONENTS
+   SHARED COMPONENTS
 ================================================== */
 
 async function initializeSharedComponents() {
@@ -1696,7 +1727,7 @@ async function initializeSharedComponents() {
 
 
 /* ==================================================
-   INITIALIZE GALLERY PAGE
+   INITIALIZE GALLERY
 ================================================== */
 
 async function initializeGalleryPage() {
@@ -1716,6 +1747,11 @@ async function initializeGalleryPage() {
             config
         );
 
+
+        /*
+         * Load hero before starting the rest of the
+         * gallery initialization.
+         */
 
         await loadHero(
             config
@@ -1745,7 +1781,9 @@ async function initializeGalleryPage() {
 
     }
 
-    catch (error) {
+    catch (
+        error
+    ) {
 
         console.error(
             'Gallery initialization error:',

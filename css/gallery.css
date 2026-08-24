@@ -205,8 +205,16 @@
             .50
         );
 
+    /*
+     * Do not hide the image while waiting
+     * for the API response.
+     */
+
     visibility:
-        hidden;
+        visible;
+
+    opacity:
+        1;
 
     transform:
         scale(
@@ -364,6 +372,9 @@
 
     justify-content:
         center;
+
+    width:
+        max-content;
 
     margin:
         0 0
@@ -973,16 +984,30 @@ video {
         top:
             0;
 
+        left:
+            0;
+
+        width:
+            100%;
+
         height:
-            108%;
+            100%;
+
+        object-fit:
+            cover;
 
         object-position:
-            center
-            55%;
+            center;
+
+        visibility:
+            visible;
+
+        opacity:
+            1;
 
         filter:
             brightness(
-                .60
+                .56
             );
 
     }
@@ -990,47 +1015,96 @@ video {
 
     .gallery-page .hero-content {
 
+        position:
+            absolute;
+
         top:
-            52%;
+            0;
+
+        left:
+            0;
+
+        width:
+            100%;
 
         max-width:
-            320px;
+            none;
 
-        margin:
-            0 auto;
+        height:
+            100%;
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        align-items:
+            center;
+
+        justify-content:
+            flex-end;
 
         padding:
+            0 24px 58px;
+
+        margin:
             0;
 
         transform:
-            translateY(
-                -50%
-            );
+            none;
+
+        opacity:
+            1;
+
+        text-align:
+            center;
 
     }
 
 
     .gallery-page .back-link {
 
-        margin-bottom:
-            10px;
+        display:
+            inline-flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        width:
+            auto;
+
+        margin:
+            0 0 18px;
 
         font-size:
-            .38rem;
+            .40rem;
 
         letter-spacing:
             .9px;
+
+        text-align:
+            center;
 
     }
 
 
     .gallery-page .hero-content h1 {
 
-        font-size:
-            1.82rem;
+        margin:
+            0 0 8px;
 
-        margin-bottom:
-            7px;
+        font-size:
+            2rem;
+
+        line-height:
+            .98;
+
+        text-align:
+            center;
 
     }
 
@@ -1038,15 +1112,23 @@ video {
     .gallery-page .hero-content p {
 
         max-width:
-            250px;
+            275px;
+
+        margin:
+            0 auto;
 
         font-size:
-            .40rem;
+            .43rem;
 
         line-height:
-            1.5;
+            1.55;
+
+        text-align:
+            center;
 
     }
+
+}
 
 
     .gallery-page .media-filter-section {
@@ -1163,7 +1245,7 @@ video {
 
     }
 
-}
+
 
 
 /* ==================================================
